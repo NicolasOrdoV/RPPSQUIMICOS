@@ -64,13 +64,13 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                     </a>
                 <?php elseif ($user["idROL_FK"] == 2) : ?>
                     <a href="index.php?paginasPedidos=RegistroPedido" id="flush" class="list-group-item list-group-item-action">
-                        <h3>Registrar Pedido</h3>
+                        <h3>Registrar Pedido<i class="fab fa-jedi-order"></i></h3>
                     </a>
                     <a href="?paginasCliente=ConsultaCliente" class="list-group-item list-group-item-action text-danger" id="flush">Lista de clientes
                         <i class="fas fa-users"></i>
                     </a>
                     <a href="index.php?paginasAdministradores=GestionInventario" class="list-group-item list-group-item-action" id="flush">Gestion de inventario
-                        
+                        <i class="fas fa-boxes"></i>
                     </a>
                     <a href="index.php?paginasAdministradores=ConsultarUnAdmin&id=<?php echo $user["idEMPLEADO"] ?>" class="list-group-item list-group-item-action text-bold" id="flush">
                         <img src="Assets/img/Perfil.jpg" class="img-fluide" width="30" height="30">Mi cuenta
@@ -230,7 +230,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
     </div>
     <footer class="row">
         <div id="footer" class="col-lg-12">©Copyright: GAROWARE SOFTWARE<br>
-            DERECHOS RESERVADOS 202o</div>
+            DERECHOS RESERVADOS 2020</div>
     </footer>
 
     <!-- jQuery library -->
