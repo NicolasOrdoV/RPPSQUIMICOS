@@ -1,0 +1,211 @@
+/*-----Estilos del sidebar*/
+body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  #sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: -10rem;
+    -webkit-transition: margin .25s ease-out;
+    -moz-transition: margin .25s ease-out;
+    -o-transition: margin .25s ease-out;
+    transition: margin .25s ease-out;
+  }
+  
+  #sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+  }
+  
+  #sidebar-wrapper .list-group {
+    width: 15rem;
+  }
+  
+  #page-content-wrapper {
+    min-width: 100vw;
+  }
+  
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+  }
+  
+  @media (min-width: 768px) {
+    #sidebar-wrapper {
+      margin-left: 0;
+    }
+  
+    #page-content-wrapper {
+      min-width: 0;
+      width: 100%;
+    }
+  
+    #wrapper.toggled #sidebar-wrapper {
+      margin-left: -15rem;
+    }
+  }
+  
+  button#menu-toggle{
+    background-color: white;
+    border: none;
+  }
+
+  #flush:hover{
+    background-color: gray;
+    color: white;
+  }
+
+/*-------------------------*/
+
+
+/*--Decoracion del body--*/
+#bqd{
+    width:350px;
+    height: 30px;
+    font-family: 'Franklin Gothic Medium';
+    border: orangered solid 2px;
+    border-radius: 5px;
+    margin-top: 2.5%; 
+    font-size: 15px;
+}
+
+a#ps{
+    margin-top: 0px auto;
+}
+
+nav#botonera{
+    background-color: white;
+    margin-top: 1.5%;
+    width: 20%;  
+}
+
+a{
+    color: black;
+}
+
+#blanco{ 
+    height: 80px;
+}
+
+#nav1{
+    width: 100%;
+    background: white;
+}
+
+#cjprod{
+    background: #fff;
+    height: 280px;
+    border: gray solid 2px;
+    border-radius: 5px;
+}
+
+#cjprod:hover{
+    background: #fff;
+    border: blue solid 2px;
+    border-radius: 5px;
+}
+
+#footer{
+    background: rgb(80, 80, 80);
+    height: 80px;
+    font-size: 'Lucida Sans';
+    color: white;
+    text-align: center;
+}
+
+#op1{
+    margin-top: 2%;
+}
+
+#nab{
+  color: black;
+}
+
+#title1{
+  color: red;
+  background-color: white;
+}
+
+#tlprin{
+  text-align: center;
+  border: gray solid 1px;
+  padding: 10px  100px;
+  position: absolute;
+  margin-left: 30%;
+  border-radius: 10px;
+}
+
+#carrito{
+  border: gray solid 1px;
+  background-color:white;
+  border-radius: 2px;
+}
+
+#carrito:hover{
+  border: black solid 1px;
+}
+
+#form,#in{
+  border: gray solid 1px;
+  border-radius: 35px;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+a#in1{
+  color: blue;
+}
+
+#txt{
+  width: 70%;
+  margin: 0px auto;
+}
+
+#btnReg{
+  width: 40%;
+  margin: 0px auto;
+}
+
+#fondo1{
+  background: url("../img/Logo.png");
+  width: 100%;
+  height: auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 30%;
+}
+
+#fondo2{
+  background: url("../img/Botella.png");
+  width: 100%;
+  height: auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 30%;
+}
+
+#form1{
+  border: gray solid 1px;
+  border-radius: 35px;
+  padding: 10px 20px;
+  text-align: right;
+}
+
+#form2{
+  border: gray solid 1px;
+  border-radius: 35px;
+  padding: 10px 20px;
+}
+
+#modal{
+  height: 700px;
+  justify-content: center;
+  padding: 10px 50px;
+}
+
+#prod{
+  width: 18rem; 
+  display: inline-block;
+}
