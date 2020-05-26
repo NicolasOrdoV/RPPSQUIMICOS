@@ -230,7 +230,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
     </div>
     <footer class="row">
         <div id="footer" class="col-lg-12">©Copyright: GAROWARE SOFTWARE<br>
-            DERECHOS RESERVADOS 2020</div>
+            DERECHOS RESERVADOS 202o</div>
     </footer>
 
     <!-- jQuery library -->
