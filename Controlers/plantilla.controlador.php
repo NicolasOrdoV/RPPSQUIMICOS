@@ -1,8 +1,8 @@
 <?php 
 
-Class ControladorPlantilla{
+Class HomeController{
 
-    public function ctrTraerPlantilla(){
+    public function ctrBringeHome(){
 
         include "Views/layout.php";
     }

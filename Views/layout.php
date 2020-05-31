@@ -19,8 +19,6 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
     <!--LINKS DE ACCESO A BOOTSTRAP CON INTERNET-->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-
-    <script src="https://kit.fontawesome.com/0e7adc6a46.js" crossorigin="anonymous"></script>
     <!--LINKS DE ACCESO A BOOTSTRAP SIN INTERNET-->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" type="text/css" href="Assets/css/bootstrap.min.css">
@@ -94,17 +92,13 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
         <!-- barra de navegacion horizontal -->
         <nav id="page-content-wrapper">
             <!------Barra de navegacion horizontal con boton de activacion al menu deslizable----->
-            <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom navbar-fluid sticky-top" id="nav1">
+            <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom navbar-fluid sticky-top row" id="nav1">
                 <div class="col-lg-1">
                     <button type="button" class="btn btn-outline-primary" id="menu-toggle">
                         <img src="Assets/img/menu.png" class="d-inline-block align-top pull-left" width="30" height="30">
                     </button>
-
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
                 </div>
-                <div class="collapse navbar-collapse col-lg-11" id="navbarSupportedContent">
+                <div class="col-lg-11" id="navbarSupportedContent">
                     <ul class="navbar-nav col-lg-12">
                         <li class="nav-brand col-lg-1">
                             <a href="index.php">
@@ -239,6 +233,8 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    
+    <script src="https://kit.fontawesome.com/0e7adc6a46.js" crossorigin="anonymous"></script>
 
 
     <!-- jQuery library -->

@@ -5,8 +5,8 @@ $producto = ControladorInventario::ctrSeleccionarProductosStock(null,null);
 ?>
 <!--------------Espacio en blanco superior---->
 <section class="row">
-    <div id="blanco" class="col-lg-12">
-        <h1 id="tlprin">Catálogo de productos</h1>
+    <div id="blanco" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h1 id="tlprin" class="text-center">Catálogo de productos</h1>
     </div>
 </section>
 <!------Seccion con espacios en blanco horizontales y catalogo de productos--->
@@ -23,7 +23,7 @@ $producto = ControladorInventario::ctrSeleccionarProductosStock(null,null);
                         <h5 class="card-title"><?php echo $stocks["nombrePRODUCTO"]; ?></h5>
                         <p class="card-text"><?php echo $stocks["descripcionPRODUCTO"]; ?></p>
                         <p class="card-text">precio:$<?php echo $stocks["valoruPRODUCTO"]; ?></p>
-                        <a href="index.php?paginasCliente=DetalleProducto&id=<?php echo $stocks["idPRODUCTO"]?>" class="btn btn-danger">ver</a>
+                        <a href="index.php?paginasCliente=DetalleProducto&id=<?php echo $stocks["idPRODUCTO"]?>" class="btn btn-danger">Ver <i class="fas fa-search"></i></a>
                     </div>
                 </div>
             <?php endforeach ?>

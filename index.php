@@ -14,8 +14,8 @@ require_once "Models/modelo.Clientes.php";
 require_once "Models/modelo.Administradores.php";
 require_once "Models/modelo.Inventario.php";
 
-$plantilla = new ControladorPlantilla();
-$plantilla -> ctrTraerPlantilla();
+$home = new HomeController();
+$home -> ctrBringeHome();
 
 
 ?>
