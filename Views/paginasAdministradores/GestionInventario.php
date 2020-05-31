@@ -3,11 +3,11 @@
 $producto = ControladorInventario::ctrSeleccionarProductosStock(null, null);
 ?>
 <!--------------Espacio en blanco superior---->
-<div class="row">
+<section class="row">
     <div id="blanco" class="col-lg-12">
         <h1 id="tlprin">Productos en el inventario</h1>
     </div>
-</div>
+</section>
 <!------Seccion con espacios en blanco horizontales y catalogo de productos--->
 <section class="row">
     <aside id="blanco-h" class="col-lg-2"></aside>
@@ -43,6 +43,6 @@ $producto = ControladorInventario::ctrSeleccionarProductosStock(null, null);
     <aside id="blanco-h" class="col-lg-2"></aside>
 </section>
 <!------Espacio en blanco inferior------>
-<div class="row">
+<section class="row">
     <div id="blanco" class="col-lg-12"></div>
-</div>
+</section>

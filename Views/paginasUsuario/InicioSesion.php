@@ -1,7 +1,7 @@
-<div class="row">
+<section class="row">
     <div id="blanco" class="col-lg-12"></div>
-</div>
-<div class="row py-3">
+</section>
+<section class="row py-3">
     <aside class="col-lg-7 py-5" id="fondo1"></aside>
     <form action="#" class="col-lg-4 py-5 needs-validation" id="form" method="post" novalidate>
         <h1 class="text-danger">RPPS Quimícos</h1>
@@ -36,8 +36,8 @@
             Sesion</button>
     </form>
     <aside class="col-lg-1" id="blanco-h"></aside>
-</div>
-<div class="row py-1">
+</section>
+<section class="row py-1">
     <div class="col-lg-7"></div>
     <div class="col-lg-4 border border-secondary pt-4" id="in">
         <p>¿No posee una cuenta?
@@ -48,4 +48,4 @@
         </p>
     </div>
     <div class="col-lg-1"></div>
-</div>
+</section>

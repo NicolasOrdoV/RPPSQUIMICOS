@@ -1,25 +1,13 @@
 <?php
-
-if(!isset($_SESSION["validarIngreso"])){
-    
-    echo '<script> window.location = "?paginasUsuario=InicioSesion";</script>';
-    return;  
-}else{
-    if($_SESSION["validarIngreso"] != "ok"){
-        echo '<script> window.location = "?paginasUsuario=InicioSesion";</script>';
-        return;
-    }
-}
-
 require_once "Controlers/tools.php";
 
 $instancia = new tools();
 $codigo = $instancia->randomCode();
 
-$admin = ControladorAdministradores::ctrSeleccionarRegistrosAdministradores(null,null);
+$admins = ControladorAdministradores::ctrSeleccionarRegistrosAdministradores(null,null);
 
 ?>
-<div class="row py-5">
+<section class="row py-5">
 	<div class="col-lg-2"></div>
     <div id="blanco" class="col-lg-8">
         <h3>Gestión de adminitradores
@@ -92,75 +80,75 @@ $admin = ControladorAdministradores::ctrSeleccionarRegistrosAdministradores(null
 		</div>
     </div>
     <div class="col-lg-2"></div>
-</div>
+</section>
 <section class="row">
 	<aside id="blanco-h" class="col-lg-2"></aside>
 	<aside class="col-lg-8" id="form2">
-		<?php foreach ($admin as $key => $value):?>
-		<div class="col-lg-12">
-			<h1><img src="Assets/img/Perfil.jpg" class="img-fluide" width="80" height="80"><?php echo $value["nombreEMPLEADO"]; ?><h1>
-			<div class="btn-group float-right">
-	            <div class="btn-group-vertical float-right">
-	            	<?php if($value["estadoEMPLEADO"] == "Inactivo"):?>
-	                <form method="post">
-	                    <input type ="hidden" value ="<?php echo $value["idEMPLEADO"];?>" name="activarRegistro">
-	                    <button class="btn btn-primary rounded-pill m-1">Activar</button>
+		<?php foreach ($admins as $admin):?>
+			<div class="col-lg-12">
+				<h1><img src="Assets/img/Perfil.jpg" class="img-fluide" width="80" height="80"><?php echo $admin["nombreEMPLEADO"]; ?><h1>
+				<div class="btn-group float-right">
+		            <div class="btn-group-vertical float-right">
+		            	<?php if($admin["estadoEMPLEADO"] == "Inactivo"):?>
+		                <form method="post">
+		                    <input type ="hidden" value ="<?php echo $admin["idEMPLEADO"];?>" name="activarRegistro">
+		                    <button class="btn btn-primary rounded-pill m-1">Activar</button>
 
-	                    <?php
+		                    <?php
 
-	                    $activar = new ControladorAdministradores();
-	                    $activar ->ctrActivarRegistroAdministradores();
+		                    $activar = new ControladorAdministradores();
+		                    $activar ->ctrActivarRegistroAdministradores();
 
-	                    ?>
-	                </form>
-	                <?php elseif($value["estadoEMPLEADO"] == "Activo"):?>
-	                <form method="post">
-	                    <input type ="hidden" value ="<?php echo $value["idEMPLEADO"];?>" name="inactivarRegistro">
-	                    <button class="btn btn-danger rounded-pill m-1">Inactivar</button>
+		                    ?>
+		                </form>
+		                <?php elseif($admin["estadoEMPLEADO"] == "Activo"):?>
+		                <form method="post">
+		                    <input type ="hidden" value ="<?php echo $admin["idEMPLEADO"];?>" name="inactivarRegistro">
+		                    <button class="btn btn-danger rounded-pill m-1">Inactivar</button>
 
-	                    <?php
+		                    <?php
 
-	                    $inactivar = new ControladorAdministradores();
-	                    $inactivar ->ctrInactivarRegistroAdministradores();
+		                    $inactivar = new ControladorAdministradores();
+		                    $inactivar ->ctrInactivarRegistroAdministradores();
 
-	                    ?>
-	                </form>
-	                <?php endif ?>
-	            </div>
-	            <button type="button" class="btn btn-danger rounded-pill" data-toggle="modal" data-target="#myModal2"><i class="fas fa-trash-alt"></i> </button>
-				<div class="modal fade" id="myModal2" role="dialog">
-					<div class="modal-dialog modal-sm modal-dialog-centered">
-					    <div class="modal-content">
-					        <div class="modal-body border border-dark rounded">
-						        <form action="#" method="post" class="text-left">
-						          	<label>¿Desea eliminar a este empleado?</label>
-						          	<form>
-						          		<input type ="hidden" value ="<?php echo $value["idEMPLEADO"];?>" name="eliminarAd">
-						          		<button class="btn btn-primary rounded-pill btn-block">Si</button>
+		                    ?>
+		                </form>
+		                <?php endif ?>
+		            </div>
+		            <button type="button" class="btn btn-danger rounded-pill" data-toggle="modal" data-target="#myModal2"><i class="fas fa-trash-alt"></i> </button>
+					<div class="modal fade" id="myModal2" role="dialog">
+						<div class="modal-dialog modal-sm modal-dialog-centered">
+						    <div class="modal-content">
+						        <div class="modal-body border border-dark rounded">
+							        <form action="#" method="post" class="text-left">
+							          	<label>¿Desea eliminar a este empleado?</label>
+							          	<form>
+							          		<input type ="hidden" value ="<?php echo $admin["idEMPLEADO"];?>" name="eliminarAd">
+							          		<button class="btn btn-primary rounded-pill btn-block">Si</button>
 
-						          	<?php
+							          	<?php
 
-						          	$eliminar = new ControladorAdministradores();
-						          	$eliminar -> ctrEliminarAdministrador();
-						          	
-						          	?>	
-						          	</form>
-						            <button type="button" class="btn btn-danger rounded-pill btn-block my-2" data-dismiss="modal">No</button>
-						        </form>
-					        </div>
-					    </div>
-					</div>
-	            </div>
-            </div>    
-			<h2 class="font-weight-bold">Datos Admin:</h2>
-			<p><span class="text-danger">Identificacion:</span><?php echo $value["identificacionEMPLEADO"]?></p>
-			<p><span class="text-danger">Telefono:</span><?php echo $value["telefonoEMPLEADO"]?><span class="text-danger"> Email:</span><?php echo $value["correoEMPLEADO"]?></p>
-			<p><span class="text-danger">Estado:</span><?php echo $value["estadoEMPLEADO"]?></p>
-			<hr>
-		</div>
+							          	$eliminar = new ControladorAdministradores();
+							          	$eliminar -> ctrEliminarAdministrador();
+							          	
+							          	?>	
+							          	</form>
+							            <button type="button" class="btn btn-danger rounded-pill btn-block my-2" data-dismiss="modal">No</button>
+							        </form>
+						        </div>
+						    </div>
+						</div>
+		            </div>
+	            </div>    
+				<h2 class="font-weight-bold">Datos Admin:</h2>
+				<p><span class="text-danger">Identificacion:</span><?php echo $admin["identificacionEMPLEADO"]?></p>
+				<p><span class="text-danger">Telefono:</span><?php echo $admin["telefonoEMPLEADO"]?><span class="text-danger"> Email:</span><?php echo $admin["correoEMPLEADO"]?></p>
+				<p><span class="text-danger">Estado:</span><?php echo $admin["estadoEMPLEADO"]?></p>
+				<hr>
+		    </div>
 		<?php endforeach ?>
 	</aside>
 </section>
-<div class="row">
+<section class="row">
     <div id="blanco" class="col-lg-12"></div>
-</div>
+</section>

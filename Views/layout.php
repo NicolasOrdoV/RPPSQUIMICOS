@@ -27,9 +27,9 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
 </head>
 
 <body>
-    <div class="d-flex toggled" id="wrapper">
+    <header class="d-flex toggled" id="wrapper">
         <!-- Menu vertical deslizable-->
-        <div class="bg-white border-right" id="sidebar-wrapper">
+        <nav class="bg-white border-right" id="sidebar-wrapper">
             <div id="title1" class="sidebar-heading">RPPS Quimícos</div>
             <hr>
             <div class="list-group list-group-flush">
@@ -88,11 +88,11 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                     </a>
                 <?php endif ?>
             </div>
-        </div>
+        </nav>
 
 
         <!-- barra de navegacion horizontal -->
-        <div id="page-content-wrapper">
+        <nav id="page-content-wrapper">
             <!------Barra de navegacion horizontal con boton de activacion al menu deslizable----->
             <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom navbar-fluid sticky-top" id="nav1">
                 <div class="col-lg-1">
@@ -149,7 +149,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                 </div>
             </nav>
 
-            <div class="container-fluid">
+            <main class="container-fluid">
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
@@ -225,9 +225,9 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                     include "Views/home.php";
                 }
                 ?>
-            </div>
-        </div>
-    </div>
+            </main>
+        </nav>
+    </header>
     <footer class="row">
         <div id="footer" class="col-lg-12">©Copyright: GAROWARE SOFTWARE<br>
             DERECHOS RESERVADOS 2020</div>

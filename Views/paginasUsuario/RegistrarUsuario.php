@@ -8,7 +8,7 @@ if(isset($_GET["id"])){
 }
 ?>
 
-<div class="row py-3">
+<section class="row py-3">
     <aside class="col-lg-3 py-5" id="fondo2"></aside>
     <form action="#" class="col-lg-6 py-5 needs-validation" id="form" method="post" novalidate>
         <h1 class="text-danger">RPPS Quimícos</h1>
@@ -78,4 +78,4 @@ if(isset($_GET["id"])){
         <button type="submit" id="btnReg" class="btn btn-danger rounded-pill btn-lg btn-block">Terminar registro<i class="fas fa-flask"></i></button>
     </form>
     <aside class="col-lg-3" id="blanco-h"></aside>
-</div>
+</section>

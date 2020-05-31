@@ -4,18 +4,18 @@ $producto = ControladorInventario::ctrSeleccionarProductosStock(null,null);
 
 ?>
 <!--------------Espacio en blanco superior---->
-<div class="row">
+<section class="row">
     <div id="blanco" class="col-lg-12">
         <h1 id="tlprin">Catálogo de productos</h1>
     </div>
-</div>
+</section>
 <!------Seccion con espacios en blanco horizontales y catalogo de productos--->
 <section class="row">
     <aside id="blanco-h" class="col-lg-2"></aside>
     <aside class="col-lg-8">
         <div class="row">         
             <?php foreach ($producto as $stocks) : ?>
-                <div class="card" style="width: 18rem; display: inline-block;">
+                <div class="card" style="width: 16rem; display: inline-block;">
                     <a href="index.php?paginasCliente=DetalleProducto">
                         <img src="assets/img/Varsol.jpg" class="card-img-top" alt="...">
                     </a>
@@ -32,6 +32,6 @@ $producto = ControladorInventario::ctrSeleccionarProductosStock(null,null);
     <aside id="blanco-h" class="col-lg-2"></aside>
 </section>
 <!------Espacio en blanco inferior------>
-<div class="row">
+<section class="row">
     <div id="blanco" class="col-lg-12"></div>
-</div>
+</section>

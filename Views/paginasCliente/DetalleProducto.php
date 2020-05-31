@@ -5,7 +5,7 @@ if (isset($_GET["id"])) {
     $stock = ControladorInventario::ctrSeleccionarProductosStock($item,$valor);
 }
 ?>
-<div class="row py-5">
+<section class="row py-5">
 	<aside class="col-lg-1"></aside>
     <div class="col-lg-4">
     	<img src="Assets/img/Varsol.jpg" class="img-fluid rounded border border-ligth b">
@@ -24,4 +24,4 @@ if (isset($_GET["id"])) {
         <button class="btn btn-primary">Añadir al carrito</button>
     </form>
     <aside class="col-lg-1"></aside>
-</div>
+</section>

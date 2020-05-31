@@ -1,15 +1,4 @@
 <?php
-
-if(!isset($_SESSION["validarIngreso"])){
-    
-    echo '<script> window.location = "?paginasUsuario=InicioSesion";</script>';
-    return;  
-}else{
-    if($_SESSION["validarIngreso"] != "ok"){
-        echo '<script> window.location = "?paginasUsuario=InicioSesion";</script>';
-        return;
-    }
-}
 if (isset($_GET["id"])) {
 
 	$item = "idUSUARIO";
@@ -18,12 +7,12 @@ if (isset($_GET["id"])) {
     $barrios = ControladorBarrios::ctrSeleccionarBarrios();
 }
 ?>
-<div class="row">
+<section class="row">
     <div id="blanco" class="col-lg-12">
         <h1 id="tlprin">Mi cuenta</h1>
     </div>
-</div>
-<div class="row">
+</section>
+<section class="row">
 	<aside class="col-lg-3" id="blanco-h"></aside>
 		<div class="col-lg-6 py-5 border border-dark" id="form1">
             <figure>
@@ -39,7 +28,7 @@ if (isset($_GET["id"])) {
 	            <h3><?php echo $usuario["nombreBARRIO"]?></h3>
 	            <a href="#" class="text-dark" data-toggle="modal" data-target="#myModal">Editar datos del perfil</a><br>
 	            <a href="#" class="text-dark">Editar datos del envio</a><br>
-	            <a href="#" class="text-dark" data-toggle="modal" data-target="#changePassword">Seguridad</a><br>
+	            <a href="#" class="text-dark" data-toggle="modal" data-target="#changePassword">Seguridad(Cambiar contraseña)</a><br>
 	            <a href="" class="text-left"> Cambiar foto de perfil</a>
 	            <hr>
 
@@ -94,7 +83,7 @@ if (isset($_GET["id"])) {
 
             <!--FORMULARIO DE EDICIÓN DE USUARIO-->
 	            <div class="modal fade" id="myModal" role="dialog">
-				    <div class="modal-dialog modal-lg">
+				    <div class="modal-dialog modal-md">
 				        <div class="modal-content justify-content-center" id="modal">
 					        <div class="modal-body text-left">
 					          <h3>Nombre completo del usuario:<small> <?php echo $usuario["nombrecontEC"]?> 
@@ -464,4 +453,4 @@ if (isset($_GET["id"])) {
             </article>
         </div>
 	<aside class="col-lg-3" id="blanco-h"></aside>
-</div>
+</section>

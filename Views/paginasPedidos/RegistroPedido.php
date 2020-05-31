@@ -3,7 +3,7 @@
 $producto = ControladorProductos::ctrSeleccionarProductos();
 
 ?>
-<div class="row py-3">
+<section class="row py-3">
   <aside class="col-lg-3 py-5" id="fondo2"></aside>
   <form action="#" class="col-lg-6 py-5 needs-validation" id="form" method="post" novalidate>
     <h1 class="text-danger">RPPS Quimícos</h1>
@@ -32,4 +32,4 @@ $producto = ControladorProductos::ctrSeleccionarProductos();
     </div>
     <button type="submit" class="btn btn-success">Completar Pedido</button>
   </form>
-</div>
+</section>

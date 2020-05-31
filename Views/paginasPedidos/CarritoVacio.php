@@ -1,4 +1,4 @@
-<div class="row py-5">
+<section class="row py-5">
     <article class="container">
         <h2>Mi Carrito</h2>
         <hr>
@@ -28,4 +28,4 @@
         </div>
     </form>
     </article>
-</div>
+</section>

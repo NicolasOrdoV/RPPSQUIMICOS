@@ -1,15 +1,5 @@
 <?php
 
-if(!isset($_SESSION["validarIngreso"])){
-    
-    echo '<script> window.location = "?paginasUsuario=InicioSesion";</script>';
-    return;  
-}else{
-    if($_SESSION["validarIngreso"] != "ok"){
-        echo '<script> window.location = "?paginasUsuario=InicioSesion";</script>';
-        return;
-    }
-}
 if (isset($_GET["id"])) {
 
     $item1 = "idEMPLEADO";
@@ -18,12 +8,12 @@ if (isset($_GET["id"])) {
     $barrios = ControladorBarrios::ctrSeleccionarBarrios();
 }
 ?>
-<div class="row">
+<section class="row">
     <div id="blanco" class="col-lg-12">
         <h1 id="tlprin">Mi cuenta</h1>
     </div>
-</div>
-<div class="row">
+</section>
+<section class="row">
     <aside class="col-lg-3" id="blanco-h"></aside>
         <div class="col-lg-6 py-5 border border-dark" id="form1">
             <figure>
@@ -318,4 +308,4 @@ if (isset($_GET["id"])) {
             </article>
         </div>
     <aside class="col-lg-3" id="blanco-h"></aside>
-</div>
+</section>

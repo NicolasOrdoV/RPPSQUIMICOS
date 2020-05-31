@@ -1,20 +1,10 @@
 <?php
 
-if(!isset($_SESSION["validarIngreso"])){
-    
-    echo '<script> window.location = "?paginasUsuario=InicioSesion";</script>';
-    return;  
-}else{
-    if($_SESSION["validarIngreso"] != "ok"){
-        echo '<script> window.location = "?paginasUsuario=InicioSesion";</script>';
-        return;
-    }
-}
 $clientes = ControladorClientes::ctrSeleccionarRegistroClientes(null,null);
 
 ?>
 
-<div class="row py-5">
+<section class="row py-5">
     <input class="form-control mb-4 col-lg-6 border border-danger rounded-pill" id="tableSearch" type="text" placeholder="Busca aqui el cliente registrado que quieras" onclick="search()"><i class="fas fa-search"></i>
     <table class="col-lg-12 table table-striped table-hover table-lg table-responsive-lg">
         <thead class="thead-dark">
@@ -34,18 +24,18 @@ $clientes = ControladorClientes::ctrSeleccionarRegistroClientes(null,null);
         </thead>
         <tbody id="myTable">
 
-        <?php foreach ($clientes as $key => $value):?>
+        <?php foreach ($clientes as $cliente):?>
             <tr>
-                <td><?php echo $key+1; ?></td>
-                <td><?php echo $value["identificacionEC"]; ?></td>
-                <td><?php echo $value["nombreEC"]; ?></td>
-                <td><?php echo $value["telefonoEC"]; ?></td>
-                <td><?php echo $value["direccionEC"]; ?></td>
-                <td><?php echo $value["nombreBarrio"]; ?></td>
-                <td><?php echo $value["nombrecontEC"]; ?></td>
-                <td><?php echo $value["telefonocontEC"]; ?></td>
-                <td><?php echo $value["correocontEC"]; ?></td>
-                <td><?php echo $value["estadoUSUARIO"]; ?></td>
+                <td><?php echo $cliente["idEC"]; ?></td>
+                <td><?php echo $cliente["identificacionEC"]; ?></td>
+                <td><?php echo $cliente["nombreEC"]; ?></td>
+                <td><?php echo $cliente["telefonoEC"]; ?></td>
+                <td><?php echo $cliente["direccionEC"]; ?></td>
+                <td><?php echo $cliente["nombreBarrio"]; ?></td>
+                <td><?php echo $cliente["nombrecontEC"]; ?></td>
+                <td><?php echo $cliente["telefonocontEC"]; ?></td>
+                <td><?php echo $cliente["correocontEC"]; ?></td>
+                <td><?php echo $cliente["estadoUSUARIO"]; ?></td>
                 <td>
 
                     <div class="btn-group">
@@ -76,9 +66,9 @@ $clientes = ControladorClientes::ctrSeleccionarRegistroClientes(null,null);
                             </div>
                         </div>
                         <div class="btn-group-vertical">
-                            <?php if($value["estadoUSUARIO"] == "Inactivo") :?>
+                            <?php if($cliente["estadoUSUARIO"] == "Inactivo") :?>
                             <form method="post">
-                                <input type ="hidden" value ="<?php echo $value["idUSUARIO"];?>" name="activarRegistro">
+                                <input type ="hidden" value ="<?php echo $cliente["idUSUARIO"];?>" name="activarRegistro">
                             <button class="btn btn-primary" id="habilitar">Activar</button>
 
                             <?php
@@ -88,9 +78,9 @@ $clientes = ControladorClientes::ctrSeleccionarRegistroClientes(null,null);
 
                             ?>
                             </form>
-                            <?php elseif($value["estadoUSUARIO"] == "Activo"):?>
+                            <?php elseif($cliente["estadoUSUARIO"] == "Activo"):?>
                             <form method="post">
-                                <input type ="hidden" value ="<?php echo $value["idUSUARIO"];?>" name="inactivarRegistro">
+                                <input type ="hidden" value ="<?php echo $cliente["idUSUARIO"];?>" name="inactivarRegistro">
                             <button class="btn btn-danger" id="deshabilitar">Inactivar</button>
 
                             <?php
@@ -108,4 +98,4 @@ $clientes = ControladorClientes::ctrSeleccionarRegistroClientes(null,null);
         <?php endforeach ?>        
         </tbody>
     </table>
-</div>
+</section>
