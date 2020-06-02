@@ -32,14 +32,7 @@ if(isset($_GET["id"])){
             <div class="invalid-feedback">El campo no cumple con las condiciones.</div>
         </div>
         <div class="form-group">
-            <input type="hidden" class="form-control rounded-pill" id="txt" name="registrarEstado"
-            value="Activo">
-        </div>
-        <div class="form-group">
                 <input type="hidden" class="form-control rounded-pill" id="txt" name="registrarEC" value ="<?php echo $valor;?>">
-        </div>
-        <div class="form-group">
-            <input type="hidden" class="form-control rounded-pill" id="txt" name="registrarRoll" value ="1">
         </div>
         <?php
 

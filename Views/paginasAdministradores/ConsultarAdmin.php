@@ -53,12 +53,6 @@ $admins = ControladorAdministradores::ctrSeleccionarRegistrosAdministradores(nul
 							<div class="valid-feedback">Valido</div>
                             <div class="invalid-feedback">El campo no puede quedar vacio.</div>
 						</div>
-						<div class="form-group">
-							<input type="hidden" name="registrarEstadoAd" class="form-control rounded-pill" value="Activo">
-						</div>
-						<div class="form-group">
-							<input type="hidden" name="registrarRollAd" class="form-control rounded-pill" value="2">
-						</div>
 						<?php
 
 						$registro = ControladorAdministradores::ctrRegistroAdministradores();

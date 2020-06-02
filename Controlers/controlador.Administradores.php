@@ -27,8 +27,8 @@ class ControladorAdministradores
                        "telefonoEMPLEADO" => $_POST["registrarTelefonoAd"],
                        "correoEMPLEADO" => $_POST["registrarCorreoAd"],
                        "contrasenaEMPLEADO" => $_POST["registrarContraseñaAd"],
-                       "estadoEMPLEADO" => $_POST["registrarEstadoAd"],
-                       "idROL_FK" => $_POST["registrarRollAd"]
+                       "estadoEMPLEADO" => "Activo",
+                       "idROL_FK" => 2
                     );
         $respuesta = ModeloAdministradores::mdlRegistroAdministradores($tabla,$datos);
         return $respuesta;
