@@ -23,6 +23,7 @@ $producto = ControladorInventario::ctrSeleccionarProductosStock(null, null);
                         <th>Cantidad</th>
                         <th>Estado</th>
                         <th>Precio</th>
+                        <th>Cambiar estado</th>
                     </tr>
                 </thead>
                 <tbody id="myTable">
@@ -34,6 +35,9 @@ $producto = ControladorInventario::ctrSeleccionarProductosStock(null, null);
                             <td><?php echo $stocks["cantPRODUCTO"] ?></td>
                             <td><?php echo $stocks["estadoPRODUCTO"] ?></td>
                             <td>$<?php echo $stocks["valoruPRODUCTO"] ?></td>
+                            <td>
+                                <button class="btn btn-danger">Agotado</button>
+                            </td>
                         </tr>
                     <?php endforeach ?>    
                 </tbody>

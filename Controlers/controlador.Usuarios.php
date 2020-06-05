@@ -28,9 +28,9 @@ class ControladorUsuarios
             $tabla = "usuario";
             $datos = array("nombreUSUARIO" => $data["registrarUsuario"],
                            "contrasenaUSUARIO" => $data["registrarContraseña"],
-                           "estadoUSUARIO" => $data["registrarEstado"],
+                           "estadoUSUARIO" => "Activo",
                            "idEC_FK" => $data["registrarEC"],
-                           "idROL_FK" => $data["registrarRoll"]
+                           "idROL_FK" => 1
                          );
 
             $respuesta = ModeloUsuarios::mdlRegistrarUsuarios($tabla,$datos);

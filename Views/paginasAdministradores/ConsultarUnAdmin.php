@@ -80,7 +80,7 @@ if (isset($_GET["id"])) {
 
             <!--FORMULARIO DE REGISTRO DE EMPLEADO-->
                 <div class="modal fade" id="myModal" role="dialog">
-                    <div class="modal-dialog modal-lg">
+                    <div class="modal-dialog modal-md">
                         <div class="modal-content justify-content-center" id="modal">
                             <div class="modal-body text-left">
                               <h3>Nombre del empleado:<small> <?php echo $admin["nombreEMPLEADO"]?>
@@ -95,8 +95,6 @@ if (isset($_GET["id"])) {
                               <h3>Telefono de contacto:<small> <?php echo $admin["telefonoEMPLEADO"]?>
                                 <a href="#" class="text-danger mx-2" data-toggle="modal" data-target="#myModal5">Editar</a></small>
                               </h3>
-                              <button type="button" id="btnReg" class="btn btn-primary rounded-pill btn-lg mt-5" data-dismiss="modal">Guardar cambios</button>
-                              <button type="button" id="btnReg" class="btn btn-danger rounded-pill btn-lg mt-5" data-dismiss="modal">Cancelar</button>
                             </div>
                         </div>     
                     </div>
