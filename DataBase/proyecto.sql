@@ -3,13 +3,19 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-05-2020 a las 03:13:10
+-- Tiempo de generación: 06-06-2020 a las 22:26:45
 -- Versión del servidor: 10.4.11-MariaDB
--- Versión de PHP: 7.4.4
+-- Versión de PHP: 7.4.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de datos: `proyecto`
@@ -2751,6 +2757,20 @@ CREATE TABLE `producto` (
   `valoruPRODUCTO` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `producto`
+--
+
+INSERT INTO `producto` (`idPRODUCTO`, `nombrePRODUCTO`, `descripcionPRODUCTO`, `cantPRODUCTO`, `estadoPRODUCTO`, `valoruPRODUCTO`) VALUES
+(1, 'ALCOHOL', '25 * 250 ml\r\nal 70% de pureza', 56, 'activo', 56000),
+(2, 'ALCOHOL', '250 ml AL 70% DE PUREZA', 56, 'activo', 3000),
+(3, 'VARSOL', '25*250 ml ', 56, 'activo', 86000),
+(4, 'PEGANTE INDUSTRIAL', '250 ml', 26, 'activo', 8000),
+(5, 'ACIDO CITRICO', '1000 g', 56, 'activo', 56000),
+(6, 'DIABLO ROJO', 'DESTAPA CAÑERIAS 500 ml ', 56, 'activo', 25000),
+(7, 'TINNER', '1 L', 26, 'activo', 8000),
+(8, 'ACIDO NITRICO', ' 500 g', 56, 'activo', 15000);
+
 -- --------------------------------------------------------
 
 --
@@ -2972,7 +2992,7 @@ ALTER TABLE `pedido`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `idPRODUCTO` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `idPRODUCTO` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`
@@ -3055,3 +3075,7 @@ ALTER TABLE `usuario`
   ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`idROL_FK`) REFERENCES `rol` (`idROL`) ON UPDATE CASCADE,
   ADD CONSTRAINT `usuario_ibfk_3` FOREIGN KEY (`idEC_FK`) REFERENCES `empresa_cliente` (`idEC`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
