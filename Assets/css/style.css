@@ -2,8 +2,10 @@
 body {
     overflow-x: hidden;
     width: 100%;
+    
   }
   
+ 
   #sidebar-wrapper {
     min-height: 100vh;
     margin-left: -10rem;

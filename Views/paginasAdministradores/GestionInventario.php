@@ -3,6 +3,7 @@
 $producto = ControladorInventario::ctrSeleccionarProductosStock(null, null);
 ?>
 <!--------------Espacio en blanco superior---->
+
 <section class="row">
     <div id="blanco" class="col-lg-12">
         <h1 id="tlprin">Productos en el inventario</h1>
@@ -24,9 +25,11 @@ $producto = ControladorInventario::ctrSeleccionarProductosStock(null, null);
                         <th>Estado</th>
                         <th>Precio</th>
                         <th>Cambiar estado</th>
+                        <th><a href="#" data-toggle="modal" data-target="#agregar" class="btn btn-success ">Agregar</a></th>
                     </tr>
                 </thead>
                 <tbody id="myTable">
+
                     <?php foreach ($producto as $stocks) : ?>
                         <tr>
                             <td><?php echo $stocks["idPRODUCTO"] ?></td>
@@ -39,11 +42,54 @@ $producto = ControladorInventario::ctrSeleccionarProductosStock(null, null);
                                 <button class="btn btn-danger">Agotado</button>
                             </td>
                         </tr>
-                    <?php endforeach ?>    
+                    <?php endforeach ?>
                 </tbody>
             </table>
         </div><br>
     </aside>
+
+    <!--FORMULARIO DE REGISTRO DE PRODUCTO-->
+    <div class="modal fade " id="agregar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Agregar nuevo producto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="?controller=stock&method=save" method="post">
+
+                        <div class="form-group">
+                            <label>Nombre</label>
+                            <input type="text" id="validationTooltip03" required name="nombrePRODUCTO" class="form-control" placeholder="Ingrese NOMBRE DEL PRODUCTO" value="">
+
+
+                            <div class="form-group">
+                                <label>DESCRIPCION</label>
+                                <textarea type="text" name="descripcionPRODUCTO" required class="form-control" placeholder="Ingrese la descripcion" value=""></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label>cantidad</label>
+                                <input type="number" name="cantPRODUCTO" required class="form-control" id="validationTooltip01" required placeholder="Ingrese la cantidad" value="">
+                            </div>
+
+                            <div class="form-group">
+                                <label>VALOR</label>
+                                <input type="number" name="valoruPRODUCTO" required class="form-control" placeholder="Ingrese el valor" value="">
+                            </div>
+                            <button type="button" class="btn btn-primary">AGREGAR</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCELAR</button>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
     <aside id="blanco-h" class="col-lg-2"></aside>
 </section>
 <!------Espacio en blanco inferior------>
