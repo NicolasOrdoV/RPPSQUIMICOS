@@ -168,7 +168,7 @@ if (isset($_GET["id"])) {
                                 <div class="invalid-feedback">El campo no puede quedar vacio.</div>
                             </div>
                             <div class="form-group">
-                                <label> confirmar correo<small class="text-danger">*</small>:</label>
+                                <label> Confirmar correo<small class="text-danger">*</small>:</label>
                                 <input type="email" name="actualizarEmailEmC" class="form-control rounded" required>
                                 <div class="valid-feedback">Valido</div>
                                 <div class="invalid-feedback">El campo no puede quedar vacio.</div>
@@ -263,13 +263,13 @@ if (isset($_GET["id"])) {
                           <form action="#" method="post" class="text-left needs-validation" novalidate>
                             <div class="form-group">
                                 <label> Nuevo telefono<small class="text-danger">*</small>:</label>
-                                <input type="email" name="actualizarTelEm" class="form-control rounded" required>
+                                <input type="number" name="actualizarTelEm" class="form-control rounded" required>
                                 <div class="valid-feedback">Valido</div>
                                 <div class="invalid-feedback">El campo no puede quedar vacio.</div>
                             </div>
                             <div class="form-group">
                                 <label> Confirmar telefono<small class="text-danger">*</small>:</label>
-                                <input type="email" name="actualizarTelEmC" class="form-control rounded" required>
+                                <input type="number" name="actualizarTelEmC" class="form-control rounded" required>
                                 <div class="valid-feedback">Valido</div>
                                 <div class="invalid-feedback">El campo no puede quedar vacio.</div>
                             </div>
