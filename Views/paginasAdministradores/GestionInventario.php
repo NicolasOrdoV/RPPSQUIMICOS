@@ -13,39 +13,37 @@ $producto = ControladorInventario::ctrSeleccionarProductosStock(null, null);
 <section class="row">
     <aside id="blanco-h" class="col-lg-2"></aside>
     <aside class="col-lg-8">
-        <div class="row">
-            <input class="form-control mb-4 col-lg-6 border border-danger rounded-pill" id="tableSearch" type="text" placeholder="Busca aqui el producto registrado que quieras" onclick="search()"><i class="fas fa-search"></i>
-            <table class="col-lg-12 table table-striped table-hover table-lg table-responsive-lg">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>#</th>
-                        <th>Nombre</th>
-                        <th>Descripcion</th>
-                        <th>Cantidad</th>
-                        <th>Estado</th>
-                        <th>Precio</th>
-                        <th>Cambiar estado</th>
-                        <th><a href="#" data-toggle="modal" data-target="#agregar" class="btn btn-success ">Agregar</a></th>
-                    </tr>
-                </thead>
-                <tbody id="myTable">
+        <input class="form-control col-lg-6 border border-danger rounded-pill" id="tableSearch" type="text" placeholder="Busca aqui el producto registrado que quieras" onclick="search()">
+        <spam class="btn btn-danger rounded float-right" data-toggle="modal" data-target="#agregar">+Agregar</spam>
+        <table class="col-lg-12 table table-striped table-hover table-lg table-responsive-lg">
+            <thead class="thead-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Descripcion</th>
+                    <th>Cantidad</th>
+                    <th>Estado</th>
+                    <th>Precio</th>
+                    <th>Cambiar estado</th>
+                </tr>
+            </thead>
+            <tbody id="myTable">
 
-                    <?php foreach ($producto as $stocks) : ?>
-                        <tr>
-                            <td><?php echo $stocks["idPRODUCTO"] ?></td>
-                            <td><?php echo $stocks["nombrePRODUCTO"] ?></td>
-                            <td><?php echo $stocks["descripcionPRODUCTO"] ?></td>
-                            <td><?php echo $stocks["cantPRODUCTO"] ?></td>
-                            <td><?php echo $stocks["estadoPRODUCTO"] ?></td>
-                            <td>$<?php echo $stocks["valoruPRODUCTO"] ?></td>
-                            <td>
-                                <button class="btn btn-danger">Agotado</button>
-                            </td>
+                <?php foreach ($producto as $stocks) : ?>
+                    <tr>
+                        <td><?php echo $stocks["idPRODUCTO"] ?></td>
+                        <td><?php echo $stocks["nombrePRODUCTO"] ?></td>
+                        <td><?php echo $stocks["descripcionPRODUCTO"] ?></td>
+                        <td><?php echo $stocks["cantPRODUCTO"] ?></td>
+                        <td><?php echo $stocks["estadoPRODUCTO"] ?></td>
+                        <td>$<?php echo $stocks["valoruPRODUCTO"] ?></td>
+                        <td>
+                            <button class="btn btn-danger">Agotado</button>
+                        </td>
                         </tr>
-                    <?php endforeach ?>
-                </tbody>
-            </table>
-        </div><br>
+                <?php endforeach ?>
+            </tbody>
+        </table>
     </aside>
 
     <!--FORMULARIO DE REGISTRO DE PRODUCTO-->
@@ -80,12 +78,12 @@ $producto = ControladorInventario::ctrSeleccionarProductosStock(null, null);
                                 <label>VALOR</label>
                                 <input type="number" name="valoruPRODUCTO" required class="form-control" placeholder="Ingrese el valor" value="">
                             </div>
-                            <button type="button" class="btn btn-primary">AGREGAR</button>
+                            
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCELAR</button>
-                    
+                    <button type="submit" class="btn btn-primary">AGREGAR</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCELAR</button>    
                 </div>
             </div>
         </div>

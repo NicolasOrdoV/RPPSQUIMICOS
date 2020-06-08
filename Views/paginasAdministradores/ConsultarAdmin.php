@@ -11,7 +11,7 @@ $admins = ControladorAdministradores::ctrSeleccionarRegistrosAdministradores(nul
 	<div class="col-lg-2"></div>
     <div id="blanco" class="col-lg-8">
         <h3>Gestión de adminitradores
-        	<spam class="btn btn-danger rounded float-right" data-toggle="modal" data-target="#myModal" data-remote="index.php?paginasAdministradores=RegistrarAdmin">+Añadir admin</spam>
+        	<spam class="btn btn-danger rounded float-right" data-toggle="modal" data-target="#myModal">+Añadir admin</spam>
         </h3>
         <hr>
     </div>
