@@ -1,6 +1,11 @@
 <?php
-
 $producto = ControladorInventario::ctrSeleccionarProductosStock(null, null);
+
+   if(isset($_POST["id"])){
+    $producto = ControladorInventario::ctrCrearProducto(null,null);
+   }
+    
+
 ?>
 <!--------------Espacio en blanco superior---->
 
@@ -49,6 +54,7 @@ $producto = ControladorInventario::ctrSeleccionarProductosStock(null, null);
     </aside>
 
     <!--FORMULARIO DE REGISTRO DE PRODUCTO-->
+
     <div class="modal fade " id="agregar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -59,7 +65,7 @@ $producto = ControladorInventario::ctrSeleccionarProductosStock(null, null);
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="?controller=stock&method=save" method="post">
+                    <form action="#" method="post">
 
                         <div class="form-group">
                             <label>Nombre</label>
@@ -80,18 +86,19 @@ $producto = ControladorInventario::ctrSeleccionarProductosStock(null, null);
                                 <label>VALOR</label>
                                 <input type="number" name="valoruPRODUCTO" required class="form-control" placeholder="Ingrese el valor" value="">
                             </div>
-                            <button type="button" class="btn btn-primary">AGREGAR</button>
+                            <button type="submit" class="btn btn-primary">AGREGAR</button>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCELAR</button>
-                    
+
                 </div>
             </div>
         </div>
     </div>
     <aside id="blanco-h" class="col-lg-2"></aside>
 </section>
+
 <!------Espacio en blanco inferior------>
 <section class="row">
     <div id="blanco" class="col-lg-12"></div>
