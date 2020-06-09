@@ -16,7 +16,7 @@ $producto = ControladorInventario::ctrSeleccionarProductosStock(null,null);
         <div class="row">         
             <?php foreach ($producto as $stocks) : ?>
                 <div class="card" style="width: 18rem; display: inline-block;">
-                    <a href="index.php?paginasCliente=DetalleProducto">
+                    <a href="index.php?paginasCliente=DetalleProducto&id=<?php echo $stocks["idPRODUCTO"]?>">
                         <img src="assets/img/Varsol.jpg" class="card-img-top" alt="...">
                     </a>
                     <div class="card-body">
