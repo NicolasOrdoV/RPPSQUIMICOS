@@ -25,21 +25,18 @@ class ModeloInventario
 	static public function mdlCrearProducto($tabla, $datos)
 	{
 		try {
-
-
-			$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla (nombrePRODUCTO,descripcionPRODUCTO,cantPRODUCTO,estadoPRODUCTO,valoruPRODUCTO)VALUES(:nombrePRODUCTO,:descripcionPRODUCTO,:cantPRODUCTO,estadoPRODUCTO,valoruPRODUCTO)");
+			$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla (nombrePRODUCTO,descripcionPRODUCTO,cantPRODUCTO,estadoPRODUCTO,valoruPRODUCTO)VALUES(:nombrePRODUCTO,:descripcionPRODUCTO,:cantPRODUCTO,:estadoPRODUCTO,:valoruPRODUCTO)");
 
 			$stmt->bindParam(":nombrePRODUCTO", $datos["nombrePRODUCTO"], PDO::PARAM_STR);
 			$stmt->bindParam(":descripcionPRODUCTO", $datos["descripcionPRODUCTO"], PDO::PARAM_STR);
 			$stmt->bindParam(":cantPRODUCTO", $datos["cantPRODUCTO"], PDO::PARAM_INT);
 			$stmt->bindParam(":estadoPRODUCTO", $datos["estadoPRODUCTO"], PDO::PARAM_STR);
 			$stmt->bindParam(":valoruPRODUCTO", $datos["valoruPRODUCTO"], PDO::PARAM_INT);
-			$stmt->execute();
+			
 			if ($stmt->execute()) {
-
 				return "ok";
-			} else {
-				return Conexion::conectar()->errorInfo();
+			}else{
+				print_r(Conexion::conectar()->errorInfo());
 			}
 			$stmt->close();
 			$stmt = null;

@@ -1,11 +1,5 @@
 <?php
 $producto = ControladorInventario::ctrSeleccionarProductosStock(null, null);
-
-   if(isset($_POST["id"])){
-    $producto = ControladorInventario::ctrCrearProducto(null,null);
-   }
-    
-
 ?>
 <!--------------Espacio en blanco superior---->
 
@@ -64,42 +58,40 @@ $producto = ControladorInventario::ctrSeleccionarProductosStock(null, null);
                 </div>
                 <div class="modal-body">
                     <form action="#" method="post">
+                        <div class="form-group">
+                            <label>Nombre del producto</label>
+                            <input type="text" id="validationTooltip03" required name="nombrePRODUCTO" class="form-control" placeholder="Ingrese Nombre del producto">
+                        </div>
+                        <div class="form-group">
+                            <label>Descripción del producto</label>
+                            <textarea type="text" name="descripcionPRODUCTO" required class="form-control" placeholder="Ingrese la descripción del producto"></textarea>
+                        </div>
 
                         <div class="form-group">
-                            <label>Nombre</label>
-                            <input type="text" id="validationTooltip03" required name="nombrePRODUCTO" class="form-control" placeholder="Ingrese NOMBRE DEL PRODUCTO" value="">
+                            <label>Cantidad</label>
+                            <input type="number" name="cantPRODUCTO" required class="form-control" id="validationTooltip01" required placeholder="Ingrese la cantidad del producto">
+                        </div>
 
-
-                            <div class="form-group">
-                                <label>DESCRIPCION</label>
-                                <textarea type="text" name="descripcionPRODUCTO" required class="form-control" placeholder="Ingrese la descripcion" value=""></textarea>
-                            </div>
-
-                            <div class="form-group">
-                                <label>cantidad</label>
-                                <input type="number" name="cantPRODUCTO" required class="form-control" id="validationTooltip01" required placeholder="Ingrese la cantidad" value="">
-                            </div>
-
-                            <div class="form-group">
-                                <label>VALOR</label>
-                                <input type="number" name="valoruPRODUCTO" required class="form-control" placeholder="Ingrese el valor" value="">
-                            </div>
-<<<<<<< HEAD
-                            <button type="submit" class="btn btn-primary">AGREGAR</button>
-                    </form>
+                        <div class="form-group">
+                            <label>Valor</label>
+                            <input type="number" name="valoruPRODUCTO" required class="form-control" placeholder="Ingrese el valor unitario del producto">
+                        </div>   
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCELAR</button>
-
-=======
-                            
-                    </form>
+                    <button type="submit" class="btn btn-danger">Agregar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                 </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">AGREGAR</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCELAR</button>    
->>>>>>> 4bb7eed5cc0518c97829fd33a8a33f61b1194c83
-                </div>
+                <?php
+                $registro = ControladorInventario::ctrCrearProducto($_POST);
+                if ($registro == "ok") {
+                    echo '<script>
+                    setTimeout(function(){
+                        window.location = "index.php?paginasAdministradores=GestionInventario"
+                    },1000)
+                    </script>';
+                }
+                ?>
+                </form>
             </div>
         </div>
     </div>

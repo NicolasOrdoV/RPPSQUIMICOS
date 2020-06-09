@@ -15,13 +15,13 @@ class ControladorClientes{
             $tabla = "empresa_cliente";
 
             $datos = array("identificacionEC"=>$data["registroIdentificacion"],
-                               "nombreEC"=>$data["registroNombreCom"],
-                               "telefonoEC"=>$data["registroTelefono"],
-                               "direccionEC"=>$data["registroDireccion"],
-                               "nombrecontEC"=>$data["registroNContacto"],
-                               "telefonocontEC"=>$data["registroTContacto"],
-                               "correocontEC"=>$data["registroEmail"],
-                               "idBARRIO_FK"=>$data["registroBarrios"]
+                            "nombreEC"=>$data["registroNombreCom"],
+                            "telefonoEC"=>$data["registroTelefono"],
+                            "direccionEC"=>$data["registroDireccion"],
+                            "nombrecontEC"=>$data["registroNContacto"],
+                            "telefonocontEC"=>$data["registroTContacto"],
+                            "correocontEC"=>$data["registroEmail"],
+                            "idBARRIO_FK"=>$data["registroBarrios"]
                             );
             $respuesta = ModeloClientes::mdlRegistroClientes($tabla,$datos);
             return $respuesta;

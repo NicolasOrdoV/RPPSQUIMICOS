@@ -14,15 +14,16 @@ class ControladorInventario
 
     static public function ctrCrearProducto($data)
     {
-        if (isset($data["registrarProducto"])) {
+        if (isset($data["nombrePRODUCTO"])) {
+
             $tabla = "producto";
             $datos = array(
-                "nombrePRODUCTO" => $data["nombrePRODUCTO"],
-                "descripcionPRODUCTO" => $data["descripcionPRODUCTO"],
-                "estadoPRODUCTO" => "Activo",
-                "cantPRODUCTO" => $data["cantPRODUCTO"],
-                "valoruPRODUCTO" => $data["valoruPRODUCTO"]
-            );
+                            "nombrePRODUCTO" => $data["nombrePRODUCTO"],
+                            "descripcionPRODUCTO" => $data["descripcionPRODUCTO"],
+                            "cantPRODUCTO" => $data["cantPRODUCTO"],
+                            "estadoPRODUCTO" => "Activo",
+                            "valoruPRODUCTO" => $data["valoruPRODUCTO"]
+                          );
             $respuesta = ModeloInventario::mdlCrearProducto($tabla, $datos);
             return $respuesta;
         }

@@ -51,7 +51,7 @@ if(isset($_GET["id"])){
                         window.history.replaceState(null,null,window.location.href);
                     }
                     </script>';
-                    echo '<div class="alert alert-success">
+                    echo '<div class="alert alert-primary">
                         <h2 class="alert-heading"> ¡FELICIDADES!</h2>
                         <p>Registros ingresados de manera safisfactoria</p>
                         <h3 class="font-text-bold">LO PROMETIDO ES DEUDA:</h3>

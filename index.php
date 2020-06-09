@@ -16,6 +16,3 @@ require_once "Models/modelo.Inventario.php";
 
 $home = new HomeController();
 $home -> ctrBringeHome();
-
-
-?>

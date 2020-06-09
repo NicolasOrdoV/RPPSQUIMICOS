@@ -1,4 +1,4 @@
 <?php
 
 session_destroy();
-echo '<script>window.location = "?paginaClientes=catalogo";</script>';
+echo '<script>window.location = "index.php";</script>';

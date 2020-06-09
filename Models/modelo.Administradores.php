@@ -43,7 +43,7 @@ class ModeloAdministradores
 
 		try {
 		   if ($item1 == null && $valor1 == null) {
-			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla1");
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla1 WHERE idROL_FK = 2");
 	        $stmt->execute();
 	        return $stmt -> fetchAll();
 			}else{

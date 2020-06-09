@@ -37,7 +37,7 @@ if (isset($_GET["id"])) {
                                 window.history.replaceState(null,null,window.location.href);
                             }
                             </script>';
-                            echo '<div class="alert alert-success">
+                            echo '<div class="alert alert-primary">
                                   <h2 class="alert-heading">Excelente</h2>
                                   <p>Se ha actualizado tu contraseña de manera safistactoria. por favor inicia sesión para conocer todos nuestros productos</p>
                                   <a href="index.php?paginasUsuario=InicioSesion" class="btn btn-success">Ir al inicio de sesión</a>

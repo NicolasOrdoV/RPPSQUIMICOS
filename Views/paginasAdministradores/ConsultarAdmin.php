@@ -10,7 +10,7 @@ $admins = ControladorAdministradores::ctrSeleccionarRegistrosAdministradores(nul
 <section class="row py-5">
 	<div class="col-lg-2"></div>
     <div id="blanco" class="col-lg-8">
-        <h3>Gestión de adminitradores
+        <h3>Gestión de administradores
         	<spam class="btn btn-danger rounded float-right" data-toggle="modal" data-target="#myModal">+Añadir admin</spam>
         </h3>
         <hr>

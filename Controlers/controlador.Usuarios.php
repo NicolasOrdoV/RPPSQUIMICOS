@@ -296,7 +296,7 @@ class ControladorUsuarios
                 window.history.replaceState(null,null,window.location.href);
                 }
               </script>';
-              echo '<div class="alert alert-success">
+              echo '<div class="alert alert-primary">
               <h4 class="font-text-bold">¡GENIAL!</h4>
               <p>Se ha enviado a tu correo '.$data["recuperarUsuario"].' para que puedas recuperar tu contraseña.</p>
               </div>';
