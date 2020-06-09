@@ -279,7 +279,7 @@ class ControladorUsuarios
               <section>
                 <p>Felicidades, encontramos una considencia ' .$data["recuperarUsuario"]. ' en la base de datos.<br>
                     Entra al link para recuperar la contraseña <br></p>
-                    <a href="http://localhost/RPPSQUIMICOS.COM/index.php?paginasUsuario=RestauraContrasenaUs&id='.$respuestaU["idUSUARIO"].'" class="btn btn-success">Recupera tu contraseña<a>
+                    <a href="http://localhost/RPPSQUIMICOS/index.php?paginasUsuario=RestauraContrasenaUs&id='.$respuestaU["idUSUARIO"].'" class="btn btn-success">Recupera tu contraseña<a>
               </section>
               <footer class="row">
                 <div id="footer" class="col-lg-12"><p>©Copyright: GAROWARE SOFTWARE</p>
@@ -334,7 +334,7 @@ class ControladorUsuarios
                 <section>
                   <p>Felicidades, encontramos una considencia ' .$data["recuperarUsuario"]. ' en la base de datos.<br>
                       Entra al link para recuperar la contraseña <br></p>
-                      <a href="http://localhost/RPPSQUIMICOS.COM/index.php?paginasAdministradores=RestauraContrasenaAd&id='.$respuestaA["idEMPLEADO"].'" class="btn btn-success">Recupera tu contraseña<a>
+                      <a href="http://localhost/RPPSQUIMICOS/index.php?paginasAdministradores=RestauraContrasenaAd&id='.$respuestaA["idEMPLEADO"].'" class="btn btn-success">Recupera tu contraseña<a>
                 </section>
                 <footer class="row">
                   <div id="footer" class="col-lg-12"><p>©Copyright: GAROWARE SOFTWARE</p>

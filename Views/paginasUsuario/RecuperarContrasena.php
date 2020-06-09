@@ -14,7 +14,7 @@
         $correo -> enviarCorreoRecUser($_POST);
         
         ?>
-        <button type="submit" id="btnReg" class="btn btn-danger rounded-pill btn-lg btn-block">Enviar correó<i class="fas fa-flask"></i></button>
+        <button type="submit" id="btnReg" class="btn btn-danger rounded-pill btn-lg btn-block">Enviar correo<i class="fas fa-flask"></i></button>
     </form>
     <aside class="col-lg-3 py-5" id="fondo1"></aside>
 </section>
