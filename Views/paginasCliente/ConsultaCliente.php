@@ -39,32 +39,18 @@ $clientes = ControladorClientes::ctrSeleccionarRegistroClientes(null,null);
                 <td>
 
                     <div class="btn-group">
-                        <button type="button" class="btn btn-danger m-1" data-toggle="modal" data-target="#myModal">
-                        <i class="fas fa-trash-alt"></i>
+                        <form method="post" class="text-left">
+                          <input type="hidden" value="<?php echo $cliente["idEC"]?>" name="eliminarRegistro">  
+                        <button type="submit" class="btn btn-danger m-1">
+                            <i class="fas fa-trash"></i>
                         </button>
-                        <div class="modal fade" id="myModal" role="dialog">
-                            <div class="modal-dialog modal-sm modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-body border border-dark rounded">
-                                        <form action="#" method="post" class="text-left">
-                                            <label>¿Desea eliminar a este cliente?</label>
-                                            <form method="post">
-                                                <input type ="hidden" value ="<?php echo $cliente["idEC"];?>" name="eliminarRegistro">
-                                                <button class="btn btn-primary rounded-pill btn-block">Si</button>
+                        <?php
 
-                                                <?php
+                        $eliminar = new ControladorClientes();
+                        $eliminar ->ctrEliminarRegistroClientes();
 
-                                                $eliminar = new ControladorClientes();
-                                                $eliminar ->ctrEliminarRegistroClientes();
-
-                                                ?>
-                                            </form>
-                                            <button type="button" class="btn btn-danger rounded-pill btn-block my-2" data-dismiss="modal">No</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        ?>
+                        </form>
                         <div class="btn-group-vertical">
                             <?php if($cliente["estadoUSUARIO"] == "Inactivo") :?>
                             <form method="post">
