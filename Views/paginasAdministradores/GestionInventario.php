@@ -46,9 +46,33 @@ $producto = ControladorInventario::ctrSeleccionarProductosStock(null, null);
                                 $eliminar -> ctrEliminarProducto();
                                 ?>
                             </form>
-                            <div class="btn-group-vertical">
-                                <button class="btn btn-danger my-1">Inactivar</button>
-                            </div>   
+                            
+                        <div class="btn-group-vertical">
+                            <?php if($stocks["estadoPRODUCTO"] == "Inactivo") :?>
+                            <form method="post">
+                                <input type ="hidden" value ="<?php echo $stocks["idPRODUCTO"];?>" name="activarRegistro">
+                            <button class="btn btn-primary" id="habilitar">Activar</button>
+
+                            <?php
+
+                            $activar = new ControladorInventario();
+                            $activar ->ctrActivarRegistroInventario();
+
+                            ?>
+                            </form>
+                            <?php elseif($stocks["estadoPRODUCTO"] == "Activo"):?>
+                            <form method="post">
+                                <input type ="hidden" value ="<?php echo $stocks["idPRODUCTO"];?>" name="inactivarRegistro">
+                            <button class="btn btn-danger" id="deshabilitar">Inactivar</button>
+
+                            <?php
+
+                            $inactivar = new ControladorInventario();
+                            $inactivar ->ctrInactivarRegistroInventario();
+
+                            ?>
+                            </form>
+                        <?php endif ?> 
                         </td>
                         </tr>
                 <?php endforeach ?>

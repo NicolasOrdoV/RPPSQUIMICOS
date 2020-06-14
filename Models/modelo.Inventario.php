@@ -88,6 +88,54 @@ class ModeloInventario
         } catch (PDOException $e) {
             echo $e->getMessage(); 
         }
+	}
+	
+	//INACTIVAR UN PRODUCTO
+
+    static public function mdlInactivarRegistroInventario($tabla,$valor){
+
+        try {
+            $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET estadoPRODUCTO = 'Inactivo' WHERE idPRODUCTO = :idPRODUCTO");
+
+            $stmt->bindParam(":idPRODUCTO",$valor,PDO::PARAM_INT);
+
+            if($stmt->execute()){
+
+                return "ok";
+
+            }else{
+                print_r(Conexion::conectar()->errorInfo());
+            }
+
+            $stmt->close();
+            $stmt= null;
+        } catch (PDOException $e) {
+            echo $e->getMessage(); 
+        }
+    }
+
+    //ACTIVAR UN PRODUCTO
+
+    static public function mdlActivarRegistroInventario($tabla,$valor){
+
+        try {
+            $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET estadoPRODUCTO = 'Activo' WHERE idPRODUCTO = :idPRODUCTO");
+
+            $stmt->bindParam(":idPRODUCTO",$valor,PDO::PARAM_INT);
+
+            if($stmt->execute()){
+
+                return "ok";
+
+            }else{
+                print_r(Conexion::conectar()->errorInfo());
+            }
+
+            $stmt->close();
+            $stmt= null;
+        } catch (PDOException $e) {
+            echo $e->getMessage(); 
+        }
     }
 
 }
