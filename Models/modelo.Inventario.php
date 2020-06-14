@@ -22,6 +22,25 @@ class ModeloInventario
 		}
 	}
 
+	public static function mdlSeleccionarProductosUsuario($tabla, $item, $valor){
+		try {
+			if ($item == null  && $valor == null) {
+				$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE estadoPRODUCTO='Activo'");
+				$stmt->execute();
+				return $stmt->fetchAll();
+			} else {
+				$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
+				$stmt->bindParam(":" . $item, $valor, PDO::PARAM_STR);
+				$stmt->execute();
+				return $stmt->fetch();
+			}
+			$stmt->close();
+			$stmt = null;
+		} catch (PDOException $e) {
+			echo $e->getMessage();
+		}
+	}
+
 	static public function mdlCrearProducto($tabla, $datos)
 	{
 		try {

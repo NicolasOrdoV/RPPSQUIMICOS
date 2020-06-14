@@ -3,12 +3,19 @@ require_once 'providers/conexion.php';
 
 class ControladorInventario
 {
-    //Consulta productos para mostrar al usuario
+    //Consulta productos para mostrar al administrador
 
     static public function ctrSeleccionarProductosStock($item, $valor)
     {
         $tabla = "producto";
         $respuesta = ModeloInventario::mdlSeleccionarProductosStock($tabla, $item, $valor);
+        return $respuesta;
+    }
+
+    //consulta productos para mostrar al cliente/usuario
+    static public function ctrSeleccionarProductosUsuario($item, $valor){
+        $tabla = "producto";
+        $respuesta = ModeloInventario::mdlSeleccionarProductosUsuario($tabla, $item, $valor);
         return $respuesta;
     }
 
