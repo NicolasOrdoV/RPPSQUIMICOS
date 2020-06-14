@@ -1,5 +1,14 @@
 <?php
-
+if(!isset($_SESSION["validarIngreso"])){
+    
+    echo '<script> window.location = "?paginasUsuario=InicioSesion";</script>';
+    return;  
+}else{
+    if($_SESSION["validarIngreso"] != "ok"){
+        echo '<script> window.location = "?paginasUsuario=InicioSesion";</script>';
+        return;
+    }
+}
 $clientes = ControladorClientes::ctrSeleccionarRegistroClientes(null,null);
 
 ?>

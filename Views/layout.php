@@ -77,10 +77,12 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                     <a href="index.php?paginasAdministradores=ConsultarAdmin" class="list-group-item list-group-item-action" id="flush">Gestionar Administradores
                         <i class="fas fa-user-astronaut"></i>
                     </a>
+                    <a href="index.php?paginasAdministradores=GestionInventario" class="list-group-item list-group-item-action" id="flush">Gestion de inventario
+                        <i class="fas fa-boxes"></i>
+                    </a>
                     <a href="?paginasCliente=ConsultaCliente" class="list-group-item list-group-item-action text-danger" id="flush">Lista de clientes
                         <i class="fas fa-users"></i>
                     </a>
-
                     <a href="index.php?paginasAdministradores=ConsultarUnAdmin&id=<?php echo $user["idEMPLEADO"] ?>" class="list-group-item list-group-item-action text-bold" id="flush">
                         <img src="Assets/img/Perfil.jpg" class="img-fluide" width="30" height="30">Mi cuenta
                     </a>
@@ -108,8 +110,11 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                         <li class="nav-brand col-lg-7">
                             <i class="fas fa-search"></i><input type="text" id="bqd" placeholder="¿Qué estás buscando?">
                         </li>
-                        <li id="op1" class="nav-item col"><a href="index.php?paginasPedidos=CarritoVacio" id="nab">Ir al carrito<i class="fas fa-cart-plus"></i></a></li>
                         <?php if ($user == "") : ?>
+                            <li id="op1" class="nav-item col">
+                                <a href="index.php?paginasPedidos=CarritoVacio" id="nab">Ir al carrito<i class="fas fa-cart-plus"></i>
+                                </a>
+                            </li>
                             <li id="op1" class="nav-item col">
                                 <a href="index.php?paginasUsuario=InicioSesion" id="nab">Ingresar<i class="fas fa-door-open"></i></a>
                             </li>
@@ -117,6 +122,10 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                                 <a href="index.php?paginasCliente=RegistroCliente" id="nab">Registrarse<i class="fas fa-user-plus"></i></a>
                             </li>
                         <?php elseif ($user["idROL_FK"] == 1) : ?>
+                            <li id="op1" class="nav-item col">
+                                <a href="index.php?paginasPedidos=CarritoVacio" id="nab">Ir al carrito<i class="fas fa-cart-plus"></i>
+                                </a>
+                            </li>
                             <li id="op1" class="nav-item col">
                                 <a href="#" id="nab">
                                     <img src="Assets/img/Perfil.jpg" width="30" height="30"><?php echo $user["nombrecontEC"]; ?>

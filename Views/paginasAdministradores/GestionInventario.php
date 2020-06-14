@@ -1,4 +1,14 @@
 <?php
+if(!isset($_SESSION["validarIngreso"])){
+    
+    echo '<script> window.location = "?paginasUsuario=InicioSesion";</script>';
+    return;  
+}else{
+    if($_SESSION["validarIngreso"] != "ok"){
+        echo '<script> window.location = "?paginasUsuario=InicioSesion";</script>';
+        return;
+    }
+}
 $producto = ControladorInventario::ctrSeleccionarProductosStock(null, null);
 ?>
 <!--------------Espacio en blanco superior---->
