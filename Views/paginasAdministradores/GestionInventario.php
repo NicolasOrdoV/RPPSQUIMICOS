@@ -37,9 +37,18 @@ $producto = ControladorInventario::ctrSeleccionarProductosStock(null, null);
                         <td><?php echo $stocks["estadoPRODUCTO"] ?></td>
                         <td>$<?php echo $stocks["valoruPRODUCTO"] ?></td>
                         <td>
-                            <button class="btn btn-secondary" data-toggle="modal" data-target="#inactivar">Inactivar</button>
-                            <button class="btn btn-danger" data-toggle="modal" data-target="#eliminar">Eliminar</button>
-                            <button class="btn btn-warning" data-toggle="modal" data-target="#editar">Editar</button>
+                            <a href="index.php?paginasAdministradores=EditarProducto&id=<?php echo $stocks["idPRODUCTO"]?>" class="btn btn-warning"><i class="fas fa-pencil-alt"></i></a>
+                            <form method="post">
+                                <input type="hidden" value="<?php echo $stocks["idPRODUCTO"]?>" name="eliminarRegistro">
+                                <button type="submit" class="btn btn-danger my-1"><i class="fas fa-trash"></i></button>
+                                <?php
+                                $eliminar = new ControladorInventario();
+                                $eliminar -> ctrEliminarProducto();
+                                ?>
+                            </form>
+                            <div class="btn-group-vertical">
+                                <button class="btn btn-danger my-1">Inactivar</button>
+                            </div>   
                         </td>
                         </tr>
                 <?php endforeach ?>
@@ -59,24 +68,31 @@ $producto = ControladorInventario::ctrSeleccionarProductosStock(null, null);
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="#" method="post">
+                    <form action="#" method="post" class="needs-validation" novalidate>
                         <div class="form-group">
                             <label>Nombre del producto</label>
                             <input type="text" id="validationTooltip03" required name="nombrePRODUCTO" class="form-control" placeholder="Ingrese Nombre del producto">
+                            <div class="valid-feedback">Valido</div>
+                            <div class="invalid-feedback">El campo no puede quedar vacio.</div>
                         </div>
                         <div class="form-group">
                             <label>Descripción del producto</label>
                             <textarea type="text" name="descripcionPRODUCTO" required class="form-control" placeholder="Ingrese la descripción del producto"></textarea>
+                            <div class="valid-feedback">Valido</div>
+                            <div class="invalid-feedback">El campo no puede quedar vacio.</div>
                         </div>
 
                         <div class="form-group">
                             <label>Cantidad</label>
                             <input type="number" name="cantPRODUCTO" required class="form-control" id="validationTooltip01" required placeholder="Ingrese la cantidad del producto">
+                            <div class="valid-feedback">Valido</div>
+                            <div class="invalid-feedback">El campo no puede quedar vacio.</div>
                         </div>
-
                         <div class="form-group">
                             <label>Valor</label>
                             <input type="number" name="valoruPRODUCTO" required class="form-control" placeholder="Ingrese el valor unitario del producto">
+                            <div class="valid-feedback">Valido</div>
+                            <div class="invalid-feedback">El campo no puede quedar vacio.</div>
                         </div>   
                 </div>
                 <div class="modal-footer">
@@ -97,59 +113,6 @@ $producto = ControladorInventario::ctrSeleccionarProductosStock(null, null);
             </div>
         </div>
     </div>
-
-
-    <!--FORMULARIO DE EDITAR PRODUCTO-->
-
-    <div class="modal fade " id="editar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Editar producto</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form action="#" method="post">
-                        <div class="form-group">
-                            <label>Nombre del producto</label>
-                            <input type="text" id="validationTooltip03" required name="nombrePRODUCTO" class="form-control" placeholder="Ingrese Nombre del producto" value="<?php?>">
-                        </div>
-                        <div class="form-group">
-                            <label>Descripción del producto</label>
-                            <textarea type="text" name="descripcionPRODUCTO" required class="form-control" placeholder="Ingrese la descripción del producto"></textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Cantidad</label>
-                            <input type="number" name="cantPRODUCTO" required class="form-control" id="validationTooltip01" required placeholder="Ingrese la cantidad del producto">
-                        </div>
-
-                        <div class="form-group">
-                            <label>Valor</label>
-                            <input type="number" name="valoruPRODUCTO" required class="form-control" placeholder="Ingrese el valor unitario del producto">
-                        </div>   
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-danger">Agregar</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                </div>
-                <?php
-                $registro = ControladorInventario::ctrCrearProducto($_POST);
-                if ($registro == "ok") {
-                    echo '<script>
-                    setTimeout(function(){
-                        window.location = "index.php?paginasAdministradores=GestionInventario"
-                    },1000)
-                    </script>';
-                }
-                ?>
-                </form>
-            </div>
-        </div>
-    </div>
-    <aside id="blanco-h" class="col-lg-2"></aside>
 </section>
 
 <!------Espacio en blanco inferior------>

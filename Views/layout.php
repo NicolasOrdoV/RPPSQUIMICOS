@@ -21,7 +21,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <!--LINKS DE ACCESO A BOOTSTRAP SIN INTERNET-->
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" type="text/css" href="Assets/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" type="text/css" href="Assets/css/bootstrap.min.css">-->
 </head>
 
 <body>
@@ -198,7 +198,8 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                         $_GET["paginasAdministradores"] == "ConsultarAdmin" ||
                         $_GET["paginasAdministradores"] == "ConsultarUnAdmin" ||
                         $_GET["paginasAdministradores"] == "GestionInventario" ||
-                        $_GET["paginasAdministradores"] == "RestauraContrasenaAd"
+                        $_GET["paginasAdministradores"] == "RestauraContrasenaAd" ||
+                        $_GET["paginasAdministradores"] == "EditarProducto"
                     ) {
 
                         include "Views/paginasAdministradores/" . $_GET["paginasAdministradores"] . ".php";
@@ -238,11 +239,11 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
 
 
     <!-- jQuery library -->
-    <script type="text/javascript" src="Assets/js/jquery.min.js"></script>
+    <!--<script type="text/javascript" src="Assets/js/jquery.min.js"></script>-->
     <!-- Popper JS -->
-    <script type="text/javascript" src="Assets/js/popper.min.js"></script>
+    <!--<script type="text/javascript" src="Assets/js/popper.min.js"></script>-->
     <!-- Latest compiled JavaScript -->
-    <script type="text/javascript" src="Assets/js/bootstrap.min.js"></script>
+    <!--<script type="text/javascript" src="Assets/js/bootstrap.min.js"></script>-->
 
     <!-- Script para deslizar y desplazar pantalla al menu -->
     <script type="text/javascript">

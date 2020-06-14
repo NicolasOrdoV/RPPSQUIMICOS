@@ -44,4 +44,50 @@ class ModeloInventario
 			echo $e->getMessage();
 		}
 	}
+
+	static public function mdlActualizarProducto($tabla, $datos)
+	{
+		try {
+			$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET nombrePRODUCTO =:nombrePRODUCTO,descripcionPRODUCTO = :descripcionPRODUCTO,cantPRODUCTO =:cantPRODUCTO, valoruPRODUCTO = :valoruPRODUCTO WHERE idPRODUCTO = :idPRODUCTO");
+
+			$stmt->bindParam(":nombrePRODUCTO", $datos["nombrePRODUCTO"], PDO::PARAM_STR);
+			$stmt->bindParam(":descripcionPRODUCTO", $datos["descripcionPRODUCTO"], PDO::PARAM_STR);
+			$stmt->bindParam(":cantPRODUCTO", $datos["cantPRODUCTO"], PDO::PARAM_INT);
+			$stmt->bindParam(":valoruPRODUCTO", $datos["valoruPRODUCTO"], PDO::PARAM_INT);
+			$stmt->bindParam(":idPRODUCTO",$datos["idPRODUCTO"],PDO::PARAM_INT);
+			
+			if ($stmt->execute()) {
+				return "ok";
+			}else{
+				print_r(Conexion::conectar()->errorInfo());
+			}
+			$stmt->close();
+			$stmt = null;
+		} catch (PDOException $e) {
+			echo $e->getMessage();
+		}
+	}
+
+	static public function mdlEliminarProducto($tabla,$valor){
+
+        try {
+            $stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE idPRODUCTO = :idPRODUCTO");
+
+            $stmt->bindParam(":idPRODUCTO",$valor,PDO::PARAM_INT);
+
+            if($stmt->execute()){
+
+                return "ok";
+
+            }else{
+                print_r(Conexion::conectar()->errorInfo());
+            }
+
+            $stmt->close();
+            $stmt= null;
+        } catch (PDOException $e) {
+            echo $e->getMessage(); 
+        }
+    }
+
 }
