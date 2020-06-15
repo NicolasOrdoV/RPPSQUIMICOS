@@ -1,29 +1,4 @@
-<?php 
-$aCarrito = array();
-$sHTML = '';
-$fPrecioTotal = 0;            
 
-if(isset($_GET['vaciar'])) {
-    unset($_COOKIE['carrito']);
-}
-if(isset($_COOKIE['carrito'])) {
-    $aCarrito = unserialize($_COOKIE['carrito']);
-}
-if(isset($_GET['nombreP']) && isset($_GET['descripcionP']) && isset($_GET['valoruP']) && isset($_GET['x'])) {
-    $iUltimaPos = count($aCarrito);
-    $aCarrito[$iUltimaPos]['nombreP'] = $_GET['nombreP'];
-    $aCarrito[$iUltimaPos]['descripcionP'] = $_GET['descripcionP'];
-    $aCarrito[$iUltimaPos]['valoruP'] = $_GET['nombre'];
-    $aCarrito[$iUltimaPos]['x'] = $_GET['x'];
-}
-$iTemCad = time() + (60 * 60);
-setcookie('carrito', serialize($aCarrito), $iTemCad);
-
-foreach ($aCarrito as $key => $value) {
-    $sHTML .= '-> ' . $value['nombreP'] . ' ' . $value['descripcionP'] . $value['valoruP'] . $value['cantP'] . $value['x'];
-    $fPrecioTotal += $value[''];
-}
-?>
 <section class="row py-5">
     <article class="container">
         <h2>Mi Carrito</h2>
@@ -40,12 +15,32 @@ foreach ($aCarrito as $key => $value) {
                 </tr>
             </thead>
             <tbody>
-                
+            <?php
+                if(isset($_COOKIE['carrito'])) {
+                    $aCarrito = unserialize($_COOKIE['carrito']);
+                }
+                if(isset($_POST['nombreProd']) && isset($_POST['descripcionProd']) && isset($_POST['valoruProd']) && isset($_POST['b'])) {
+                    $iUltimaPos = count($aCarrito);
+                    $aCarrito[$iUltimaPos]['nombreProd'] = $_POST['nombreProd'];
+                    $aCarrito[$iUltimaPos]['descripcionProd'] = $_POST['descripcionProd'];
+                    $aCarrito[$iUltimaPos]['valoruProd'] = $_POST['valoruProd'];
+                    $aCarrito[$iUltimaPos]['b'] = $_POST['b'];
+                }
+                $iTemCad = time() + (60 * 60);
+                setcookie('carrito', serialize($aCarrito), $iTemCad);
 
-                <tr><td><?php echo $sHTML; ?></td></tr>
+                foreach ($aCarrito as $key => $value) {
+                    $sHTML .= '-> ' . $value['nombreP'] . ' ' . $value['descripcionP'] . $value['valoruP'] .  $value['x'];
+                    $fPrecioTotal += $value[''];
+                }
+                var_dump($_POST['nombreP'])
+            ?>
+
+                <tr><td><?php// echo $sHTML; ?></td></tr>
             </tbody>
         </table>
-        <h2 class="text-right">Total: <h2 Class="text-right" style="color: red"><?php echo $fPrecioTotal; ?></h2></h2>
+        
+        <h2 class="text-right">Total: <h2 Class="text-right" style="color: red"><?php //echo $fPrecioTotal; ?></h2></h2>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">Email</span>
