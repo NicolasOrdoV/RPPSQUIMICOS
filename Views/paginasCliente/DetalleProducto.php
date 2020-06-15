@@ -11,7 +11,7 @@ if (isset($_GET["id"])) {
     	<img src="Assets/img/Varsol.jpg" class="img-fluid rounded border border-ligth b">
     </div>
     <aside class="col-lg-2"></aside>
-    <form  id="form" class="col-lg-4 border border-dark" method="post" action="index.php?paginasCliente=RegistroPedido" oninput="x.value=parseInt(a.value)">
+    <form  id="form" class="col-lg-4 border border-dark" method="post" action="index.php?paginasCliente=CarritoPedido" oninput="x.value=parseInt(a.value)">
     	<h1><?php echo $stock["nombrePRODUCTO"]?></h1>
     	<p class="mb"><?php echo $stock["descripcionPRODUCTO"]?></p>
     	<h1 class="mb-5">$<?php echo $stock["valoruPRODUCTO"]?></h1>

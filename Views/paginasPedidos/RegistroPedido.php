@@ -1,6 +1,7 @@
 <?php
 
 $producto = ControladorProductos::ctrSeleccionarProductos();
+$barrio = ControladorBarrios::ctrSeleccionarBarrios();
 
 ?>
 <section class="row py-3">
@@ -11,10 +12,9 @@ $producto = ControladorProductos::ctrSeleccionarProductos();
     <div class="form-group">
       <input list="products" class="form-control rounded-pill" id="txt" name="registroProductos" placeholder="En este buscador selecciona el barrio de residencia*" required>
       <datalist id="products">
-        <?php foreach ($producto as $key => $value) : ?>
-          <option><?php echo $value["idPRODUCTO"] . ". ";
-                  echo $value["nombrePRODUCTO"] . "-";
-                  echo $value["valoruPRODUCTO"] ?></option>
+        <?php foreach ($barrio as $key => $value) : ?>
+          <option><?php echo $value["idBARRIO"] . ". ";
+                  echo $value["nombreBARRIO"] ?></option>
         <?php endforeach ?>
       </datalist>
       <div class="valid-feedback">Valido</div>
