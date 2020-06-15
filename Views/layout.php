@@ -7,8 +7,8 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
 <!DOCTYPE html>
 <html lang="es-Us">
 <head>
-    <!--<meta charset="UTF-8">-->
-    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RPPS Quimícos</title>
     <link rel="icon" href="Assets/img/Logo.ico">
     <!--Hoja auxiliar para adaptacion del proyecto-->

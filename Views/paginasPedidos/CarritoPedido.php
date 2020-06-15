@@ -21,7 +21,7 @@ setcookie('carrito', serialize($aCarrito), $iTemCad);
 
 foreach ($aCarrito as $key => $value) {
     $sHTML .= '-> ' . $value['nombreP'] . ' ' . $value['descripcionP'] . $value['valoruP'] . $value['cantP'] . $value['x'];
-    $fPrecioTotal += $value['valoruP'];
+    $fPrecioTotal += $value[''];
 }
 ?>
 <section class="row py-5">
