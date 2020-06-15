@@ -11,11 +11,11 @@ if (isset($_GET["id"])) {
     	<img src="Assets/img/Varsol.jpg" class="img-fluid rounded border border-ligth b">
     </div>
     <aside class="col-lg-2"></aside>
-    <form  id="form" class="col-lg-4 border border-dark" method="post" action="index.php?paginasCliente=CarritoPedido" oninput="x.value=parseInt(a.value)">
-    	<h1><?php echo $stock["nombrePRODUCTO"]?></h1>
-    	<p class="mb"><?php echo $stock["descripcionPRODUCTO"]?></p>
-    	<h1 class="mb-5">$<?php echo $stock["valoruPRODUCTO"]?></h1>
-        <h4 class="mb">Cantidad existente: <?php echo $stock["cantPRODUCTO"]?></h4>
+    <form  id="form" class="col-lg-4 border border-dark" method="post" action="index.php?paginasPedidos=CarritoPedido" oninput="x.value=parseInt(a.value)">
+    	<h1 name="nombreP"><?php echo $stock["nombrePRODUCTO"]?></h1>
+    	<p class="mb" name="descripcionP"><?php echo $stock["descripcionPRODUCTO"]?></p>
+    	<h1 class="mb-5"name="valoruP">$<?php echo $stock["valoruPRODUCTO"]?></h1>
+        <h4 class="mb" name="cantP">Cantidad existente: <?php echo $stock["cantPRODUCTO"]?></h4>
     	<p class="mb-5">Unidades: 1 
           <input type="range" id="a" name="a" value="0">
           100
