@@ -63,7 +63,15 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                     <a href="?paginasCliente=ConsultaCliente" class="list-group-item list-group-item-action text-danger" id="flush">Lista de clientes
                         <i class="fas fa-users"></i>
                     </a>
+<<<<<<< HEAD
+                    <a href="?paginasMp=ConsultaMP" class="list-group-item list-group-item-action text-danger" id="flush">Lista de Materia Prima <i class="fas fa-flask"></i></a>
+                    <a href="?paginasProduc=ConsultaProduc" class="list-group-item list-group-item-action text-danger" id="flush">Lista de Productos <i class="fas fa-wine-bottle"></i></a>
+                    <a href="?paginasIngresoMp=ConsultaIMP&id=<?php echo $user["idEMPLEADO"] ?>" class="list-group-item list-group-item-action text-danger" id="flush">Lista de ingresos <i class="fas fa-clipboard-list"></i></a>
+                    <a href="index.php?paginasAdministradores=GestionInventario" class="list-group-item list-group-item-action" id="flush">Gestion de inventario
+                        <i class="fas fa-boxes"></i>
+=======
                     <a href="index.php?paginasAdministradores=GestionInventario" class="list-group-item list-group-item-action" id="flush">Gestion de inventario<i class="fas fa-boxes"></i>
+>>>>>>> 6e234acd12c18e1ab5541b0dff18516a7eb25a33
                     </a>
                     <a href="index.php?paginasAdministradores=ConsultarUnAdmin&id=<?php echo $user["idEMPLEADO"] ?>" class="list-group-item list-group-item-action text-bold" id="flush">
                         <img src="Assets/img/Perfil.jpg" class="img-fluide" width="30" height="30">Mi cuenta
@@ -76,6 +84,13 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                     <a href="?paginasCliente=ConsultaCliente" class="list-group-item list-group-item-action text-danger" id="flush">Lista de clientes
                         <i class="fas fa-users"></i>
                     </a>
+<<<<<<< HEAD
+                    <a href="?paginasMp=ConsultaMP" class="list-group-item list-group-item-action text-danger" id="flush">Lista de Materia Prima <i class="fas fa-flask"></i></a>
+                    <a href="?paginasProduc=ConsultaProduc" class="list-group-item list-group-item-action text-danger" id="flush">Lista de Productos <i class="fas fa-wine-bottle"></i></a>
+                    <a href="?paginasIngresoMp=ConsultaIMP" class="list-group-item list-group-item-action text-danger" id="flush">Lista de ingresos <i class="fas fa-clipboard-list"></i></a>
+
+=======
+>>>>>>> 6e234acd12c18e1ab5541b0dff18516a7eb25a33
                     <a href="index.php?paginasAdministradores=ConsultarUnAdmin&id=<?php echo $user["idEMPLEADO"] ?>" class="list-group-item list-group-item-action text-bold" id="flush">
                         <img src="Assets/img/Perfil.jpg" class="img-fluide" width="30" height="30">Mi cuenta
                     </a>
@@ -199,6 +214,27 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                     } else {
                         include "Views/error404.php";
                     }
+                }elseif (isset($_GET["paginasIngresoMp"])) {
+                    if ($_GET["paginasIngresoMp"] == "ConsultaIMP" ){
+
+                        include "Views/paginasIngresoMp/" . $_GET["paginasIngresoMp"] . ".php";
+                    }else{
+                        include "Views/error404.php";
+                    }
+                }elseif (isset($_GET["paginasMp"])) {
+                    if ($_GET["paginasMp"] == "ConsultaMP" || $_GET["paginasMp"]=="RegistroMP"){
+
+                        include "Views/paginasMp/" . $_GET["paginasMp"] . ".php";
+                    }else{
+                        include "Views/error404.php";
+                    }
+                }elseif (isset($_GET["paginasProduc"])) {
+                    if ($_GET["paginasProduc"] == "ConsultaProduc" || $_GET["paginasProduc"]=="RegistroProduc" || $_GET["paginasProduc"]=="NuevoProd"){
+
+                        include "Views/paginasProduc/" . $_GET["paginasProduc"] . ".php";
+                    }else{
+                        include "Views/error404.php";
+                    }
                 } elseif (isset($_GET["paginasPedidos"])) {
                     if (
                         $_GET["paginasPedidos"] == "RegistroPedido" ||
@@ -249,5 +285,8 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
     <script type="text/javascript" src="Assets/js/search.js"></script>
     <!-- Script para mostrar u ocultar la contraseña cuando se digita -->
     <script type="text/javascript" src="Assets/js/eye.js"></script>
+
+
+    <script type="text/javascript" src="Assets/js/imp.js"></script>
 </body>
 </html>
