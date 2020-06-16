@@ -1,6 +1,6 @@
 <?php 
 
-$producto = ControladorInventario::ctrSeleccionarProductosStock(null,null);
+$producto = ControladorInventario::ctrSeleccionarProductosUsuario(null,null);
 
 ?>
 <!--------------Espacio en blanco superior---->

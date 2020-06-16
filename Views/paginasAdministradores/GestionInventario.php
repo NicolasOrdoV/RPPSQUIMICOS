@@ -1,4 +1,14 @@
 <?php
+if(!isset($_SESSION["validarIngreso"])){
+    
+    echo '<script> window.location = "?paginasUsuario=InicioSesion";</script>';
+    return;  
+}else{
+    if($_SESSION["validarIngreso"] != "ok"){
+        echo '<script> window.location = "?paginasUsuario=InicioSesion";</script>';
+        return;
+    }
+}
 $producto = ControladorInventario::ctrSeleccionarProductosStock(null, null);
 ?>
 <!--------------Espacio en blanco superior---->
@@ -23,7 +33,7 @@ $producto = ControladorInventario::ctrSeleccionarProductosStock(null, null);
                     <th>Cantidad</th>
                     <th>Estado</th>
                     <th>Precio</th>
-                    <th>Cambiar estado</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody id="myTable">
@@ -37,7 +47,42 @@ $producto = ControladorInventario::ctrSeleccionarProductosStock(null, null);
                         <td><?php echo $stocks["estadoPRODUCTO"] ?></td>
                         <td>$<?php echo $stocks["valoruPRODUCTO"] ?></td>
                         <td>
-                            <button class="btn btn-danger">Agotado</button>
+                            <a href="index.php?paginasAdministradores=EditarProducto&id=<?php echo $stocks["idPRODUCTO"]?>" class="btn btn-warning"><i class="fas fa-pencil-alt"></i></a>
+                            <form method="post">
+                                <input type="hidden" value="<?php echo $stocks["idPRODUCTO"]?>" name="eliminarRegistro">
+                                <button type="submit" class="btn btn-danger my-1"><i class="fas fa-trash"></i></button>
+                                <?php
+                                $eliminar = new ControladorInventario();
+                                $eliminar -> ctrEliminarProducto();
+                                ?>
+                            </form>
+                            
+                        <div class="btn-group-vertical">
+                            <?php if($stocks["estadoPRODUCTO"] == "Inactivo") :?>
+                            <form method="post">
+                                <input type ="hidden" value ="<?php echo $stocks["idPRODUCTO"];?>" name="activarRegistro">
+                            <button class="btn btn-primary" id="habilitar">Activar</button>
+
+                            <?php
+
+                            $activar = new ControladorInventario();
+                            $activar ->ctrActivarRegistroInventario();
+
+                            ?>
+                            </form>
+                            <?php elseif($stocks["estadoPRODUCTO"] == "Activo"):?>
+                            <form method="post">
+                                <input type ="hidden" value ="<?php echo $stocks["idPRODUCTO"];?>" name="inactivarRegistro">
+                            <button class="btn btn-danger" id="deshabilitar">Inactivar</button>
+
+                            <?php
+
+                            $inactivar = new ControladorInventario();
+                            $inactivar ->ctrInactivarRegistroInventario();
+
+                            ?>
+                            </form>
+                        <?php endif ?> 
                         </td>
                         </tr>
                 <?php endforeach ?>
@@ -57,24 +102,31 @@ $producto = ControladorInventario::ctrSeleccionarProductosStock(null, null);
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="#" method="post">
+                    <form action="#" method="post" class="needs-validation" novalidate>
                         <div class="form-group">
                             <label>Nombre del producto</label>
                             <input type="text" id="validationTooltip03" required name="nombrePRODUCTO" class="form-control" placeholder="Ingrese Nombre del producto">
+                            <div class="valid-feedback">Valido</div>
+                            <div class="invalid-feedback">El campo no puede quedar vacio.</div>
                         </div>
                         <div class="form-group">
                             <label>Descripción del producto</label>
                             <textarea type="text" name="descripcionPRODUCTO" required class="form-control" placeholder="Ingrese la descripción del producto"></textarea>
+                            <div class="valid-feedback">Valido</div>
+                            <div class="invalid-feedback">El campo no puede quedar vacio.</div>
                         </div>
 
                         <div class="form-group">
                             <label>Cantidad</label>
                             <input type="number" name="cantPRODUCTO" required class="form-control" id="validationTooltip01" required placeholder="Ingrese la cantidad del producto">
+                            <div class="valid-feedback">Valido</div>
+                            <div class="invalid-feedback">El campo no puede quedar vacio.</div>
                         </div>
-
                         <div class="form-group">
                             <label>Valor</label>
                             <input type="number" name="valoruPRODUCTO" required class="form-control" placeholder="Ingrese el valor unitario del producto">
+                            <div class="valid-feedback">Valido</div>
+                            <div class="invalid-feedback">El campo no puede quedar vacio.</div>
                         </div>   
                 </div>
                 <div class="modal-footer">
@@ -95,7 +147,6 @@ $producto = ControladorInventario::ctrSeleccionarProductosStock(null, null);
             </div>
         </div>
     </div>
-    <aside id="blanco-h" class="col-lg-2"></aside>
 </section>
 
 <!------Espacio en blanco inferior------>

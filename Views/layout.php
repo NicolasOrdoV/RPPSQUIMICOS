@@ -1,13 +1,11 @@
 <?php
-error_reporting(0);
+//error_reporting(0);
 session_start();
 $user = $_SESSION["user"];
 $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
 ?>
-
 <!DOCTYPE html>
 <html lang="es-Us">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,15 +13,13 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
     <link rel="icon" href="Assets/img/Logo.ico">
     <!--Hoja auxiliar para adaptacion del proyecto-->
     <link rel="StyleSheet" href="Assets/css/style.css">
-
     <!--LINKS DE ACCESO A BOOTSTRAP CON INTERNET-->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <!--LINKS DE ACCESO A BOOTSTRAP SIN INTERNET-->
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" type="text/css" href="Assets/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" type="text/css" href="Assets/css/bootstrap.min.css">-->
 </head>
-
 <body>
     <header class="d-flex toggled" id="wrapper">
         <!-- Menu vertical deslizable-->
@@ -67,34 +63,40 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                     <a href="?paginasCliente=ConsultaCliente" class="list-group-item list-group-item-action text-danger" id="flush">Lista de clientes
                         <i class="fas fa-users"></i>
                     </a>
+<<<<<<< HEAD
                     <a href="?paginasMp=ConsultaMP" class="list-group-item list-group-item-action text-danger" id="flush">Lista de Materia Prima <i class="fas fa-flask"></i></a>
                     <a href="?paginasProduc=ConsultaProduc" class="list-group-item list-group-item-action text-danger" id="flush">Lista de Productos <i class="fas fa-wine-bottle"></i></a>
                     <a href="?paginasIngresoMp=ConsultaIMP&id=<?php echo $user["idEMPLEADO"] ?>" class="list-group-item list-group-item-action text-danger" id="flush">Lista de ingresos <i class="fas fa-clipboard-list"></i></a>
                     <a href="index.php?paginasAdministradores=GestionInventario" class="list-group-item list-group-item-action" id="flush">Gestion de inventario
                         <i class="fas fa-boxes"></i>
+=======
+                    <a href="index.php?paginasAdministradores=GestionInventario" class="list-group-item list-group-item-action" id="flush">Gestion de inventario<i class="fas fa-boxes"></i>
+>>>>>>> 6e234acd12c18e1ab5541b0dff18516a7eb25a33
                     </a>
                     <a href="index.php?paginasAdministradores=ConsultarUnAdmin&id=<?php echo $user["idEMPLEADO"] ?>" class="list-group-item list-group-item-action text-bold" id="flush">
                         <img src="Assets/img/Perfil.jpg" class="img-fluide" width="30" height="30">Mi cuenta
                     </a>
                 <?php elseif ($user["idROL_FK"] == 3) : ?>
-                    <a href="index.php?paginasAdministradores=ConsultarAdmin" class="list-group-item list-group-item-action" id="flush">Gestionar Administradores
-                        <i class="fas fa-user-astronaut"></i>
+                    <a href="index.php?paginasAdministradores=ConsultarAdmin" class="list-group-item list-group-item-action" id="flush">Gestionar Administradores<i class="fas fa-user-astronaut"></i>
+                    </a>
+                    <a href="index.php?paginasAdministradores=GestionInventario" class="list-group-item list-group-item-action" id="flush">Gestion de inventario<i class="fas fa-boxes"></i>
                     </a>
                     <a href="?paginasCliente=ConsultaCliente" class="list-group-item list-group-item-action text-danger" id="flush">Lista de clientes
                         <i class="fas fa-users"></i>
                     </a>
+<<<<<<< HEAD
                     <a href="?paginasMp=ConsultaMP" class="list-group-item list-group-item-action text-danger" id="flush">Lista de Materia Prima <i class="fas fa-flask"></i></a>
                     <a href="?paginasProduc=ConsultaProduc" class="list-group-item list-group-item-action text-danger" id="flush">Lista de Productos <i class="fas fa-wine-bottle"></i></a>
                     <a href="?paginasIngresoMp=ConsultaIMP" class="list-group-item list-group-item-action text-danger" id="flush">Lista de ingresos <i class="fas fa-clipboard-list"></i></a>
 
+=======
+>>>>>>> 6e234acd12c18e1ab5541b0dff18516a7eb25a33
                     <a href="index.php?paginasAdministradores=ConsultarUnAdmin&id=<?php echo $user["idEMPLEADO"] ?>" class="list-group-item list-group-item-action text-bold" id="flush">
                         <img src="Assets/img/Perfil.jpg" class="img-fluide" width="30" height="30">Mi cuenta
                     </a>
                 <?php endif ?>
             </div>
         </nav>
-
-
         <!-- barra de navegacion horizontal -->
         <nav id="page-content-wrapper">
             <!------Barra de navegacion horizontal con boton de activacion al menu deslizable----->
@@ -114,8 +116,11 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                         <li class="nav-brand col-lg-7">
                             <i class="fas fa-search"></i><input type="text" id="bqd" placeholder="¿Qué estás buscando?">
                         </li>
-                        <li id="op1" class="nav-item col"><a href="index.php?paginasPedidos=CarritoVacio" id="nab">Ir al carrito<i class="fas fa-cart-plus"></i></a></li>
                         <?php if ($user == "") : ?>
+                            <li id="op1" class="nav-item col">
+                                <a href="index.php?paginasPedidos=CarritoVacio" id="nab">Ir al carrito<i class="fas fa-cart-plus"></i>
+                                </a>
+                            </li>
                             <li id="op1" class="nav-item col">
                                 <a href="index.php?paginasUsuario=InicioSesion" id="nab">Ingresar<i class="fas fa-door-open"></i></a>
                             </li>
@@ -123,6 +128,10 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                                 <a href="index.php?paginasCliente=RegistroCliente" id="nab">Registrarse<i class="fas fa-user-plus"></i></a>
                             </li>
                         <?php elseif ($user["idROL_FK"] == 1) : ?>
+                            <li id="op1" class="nav-item col">
+                                <a href="index.php?paginasPedidos=CarritoVacio" id="nab">Ir al carrito<i class="fas fa-cart-plus"></i>
+                                </a>
+                            </li>
                             <li id="op1" class="nav-item col">
                                 <a href="#" id="nab">
                                     <img src="Assets/img/Perfil.jpg" width="30" height="30"><?php echo $user["nombrecontEC"]; ?>
@@ -148,7 +157,6 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                     </ul>
                 </div>
             </nav>
-
             <main class="container-fluid">
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -169,7 +177,6 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                     </div>
                 </div>
                 <?php
-
                 if (isset($_GET["paginasCliente"])) {
                     if (
                         $_GET["paginasCliente"] == "RegistroCliente" ||
@@ -179,14 +186,11 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                         $_GET["paginasCliente"] == "RegistroPedido" ||
                         $_GET["paginasCliente"] == "CarritoVacio"
                     ) {
-
                         include "Views/paginasCliente/" . $_GET["paginasCliente"] . ".php";
                     } else {
-
                         include "Views/error404.php";
                     }
                 } elseif (isset($_GET["paginasUsuario"])) {
-
                     if (
                         $_GET["paginasUsuario"] == "InicioSesion" ||
                         $_GET["paginasUsuario"] == "RegistrarUsuario" ||
@@ -194,7 +198,6 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                         $_GET["paginasUsuario"] == "RecuperarContrasena" ||
                         $_GET["paginasUsuario"] == "RestauraContrasenaUs"
                     ) {
-
                         include "Views/paginasUsuario/" . $_GET["paginasUsuario"] . ".php";
                     } else {
                         include "Views/error404.php";
@@ -204,9 +207,9 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                         $_GET["paginasAdministradores"] == "ConsultarAdmin" ||
                         $_GET["paginasAdministradores"] == "ConsultarUnAdmin" ||
                         $_GET["paginasAdministradores"] == "GestionInventario" ||
-                        $_GET["paginasAdministradores"] == "RestauraContrasenaAd"
+                        $_GET["paginasAdministradores"] == "RestauraContrasenaAd" ||
+                        $_GET["paginasAdministradores"] == "EditarProducto"
                     ) {
-
                         include "Views/paginasAdministradores/" . $_GET["paginasAdministradores"] . ".php";
                     } else {
                         include "Views/error404.php";
@@ -235,9 +238,9 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                 } elseif (isset($_GET["paginasPedidos"])) {
                     if (
                         $_GET["paginasPedidos"] == "RegistroPedido" ||
-                        $_GET["paginasPedidos"] == "CarritoVacio"
+                        $_GET["paginasPedidos"] == "CarritoVacio" ||
+                        $_GET["paginasPedidos"] == "CarritoPedido"
                     ) {
-
                         include "Views/paginasPedidos/" . $_GET["paginasPedidos"] . ".php";
                     } else {
                         include "Views/error404.php";
@@ -253,7 +256,6 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
         <div id="footer" class="col-lg-12">©Copyright: GAROWARE SOFTWARE<br>
             DERECHOS RESERVADOS 2020</div>
     </footer>
-
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- Popper JS -->
@@ -262,14 +264,12 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     
     <script src="https://kit.fontawesome.com/0e7adc6a46.js" crossorigin="anonymous"></script>
-
-
     <!-- jQuery library -->
-    <script type="text/javascript" src="Assets/js/jquery.min.js"></script>
+    <!--<script type="text/javascript" src="Assets/js/jquery.min.js"></script>-->
     <!-- Popper JS -->
-    <script type="text/javascript" src="Assets/js/popper.min.js"></script>
+    <!--<script type="text/javascript" src="Assets/js/popper.min.js"></script>-->
     <!-- Latest compiled JavaScript -->
-    <script type="text/javascript" src="Assets/js/bootstrap.min.js"></script>
+    <!--<script type="text/javascript" src="Assets/js/bootstrap.min.js"></script>-->
 
     <!-- Script para deslizar y desplazar pantalla al menu -->
     <script type="text/javascript">
@@ -288,5 +288,4 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
 
     <script type="text/javascript" src="Assets/js/imp.js"></script>
 </body>
-
 </html>

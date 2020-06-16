@@ -1,6 +1,17 @@
 <?php
 require_once "Controlers/tools.php";
 
+if(!isset($_SESSION["validarIngreso"])){
+    
+    echo '<script> window.location = "?paginasUsuario=InicioSesion";</script>';
+    return;  
+}else{
+    if($_SESSION["validarIngreso"] != "ok"){
+        echo '<script> window.location = "?paginasUsuario=InicioSesion";</script>';
+        return;
+    }
+}
+
 $instancia = new tools();
 $codigo = $instancia->randomCode();
 
