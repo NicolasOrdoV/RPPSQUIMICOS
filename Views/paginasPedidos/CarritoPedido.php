@@ -16,6 +16,8 @@
             </thead>
             <tbody>
             <?php
+                $aCarrito = array();
+                $sHTML = '';
                 if(isset($_COOKIE['carrito'])) {
                     $aCarrito = unserialize($_COOKIE['carrito']);
                 }
@@ -30,10 +32,10 @@
                 setcookie('carrito', serialize($aCarrito), $iTemCad);
 
                 foreach ($aCarrito as $key => $value) {
-                    $sHTML .= '-> ' . $value['nombreP'] . ' ' . $value['descripcionP'] . $value['valoruP'] .  $value['x'];
+                    $sHTML .= '-> ' . $value['nombreProd'] . ' ' . $value['descripcionProd'] . $value['valoruProd'] .  $value['x'];
                     $fPrecioTotal += $value[''];
                 }
-                var_dump($_POST['nombreP'])
+                
             ?>
 
                 <tr><td><?php// echo $sHTML; ?></td></tr>

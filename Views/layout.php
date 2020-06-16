@@ -203,7 +203,8 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                     if (
                         $_GET["paginasPedidos"] == "RegistroPedido" ||
                         $_GET["paginasPedidos"] == "CarritoVacio" ||
-                        $_GET["paginasPedidos"] == "CarritoPedido"
+                        $_GET["paginasPedidos"] == "CarritoPedido" ||
+                        $_GET["paginasPedidos"] == "PedidoCompleto"
                     ) {
                         include "Views/paginasPedidos/" . $_GET["paginasPedidos"] . ".php";
                     } else {

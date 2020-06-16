@@ -24,4 +24,16 @@ class ModeloProductos{
             echo $e->getMessage();
         }
     }
+    static public function mdlSeleccionarValorU($tabla){
+
+        try {
+            $stmt = Conexion::conectar()->prepare("SELECT valoruPRODUCTO FROM $tabla");
+            $stmt->execute();
+            return $stmt -> fetchAll(); 
+            $stmt->close();
+            $stmt = null;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
 }
