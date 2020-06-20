@@ -8,7 +8,7 @@ if (isset($_GET["id"])) {
 <section class="row py-5">
 	<aside class="col-lg-1"></aside>
     <div class="col-lg-4">
-    	<img src="Assets/img/Varsol.jpg" class="img-fluid rounded border border-ligth b">
+    	<img src="../Assets/img/Productos/<?php echo $stocks["imgPRODUCTO"] ?>" class="img-fluid rounded border border-ligth b">
     </div>
     <aside class="col-lg-2"></aside>
     <form  id="form" class="col-lg-4 border border-dark" method="post" action="index.php?paginasPedidos=CarritoPedido" oninput="x.value=parseInt(a.value)">
