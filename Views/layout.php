@@ -67,19 +67,20 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                     <a href="?paginasMp=ConsultaMP" class="list-group-item list-group-item-action text-danger" id="flush">Lista de Materia Prima <i class="fas fa-flask"></i></a>
                     <a href="?paginasProduc=ConsultaProduc" class="list-group-item list-group-item-action text-danger" id="flush">Lista de Productos <i class="fas fa-wine-bottle"></i></a>
                     <a href="?paginasIngresoMp=ConsultaIMP&id=<?php echo $user["idEMPLEADO"] ?>" class="list-group-item list-group-item-action text-danger" id="flush">Lista de ingresos <i class="fas fa-clipboard-list"></i></a>
-                    <!--<a href="index.php?paginasAdministradores=GestionInventario" class="list-group-item list-group-item-action" id="flush">Gestion de inventario
+                    <a href="index.php?paginasAdministradores=GestionInventario" class="list-group-item list-group-item-action" id="flush">Gestion de inventario
                         <i class="fas fa-boxes"></i>
 =======
-                    
-                    </a>-->
+                    <a href="index.php?paginasAdministradores=GestionInventario" class="list-group-item list-group-item-action" id="flush">Gestion de inventario<i class="fas fa-boxes"></i>
+>>>>>>> 6e234acd12c18e1ab5541b0dff18516a7eb25a33
+                    </a>
                     <a href="index.php?paginasAdministradores=ConsultarUnAdmin&id=<?php echo $user["idEMPLEADO"] ?>" class="list-group-item list-group-item-action text-bold" id="flush">
                         <img src="Assets/img/Perfil.jpg" class="img-fluide" width="30" height="30">Mi cuenta
                     </a>
                 <?php elseif ($user["idROL_FK"] == 3) : ?>
                     <a href="index.php?paginasAdministradores=ConsultarAdmin" class="list-group-item list-group-item-action" id="flush">Gestionar Administradores<i class="fas fa-user-astronaut"></i>
                     </a>
-                    <!--<a href="index.php?paginasAdministradores=GestionInventario" class="list-group-item list-group-item-action" id="flush">Gestion de inventario<i class="fas fa-boxes"></i>
-                    </a>-->
+                    <a href="index.php?paginasAdministradores=GestionInventario" class="list-group-item list-group-item-action" id="flush">Gestion de inventario<i class="fas fa-boxes"></i>
+                    </a>
                     <a href="?paginasCliente=ConsultaCliente" class="list-group-item list-group-item-action text-danger" id="flush">Lista de clientes
                         <i class="fas fa-users"></i>
                     </a>
@@ -157,9 +158,6 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                 </div>
             </nav>
             <main class="container-fluid">
-
-
-
                 <!-- Modal Carrito-->
                 <div class="modal fade" id="carrito" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">
@@ -180,7 +178,6 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                     </div>
                   </div>
                 </div>
-
                 <!-- Modal Cierre sesion -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">

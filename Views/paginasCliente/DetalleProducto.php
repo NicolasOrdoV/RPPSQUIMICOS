@@ -12,6 +12,7 @@ if (isset($_GET["id"])) {
     </div>
     <aside class="col-lg-2"></aside>
     <form  id="form" class="col-lg-4 border border-dark" method="post" action="index.php?paginasPedidos=CarritoPedido" oninput="x.value=parseInt(a.value)">
+      <input type="hidden" value="<?php echo $item; ?>"
     	<h1 name="nombreProd" id="nombreProd"><?php echo $stock["nombrePRODUCTO"]?></h1>
     	<p class="mb" name="descripcionProd" id="descripcionProd"><?php echo $stock["descripcionPRODUCTO"]?></p>
     	<h1 class="mb-5"name="valoruProd" id="valoruProd">$<?php echo $stock["valoruPRODUCTO"]?></h1>
