@@ -9,6 +9,11 @@ $mps = MPController::consult(null, null);
 
 
 ?>
+<?php 
+if (isset($_POST['test'])) {
+    echo json_encode(['test'=>'Hola']);
+}
+?>
 <section class="row">
     <div id="blanco" class="col-lg-10">
         <h1 id="tlprin">Ingreso de Materia Prima</h1>

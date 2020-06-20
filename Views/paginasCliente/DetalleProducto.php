@@ -1,6 +1,6 @@
 <?php
 if (isset($_GET["id"])) {
-    $item = "idPRODUCTO";
+    $item  = "idPRODUCTO";
     $valor = $_GET["id"];
     $stock = ControladorInventario::ctrSeleccionarProductosStock($item,$valor);
 }
@@ -16,7 +16,7 @@ if (isset($_GET["id"])) {
     	<p class="mb" name="descripcionProd" id="descripcionProd"><?php echo $stock["descripcionPRODUCTO"]?></p>
     	<h1 class="mb-5"name="valoruProd" id="valoruProd">$<?php echo $stock["valoruPRODUCTO"]?></h1>
         <h4 class="mb" name="cantProd" id="cantProd">Cantidad existente: <?php echo $stock["cantPRODUCTO"]?></h4>
-    	<p class="mb-5">Unidades: 1 
+    	<p class="mb-5">Unidades: 1
           <input type="range" id="a" name="a" value="0">
           100
           <input type="number" id="b" name="x" for="a" value="1" class="form-control rounded-pill"></p>

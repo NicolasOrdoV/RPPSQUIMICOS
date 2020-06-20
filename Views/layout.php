@@ -1,5 +1,5 @@
 <?php
-//error_reporting(0);
+error_reporting(0);
 session_start();
 $user = $_SESSION["user"];
 $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
@@ -118,8 +118,8 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                         </li>
                         <?php if ($user == "") : ?>
                             <li id="op1" class="nav-item col">
-                                <a href="index.php?paginasPedidos=CarritoVacio" id="nab">Ir al carrito<i class="fas fa-cart-plus"></i>
-                                </a>
+                                <button data-toggle="modal" data-target="#carrito" class="btn btn-light">Ir al carrito<i class="fas fa-cart-plus"></i>
+                                </button>
                             </li>
                             <li id="op1" class="nav-item col">
                                 <a href="index.php?paginasUsuario=InicioSesion" id="nab">Ingresar<i class="fas fa-door-open"></i></a>
@@ -129,8 +129,8 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                             </li>
                         <?php elseif ($user["idROL_FK"] == 1) : ?>
                             <li id="op1" class="nav-item col">
-                                <a href="index.php?paginasPedidos=CarritoVacio" id="nab">Ir al carrito<i class="fas fa-cart-plus"></i>
-                                </a>
+                                <button data-toggle="modal" data-target="#carrito" class="btn btn-light">Ir al carrito<i class="fas fa-cart-plus"></i>
+                                </button>
                             </li>
                             <li id="op1" class="nav-item col">
                                 <a href="#" id="nab">
@@ -158,7 +158,31 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                 </div>
             </nav>
             <main class="container-fluid">
-                <!-- Modal -->
+
+
+
+                <!-- Modal Carrito-->
+                <div class="modal fade" id="carrito" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="labelCarrito">Carrito</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        ...
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-danger">Completar Pedido</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Modal Cierre sesion -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -263,7 +287,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    
+
     <script src="https://kit.fontawesome.com/0e7adc6a46.js" crossorigin="anonymous"></script>
     <!-- jQuery library -->
     <!--<script type="text/javascript" src="Assets/js/jquery.min.js"></script>-->

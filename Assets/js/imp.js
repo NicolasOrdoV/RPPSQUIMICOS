@@ -55,16 +55,19 @@ function removeElement(idMP) {
 
 
 function mandarDatos() {
-    let parametros = {
-        idEMPLE: $("#user").val(),
-        mps: arrayMP
+    
+    
+
+    let url = "../RPPSQUIMICOS/Views/paginasIngresoMP/ConsultaIMP.php"
+    let params = {
+        
+        test: 'test'
     }
-    console.log(parametros);
 
-    $.ajax({
-        data: parametros,
-        url: 'IMPController.php',
-        type: 'post'
-
+    //metodo post de ajax para el envio del formulario
+    $.post(url, params, function(response) {
+        console.log(response);
+    }, 'json').fail(function(error) {
+        alert("Error Insertando la Pelicula")
     });
 }

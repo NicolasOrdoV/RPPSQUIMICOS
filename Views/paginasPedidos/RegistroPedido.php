@@ -1,6 +1,5 @@
 <?php
 $producto = ControladorProductos::ctrSeleccionarProductos();
-$valoru = ControladorProductos::ctrSeleccionarValorU();
 ?>
 <section class="row py-3">
   <aside class="col-lg-3 py-5" id="fondo2"></aside>
