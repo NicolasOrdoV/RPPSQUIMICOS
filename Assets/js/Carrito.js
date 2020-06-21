@@ -67,7 +67,7 @@
                     <div class="col-md-2 ml-auto">$${i.valoruPRODUCTO}</div>
                     <div class="col-md-2 ml-auto">${i.cantidad}</div>
                     <div class="col-md-2 ml-auto"><strong><i>${i.cantidad * i.valoruPRODUCTO}</i></strong></div>
-                    <div class="col-md-2 ml-auto"><button class="btn btn-danger"><i class="fa fa-trash-o" id="deleteProducto" data-producto="${i.idPRODUCTO}"></i></button></div>
+                    <div class="col-md-2 ml-auto"><button class="btn btn-danger" id="deleteProducto" data-producto="${i.idPRODUCTO}"><i class="fa fa-trash-o" id="deleteProducto" data-producto="${i.idPRODUCTO}"></i></button></div>
                   </div>
                   <hr>
                    `;
@@ -98,5 +98,4 @@
             carrito.eliminarItem(ev.target.dataset.producto);
         }
     })
-
 })();

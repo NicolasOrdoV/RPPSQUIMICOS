@@ -12,7 +12,7 @@ if (isset($_GET["id"])) {
     	<img src="Assets/img/Productos/<?php echo $stock["imgPRODUCTO"] ?>" class="img-fluid rounded border border-ligth b">
     </div>
     <aside class="col-lg-2"></aside>
-    <form  id="form" class="col-lg-4 border border-dark" action="#" oninput="x.value=parseInt(a.value)">
+    <form  id="form" class="col-lg-4 border border-dark" action="index.php" oninput="x.value=parseInt(a.value)">
     <div id="productoDetallado">
       <input id="idProd" type="hidden" name="" value="">
     	<h1 name="nombreProd" id="nombreProd"><?php echo $stock["nombrePRODUCTO"]?></h1>
@@ -20,11 +20,11 @@ if (isset($_GET["id"])) {
     	<h1 class="mb-5"name="valoruProd" id="valoruProd">$<?php echo $stock["valoruPRODUCTO"]?></h1>
         <h4 class="mb" name="cantProd" id="cantProd">Cantidad existente: <?php echo $stock["cantPRODUCTO"]?></h4>
     	<p class="mb-5">Unidades: 1
-          <input type="range" id="a" name="a" value="0">
-          100
+          <input type="range" id="a" name="a" min="1" max="<?php echo $stock["cantPRODUCTO"]; ?>" value="1" step="2">
+          <?php echo $stock["cantPRODUCTO"] ?>
           <input type="number" id="b" name="x" for="a" value="1" class="form-control rounded-pill"></p>
-        <a href="index.php" class="btn btn-danger"> Volver al listado</a>
-        <button id="btn_carrito" class="btn btn-primary" data-producto="<?php echo $stock["idPRODUCTO"]; ?>">Añadir al carrito</button>
+        <a href="index.php" class="btn btn-danger">Volver a la tienda <i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+        <button id="btn_carrito" class="btn btn-primary" data-producto="<?php echo $stock["idPRODUCTO"]; ?>">Añadir al carrito <i class="fa fa-shopping-basket" aria-hidden="true"></i></button>
     </div>
     </form>
     <aside class="col-lg-1"></aside>
@@ -32,4 +32,3 @@ if (isset($_GET["id"])) {
 <script type="text/javascript">
   var consulta = <?php echo json_encode($consulta); ?>;
 </script>
-<!--<script src="Assets/js/CarritoP.js"></script>

@@ -317,6 +317,6 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
     <!-- Script para mostrar u ocultar la contraseña cuando se digita -->
     <script type="text/javascript" src="Assets/js/eye.js"></script>
     <script type="text/javascript" src="Assets/js/imp.js"></script>
-    <script src="Assets/js/CarritoP.js"></script>
+    <script src="Assets/js/Carrito.js"></script>
 </body>
 </html>
