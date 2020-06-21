@@ -154,7 +154,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="labelCarrito">Carrito<i class="fas fa-cart-plus"></i></h5>
+                        <h5 class="modal-title" id="labelCarrito">Carrito<i class="fa fa-shopping-basket" aria-hidden="true"></i></h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>

@@ -24,7 +24,7 @@ if (isset($_GET["id"])) {
           <?php echo $stock["cantPRODUCTO"] ?>
           <input type="number" id="b" name="x" for="a" value="1" class="form-control rounded-pill"></p>
         <a href="index.php" class="btn btn-danger">Volver a la tienda <i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
-        <button id="btn_carrito" class="btn btn-primary" data-producto="<?php echo $stock["idPRODUCTO"]; ?>">Añadir al carrito <i class="fa fa-shopping-basket" aria-hidden="true"></i></button>
+        <button id="btn_carrito" class="btn btn-primary" data-producto="<?php echo $stock["idPRODUCTO"]; ?>">Añadir al carrito <i class="fas fa-cart-plus"></i></button>
     </div>
     </form>
     <aside class="col-lg-1"></aside>
