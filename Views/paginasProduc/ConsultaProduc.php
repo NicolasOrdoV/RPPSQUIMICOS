@@ -1,7 +1,5 @@
 <?php
 $produc = ProdController::consult(null, null);
-
-
 ?>
 <section class="row">
     <div id="blanco" class="col-lg-12">
@@ -17,6 +15,7 @@ $produc = ProdController::consult(null, null);
             <thead class="thead-dark">
                 <tr>
                     <th>#</th>
+                    <th>Producto</th>
                     <th>Nombre</th>
                     <th>Descripción</th>
                     <th>Medida</th>
@@ -31,6 +30,9 @@ $produc = ProdController::consult(null, null);
                 foreach ($produc as $p) : ?>
                     <tr>
                         <td><?php echo $p["idPRODUCTO"] ?></td>
+                        <td>
+                            <img src="Assets/img/Productos/<?php echo $p["imgPRODUCTO"] ?>" class="img-fluid rounded border border-ligth b">
+                        </td>
                         <td><?php echo $p["nombrePRODUCTO"]; ?></td>
                         <td><?php echo $p["descripcionPRODUCTO"]; ?></td>
                         <td><?php echo $p["medidaPRODUCTO"]; ?></td>
@@ -44,8 +46,6 @@ $produc = ProdController::consult(null, null);
                                     <button class="btn btn-warning m-1" title="Editar"><i class="far fa-edit"></i></button>
 
                                 </form>
-
-
                                 <form method="post" class="text-left">
                                     <input type="hidden" value="<?php echo $p["idPRODUCTO"] ?>" name="eliminarRegistro">
                                     <button type="submit" class="btn btn-danger m-1" title="Eliminar">

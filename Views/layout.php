@@ -68,8 +68,6 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                     <a href="?paginasIngresoMp=ConsultaIMP&id=<?php echo $user["idEMPLEADO"] ?>" class="list-group-item list-group-item-action text-danger" id="flush">Lista de ingresos <i class="fas fa-clipboard-list"></i></a>
                     <a href="index.php?paginasAdministradores=GestionInventario" class="list-group-item list-group-item-action" id="flush">Gestion de inventario
                         <i class="fas fa-boxes"></i>
-                    <a href="index.php?paginasAdministradores=GestionInventario" class="list-group-item list-group-item-action" id="flush">Gestion de inventario<i class="fas fa-boxes"></i>
-                    </a>
                     <a href="index.php?paginasAdministradores=ConsultarUnAdmin&id=<?php echo $user["idEMPLEADO"] ?>" class="list-group-item list-group-item-action text-bold" id="flush">
                         <img src="Assets/img/Perfil.jpg" class="img-fluide" width="30" height="30">Mi cuenta
                     </a>

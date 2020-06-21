@@ -5,7 +5,7 @@
 
         static public function nuevoProducto($datos){
             try{
-                $stmt=Conexion::conectar()->prepare("INSERT INTO producto(imgPRODUCTO,nombrePRODUCTO,descripcionPRODUCTO,medidaPRODUCTO, cantPRODUCTO,valoruPRODUCTO,estadoPRODUCTO) VALUES (:imgPRODUCTO,:nombrePRODUCTO,:descripcionPRODUCTO,:medidaPRODUCTO,0,:valoruPRODUCTO,'AGOTADO')");
+                $stmt=Conexion::conectar()->prepare("INSERT INTO producto(imgPRODUCTO,nombrePRODUCTO,descripcionPRODUCTO,medidaPRODUCTO, cantPRODUCTO,valoruPRODUCTO,estadoPRODUCTO) VALUES (:imgPRODUCTO,:nombrePRODUCTO,:descripcionPRODUCTO,:medidaPRODUCTO,0,:valoruPRODUCTO,'Activo')");
 
                 $stmt->bindParam(":imgPRODUCTO",$datos["imgPROD"],PDO::PARAM_STR);
                 $stmt->bindParam(":nombrePRODUCTO",$datos["nombrePROD"],PDO::PARAM_STR);
