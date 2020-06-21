@@ -4,7 +4,7 @@
     /////////////////-------------------------------------////////////////////////
     /////////////////////////Productos////////////////////////////////////////////
     ////////////////--------------------------------------////////////////////////
-    ////////////////////////////////////////////////////////////////////////////// 
+    //////////////////////////////////////////////////////////////////////////////
 
 class ControladorProductos
 {
@@ -12,10 +12,5 @@ class ControladorProductos
     	$tabla = "producto";
     	$respuesta = ModeloProductos::mdlSeleccionarProductos($tabla);
     	return $respuesta;
-    }
-    static public function ctrSeleccionarValorU(){
-        $tabla = "producto";
-        $respuesta = ModeloProductos::mdlSeleccionarValorU($tabla);
-        return $respuesta;
     }
 }

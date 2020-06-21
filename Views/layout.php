@@ -156,23 +156,42 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="labelCarrito">Carrito</h5>
+                        <h5 class="modal-title" id="labelCarrito">Carrito<i class="fas fa-cart-plus"></i></h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
                       <div class="modal-body">
-                        ...
+                        <strong><div class="row">
+                          <div class="col-md-2 ml-auto">Producto</div>
+                          <div class="col-md-2 ml-auto">Nombre</div>
+                          <div class="col-md-2 ml-auto">Precio</div>
+                          <div class="col-md-2 ml-auto">Cantidad</div>
+                          <div class="col-md-2 ml-auto">Total</div>
+                          <div class="col-md-2 ml-auto">Retirar</div>
+                        </div></strong>
+                        <hr>
+                          <div id="productosCarrito">
+
+                          </div>
+                          <div class="columns">
+                            <div class="text-right">
+                                <h4 class="card-title">Total: </h4>
+                            </div>
+                            <div class="text-right">
+                                <h1 class="card-title" id="totalCarrito"><strong>$0</strong></1>
+                            </div>
+                        </div>
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-danger">Completar Pedido</button>
+                        <button type="button" class="btn btn-danger">Completar Pedido <i class="fas fa-cart-plus"></i></button>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <!-- Modal Cierre sesion--> 
+                <!-- Modal Cierre sesion-->
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -299,8 +318,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
     <script type="text/javascript" src="Assets/js/search.js"></script>
     <!-- Script para mostrar u ocultar la contraseña cuando se digita -->
     <script type="text/javascript" src="Assets/js/eye.js"></script>
-
-
     <script type="text/javascript" src="Assets/js/imp.js"></script>
+    <script src="Assets/js/CarritoP.js"></script>
 </body>
 </html>
