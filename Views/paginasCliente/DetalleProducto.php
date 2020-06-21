@@ -12,7 +12,7 @@ if (isset($_GET["id"])) {
     	<img src="Assets/img/Productos/<?php echo $stock["imgPRODUCTO"] ?>" class="img-fluid rounded border border-ligth b">
     </div>
     <aside class="col-lg-2"></aside>
-    <form  id="form" class="col-lg-4 border border-dark" action="index.php" oninput="x.value=parseInt(a.value)">
+    <form  id="form" class="col-lg-4 border border-dark" action="#" method="post" oninput="x.value=parseInt(a.value)">
     <div id="productoDetallado">
       <input id="idProd" type="hidden" name="" value="">
     	<h1 name="nombreProd" id="nombreProd"><?php echo $stock["nombrePRODUCTO"]?></h1>
@@ -23,9 +23,9 @@ if (isset($_GET["id"])) {
           <input type="range" id="a" name="a" min="1" max="<?php echo $stock["cantPRODUCTO"]; ?>" value="1" step="2">
           <?php echo $stock["cantPRODUCTO"] ?>
           <input type="number" id="b" name="x" for="a" value="1" class="form-control rounded-pill"></p>
-        <a href="index.php" class="btn btn-danger">Volver a la tienda <i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
         <button id="btn_carrito" class="btn btn-primary" data-producto="<?php echo $stock["idPRODUCTO"]; ?>">Añadir al carrito <i class="fas fa-cart-plus"></i></button>
     </div>
+    <a href="index.php" class="btn btn-danger my-1">Volver a la tienda <i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
     </form>
     <aside class="col-lg-1"></aside>
 </section>

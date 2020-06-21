@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-06-2020 a las 22:26:45
--- Versión del servidor: 10.4.11-MariaDB
--- Versión de PHP: 7.4.6
+-- Tiempo de generación: 21-06-2020 a las 22:05:57
+-- Versión del servidor: 10.1.38-MariaDB
+-- Versión de PHP: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -2576,7 +2577,6 @@ INSERT INTO `ciudad` (`idCIUDAD`, `nombreCIUDAD`) VALUES
 CREATE TABLE `detalle_ingreso` (
   `idDI` bigint(20) NOT NULL,
   `cantidadDI` bigint(20) NOT NULL,
-  `precioDI` bigint(20) NOT NULL,
   `idMP_FK` bigint(20) NOT NULL,
   `idIMP_FK` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -2605,7 +2605,7 @@ CREATE TABLE `empleado` (
   `idEMPLEADO` bigint(20) NOT NULL,
   `identificacionEMPLEADO` varchar(20) NOT NULL,
   `nombreEMPLEADO` varchar(100) NOT NULL,
-  `telefonoEMPLEADO` int(11) NOT NULL,
+  `telefonoEMPLEADO` varchar(11) NOT NULL,
   `correoEMPLEADO` varchar(100) NOT NULL,
   `contrasenaEMPLEADO` varchar(100) NOT NULL,
   `estadoEMPLEADO` varchar(100) NOT NULL,
@@ -2617,10 +2617,10 @@ CREATE TABLE `empleado` (
 --
 
 INSERT INTO `empleado` (`idEMPLEADO`, `identificacionEMPLEADO`, `nombreEMPLEADO`, `telefonoEMPLEADO`, `correoEMPLEADO`, `contrasenaEMPLEADO`, `estadoEMPLEADO`, `idROL_FK`) VALUES
-(2, '1020841047', 'Brian Albeiro Gutierrez Ramirez', 2147483647, 'bagutierrez74@misena.edu.co', '7fusxL56dGgaU', 'Activo', 2),
-(4, '1001331668', 'Jeison Esteven Ariza', 2147483647, 'jeariza86@misena.edu.co', '123', 'Activo', 2),
-(5, '1001286885', 'Gabriel Alejandro Rippe', 2147483647, 'garippe@misena.edu.co', '7EQ2b3AaBcQI6', 'Activo', 2),
-(6, '43233432', 'Luis Blanco(SP)', 3456543, 'rppsquimicos@gmail.com', '321', 'Activo', 3);
+(2, '1020841047', 'Brian Albeiro Gutierrez Ramirez', '3214568745', 'bagutierrez74@misena.edu.co', '7fusxL56dGgaU', 'Activo', 2),
+(4, '1001331668', 'Jeison Esteven Ariza', '3209476905', 'jeariza86@misena.edu.co', '123', 'Activo', 2),
+(5, '1001286885', 'Gabriel Alejandro Rippe', '3214568745', 'garippe@misena.edu.co', '7EQ2b3AaBcQI6', 'Activo', 2),
+(6, '43233432', 'Luis Blanco(SP)', '3214568745', 'rppsquimicos@gmail.com', '321', 'Activo', 3);
 
 -- --------------------------------------------------------
 
@@ -2635,7 +2635,7 @@ CREATE TABLE `empresa_cliente` (
   `telefonoEC` int(11) NOT NULL,
   `direccionEC` varchar(100) NOT NULL,
   `nombrecontEC` varchar(100) NOT NULL,
-  `telefonocontEC` int(11) NOT NULL,
+  `telefonocontEC` varchar(11) NOT NULL,
   `correocontEC` varchar(100) NOT NULL,
   `idBARRIO_FK` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -2645,8 +2645,9 @@ CREATE TABLE `empresa_cliente` (
 --
 
 INSERT INTO `empresa_cliente` (`idEC`, `identificacionEC`, `nombreEC`, `telefonoEC`, `direccionEC`, `nombrecontEC`, `telefonocontEC`, `correocontEC`, `idBARRIO_FK`) VALUES
-(2, '1070342333', 'all in poker colombia', 6936270, 'cra 132#142-30', 'daniel santiago ordoñez', 2147483647, 'santoagoordonez@gmail.com', 1792),
-(3, '23343233', 'tractocar', 3454312, 'Calle 5 Kilometro 6', 'Angel Ordoñez', 2147483647, 'nohoracecilia7@gmail.com', 464);
+(2, '1070342333', 'all in poker colombia', 6936270, 'cra 132#142-30', 'daniel santiago ordoñez', '2147483647', 'santoagoordonez@gmail.com', 1792),
+(3, '23343233', 'tractocar', 3454312, 'Calle 5 Kilometro 6', 'Angel Ordoñez', '2147483647', 'nohoracecilia7@gmail.com', 464),
+(4, '1000464327', 'juan nicolas ordoñez velasquez', 6936370, 'cra 132-142-30', 'Juan Nicolás Ordoñez', '3229514515', 'jnordonez7@misena.edu.co', 1792);
 
 -- --------------------------------------------------------
 
@@ -2721,10 +2722,18 @@ CREATE TABLE `mp` (
   `idMP` bigint(20) NOT NULL,
   `identificacionMP` varchar(20) NOT NULL,
   `nombreMP` varchar(100) NOT NULL,
+  `tipoMP` varchar(30) NOT NULL,
   `cantMP` int(11) NOT NULL,
-  `medidaMP` decimal(10,0) NOT NULL,
   `estadoMP` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `mp`
+--
+
+INSERT INTO `mp` (`idMP`, `identificacionMP`, `nombreMP`, `tipoMP`, `cantMP`, `estadoMP`) VALUES
+(1, '1000214412', 'envases plastico', 'LIQUIDO', 0, 'AGOTADO'),
+(2, '1000214413', 'etiquetas', 'SOLIDO', 0, 'AGOTADO');
 
 -- --------------------------------------------------------
 
@@ -2750,8 +2759,10 @@ CREATE TABLE `pedido` (
 
 CREATE TABLE `producto` (
   `idPRODUCTO` bigint(20) NOT NULL,
+  `imgPRODUCTO` varchar(100) NOT NULL,
   `nombrePRODUCTO` varchar(100) NOT NULL,
   `descripcionPRODUCTO` varchar(1000) NOT NULL,
+  `medidaPRODUCTO` float NOT NULL,
   `cantPRODUCTO` int(11) NOT NULL,
   `estadoPRODUCTO` varchar(100) NOT NULL,
   `valoruPRODUCTO` bigint(20) NOT NULL
@@ -2761,15 +2772,10 @@ CREATE TABLE `producto` (
 -- Volcado de datos para la tabla `producto`
 --
 
-INSERT INTO `producto` (`idPRODUCTO`, `nombrePRODUCTO`, `descripcionPRODUCTO`, `cantPRODUCTO`, `estadoPRODUCTO`, `valoruPRODUCTO`) VALUES
-(1, 'ALCOHOL', '25 * 250 ml\r\nal 70% de pureza', 56, 'activo', 56000),
-(2, 'ALCOHOL', '250 ml AL 70% DE PUREZA', 56, 'activo', 3000),
-(3, 'VARSOL', '25*250 ml ', 56, 'activo', 86000),
-(4, 'PEGANTE INDUSTRIAL', '250 ml', 26, 'activo', 8000),
-(5, 'ACIDO CITRICO', '1000 g', 56, 'activo', 56000),
-(6, 'DIABLO ROJO', 'DESTAPA CAÑERIAS 500 ml ', 56, 'activo', 25000),
-(7, 'TINNER', '1 L', 26, 'activo', 8000),
-(8, 'ACIDO NITRICO', ' 500 g', 56, 'activo', 15000);
+INSERT INTO `producto` (`idPRODUCTO`, `imgPRODUCTO`, `nombrePRODUCTO`, `descripcionPRODUCTO`, `medidaPRODUCTO`, `cantPRODUCTO`, `estadoPRODUCTO`, `valoruPRODUCTO`) VALUES
+(14, 'Acido.jpg', 'Acido', 'Para desafección', 0, 0, 'Activo', 2500),
+(15, 'Varsol2.jpg', 'Varsol * 250 ml', 'Producto para desinfectar', 0, 0, 'Activo', 2500),
+(16, 'Thinner.jpg', 'Thinner * 250 ml', 'Producto para obras y limpieza', 0, 0, 'Activo', 2500);
 
 -- --------------------------------------------------------
 
@@ -2812,7 +2818,8 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`idUSUARIO`, `nombreUSUARIO`, `contrasenaUSUARIO`, `estadoUSUARIO`, `idEC_FK`, `idROL_FK`) VALUES
 (2, 'santoagoordonez@gmail.com', '321', 'Activo', 2, 1),
-(3, 'nohoracecilia7@gmail.com', '123', 'Activo', 3, 1);
+(3, 'nohoracecilia7@gmail.com', '123', 'Activo', 3, 1),
+(4, 'jnordonez7@misena.edu.co', 'batman321', 'Activo', 4, 1);
 
 --
 -- Índices para tablas volcadas
@@ -2956,7 +2963,7 @@ ALTER TABLE `empleado`
 -- AUTO_INCREMENT de la tabla `empresa_cliente`
 --
 ALTER TABLE `empresa_cliente`
-  MODIFY `idEC` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idEC` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `envasado`
@@ -2974,13 +2981,13 @@ ALTER TABLE `ingreso_mp`
 -- AUTO_INCREMENT de la tabla `localidad`
 --
 ALTER TABLE `localidad`
-  MODIFY `idLOCALIDAD` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `idLOCALIDAD` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `mp`
 --
 ALTER TABLE `mp`
-  MODIFY `idMP` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `idMP` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `pedido`
@@ -2992,7 +2999,7 @@ ALTER TABLE `pedido`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `idPRODUCTO` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idPRODUCTO` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`
@@ -3004,7 +3011,7 @@ ALTER TABLE `rol`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUSUARIO` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idUSUARIO` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas
