@@ -7,12 +7,6 @@ if (isset($_GET["id"])) {
 $ing = IMPController::consult(null, null);
 $mps = MPController::consult(null, null);
 
-
-?>
-<?php 
-if (isset($_POST['test'])) {
-    echo json_encode(['test'=>'Hola']);
-}
 ?>
 <section class="row">
     <div id="blanco" class="col-lg-10">
@@ -42,24 +36,9 @@ if (isset($_POST['test'])) {
                         <td><?php echo $i["empleado"]; ?></td>
                         <td>
                             <div class="btn-group">
-                                <form action="index.php?paginasMp=RegistroMP&id=<?php echo $mp["idMP"] ?>" method="post" class="text-left">
-                                    <input type="hidden" value="<?php echo $mp["idMP"] ?>" name="id">
-                                    <button class="btn btn-warning m-1" title="Editar"><i class="far fa-edit"></i></button>
-
-                                </form>
-
-
-                                <form method="post" class="text-left">
-                                    <input type="hidden" value="<?php echo $mp["idMP"] ?>" name="eliminarRegistro">
-                                    <button type="submit" class="btn btn-danger m-1" title="Eliminar">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                    <?php
-
-                                    $eliminar = new MPController();
-                                    $eliminar->delete();
-
-                                    ?>
+                                <form action="index.php?paginasIngresoMp=VerIMP&id=<?php echo $i["idIMP"]; ?>" method="post">
+                                  <input type="hidden" name="id" value="<?php echo $i["idIMP"]; ?>">
+                                  <button type="submit" class="btn btn-info" title="Ver"><i class="fas fa-eye"></i></button>
                                 </form>
                             </div>
 
@@ -128,10 +107,10 @@ if (isset($_POST['test'])) {
 
                     <div class="modal-footer">
 
-                        <button id="submit" class="btn btn-success" onclick="mandarDatos()">Agregar</button>
+                        <button id="submin" class="btn btn-success">Agregar</button>
                         <button class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                     </div>
-                    
+
                 </div>
                 <!-- </form>
 

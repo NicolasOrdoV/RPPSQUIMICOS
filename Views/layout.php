@@ -246,7 +246,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                         include "Views/error404.php";
                     }
                 }elseif (isset($_GET["paginasIngresoMp"])) {
-                    if ($_GET["paginasIngresoMp"] == "ConsultaIMP" ){
+                    if ($_GET["paginasIngresoMp"] == "ConsultaIMP"||$_GET["paginasIngresoMp"]=="NuevoIMP"||$_GET["paginasIngresoMp"]="VerIMP" ){
 
                         include "Views/paginasIngresoMp/" . $_GET["paginasIngresoMp"] . ".php";
                     }else{
