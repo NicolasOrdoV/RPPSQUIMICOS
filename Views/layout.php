@@ -27,6 +27,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
             <div id="title1" class="sidebar-heading">RPPS Quimícos</div>
             <hr>
             <div class="list-group list-group-flush">
+                <?php if($user == ""):?>
                 <a href="index.php" class="list-group-item list-group-item-action" id="flush">Inicio</a>
                 <a href="#" class="list-group-item list-group-item-action" id="flush">
                     <h2>Filtros</h2>
@@ -52,7 +53,32 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                 <a href="#" class="list-group-item list-group-item-action" id="flush">Ácidos>></a>
                 <a href="#" class="list-group-item list-group-item-action" id="flush">Thinner>></a>
                 <a href="#" class="list-group-item list-group-item-action" id="flush">Diablo rojo>></a>
-                <?php if ($user["idROL_FK"] == 1) : ?>
+                <?php elseif ($user["idROL_FK"] == 1) : ?>
+                    <a href="index.php" class="list-group-item list-group-item-action" id="flush">Inicio</a>
+                    <a href="#" class="list-group-item list-group-item-action" id="flush">
+                        <h2>Filtros</h2>
+                        <form method="post" action="#">
+                            <label><input type="checkbox" id="cbox1" value="mayorPrecio"> Mayor precio</label><br>
+                            <input type="checkbox" id="cbox2" value="menorPrecio"> <label for="cbox2">Menor precio</label>
+                            <input type="text" name="nombreProducto" placeholder="Nombre del producto">
+                        </form>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action" id="flush">
+                        <h2>Precio</h2>
+                        <form method="post" action="">
+                            $<input type="text" name="pMinimo" placeholder="Minimo">
+                            $<input type="text" name="pMaximo" placeholder="Maximo">
+                        </form>
+                    </a>
+                    <a href="index.php" class="list-group-item list-group-item-action" id="flush">
+                        <h3 class="font-weight-bold">Catálogo</h3>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action" id="flush">Alcoholes>></a>
+                    <a href="#" class="list-group-item list-group-item-action" id="flush">Varsoles>></a>
+                    <a href="#" class="list-group-item list-group-item-action" id="flush">Pegantes>></a>
+                    <a href="#" class="list-group-item list-group-item-action" id="flush">Ácidos>></a>
+                    <a href="#" class="list-group-item list-group-item-action" id="flush">Thinner>></a>
+                    <a href="#" class="list-group-item list-group-item-action" id="flush">Diablo rojo>></a>
                     <a href="index.php?paginasUsuario=ConsultarUsuario&id=<?php echo $user["idUSUARIO"] ?>" class="list-group-item list-group-item-action text-bold" id="flush">
                         <img src="Assets/img/Perfil.jpg" class="img-fluide" width="30" height="30">Mi cuenta
                     </a>
@@ -100,9 +126,15 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                 <div class="col-lg-11" id="navbarSupportedContent">
                     <ul class="navbar-nav col-lg-12">
                         <li class="nav-brand col-lg-1">
-                            <a href="index.php">
-                                <img class="d-inline-block align-top pull-left" width="70" height="50" src="Assets/img/Contraste4.jpg">
-                            </a>
+                            <?php if($user == "" || $user["idROL_FK"] == 1 ):?>
+                                <a href="index.php">
+                                    <img class="d-inline-block align-top pull-left" width="70" height="50" src="Assets/img/Contraste4.jpg">
+                                </a>
+                            <?php else:?>
+                                <a href="index.php?paginasProduc=ConsultaProduc">
+                                    <img class="d-inline-block align-top pull-left" width="70" height="50" src="Assets/img/Contraste4.jpg">
+                                </a>
+                            <?php endif?>
                         </li>
                         <li class="nav-brand col-lg-7">
                             <i class="fas fa-search"></i><input type="text" id="bqd" placeholder="¿Qué estás buscando?">
