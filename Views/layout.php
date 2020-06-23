@@ -169,7 +169,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                           <div class="col-md-2 ml-auto">Retirar</div>
                         </div></strong>
                         <hr>
-                          <div id="productosCarrito">
+                          <div >
 
                           </div>
                           <div class="columns">
