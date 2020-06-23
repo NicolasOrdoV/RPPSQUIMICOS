@@ -1,4 +1,15 @@
-<?php $data = ProdController::getById();  ?>
+<?php
+if(!isset($_SESSION["validarIngreso"])){
+    
+    echo '<script> window.location = "?paginasUsuario=InicioSesion";</script>';
+    return;  
+}else{
+    if($_SESSION["validarIngreso"] != "ok"){
+        echo '<script> window.location = "?paginasUsuario=InicioSesion";</script>';
+        return;
+    }
+} 
+$data = ProdController::getById();  ?>
 <section class="row">
   <div id="blanco" class="col-lg-12">
     <h1 id="tlprin">Producto</h1>

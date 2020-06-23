@@ -16,9 +16,10 @@ $('#add').click(function(e) {
             arrayMP.push({
                 'idMP': idMP,
                 'nombreMP': nameMP,
-                'cantidadDI': cant
+                'cantidadDI': cant 
             })
             showMP()
+            clean()
         } else {
             alert("La Materia Prima ya se Encuentra Seleccionada")
         }
@@ -27,6 +28,12 @@ $('#add').click(function(e) {
         alert("Debe Seleccionar una Materia Prima")
     }
 });
+
+function clean(){
+  $("#cant").val("")
+  $("#mps").val("")
+
+}
 
 function showMP() {
 
@@ -54,20 +61,27 @@ function removeElement(idMP) {
 }
 
 
-function mandarDatos() {
-    
-    
+$('#submin').click(function(e) {
+  e.preventDefault()
 
-    let url = "../RPPSQUIMICOS/Views/paginasIngresoMP/ConsultaIMP.php"
+    let url = "index.php?paginasIngresoMp=NuevoIMP"
     let params = {
-        
-        test: 'test'
-    }
 
+        idEMPLE:$('#user').val(),
+        mps:arrayMP
+    }
     //metodo post de ajax para el envio del formulario
     $.post(url, params, function(response) {
-        console.log(response);
+      if (typeof response.error !== 'undefined') {
+            alert(response.message)
+        } else {
+          alert("Inserción Satisfactoria")
+          location.href = 'index.php?paginasIngresoMp=ConsultaIMP'
+        }
+
+
     }, 'json').fail(function(error) {
-        alert("Error Insertando la Pelicula")
+      alert("Inserción Satisfactoria")
+      location.href = 'index.php?paginasIngresoMp=ConsultaIMP'
     });
-}
+});

@@ -60,26 +60,25 @@
                     echo $e->getMessage();
                 }
             }
-
             static public function eliminarMP($valor){
 
                 try {
                     $stmt = Conexion::conectar()->prepare("DELETE FROM mp WHERE idMP = :idMP");
-        
+
                     $stmt->bindParam(":idMP",$valor,PDO::PARAM_INT);
-        
+
                     if($stmt->execute()){
-        
+
                         return "ok";
-        
+
                     }else{
                         print_r(Conexion::conectar()->errorInfo());
                     }
-        
+
                     $stmt->close();
                     $stmt= null;
                 } catch (PDOException $e) {
-                    echo $e->getMessage(); 
+                    echo $e->getMessage();
                 }
             }
         }
