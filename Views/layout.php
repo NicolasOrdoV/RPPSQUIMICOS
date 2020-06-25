@@ -116,7 +116,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
         </nav>
         <!-- barra de navegacion horizontal -->
         <nav id="page-content-wrapper">
-            <!------Barra de navegacion horizontal con boton de activacion al menu deslizable----->
+            <!--Barra de navegacion horizontal con boton de activacion al menu deslizable----->
             <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom navbar-fluid sticky-top row" id="nav1">
                 <div class="col-lg-1">
                     <button type="button" class="btn btn-outline-primary" id="menu-toggle">
@@ -279,7 +279,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                         include "Views/error404.php";
                     }
                 }elseif (isset($_GET["paginasIngresoMp"])) {
-                    if ($_GET["paginasIngresoMp"] == "ConsultaIMP" ){
+                  if ($_GET["paginasIngresoMp"] == "ConsultaIMP"||$_GET["paginasIngresoMp"]=="NuevoIMP"||$_GET["paginasIngresoMp"]="VerIMP" ){
 
                         include "Views/paginasIngresoMp/" . $_GET["paginasIngresoMp"] . ".php";
                     }else{

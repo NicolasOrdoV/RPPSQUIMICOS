@@ -13,14 +13,14 @@ class ControladorAdministradores
 	/////////////////-------------------------------------////////////////////////
 	/////////////////////////Administradores/////////////////////////////////////////////
 	////////////////--------------------------------------////////////////////////
-	//////////////////////////////////////////////////////////////////////////////  
+	//////////////////////////////////////////////////////////////////////////////
 
     //Registro administradores
 	static public function ctrRegistroAdministradores(){
 
     try {
         if(isset($_POST["registrarIdentificacionAd"])) {
-        
+
         $tabla = "empleado";
         $datos = array("identificacionEMPLEADO" => $_POST["registrarIdentificacionAd"],
                        "nombreEMPLEADO" => $_POST["registrarNombreAd"],
@@ -48,7 +48,7 @@ class ControladorAdministradores
       } catch (PDOException $e) {
         echo $e->getMessage();
       }
-        
+
     }
 
     //Eliminar administradores
@@ -139,7 +139,7 @@ class ControladorAdministradores
                          );
             $respuesta = ModeloAdministradores::mdlActualizarNombreEmAdmin($tabla,$datos);
 
-            return $respuesta;            
+            return $respuesta;
         }
     }
 
@@ -155,7 +155,7 @@ class ControladorAdministradores
                          );
             $respuesta = ModeloAdministradores::mdlActualizarEmailEmAdmin($tabla,$datos);
 
-            return $respuesta;            
+            return $respuesta;
         }
     }
 
@@ -171,7 +171,7 @@ class ControladorAdministradores
                          );
             $respuesta = ModeloAdministradores::mdlActualizarIdentEmAdmin($tabla,$datos);
 
-            return $respuesta;            
+            return $respuesta;
         }
     }
 
@@ -187,7 +187,7 @@ class ControladorAdministradores
                          );
             $respuesta = ModeloAdministradores::mdlActualizarTelEmAdmin($tabla,$datos);
 
-            return $respuesta;            
+            return $respuesta;
         }
     }
 
@@ -203,7 +203,7 @@ class ControladorAdministradores
                          );
             $respuesta = ModeloAdministradores::mdlActualizarConEmAdmin($tabla,$datos);
 
-            return $respuesta;            
+            return $respuesta;
         }
     }
 
@@ -230,7 +230,7 @@ class ControladorAdministradores
           // Content
           $mail->isHTML(true);                                  // Set email format to HTML
           $mail->Subject = 'CONFIRMACIÓN DE CUENTA DE EMPLEADO';
-          $mail->Body    = ' 
+          $mail->Body    = '
           <body>
           <main class="container-fluid">
               <header class="bg-danger p-2">
@@ -249,7 +249,7 @@ class ControladorAdministradores
               </footer>
           </main>
           </body>';
-          $mail->CharSet = 'UTF-8';  
+          $mail->CharSet = 'UTF-8';
           $mail->send();
       } catch (Exception $e) {
           echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";

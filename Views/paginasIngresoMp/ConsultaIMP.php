@@ -1,15 +1,14 @@
 <?php
 if(!isset($_SESSION["validarIngreso"])){
-    
+
     echo '<script> window.location = "?paginasUsuario=InicioSesion";</script>';
-    return;  
+    return;
 }else{
     if($_SESSION["validarIngreso"] != "ok"){
         echo '<script> window.location = "?paginasUsuario=InicioSesion";</script>';
         return;
     }
 }
-
 if (isset($_GET["id"])) {
     $item1 = "idEMPLEADO";
     $valor1 = $_GET["id"];

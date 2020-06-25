@@ -16,7 +16,7 @@ $('#add').click(function(e) {
             arrayMP.push({
                 'idMP': idMP,
                 'nombreMP': nameMP,
-                'cantidadDI': cant 
+                'cantidadDI': cant
             })
             showMP()
             clean()
@@ -75,13 +75,10 @@ $('#submin').click(function(e) {
       if (typeof response.error !== 'undefined') {
             alert(response.message)
         } else {
-          alert("Inserción Satisfactoria")
-          location.href = 'index.php?paginasIngresoMp=ConsultaIMP'
+          alert("ERROR")
         }
-
-
     }, 'json').fail(function(error) {
       alert("Inserción Satisfactoria")
-      location.href = 'index.php?paginasIngresoMp=ConsultaIMP'
+      location.href = 'index.php?paginasIngresoMp=ConsultaIMP&id='+$('#user').val()
     });
 });
