@@ -41,7 +41,7 @@ $produc = ProdController::consult(null, null);
                     <tr>
                         <td><?php echo $p["idPRODUCTO"] ?></td>
                         <td>
-                            <img src="Assets/img/Productos/<?php echo $p["imgPRODUCTO"] ?>" class="img-fluid rounded border border-ligth b">
+                            <img src="Assets/img/Productos/<?php echo $p["imgPRODUCTO"] ?>" class="img-fluid rounded border border-ligth b" width="150">
                         </td>
                         <td><?php echo $p["nombrePRODUCTO"]; ?></td>
                         <td><?php echo $p["descripcionPRODUCTO"]; ?></td>

@@ -131,7 +131,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                                     <img class="d-inline-block align-top pull-left" width="70" height="50" src="Assets/img/Contraste4.jpg">
                                 </a>
                             <?php else:?>
-                                <a href="index.php?paginasProduc=ConsultaProduc">
+                                <a href="index.php?paginasAdministradores=MenuInicio">
                                     <img class="d-inline-block align-top pull-left" width="70" height="50" src="Assets/img/Contraste4.jpg">
                                 </a>
                             <?php endif?>
@@ -271,7 +271,8 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                         $_GET["paginasAdministradores"] == "ConsultarUnAdmin" ||
                         $_GET["paginasAdministradores"] == "GestionInventario" ||
                         $_GET["paginasAdministradores"] == "RestauraContrasenaAd" ||
-                        $_GET["paginasAdministradores"] == "EditarProducto"
+                        $_GET["paginasAdministradores"] == "EditarProducto" ||
+                        $_GET["paginasAdministradores"] == "MenuInicio"
                     ) {
                         include "Views/paginasAdministradores/" . $_GET["paginasAdministradores"] . ".php";
                     } else {

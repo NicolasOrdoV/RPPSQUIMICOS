@@ -113,7 +113,7 @@ class ControladorUsuarios
                   window.history.replaceState(null,null,window.location.href);
 
               }
-              window.location = "index.php?paginasProduc=ConsultaProduc";
+              window.location = "index.php?paginasAdministradores=MenuInicio";
               </script>';
           }elseif ($respuestaA["correoEMPLEADO"] == $_POST["ingresoNombre"] && 
             $respuestaA["contrasenaEMPLEADO"] == $_POST["ingresoContraseña"] &&
