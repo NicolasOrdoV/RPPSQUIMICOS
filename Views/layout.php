@@ -28,31 +28,31 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
             <hr>
             <div class="list-group list-group-flush">
                 <?php if($user == ""):?>
-                <a href="index.php" class="list-group-item list-group-item-action" id="flush">Inicio</a>
-                <a href="#" class="list-group-item list-group-item-action" id="flush">
-                    <h2>Filtros</h2>
-                    <form method="post" action="#">
-                        <label><input type="checkbox" id="cbox1" value="mayorPrecio"> Mayor precio</label><br>
-                        <input type="checkbox" id="cbox2" value="menorPrecio"> <label for="cbox2">Menor precio</label>
-                        <input type="text" name="nombreProducto" placeholder="Nombre del producto">
-                    </form>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action" id="flush">
-                    <h2>Precio</h2>
-                    <form method="post" action="">
-                        $<input type="text" name="pMinimo" placeholder="Minimo">
-                        $<input type="text" name="pMaximo" placeholder="Maximo">
-                    </form>
-                </a>
-                <a href="index.php" class="list-group-item list-group-item-action" id="flush">
-                    <h3 class="font-weight-bold">Catálogo</h3>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action" id="flush">Alcoholes>></a>
-                <a href="#" class="list-group-item list-group-item-action" id="flush">Varsoles>></a>
-                <a href="#" class="list-group-item list-group-item-action" id="flush">Pegantes>></a>
-                <a href="#" class="list-group-item list-group-item-action" id="flush">Ácidos>></a>
-                <a href="#" class="list-group-item list-group-item-action" id="flush">Thinner>></a>
-                <a href="#" class="list-group-item list-group-item-action" id="flush">Diablo rojo>></a>
+                    <a href="index.php" class="list-group-item list-group-item-action" id="flush">Inicio</a>
+                    <a href="#" class="list-group-item list-group-item-action" id="flush">
+                        <h2>Filtros</h2>
+                        <form method="post" action="#">
+                            <label><input type="checkbox" id="cbox1" value="mayorPrecio"> Mayor precio</label><br>
+                            <input type="checkbox" id="cbox2" value="menorPrecio"> <label for="cbox2">Menor precio</label>
+                            <input type="text" name="nombreProducto" placeholder="Nombre del producto">
+                        </form>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action" id="flush">
+                        <h2>Precio</h2>
+                        <form method="post" action="">
+                            $<input type="text" name="pMinimo" placeholder="Minimo">
+                            $<input type="text" name="pMaximo" placeholder="Maximo">
+                        </form>
+                    </a>
+                    <a href="index.php" class="list-group-item list-group-item-action" id="flush">
+                        <h3 class="font-weight-bold">Catálogo</h3>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action" id="flush">Alcoholes>></a>
+                    <a href="#" class="list-group-item list-group-item-action" id="flush">Varsoles>></a>
+                    <a href="#" class="list-group-item list-group-item-action" id="flush">Pegantes>></a>
+                    <a href="#" class="list-group-item list-group-item-action" id="flush">Ácidos>></a>
+                    <a href="#" class="list-group-item list-group-item-action" id="flush">Thinner>></a>
+                    <a href="#" class="list-group-item list-group-item-action" id="flush">Diablo rojo>></a>
                 <?php elseif ($user["idROL_FK"] == 1) : ?>
                     <a href="index.php" class="list-group-item list-group-item-action" id="flush">Inicio</a>
                     <a href="#" class="list-group-item list-group-item-action" id="flush">
@@ -279,7 +279,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                         include "Views/error404.php";
                     }
                 }elseif (isset($_GET["paginasIngresoMp"])) {
-                    if ($_GET["paginasIngresoMp"] == "ConsultaIMP"||$_GET["paginasIngresoMp"]=="NuevoIMP"||$_GET["paginasIngresoMp"]="VerIMP" ){
+                    if ($_GET["paginasIngresoMp"] == "ConsultaIMP" ){
 
                         include "Views/paginasIngresoMp/" . $_GET["paginasIngresoMp"] . ".php";
                     }else{
