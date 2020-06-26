@@ -1,10 +1,8 @@
 <?php 
-
 $producto = ControladorInventario::ctrSeleccionarProductosUsuario(null,null);
-
 ?>
 <!--------------Espacio en blanco superior---->
-<section class="row">
+<section class="row m-auto">
     <div id="blanco" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <h1 id="tlprin" class="text-center">Catálogo de productos</h1>
     </div>

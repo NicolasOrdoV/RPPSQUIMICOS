@@ -9,14 +9,13 @@ if(!isset($_SESSION["validarIngreso"])){
     }
 }
 ?>
-<section class="row m-auto w-100">
-	<div id="blanco" class="col-lg-12">
-        <h1 id="tlprin" class="w-60">Bienvenido <?php echo $user["nombreEMPLEADO"]?></h1>
+<section class="row">
+    <div id="blanco" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h1 class="text-center">Bienvenido <?php echo $user["nombreEMPLEADO"]?><hr></h1>
     </div>
 </section>
 <section class="row">
-	<aside id="blanco-h" class="col-lg-2"></aside>
-	<aside class="col-lg-8">
+	<aside class="col-lg-12">
 		<div class="row py-5">
 			<aside class="col-lg-3 py-5" id="fondo2"></aside>
 			<div class="col-lg-6" id="form">
@@ -27,7 +26,7 @@ if(!isset($_SESSION["validarIngreso"])){
 				</div>
 				<div class="btn-group btn-group-lg btn-block my-1">
 					<a href="?paginasProduc=ConsultaProduc" class="btn btn-danger mx-1">Consulta de productos<i class="fas fa-wine-bottle"></i></a>
-					<a href="?paginasIngresoMp=ConsultaIMP" class="btn btn-danger">Consultar ingresos de la materia prima<i class="fas fa-clipboard-list"></i></a>
+					<a href="?paginasIngresoMp=ConsultaIMP&id=<?php echo $user["idEMPLEADO"] ?>" class="btn btn-danger">Consultar ingresos de la materia prima<i class="fas fa-clipboard-list"></i></a>
 				</div>
 				<div class="btn-group btn-group-lg btn-block my-1">
 					<a href="index.php?paginasPedidos=RegistroPedido" class="btn btn-danger mx-1">Registrar Pedido<i class="fab fa-jedi-order"></i></a>
@@ -42,5 +41,4 @@ if(!isset($_SESSION["validarIngreso"])){
 			<aside class="col-lg-3 py-5" id="fondo1"></aside>
 		</div>
 	</aside>
-	<aside></aside>
 </section>

@@ -107,7 +107,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                     </a>
                     <a href="?paginasMp=ConsultaMP" class="list-group-item list-group-item-action text-danger" id="flush">Lista de Materia Prima <i class="fas fa-flask"></i></a>
                     <a href="?paginasProduc=ConsultaProduc" class="list-group-item list-group-item-action text-danger" id="flush">Lista de Productos <i class="fas fa-wine-bottle"></i></a>
-                    <a href="?paginasIngresoMp=ConsultaIMP" class="list-group-item list-group-item-action text-danger" id="flush">Lista de ingresos <i class="fas fa-clipboard-list"></i></a>
+                    <a href="?paginasIngresoMp=ConsultaIMP&id=<?php echo $user["idEMPLEADO"] ?>" class="list-group-item list-group-item-action text-danger" id="flush">Lista de ingresos <i class="fas fa-clipboard-list"></i></a>
                     <a href="index.php?paginasAdministradores=ConsultarUnAdmin&id=<?php echo $user["idEMPLEADO"] ?>" class="list-group-item list-group-item-action text-bold" id="flush">
                         <img src="Assets/img/Perfil.jpg" class="img-fluide" width="30" height="30">Mi cuenta
                     </a>
