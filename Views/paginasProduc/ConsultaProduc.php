@@ -1,8 +1,8 @@
 <?php
 if(!isset($_SESSION["validarIngreso"])){
-    
+
     echo '<script> window.location = "?paginasUsuario=InicioSesion";</script>';
-    return;  
+    return;
 }else{
     if($_SESSION["validarIngreso"] != "ok"){
         echo '<script> window.location = "?paginasUsuario=InicioSesion";</script>';
@@ -51,6 +51,11 @@ $produc = ProdController::consult(null, null);
                         <td><?php echo $p["estadoPRODUCTO"]; ?></td>
                         <td>
                             <div class="btn-group">
+                              <form action="index.php?paginasProduc=AgregarProd" method="post" class="text-left">
+                                  <input type="hidden" value="<?php echo $p["idPRODUCTO"] ?>" name="id">
+                                  <button class="btn btn-success m-1" title="Agregar"><i class="fas fa-plus"></i></button>
+
+                              </form>
                                 <form action="index.php?paginasProduc=RegistroProduc" method="post" class="text-left">
                                     <input type="hidden" value="<?php echo $p["idPRODUCTO"] ?>" name="id">
                                     <button class="btn btn-warning m-1" title="Editar"><i class="far fa-edit"></i></button>
@@ -77,6 +82,7 @@ $produc = ProdController::consult(null, null);
             </tbody>
         </table>
     </aside>
+
 
 
     <aside id="blanco-h" class="col-lg-2"></aside>

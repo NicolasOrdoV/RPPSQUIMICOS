@@ -23,14 +23,6 @@ class IMPController{
 
 
     }
-    static public function updateCant($data){
-      foreach ($data as $d) {
-        $mp=MPController::getById($d['idMP']);
-        $c=ModeloIngresoMp::editCantidad($mp['idMP'],$mp['cantMP'],$d['cantidadDI'],1);
-      }
-
-
-    }
 
 
 }

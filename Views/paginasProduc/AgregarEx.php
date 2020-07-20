@@ -1,19 +1,8 @@
 <?php
-if (isset($_POST['idEMPLE'])&&isset($_POST['mps'])) {
-
-  $dataIMP=[
-    'idEMPLE'=>$_POST['idEMPLE']
-  ];
+if (isset($_POST['idProd'])&&isset($_POST['cant'])&&isset($_POST['mps'])&&isset($_POST['medida'])) {
 
   $mps=$_POST['mps'];
-
-  $respuestaIngreso=ModeloIngresoMp::nuevoIngreso($dataIMP);
-
-  $lastId=ModeloIngresoMp::getLastId();
-  $arrayResp=[];
-
-  if (isset($lastId[0])&&$respuestaIngreso==true) {
-    $respDeta=ModeloIngresoMp::saveDetalle($mps,$lastId[0]);
+    $respDeta=ModeloProducto::saveDetalle($mps,$_POST['idProd'],$_POST['cant'],$_POST['medida']);
 
     if ($respDeta==true) {
       $arrayResp=[
@@ -36,10 +25,8 @@ if (isset($_POST['idEMPLE'])&&isset($_POST['mps'])) {
   return;
   echo '<script>
 setTimeout(function(){
-  window.location = "index.php?paginasIngresoMp=ConsultaIMP"
+  window.location = "index.php?paginasProduc=ConsultaProduc"
 },1000)
 </script>';
-
-}
 
  ?>

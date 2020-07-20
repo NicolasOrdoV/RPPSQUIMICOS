@@ -43,6 +43,7 @@ class ModeloIngresoMp{
         }
         static public function saveDetalle($arrayDeta,$inId){
           try {
+
             foreach ($arrayDeta as $deta) {
               $data=[
               'cant'=>$deta['cantidadDI'],
@@ -58,6 +59,27 @@ class ModeloIngresoMp{
               $stmt=null;
 
             }
+            foreach ($arrayDeta as $deta) {
+              $datam=[
+              'cant'=>$deta['cantidadDI'],
+              'idMP'=> $deta['idMP'],
+              'idIMP'=>$inId
+              ];
+
+              $stmt=Conexion::conectar()->prepare("UPDATE mp SET cantMP=cantMP+(:cant), estadoMP='EXISTENCIA' WHERE idMP=:idMP");
+              $stmt->bindParam(":cant",$datam["cant"],PDO::PARAM_INT);
+              $stmt->bindParam(":idMP",$datam["idMP"],PDO::PARAM_INT);
+              $stmt->execute();
+              $stmt=null;
+
+            }
+
+
+
+
+
+
+
             if($stmt->execute()){
                 return true;
             }else{
@@ -72,20 +94,30 @@ class ModeloIngresoMp{
           }
 
         }
-        static public function editCantidad($id,$cante,$cantn,$op){
+        static public function editCantidad($array,$op){
           try {
             if ($op==1) {
-              $total=$cante+$cantn;
-              if ($total!= 0) {
-                $estado="EXISTENCIA";
-                $stmt=Conexion::conectar()->prepare("UPDATE mp SET cantMP=:cant, estadoMP=:estado WHERE idMP=:idMP");
-                $stmt->bindParam(":idMP",$id,PDO::PARAM_INT);
-            $stmt->bindParam(":cant",$total,PDO::PARAM_INT);
-            $stmt->bindParam(":estado",$estado,PDO::PARAM_STR);
-            $stmt->execute();
-            $stmt->close();
-            $stmt=null;
+              foreach ($arrayDeta as $deta) {
+                $data=[
+                'cant'=>$deta['cantidadDI'],
+                'idMP'=> $deta['idMP'],
+                'idIMP'=>$inId
+                ];
+
+                $stmt=Conexion::conectar()->prepare("UPDATE mp SET cantMP=cantMP+(:cant), estadoMP='EXISTENCIA' WHERE idMP=:idMP");
+                $stmt->bindParam(":cant",$data['cant'],PDO::PARAM_INT);
+                $stmt->bindParam(":idMP",$data['idMP'],PDO::PARAM_INT);
+                $stmt->execute();
+                $stmt->close();
+                $stmt=null;
+
               }
+              if($stmt->execute()){
+                  return true;
+              }else{
+                  print_r(Conexion::conectar()->errorInfo());
+              }
+              $stmt->close();
             }
 
           } catch (PDOException $e) {

@@ -1,15 +1,16 @@
 // Definir una variable global para cargar las categorias seleccionadas
 var arrayMP = []
 
-$('#add').click(function(e) {
+$('#addi').click(function(e) {
     //Deshabilitar Submit del Formulario
     e.preventDefault();
 
-    let idMP = $("#mps").val()
-    let nameMP = $("#mps option:selected").text()
-    let cant = $("#cant").val()
+    let idMP = $("#mpsi").val()
+    let nameMP = $("#mpsi option:selected").text()
+    let cant = $("#canti").val()
 
     if (idMP != '') {
+      if (cant != '') {
 
         if (typeof existMP(idMP) === 'undefined') {
             //agregar nuevo objeto al array
@@ -23,6 +24,9 @@ $('#add').click(function(e) {
         } else {
             alert("La Materia Prima ya se Encuentra Seleccionada")
         }
+      }else {
+        alert("Falta registrar la cantidad")
+      }
 
     } else {
         alert("Debe Seleccionar una Materia Prima")
@@ -30,18 +34,18 @@ $('#add').click(function(e) {
 });
 
 function clean(){
-  $("#cant").val("")
-  $("#mps").val("")
+  $("#canti").val("")
+  $("#mpsi").val("")
 
 }
 
 function showMP() {
 
-    $("#list-mps").empty()
+    $("#list-mpsi").empty()
 
     arrayMP.forEach(function(mp) {
         let html = '<tr><td>' + mp.nombreMP + '</td><td>' + mp.cantidadDI + '</td><td> <button onclick="removeElement(' + mp.idMP + ')" class="btn btn-danger">X</button></td></tr>'
-        $("#list-mps").append(html)
+        $("#list-mpsi").append(html)
     })
 }
 
@@ -64,6 +68,9 @@ function removeElement(idMP) {
 $('#submin').click(function(e) {
   e.preventDefault()
 
+  if (arrayMP=='') {
+    alert("Faltan datos para poder registrar el ingreso")
+  }else {
     let url = "index.php?paginasIngresoMp=NuevoIMP"
     let params = {
 
@@ -81,4 +88,5 @@ $('#submin').click(function(e) {
       alert("Inserción Satisfactoria")
       location.href = 'index.php?paginasIngresoMp=ConsultaIMP&id='+$('#user').val()
     });
+  }
 });

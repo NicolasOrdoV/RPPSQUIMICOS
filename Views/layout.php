@@ -293,7 +293,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                         include "Views/error404.php";
                     }
                 }elseif (isset($_GET["paginasProduc"])) {
-                    if ($_GET["paginasProduc"] == "ConsultaProduc" || $_GET["paginasProduc"]=="RegistroProduc" || $_GET["paginasProduc"]=="NuevoProd"){
+                    if ($_GET["paginasProduc"] == "ConsultaProduc" || $_GET["paginasProduc"]=="RegistroProduc" || $_GET["paginasProduc"]=="NuevoProd"|| $_GET["paginasProduc"]=="AgregarProd"||$_GET["paginasProduc"]=="AgregarEx"){
 
                         include "Views/paginasProduc/" . $_GET["paginasProduc"] . ".php";
                     }else{
@@ -350,6 +350,9 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
     <!-- Script para mostrar u ocultar la contraseña cuando se digita -->
     <script type="text/javascript" src="Assets/js/eye.js"></script>
     <script type="text/javascript" src="Assets/js/imp.js"></script>
+    <script type="text/javascript" src="Assets/js/prod.js"></script>
     <script src="Assets/js/Carrito.js"></script>
+
+
 </body>
 </html>

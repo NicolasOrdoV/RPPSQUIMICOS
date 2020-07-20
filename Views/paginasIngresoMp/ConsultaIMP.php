@@ -77,7 +77,7 @@ $mps = MPController::consult(null, null);
                             <div class="form-group">
                                 <label>Materia Prima</label>
                                 <input type="hidden" id="user" value="<?php echo $admin['idEMPLEADO'] ?>">
-                                <center> <select name="idMP_FK" id="mps" class="form-control">
+                                <center> <select name="idMP_FK" id="mpsi" class="form-control">
                                         <option value="">Seleccione..</option>
                                         <?php
                                         foreach ($mps as $mp) {
@@ -89,14 +89,14 @@ $mps = MPController::consult(null, null);
                                     </select></center>
                             </div>
                             <div class="form-group">
-                                <input type="number" class="form-control rounded-pill" placeholder="Cantidad" id="cant" name="cantidadDI" min="0" required>
+                                <input type="number" class="form-control rounded-pill" placeholder="Cantidad" id="canti" name="cantidadDI" min="1" required>
                                 <div class="valid-feedback">Valido</div>
                                 <div class="invalid-feedback">El campo no puede quedar vacio.</div>
                             </div>
 
                         </div>
                         <div class="col-md-3">
-                            <button id="add" class="btn btn-success mt-4">+</button>
+                            <button id="addi" class="btn btn-success mt-4">+</button>
                         </div>
                     </div>
 
@@ -109,7 +109,7 @@ $mps = MPController::consult(null, null);
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
-                            <tbody id="list-mps">
+                            <tbody id="list-mpsi">
 
                             </tbody>
                         </table>
