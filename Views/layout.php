@@ -5,354 +5,408 @@ $user = $_SESSION["user"];
 $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
 ?>
 <!DOCTYPE html>
-<html lang="es-Us">
+<html lang="zxx" class="no-js">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RPPS Quimícos</title>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon-->
     <link rel="icon" href="Assets/img/Logo.ico">
-    <!--Hoja auxiliar para adaptacion del proyecto-->
-    <link rel="StyleSheet" href="Assets/css/style.css">
-    <!--LINKS DE ACCESO A BOOTSTRAP CON INTERNET-->
-    <!-- Latest compiled and minified CSS -->
+    <!-- Author Meta -->
+    <meta name="author" content="CodePixar">
+    <!-- Meta Description -->
+    <meta name="description" content="">
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="">
+    <!-- meta character set -->
+    <meta charset="UTF-8">
+    <!-- Site Title -->
+    <title>RPPS QUIMICOS</title>
+    <!--
+        CSS
+        ============================================= -->
+    <link rel="stylesheet" href="Assets/css/linearicons.css">
+    <link rel="stylesheet" href="Assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="Assets/css/themify-icons.css">
+    <link rel="stylesheet" href="Assets/css/bootstrap.css">
+    <link rel="stylesheet" href="Assets/css/owl.carousel.css">
+    <link rel="stylesheet" href="Assets/css/nice-select.css">
+    <link rel="stylesheet" href="Assets/css/nouislider.min.css">
+    <link rel="stylesheet" href="Assets/css/ion.rangeSlider.css" />
+    <link rel="stylesheet" href="Assets/css/ion.rangeSlider.skinFlat.css" />
+    <link rel="stylesheet" href="Assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="Assets/css/main.css">
+    <link rel="stylesheet" href="Assets/css/styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <!--LINKS DE ACCESO A BOOTSTRAP SIN INTERNET-->
-    <!-- Latest compiled and minified CSS -->
-    <!--<link rel="stylesheet" type="text/css" href="Assets/css/bootstrap.min.css">-->
 </head>
+
 <body>
-    <header class="d-flex toggled" id="wrapper">
-        <!-- Menu vertical deslizable-->
-        <nav class="bg-white border-right" id="sidebar-wrapper">
-            <div id="title1" class="sidebar-heading">RPPS Quimícos</div>
-            <hr>
-            <div class="list-group list-group-flush">
-                <?php if($user == ""):?>
-                    <a href="index.php" class="list-group-item list-group-item-action" id="flush">Inicio</a>
-                    <a href="#" class="list-group-item list-group-item-action" id="flush">
-                        <h2>Filtros</h2>
-                        <form method="post" action="#">
-                            <label><input type="checkbox" id="cbox1" value="mayorPrecio"> Mayor precio</label><br>
-                            <input type="checkbox" id="cbox2" value="menorPrecio"> <label for="cbox2">Menor precio</label>
-                            <input type="text" name="nombreProducto" placeholder="Nombre del producto">
-                        </form>
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action" id="flush">
-                        <h2>Precio</h2>
-                        <form method="post" action="">
-                            $<input type="text" name="pMinimo" placeholder="Minimo">
-                            $<input type="text" name="pMaximo" placeholder="Maximo">
-                        </form>
-                    </a>
-                    <a href="index.php" class="list-group-item list-group-item-action" id="flush">
-                        <h3 class="font-weight-bold">Catálogo</h3>
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action" id="flush">Alcoholes>></a>
-                    <a href="#" class="list-group-item list-group-item-action" id="flush">Varsoles>></a>
-                    <a href="#" class="list-group-item list-group-item-action" id="flush">Pegantes>></a>
-                    <a href="#" class="list-group-item list-group-item-action" id="flush">Ácidos>></a>
-                    <a href="#" class="list-group-item list-group-item-action" id="flush">Thinner>></a>
-                    <a href="#" class="list-group-item list-group-item-action" id="flush">Diablo rojo>></a>
-                <?php elseif ($user["idROL_FK"] == 1) : ?>
-                    <a href="index.php" class="list-group-item list-group-item-action" id="flush">Inicio</a>
-                    <a href="#" class="list-group-item list-group-item-action" id="flush">
-                        <h2>Filtros</h2>
-                        <form method="post" action="#">
-                            <label><input type="checkbox" id="cbox1" value="mayorPrecio"> Mayor precio</label><br>
-                            <input type="checkbox" id="cbox2" value="menorPrecio"> <label for="cbox2">Menor precio</label>
-                            <input type="text" name="nombreProducto" placeholder="Nombre del producto">
-                        </form>
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action" id="flush">
-                        <h2>Precio</h2>
-                        <form method="post" action="">
-                            $<input type="text" name="pMinimo" placeholder="Minimo">
-                            $<input type="text" name="pMaximo" placeholder="Maximo">
-                        </form>
-                    </a>
-                    <a href="index.php" class="list-group-item list-group-item-action" id="flush">
-                        <h3 class="font-weight-bold">Catálogo</h3>
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action" id="flush">Alcoholes>></a>
-                    <a href="#" class="list-group-item list-group-item-action" id="flush">Varsoles>></a>
-                    <a href="#" class="list-group-item list-group-item-action" id="flush">Pegantes>></a>
-                    <a href="#" class="list-group-item list-group-item-action" id="flush">Ácidos>></a>
-                    <a href="#" class="list-group-item list-group-item-action" id="flush">Thinner>></a>
-                    <a href="#" class="list-group-item list-group-item-action" id="flush">Diablo rojo>></a>
-                    <a href="index.php?paginasUsuario=ConsultarUsuario&id=<?php echo $user["idUSUARIO"] ?>" class="list-group-item list-group-item-action text-bold" id="flush">
-                        <img src="Assets/img/Perfil.jpg" class="img-fluide" width="30" height="30">Mi cuenta
-                    </a>
-                <?php elseif ($user["idROL_FK"] == 2) : ?>
-                    <a href="index.php?paginasPedidos=RegistroPedido" id="flush" class="list-group-item list-group-item-action">
-                        <h3>Registrar Pedido<i class="fab fa-jedi-order"></i></h3>
-                    </a>
-                    <a href="?paginasCliente=ConsultaCliente" class="list-group-item list-group-item-action text-danger" id="flush">Lista de clientes
-                        <i class="fas fa-users"></i>
-                    </a>
-                    <a href="?paginasMp=ConsultaMP" class="list-group-item list-group-item-action text-danger" id="flush">Lista de Materia Prima <i class="fas fa-flask"></i></a>
-                    <a href="?paginasProduc=ConsultaProduc" class="list-group-item list-group-item-action text-danger" id="flush">Lista de Productos <i class="fas fa-wine-bottle"></i></a>
-                    <a href="?paginasIngresoMp=ConsultaIMP&id=<?php echo $user["idEMPLEADO"] ?>" class="list-group-item list-group-item-action text-danger" id="flush">Lista de ingresos <i class="fas fa-clipboard-list"></i></a>
-                    <a href="index.php?paginasAdministradores=GestionInventario" class="list-group-item list-group-item-action" id="flush">Gestion de inventario
-                        <i class="fas fa-boxes"></i>
-                    <a href="index.php?paginasAdministradores=ConsultarUnAdmin&id=<?php echo $user["idEMPLEADO"] ?>" class="list-group-item list-group-item-action text-bold" id="flush">
-                        <img src="Assets/img/Perfil.jpg" class="img-fluide" width="30" height="30">Mi cuenta
-                    </a>
-                <?php elseif ($user["idROL_FK"] == 3) : ?>
-                    <a href="index.php?paginasAdministradores=ConsultarAdmin" class="list-group-item list-group-item-action" id="flush">Gestionar Administradores<i class="fas fa-user-astronaut"></i>
-                    </a>
-                    <a href="index.php?paginasAdministradores=GestionInventario" class="list-group-item list-group-item-action" id="flush">Gestion de inventario<i class="fas fa-boxes"></i>
-                    </a>
-                    <a href="?paginasCliente=ConsultaCliente" class="list-group-item list-group-item-action text-danger" id="flush">Lista de clientes
-                        <i class="fas fa-users"></i>
-                    </a>
-                    <a href="?paginasMp=ConsultaMP" class="list-group-item list-group-item-action text-danger" id="flush">Lista de Materia Prima <i class="fas fa-flask"></i></a>
-                    <a href="?paginasProduc=ConsultaProduc" class="list-group-item list-group-item-action text-danger" id="flush">Lista de Productos <i class="fas fa-wine-bottle"></i></a>
-                    <a href="?paginasIngresoMp=ConsultaIMP&id=<?php echo $user["idEMPLEADO"] ?>" class="list-group-item list-group-item-action text-danger" id="flush">Lista de ingresos <i class="fas fa-clipboard-list"></i></a>
-                    <a href="index.php?paginasAdministradores=ConsultarUnAdmin&id=<?php echo $user["idEMPLEADO"] ?>" class="list-group-item list-group-item-action text-bold" id="flush">
-                        <img src="Assets/img/Perfil.jpg" class="img-fluide" width="30" height="30">Mi cuenta
-                    </a>
-                <?php endif ?>
-            </div>
-        </nav>
-        <!-- barra de navegacion horizontal -->
-        <nav id="page-content-wrapper">
-            <!--Barra de navegacion horizontal con boton de activacion al menu deslizable----->
-            <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom navbar-fluid sticky-top row" id="nav1">
-                <div class="col-lg-1">
-                    <button type="button" class="btn btn-outline-primary" id="menu-toggle">
-                        <img src="Assets/img/menu.png" class="d-inline-block align-top pull-left" width="30" height="30">
+
+    <!-- Start Header Area -->
+    <header class="header_area sticky-header">
+        <div class="main_menu">
+            <nav class="navbar navbar-expand-lg navbar-light main_box">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <?php if($user == "" || $user["idROL_FK"] == 1 ):?>
+                        <a class="navbar-brand logo_h" href="index.php"><img src="Assets/img/logo.png" alt="" width="200"></a>
+                    <?php else:?> 
+                        <a class="navbar-brand logo_h" href="?paginasAdministradores=MenuInicio"><img src="Assets/img/logo.png" alt="" width="200"></a>  
+                    <?php endif?>     
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
                     </button>
-                </div>
-                <div class="col-lg-11" id="navbarSupportedContent">
-                    <ul class="navbar-nav col-lg-12">
-                        <li class="nav-brand col-lg-1">
-                            <?php if($user == "" || $user["idROL_FK"] == 1 ):?>
-                                <a href="index.php">
-                                    <img class="d-inline-block align-top pull-left" width="70" height="50" src="Assets/img/Contraste4.jpg">
-                                </a>
-                            <?php else:?>
-                                <a href="index.php?paginasAdministradores=MenuInicio">
-                                    <img class="d-inline-block align-top pull-left" width="70" height="50" src="Assets/img/Contraste4.jpg">
-                                </a>
-                            <?php endif?>
-                        </li>
-                        <li class="nav-brand col-lg-7">
-                            <i class="fas fa-search"></i><input type="text" id="bqd" placeholder="¿Qué estás buscando?">
-                        </li>
-                        <?php if ($user == "") : ?>
-                            <li id="op1" class="nav-item col">
-                                <button type = "button" data-toggle="modal" data-target="#exampleModal2" class="btn btn-light">Ir al carrito<i class="fas fa-cart-plus"></i>
-                                </button>
-                            </li>
-                            <li id="op1" class="nav-item col">
-                                <a href="index.php?paginasUsuario=InicioSesion" id="nab">Ingresar<i class="fas fa-door-open"></i></a>
-                            </li>
-                            <li id="op1" class="nav-item col">
-                                <a href="index.php?paginasCliente=RegistroCliente" id="nab">Registrarse<i class="fas fa-user-plus"></i></a>
-                            </li>
-                        <?php elseif ($user["idROL_FK"] == 1) : ?>
-                            <li id="op1" class="nav-item col">
-                                <button type = "button" data-toggle="modal" data-target="#exampleModal2" class="btn btn-light">Ir al carrito<i class="fas fa-cart-plus"></i>
-                                </button>
-                            </li>
-                            <li id="op1" class="nav-item col">
-                                <a href="#" id="nab">
-                                    <img src="Assets/img/Perfil.jpg" width="30" height="30"><?php echo $user["nombrecontEC"]; ?>
-                                </a>
-                            </li>
-                            <li id="op1" class="nav-item col">
-                                <button type="button" data-toggle="modal" class="btn btn-light" data-target="#exampleModal">
-                                    Salir<i class="fas fa-sign-out-alt"></i>
-                                </button>
-                            </li>
-                        <?php else : ?>
-                            <li id="op1" class="nav-item col">
-                                <a href="#" id="nab">
-                                    <img src="Assets/img/Perfil.jpg" width="30" height="30"><?php echo $user["nombreEMPLEADO"]; ?>
-                                </a>
-                            </li>
-                            <li id="op1" class="nav-item col">
-                                <button type="button" data-toggle="modal" class="btn btn-light" data-target="#exampleModal">
-                                    Salir<i class="fas fa-sign-out-alt"></i>
-                                </button>
-                            </li>
-                        <?php endif ?>
-                    </ul>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav menu_nav ml-auto">
+                            <?php if ($user == "") : ?>
+                                <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+                                <li class="nav-item submenu dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                     aria-expanded="false">Tienda</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item"><a class="nav-link" href="?paginasProduc=Catalog">Shop Category</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="#"> Details</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="#">Product Checkout</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="#">Shopping Cart</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="#">Confirmation</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item submenu dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                     aria-expanded="false">Paginas</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item"><a class="nav-link" href="?paginasUsuario=InicioSesion">Iniciar sesion</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="?paginasCliente=RegistroCliente">Registrarse</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item"><a class="nav-link" href="contact.html">Contacto</a></li>
+                            <?php elseif ($user["idROL_FK"] == 1) : ?>
+                                <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+                                <li class="nav-item submenu dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                     aria-expanded="false">Tienda</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item"><a class="nav-link" href="?paginasProduc=Catalog">Shop Category</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="#"> Details</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="#">Product Checkout</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="#">Shopping Cart</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="#">Confirmation</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item submenu dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                     aria-expanded="false"><?php echo $user["nombrecontEC"]; ?></a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item"><a href="#" class="nav-link" data-toggle="modal" data-target="#exampleModal">
+                                            Salir<i class="fas fa-sign-out-alt"></i>
+                                        </a></li>
+                                        <li class="nav-item"><a href="?paginasUsuario=ConsultarUsuario&id=<?php echo $user["idUSUARIO"] ?>" class="nav-link">
+                                            Mi perfil
+                                        </a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item"><a class="nav-link" href="contact.html">Contacto</a>
+                                </li>
+                            <?php else : ?> 
+                                <li class="nav-item"><a class="nav-link" href="?paginasAdministradores=MenuInicio">Home</a></li>
+                                <li class="nav-item submenu dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                     aria-expanded="false"><?php echo $user["nombreEMPLEADO"]; ?></a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item"><a href="#" class="nav-link" data-toggle="modal" data-target="#exampleModal">
+                                            Salir<i class="fas fa-sign-out-alt"></i>
+                                        </a></li>
+                                        <li class="nav-item"><a href="?paginasAdministradores=ConsultarUnAdmin&id=<?php echo $user["idEMPLEADO"] ?>" class="nav-link">
+                                            Mi perfil
+                                        </a></li>
+                                    </ul>
+                                </li>  
+                            <?php endif?>    
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <?php if ($user == "") : ?>
+                                <li class="nav-item">
+                                    <a href="#" class="cart" data-toggle="modal" data-target="#exampleModal2"><span class="ti-bag"></span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <button class="search"><span class="lnr lnr-magnifier" id="search"></span></button>
+                                </li>
+                            <?php elseif($user["idROL_FK"] == 1):?> 
+                                <li class="nav-item">
+                                    <a href="#" class="cart" data-toggle="modal" data-target="#exampleModal2"><span class="ti-bag"></span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <button class="search"><span class="lnr lnr-magnifier" id="search"></span></button>
+                                </li>   
+                            <?php else :?>
+                                <li class="nav-item">
+                                    <button class="search"><span class="lnr lnr-magnifier" id="search"></span></button>
+                                </li>
+                           <?php endif?>
+                        </ul>
+                    </div>
                 </div>
             </nav>
-            <main class="container-fluid">
-                <!-- Modal Carrito-->
-                <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="labelCarrito">Carrito<i class="fa fa-shopping-basket" aria-hidden="true"></i></h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <strong><div class="row">
-                          <div class="col-md-2 ml-auto">Producto</div>
-                          <div class="col-md-2 ml-auto">Nombre</div>
-                          <div class="col-md-2 ml-auto">Precio</div>
-                          <div class="col-md-2 ml-auto">Cantidad</div>
-                          <div class="col-md-2 ml-auto">Total</div>
-                          <div class="col-md-2 ml-auto">Retirar</div>
-                        </div></strong>
-                        <hr>
-                          <div id="productosCarrito">
-
-                          </div>
-                          <div class="columns">
-                            <div class="text-right">
-                                <h4 class="card-title">Total: </h4>
-                            </div>
-                            <div class="text-right">
-                                <h1 class="card-title" id="totalCarrito"><strong>$0</strong></1>
-                            </div>
-                        </div>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-danger">Completar Pedido <i class="fas fa-cart-plus"></i></button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Modal Cierre sesion-->
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-body">
-                                <?php if ($user["idROL_FK"] == 1) : ?>
-                                    ¿Seguro deseas salir <span class="font-weight-bold"><?php echo $user["nombrecontEC"] ?></span> de tu sesión?
-                                <?php else : ?>
-                                    ¿Seguro deseas salir <span class="font-weight-bold"><?php echo $user["nombreEMPLEADO"] ?></span> de tu sesión?
-                                <?php endif ?>
-                            </div>
-                            <div class="modal-footer justify-content-center">
-                                <a href="index.php?paginasCliente=salir" class="btn btn-primary rounded-pill">Si</a>
-                                <button type="button" class="btn btn-danger rounded-pill" data-dismiss="modal">No</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <?php
-                if (isset($_GET["paginasCliente"])) {
-                    if (
-                        $_GET["paginasCliente"] == "RegistroCliente" ||
-                        $_GET["paginasCliente"] == "ConsultaCliente" ||
-                        $_GET["paginasCliente"] == "salir" ||
-                        $_GET["paginasCliente"] == "DetalleProducto" ||
-                        $_GET["paginasCliente"] == "RegistroPedido" ||
-                        $_GET["paginasCliente"] == "CarritoVacio"
-                    ) {
-                        include "Views/paginasCliente/" . $_GET["paginasCliente"] . ".php";
-                    } else {
-                        include "Views/error404.php";
-                    }
-                } elseif (isset($_GET["paginasUsuario"])) {
-                    if (
-                        $_GET["paginasUsuario"] == "InicioSesion" ||
-                        $_GET["paginasUsuario"] == "RegistrarUsuario" ||
-                        $_GET["paginasUsuario"] == "ConsultarUsuario" ||
-                        $_GET["paginasUsuario"] == "RecuperarContrasena" ||
-                        $_GET["paginasUsuario"] == "RestauraContrasenaUs"
-                    ) {
-                        include "Views/paginasUsuario/" . $_GET["paginasUsuario"] . ".php";
-                    } else {
-                        include "Views/error404.php";
-                    }
-                } elseif (isset($_GET["paginasAdministradores"])) {
-                    if (
-                        $_GET["paginasAdministradores"] == "ConsultarAdmin" ||
-                        $_GET["paginasAdministradores"] == "ConsultarUnAdmin" ||
-                        $_GET["paginasAdministradores"] == "GestionInventario" ||
-                        $_GET["paginasAdministradores"] == "RestauraContrasenaAd" ||
-                        $_GET["paginasAdministradores"] == "EditarProducto" ||
-                        $_GET["paginasAdministradores"] == "MenuInicio"
-                    ) {
-                        include "Views/paginasAdministradores/" . $_GET["paginasAdministradores"] . ".php";
-                    } else {
-                        include "Views/error404.php";
-                    }
-                }elseif (isset($_GET["paginasIngresoMp"])) {
-                  if ($_GET["paginasIngresoMp"] == "ConsultaIMP"||$_GET["paginasIngresoMp"]=="NuevoIMP"||$_GET["paginasIngresoMp"]="VerIMP" ){
-
-                        include "Views/paginasIngresoMp/" . $_GET["paginasIngresoMp"] . ".php";
-                    }else{
-                        include "Views/error404.php";
-                    }
-                }elseif (isset($_GET["paginasMp"])) {
-                    if ($_GET["paginasMp"] == "ConsultaMP" || $_GET["paginasMp"]=="RegistroMP"){
-
-                        include "Views/paginasMp/" . $_GET["paginasMp"] . ".php";
-                    }else{
-                        include "Views/error404.php";
-                    }
-                }elseif (isset($_GET["paginasProduc"])) {
-                    if ($_GET["paginasProduc"] == "ConsultaProduc" || $_GET["paginasProduc"]=="RegistroProduc" || $_GET["paginasProduc"]=="NuevoProd"|| $_GET["paginasProduc"]=="AgregarProd"||$_GET["paginasProduc"]=="AgregarEx"){
-
-                        include "Views/paginasProduc/" . $_GET["paginasProduc"] . ".php";
-                    }else{
-                        include "Views/error404.php";
-                    }
-                } elseif (isset($_GET["paginasPedidos"])) {
-                    if (
-                        $_GET["paginasPedidos"] == "RegistroPedido" ||
-                        $_GET["paginasPedidos"] == "CarritoVacio" ||
-                        $_GET["paginasPedidos"] == "CarritoPedido" ||
-                        $_GET["paginasPedidos"] == "PedidoCompleto"
-                    ) {
-                        include "Views/paginasPedidos/" . $_GET["paginasPedidos"] . ".php";
-                    } else {
-                        include "Views/error404.php";
-                    }
-                } else {
-                    include "Views/home.php";
-                }
-                ?>
-            </main>
-        </nav>
+        </div>
+        <div class="search_input" id="search_input_box">
+            <div class="container">
+                <form class="d-flex justify-content-between">
+                    <input type="text" class="form-control" id="search_input" placeholder="¿Que estas buscando?">
+                    <button type="submit" class="btn"></button>
+                    <span class="lnr lnr-cross" id="close_search" title="Close Search"></span>
+                </form>
+            </div>
+        </div>
     </header>
-    <footer class="row">
-        <div id="footer" class="col-lg-12">©Copyright: GAROWARE SOFTWARE<br>
-            DERECHOS RESERVADOS 2020</div>
+    <main class="container-fluid">
+        <!-- Modal Carrito-->
+        <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="labelCarrito">Carrito<i class="fa fa-shopping-basket" aria-hidden="true"></i></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <strong><div class="row">
+                  <div class="col-md-2 ml-auto">Producto</div>
+                  <div class="col-md-2 ml-auto">Nombre</div>
+                  <div class="col-md-2 ml-auto">Precio</div>
+                  <div class="col-md-2 ml-auto">Cantidad</div>
+                  <div class="col-md-2 ml-auto">Total</div>
+                  <div class="col-md-2 ml-auto">Retirar</div>
+                </div></strong>
+                <hr>
+                  <div id="productosCarrito">
+
+                  </div>
+                  <div class="columns">
+                    <div class="text-right">
+                        <h4 class="card-title">Total: </h4>
+                    </div>
+                    <div class="text-right">
+                        <h1 class="card-title" id="totalCarrito"><strong>$0</strong></1>
+                    </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-danger">Completar Pedido <i class="fas fa-cart-plus"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Header Area -->
+        <!-- Modal Cierre sesion-->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <?php if ($user["idROL_FK"] == 1) : ?>
+                            ¿Seguro deseas salir <span class="font-weight-bold"><?php echo $user["nombrecontEC"] ?></span> de tu sesión?
+                        <?php else : ?>
+                            ¿Seguro deseas salir <span class="font-weight-bold"><?php echo $user["nombreEMPLEADO"] ?></span> de tu sesión?
+                        <?php endif ?>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <a href="index.php?paginasCliente=salir" class="btn btn-primary rounded-pill">Si</a>
+                        <button type="button" class="btn btn-danger rounded-pill" data-dismiss="modal">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php
+            if (isset($_GET["paginasCliente"])) {
+                if (
+                    $_GET["paginasCliente"] == "RegistroCliente" ||
+                    $_GET["paginasCliente"] == "ConsultaCliente" ||
+                    $_GET["paginasCliente"] == "salir" ||
+                    $_GET["paginasCliente"] == "DetalleProducto" ||
+                    $_GET["paginasCliente"] == "RegistroPedido" ||
+                    $_GET["paginasCliente"] == "CarritoVacio"
+                ) {
+                    include "Views/paginasCliente/" . $_GET["paginasCliente"] . ".php";
+                } else {
+                    include "Views/error404.php";
+                }
+            } elseif (isset($_GET["paginasUsuario"])) {
+                if (
+                    $_GET["paginasUsuario"] == "InicioSesion" ||
+                    $_GET["paginasUsuario"] == "RegistrarUsuario" ||
+                    $_GET["paginasUsuario"] == "ConsultarUsuario" ||
+                    $_GET["paginasUsuario"] == "RecuperarContrasena" ||
+                    $_GET["paginasUsuario"] == "RestauraContrasenaUs"
+                ) {
+                    include "Views/paginasUsuario/" . $_GET["paginasUsuario"] . ".php";
+                } else {
+                    include "Views/error404.php";
+                }
+            } elseif (isset($_GET["paginasAdministradores"])) {
+                if (
+                    $_GET["paginasAdministradores"] == "ConsultarAdmin" ||
+                    $_GET["paginasAdministradores"] == "ConsultarUnAdmin" ||
+                    $_GET["paginasAdministradores"] == "GestionInventario" ||
+                    $_GET["paginasAdministradores"] == "RestauraContrasenaAd" ||
+                    $_GET["paginasAdministradores"] == "EditarProducto" ||
+                    $_GET["paginasAdministradores"] == "MenuInicio"
+                ) {
+                    include "Views/paginasAdministradores/" . $_GET["paginasAdministradores"] . ".php";
+                } else {
+                    include "Views/error404.php";
+                }
+            }elseif (isset($_GET["paginasIngresoMp"])) {
+              if ($_GET["paginasIngresoMp"] == "ConsultaIMP"||$_GET["paginasIngresoMp"]=="NuevoIMP"||$_GET["paginasIngresoMp"]="VerIMP" ){
+
+                    include "Views/paginasIngresoMp/" . $_GET["paginasIngresoMp"] . ".php";
+                }else{
+                    include "Views/error404.php";
+                }
+            }elseif (isset($_GET["paginasMp"])) {
+                if ($_GET["paginasMp"] == "ConsultaMP" || $_GET["paginasMp"]=="RegistroMP"){
+
+                    include "Views/paginasMp/" . $_GET["paginasMp"] . ".php";
+                }else{
+                    include "Views/error404.php";
+                }
+            }elseif (isset($_GET["paginasProduc"])) {
+                if ($_GET["paginasProduc"] == "ConsultaProduc" || 
+                    $_GET["paginasProduc"] == "RegistroProduc" || 
+                    $_GET["paginasProduc"] == "NuevoProd"      || 
+                    $_GET["paginasProduc"] == "AgregarProd"    ||
+                    $_GET["paginasProduc"] == "AgregarEx"      ||
+                    $_GET["paginasProduc"] == "Catalog"){
+
+                    include "Views/paginasProduc/" . $_GET["paginasProduc"] . ".php";
+                }else{
+                    include "Views/error404.php";
+                }
+            } elseif (isset($_GET["paginasPedidos"])) {
+                if (
+                    $_GET["paginasPedidos"] == "RegistroPedido" ||
+                    $_GET["paginasPedidos"] == "CarritoVacio" ||
+                    $_GET["paginasPedidos"] == "CarritoPedido" ||
+                    $_GET["paginasPedidos"] == "PedidoCompleto"
+                ) {
+                    include "Views/paginasPedidos/" . $_GET["paginasPedidos"] . ".php";
+                } else {
+                    include "Views/error404.php";
+                }
+            } else {
+                include "Views/home.php";
+            }
+        ?>
+    </main>    
+    <!-- start footer Area -->
+    <footer class="footer-area section_gap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3  col-md-6 col-sm-6">
+                    <div class="single-footer-widget">
+                        <h6 class="text-light">About Us</h6>
+                        <p class="text-light">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore
+                            magna aliqua.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4  col-md-6 col-sm-6">
+                    <div class="single-footer-widget">
+                        <h6>Newsletter</h6>
+                        <p class="text-light">Stay update with our latest</p>
+                        <div class="" id="mc_embed_signup">
+
+                            <form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                             method="get" class="form-inline">
+
+                                <div class="d-flex flex-row">
+
+                                    <input class="form-control" name="EMAIL" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '"
+                                     required="" type="email">
+
+
+                                    <button class="click-btn btn btn-default"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
+                                    <div style="position: absolute; left: -5000px;">
+                                        <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
+                                    </div>
+
+                                    <!-- <div class="col-lg-4 col-md-4">
+                                                <button class="bb-btn btn"><span class="lnr lnr-arrow-right"></span></button>
+                                            </div>  -->
+                                </div>
+                                <div class="info"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3  col-md-6 col-sm-6">
+                    <div class="single-footer-widget mail-chimp">
+                        <h6 class="mb-20">Instragram Feed</h6>
+                        <ul class="instafeed d-flex flex-wrap">
+                            <li><img src="Assets/img/i1.jpg" alt=""></li>
+                            <li><img src="Assets/img/i2.jpg" alt=""></li>
+                            <li><img src="Assets/img/i3.jpg" alt=""></li>
+                            <li><img src="Assets/img/i4.jpg" alt=""></li>
+                            <li><img src="Assets/img/i5.jpg" alt=""></li>
+                            <li><img src="Assets/img/i6.jpg" alt=""></li>
+                            <li><img src="Assets/img/i7.jpg" alt=""></li>
+                            <li><img src="Assets/img/i8.jpg" alt=""></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 col-sm-6">
+                    <div class="single-footer-widget">
+                        <h6>Follow Us</h6>
+                        <p>Let us be social</p>
+                        <div class="footer-social d-flex align-items-center">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-dribbble"></i></a>
+                            <a href="#"><i class="fa fa-behance"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
+                <p class="footer-text m-0 text-light"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todo los derechos reservados | GAROWARE SOFTWARE
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                </p>
+            </div>
+        </div>
     </footer>
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <!-- Popper JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <!-- End footer Area -->
 
+    <script src="Assets/js/vendor/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+     crossorigin="anonymous"></script>
+    <script src="Assets/js/vendor/bootstrap.min.js"></script>
+    <script src="Assets/js/jquery.ajaxchimp.min.js"></script>
+    <script src="Assets/js/jquery.nice-select.min.js"></script>
+    <script src="Assets/js/jquery.sticky.js"></script>
+    <script src="Assets/js/nouislider.min.js"></script>
+    <script src="Assets/js/countdown.js"></script>
+    <script src="Assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="Assets/js/owl.carousel.min.js"></script>
+    <!--gmaps Js-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
     <script src="https://kit.fontawesome.com/0e7adc6a46.js" crossorigin="anonymous"></script>
-    <!-- jQuery library -->
-    <!--<script type="text/javascript" src="Assets/js/jquery.min.js"></script>-->
-    <!-- Popper JS -->
-    <!--<script type="text/javascript" src="Assets/js/popper.min.js"></script>-->
-    <!-- Latest compiled JavaScript -->
-    <!--<script type="text/javascript" src="Assets/js/bootstrap.min.js"></script>-->
-
-    <!-- Script para deslizar y desplazar pantalla al menu -->
+    <script src="Assets/js/gmaps.min.js"></script>
+    <script src="Assets/js/main.js"></script>
     <script type="text/javascript">
         $("#menu-toggle").on('click', function(e) {
             e.preventDefault();
             $("#wrapper").toggleClass("toggled");
         });
     </script>
-    <!-- Script para validar formularios -->
-    <script type="text/javascript" src="Assets/js/validation.js"></script>
-    <!-- Script para buscar datos en lista de clientes -->
-    <script type="text/javascript" src="Assets/js/search.js"></script>
-    <!-- Script para mostrar u ocultar la contraseña cuando se digita -->
-    <script type="text/javascript" src="Assets/js/eye.js"></script>
     <script type="text/javascript" src="Assets/js/imp.js"></script>
     <script type="text/javascript" src="Assets/js/prod.js"></script>
     <script src="Assets/js/Carrito.js"></script>
-
-
 </body>
+
 </html>

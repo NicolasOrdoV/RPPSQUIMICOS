@@ -9,8 +9,20 @@ if(!isset($_SESSION["validarIngreso"])){
         return;
     }
 }
-$producto = ControladorProductos::ctrSeleccionarProductos();
-?>
+$producto = ControladorProductos::ctrSeleccionarProductos();?>
+<section class="banner-area organic-breadcrumb">
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-center">
+            <div class="col-first">
+                <h1 class="text-dark">Shopping Cart</h1>
+                <nav class="d-flex align-items-center">
+                    <a href="index.html" class="text-dark">Home<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="category.html" class="text-dark">Cart</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
 <section class="row py-3">
   <aside class="col-lg-3 py-5" id="fondo2"></aside>
   <form action="index.php?paginasPedidos=PedidoCompleto" class="col-lg-6 py-5 needs-validation" id="form" method="post" novalidate>
@@ -62,6 +74,9 @@ $producto = ControladorProductos::ctrSeleccionarProductos();
     </div>
     <button type="submit" class="btn btn-success">Completar Pedido</button>
   </form>
+</section>
+<section class="row">
+    <div id="blanco" class="col-lg-12"></div>
 </section>
 <script type="text/javascript">
   function Multiplicar (valor) {

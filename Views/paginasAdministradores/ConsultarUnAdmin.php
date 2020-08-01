@@ -17,6 +17,19 @@ if (isset($_GET["id"])) {
     $barrios = ControladorBarrios::ctrSeleccionarBarrios();
 }
 ?>
+<section class="banner-area organic-breadcrumb">
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-center">
+            <div class="col-first">
+                <h1 class="text-dark">Shopping Cart</h1>
+                <nav class="d-flex align-items-center">
+                    <a href="index.html" class="text-dark">Home<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="category.html" class="text-dark">Cart</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
 <section class="row">
     <div id="blanco" class="col-lg-12">
         <h1 id="tlprin">Mi cuenta</h1>
@@ -35,7 +48,7 @@ if (isset($_GET["id"])) {
                 <h3>Telefono:<?php echo $admin["telefonoEMPLEADO"]?></h3>
                 <a href="#" class="text-dark" data-toggle="modal" data-target="#myModal">Editar datos del perfil</a><br>
                 <a href="#" class="text-dark">Editar datos del envio</a><br>
-                <a href="#" class="text-dark" data-toggle="modal" data-target="#changePassword">Seguridad</a><br>
+                <a href="#" class="text-dark" data-toggle="modal" data-target="#changePassword">Seguridad(Cambiar contraseña)</a><br>
                 
             <!--CAMBIO DE CONTRASEÑA-->
                 <div class="modal fade" id="changePassword" role="dialog">
@@ -315,4 +328,7 @@ if (isset($_GET["id"])) {
             </article>
         </div>
     <aside class="col-lg-3" id="blanco-h"></aside>
+</section>
+<section class="row">
+    <div id="blanco" class="col-lg-12"></div>
 </section>

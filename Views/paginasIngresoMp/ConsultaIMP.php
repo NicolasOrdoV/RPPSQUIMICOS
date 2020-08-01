@@ -15,9 +15,20 @@ if (isset($_GET["id"])) {
     $admin = ControladorAdministradores::ctrSeleccionarRegistrosAdministradores($item1,$valor1);
 }
 $ing = IMPController::consult(null, null);
-$mps = MPController::consult(null, null);
-
-?>
+$mps = MPController::consult(null, null);?>
+<section class="banner-area organic-breadcrumb">
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-center">
+            <div class="col-first">
+                <h1 class="text-dark">Shopping Cart</h1>
+                <nav class="d-flex align-items-center">
+                    <a href="index.html" class="text-dark">Home<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="category.html" class="text-dark">Cart</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
 <section class="row">
     <div id="blanco" class="col-lg-10">
         <h1 id="tlprin">Ingreso de Materia Prima</h1>
@@ -88,7 +99,7 @@ $mps = MPController::consult(null, null);
                                         ?>
                                     </select></center>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group m-5">
                                 <input type="number" class="form-control rounded-pill" placeholder="Cantidad" id="canti" name="cantidadDI" min="1" required>
                                 <div class="valid-feedback">Valido</div>
                                 <div class="invalid-feedback">El campo no puede quedar vacio.</div>
@@ -129,6 +140,8 @@ $mps = MPController::consult(null, null);
             </div>
         </div>
     </div>
-
     <aside id="blanco-h" class="col-lg-2"></aside>
+</section>
+<section class="row">
+    <div id="blanco" class="col-lg-12"></div>
 </section>

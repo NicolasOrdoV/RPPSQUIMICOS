@@ -24,7 +24,7 @@ $data=IMPController::show($in['idIMP']);
      <div class="row py-3">
        <aside class="col-lg-3 py-5" id="fondo2"></aside>
        <form class="col-lg-6 py-5 needs-validation" id="form" method="POST" novalidate>
-         <a href="index.php?paginasIngresoMp=ConsultaIMP" class="btn btn-danger rounded float-left" title="Volver"><i class="fas fa-angle-double-left"></i></a>
+         <a href="?paginasIngresoMp=ConsultaIMP&id=<?php echo $user["idEMPLEADO"] ?>" class="btn btn-danger rounded float-left" title="Volver"><i class="fas fa-angle-double-left"></i></a>
          <h1 class="text-danger">Información</h1>
          <div class="form-group">
            <h4>Fecha: <?php echo $in['fechaIMP']; ?></h4>

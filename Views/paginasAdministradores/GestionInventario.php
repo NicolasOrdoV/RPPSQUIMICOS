@@ -9,10 +9,21 @@ if(!isset($_SESSION["validarIngreso"])){
         return;
     }
 }
-$producto = ControladorInventario::ctrSeleccionarProductosStock(null, null);
-?>
+$producto = ControladorInventario::ctrSeleccionarProductosStock(null, null);?>
+<section class="banner-area organic-breadcrumb">
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-center">
+            <div class="col-first">
+                <h1 class="text-dark">Shopping Cart</h1>
+                <nav class="d-flex align-items-center">
+                    <a href="index.html" class="text-dark">Home<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="category.html" class="text-dark">Cart</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
 <!--------------Espacio en blanco superior---->
-
 <section class="row">
     <div id="blanco" class="col-lg-12">
         <h1 id="tlprin">Productos en el inventario</h1>

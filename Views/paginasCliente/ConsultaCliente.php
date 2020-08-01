@@ -9,10 +9,20 @@ if(!isset($_SESSION["validarIngreso"])){
         return;
     }
 }
-$clientes = ControladorClientes::ctrSeleccionarRegistroClientes(null,null);
-
-?>
-
+$clientes = ControladorClientes::ctrSeleccionarRegistroClientes(null,null);?>
+<section class="banner-area organic-breadcrumb">
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-center">
+            <div class="col-first">
+                <h1 class="text-dark">Shopping Cart</h1>
+                <nav class="d-flex align-items-center">
+                    <a href="index.html" class="text-dark">Home<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="category.html" class="text-dark">Cart</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
 <section class="row py-5">
     <input class="form-control mb-4 col-lg-6 border border-danger rounded-pill" id="tableSearch" type="text" placeholder="Busca aqui el cliente registrado que quieras" onclick="search()"><i class="fas fa-search"></i>
     <table class="col-lg-12 table table-striped table-hover table-lg table-responsive-lg">
@@ -93,4 +103,7 @@ $clientes = ControladorClientes::ctrSeleccionarRegistroClientes(null,null);
         <?php endforeach ?>        
         </tbody>
     </table>
+</section>
+<section class="row">
+    <div id="blanco" class="col-lg-12"></div>
 </section>

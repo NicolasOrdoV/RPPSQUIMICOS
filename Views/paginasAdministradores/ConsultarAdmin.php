@@ -11,13 +11,22 @@ if(!isset($_SESSION["validarIngreso"])){
         return;
     }
 }
-
 $instancia = new tools();
 $codigo = $instancia->randomCode();
-
-$admins = ControladorAdministradores::ctrSeleccionarRegistrosAdministradores(null,null);
-
-?>
+$admins = ControladorAdministradores::ctrSeleccionarRegistrosAdministradores(null,null);?>
+<section class="banner-area organic-breadcrumb">
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-center">
+            <div class="col-first">
+                <h1 class="text-dark">Shopping Cart</h1>
+                <nav class="d-flex align-items-center">
+                    <a href="index.html" class="text-dark">Home<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="category.html" class="text-dark">Cart</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
 <section class="row py-5">
 	<div class="col-lg-2"></div>
     <div id="blanco" class="col-lg-8">

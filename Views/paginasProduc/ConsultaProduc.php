@@ -9,8 +9,20 @@ if(!isset($_SESSION["validarIngreso"])){
         return;
     }
 }
-$produc = ProdController::consult(null, null);
-?>
+$produc = ProdController::consult(null, null);?>
+<section class="banner-area organic-breadcrumb">
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-center">
+            <div class="col-first">
+                <h1 class="text-dark">Shopping Cart</h1>
+                <nav class="d-flex align-items-center">
+                    <a href="index.html" class="text-dark">Home<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="category.html" class="text-dark">Cart</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
 <section class="row">
     <div id="blanco" class="col-lg-12">
         <h1 id="tlprin">Producto</h1>
@@ -82,8 +94,8 @@ $produc = ProdController::consult(null, null);
             </tbody>
         </table>
     </aside>
-
-
-
     <aside id="blanco-h" class="col-lg-2"></aside>
+</section>
+<section class="row">
+    <div id="blanco" class="col-lg-12"></div>
 </section>
