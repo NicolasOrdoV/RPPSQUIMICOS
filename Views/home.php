@@ -9,7 +9,7 @@
                         <div class="row single-slide align-items-center d-flex">
                             <div class="col-lg-5 col-md-6">
                                 <div class="banner-content">
-                                    <h1>RRPS QUIMICOS <br>Su nueva renovación</h1>
+                                    <h1>RPPS QUIMICOS <br>Su nueva renovación</h1>
                                     <p>Aqui puedes comprar y pedir por encargo algunos quimicos que necesites en tu hogar como utencilios de aseo y demas. Adentrate! Se que te va a encantar.</p>
                                     <div class="add-bag d-flex align-items-center">
                                         <a class="add-btn" href=""><span class="lnr lnr-cross"></span></a>

@@ -6,6 +6,19 @@ if (isset($_GET["id"])) {
     $admin = ControladorAdministradores::ctrSeleccionarRegistrosAdministradores($item1,$valor1);
 }
 ?>
+<section class="banner-area organic-breadcrumb">
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-center">
+            <div class="col-first">
+                <h1 class="text-dark">Shopping Cart</h1>
+                <nav class="d-flex align-items-center">
+                    <a href="index.html" class="text-dark">Home<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="category.html" class="text-dark">Cart</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
 <section class="row py-3">
     <aside class="col-lg-3 py-5" id="fondo1"></aside>
     <form action="#" class="col-lg-6 py-5 needs-validation" id="form" method="post" novalidate>
@@ -51,4 +64,7 @@ if (isset($_GET["id"])) {
         <button type="submit" id="btnReg" class="btn btn-danger rounded-pill btn-lg btn-block">Recuperar<i class="fas fa-flask"></i></button>
     </form>
     <aside class="col-lg-3" id="blanco-h"></aside>
+</section>
+<section class="row">
+    <div id="blanco" class="col-lg-12"></div>
 </section>
