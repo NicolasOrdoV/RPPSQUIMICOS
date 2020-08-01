@@ -57,9 +57,9 @@ if (isset($_GET["id"])) {
                 <button id="btn_carrito" class="primary-btn" data-producto="<?php echo $stock["idPRODUCTO"]; ?>">Añadir al carrito <i class="fas fa-cart-plus"></i></button>
                 <a class="icon_btn" href="#"><i class="lnr lnr lnr-diamond"></i></a>
                 <a class="icon_btn" href="#"><i class="lnr lnr lnr-heart"></i></a>
-              </div>  
+              </div>
             </div>
-          </form>  
+          </form>
         </div>
       </div>
     </div>
@@ -392,4 +392,5 @@ if (isset($_GET["id"])) {
   <!--================End Product Description Area =================-->
 <script type="text/javascript">
   var consulta = <?php echo json_encode($consulta); ?>;
-</script>  
+</script>
+<script src="Assets/js/CarritoProd.js"></script>

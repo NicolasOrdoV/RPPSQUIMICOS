@@ -50,9 +50,9 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <?php if($user == "" || $user["idROL_FK"] == 1 ):?>
                         <a class="navbar-brand logo_h" href="index.php"><img src="Assets/img/logo.png" alt="" width="200"></a>
-                    <?php else:?> 
-                        <a class="navbar-brand logo_h" href="?paginasAdministradores=MenuInicio"><img src="Assets/img/logo.png" alt="" width="200"></a>  
-                    <?php endif?>     
+                    <?php else:?>
+                        <a class="navbar-brand logo_h" href="?paginasAdministradores=MenuInicio"><img src="Assets/img/logo.png" alt="" width="200"></a>
+                    <?php endif?>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="icon-bar"></span>
@@ -111,7 +111,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                                 </li>
                                 <li class="nav-item"><a class="nav-link" href="contact.html">Contacto</a>
                                 </li>
-                            <?php else : ?> 
+                            <?php else : ?>
                                 <li class="nav-item"><a class="nav-link" href="?paginasAdministradores=MenuInicio">Home</a></li>
                                 <li class="nav-item submenu dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -124,24 +124,24 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                                             Mi perfil
                                         </a></li>
                                     </ul>
-                                </li>  
-                            <?php endif?>    
+                                </li>
+                            <?php endif?>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <?php if ($user == "") : ?>
                                 <li class="nav-item">
-                                    <a href="#" class="cart" data-toggle="modal" data-target="#exampleModal2"><span class="ti-bag"></span></a>
+                                    <a href="index.php?paginasPedidos=Carrito" class="cart"><span class="ti-bag"></span></a>
                                 </li>
                                 <li class="nav-item">
                                     <button class="search"><span class="lnr lnr-magnifier" id="search"></span></button>
                                 </li>
-                            <?php elseif($user["idROL_FK"] == 1):?> 
+                            <?php elseif($user["idROL_FK"] == 1):?>
                                 <li class="nav-item">
-                                    <a href="#" class="cart" data-toggle="modal" data-target="#exampleModal2"><span class="ti-bag"></span></a>
+                                    <a href="index.php?paginasPedidos=Carrito" class="cart"><span class="ti-bag"></span></a>
                                 </li>
                                 <li class="nav-item">
                                     <button class="search"><span class="lnr lnr-magnifier" id="search"></span></button>
-                                </li>   
+                                </li>
                             <?php else :?>
                                 <li class="nav-item">
                                     <button class="search"><span class="lnr lnr-magnifier" id="search"></span></button>
@@ -163,46 +163,6 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
         </div>
     </header>
     <main class="container-fluid">
-        <!-- Modal Carrito-->
-        <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="labelCarrito">Carrito<i class="fa fa-shopping-basket" aria-hidden="true"></i></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <strong><div class="row">
-                  <div class="col-md-2 ml-auto">Producto</div>
-                  <div class="col-md-2 ml-auto">Nombre</div>
-                  <div class="col-md-2 ml-auto">Precio</div>
-                  <div class="col-md-2 ml-auto">Cantidad</div>
-                  <div class="col-md-2 ml-auto">Total</div>
-                  <div class="col-md-2 ml-auto">Retirar</div>
-                </div></strong>
-                <hr>
-                  <div id="productosCarrito">
-
-                  </div>
-                  <div class="columns">
-                    <div class="text-right">
-                        <h4 class="card-title">Total: </h4>
-                    </div>
-                    <div class="text-right">
-                        <h1 class="card-title" id="totalCarrito"><strong>$0</strong></1>
-                    </div>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-danger">Completar Pedido <i class="fas fa-cart-plus"></i></button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- End Header Area -->
         <!-- Modal Cierre sesion-->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -275,9 +235,9 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                     include "Views/error404.php";
                 }
             }elseif (isset($_GET["paginasProduc"])) {
-                if ($_GET["paginasProduc"] == "ConsultaProduc" || 
-                    $_GET["paginasProduc"] == "RegistroProduc" || 
-                    $_GET["paginasProduc"] == "NuevoProd"      || 
+                if ($_GET["paginasProduc"] == "ConsultaProduc" ||
+                    $_GET["paginasProduc"] == "RegistroProduc" ||
+                    $_GET["paginasProduc"] == "NuevoProd"      ||
                     $_GET["paginasProduc"] == "AgregarProd"    ||
                     $_GET["paginasProduc"] == "AgregarEx"      ||
                     $_GET["paginasProduc"] == "Catalog"){
@@ -288,10 +248,10 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                 }
             } elseif (isset($_GET["paginasPedidos"])) {
                 if (
-                    $_GET["paginasPedidos"] == "RegistroPedido" ||
-                    $_GET["paginasPedidos"] == "CarritoVacio" ||
-                    $_GET["paginasPedidos"] == "CarritoPedido" ||
-                    $_GET["paginasPedidos"] == "PedidoCompleto"
+                      $_GET["paginasPedidos"] == "RegistroPedido" ||
+                      $_GET["paginasPedidos"] == "PedidoConfirma" ||
+                      $_GET["paginasPedidos"] == "Carrito" ||
+                      $_GET["paginasPedidos"] == "PedidoCompleto"
                 ) {
                     include "Views/paginasPedidos/" . $_GET["paginasPedidos"] . ".php";
                 } else {
@@ -301,7 +261,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                 include "Views/home.php";
             }
         ?>
-    </main>    
+    </main>
     <!-- start footer Area -->
     <footer class="footer-area section_gap">
         <div class="container">
@@ -406,7 +366,6 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
     </script>
     <script type="text/javascript" src="Assets/js/imp.js"></script>
     <script type="text/javascript" src="Assets/js/prod.js"></script>
-    <script src="Assets/js/Carrito.js"></script>
 </body>
 
 </html>

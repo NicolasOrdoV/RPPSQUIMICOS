@@ -61,15 +61,14 @@
                var template = ``;
                for(i of carrito.getCarrito){
                    template += `
-                   <div class="row">
-                    <div class="col-md-2 ml-auto"><img src="Assets/img/productos/${i.imgPRODUCTO}" class="rounded" style="width:30px;" alt=""></div>
-                    <div class="col-md-2 ml-auto">${i.nombrePRODUCTO}</div>
-                    <div class="col-md-2 ml-auto">$${i.valoruPRODUCTO}</div>
-                    <div class="col-md-2 ml-auto">${i.cantidad}</div>
-                    <div class="col-md-2 ml-auto"><strong><i>${i.cantidad * i.valoruPRODUCTO}</i></strong></div>
-                    <div class="col-md-2 ml-auto"><button class="btn btn-danger" id="deleteProducto" data-producto="${i.idPRODUCTO}"><i class="fa fa-trash-o" id="deleteProducto" data-producto="${i.idPRODUCTO}"></i></button></div>
-                  </div>
-                  <hr>
+                   <tr>
+                    <td><img src="Assets/img/productos/${i.imgPRODUCTO}" class="rounded" style="width:30px;" alt="${i.nombrePRODUCTO}"></td>
+                    <td>${i.nombrePRODUCTO}</td>
+                    <td>$${i.valoruPRODUCTO}</td>
+                    <td>${i.cantidad}</td>
+                    <td><strong><i>${i.cantidad * i.valoruPRODUCTO}</i></strong></td>
+                    <td><button class="btn btn-danger" id="deleteProducto" data-producto="${i.idPRODUCTO}"><i class="fa fa-trash-o" id="deleteProducto" data-producto="${i.idPRODUCTO}"></i></button></td>
+                  </tr>
                    `;
                }
                $("#productosCarrito").innerHTML = template;
@@ -83,6 +82,7 @@
         carrito.constructor();
         carrito_view.renderCarrito();
     });
+
     $("#productoDetallado").addEventListener("click",function(ev){
         ev.preventDefault();
         if(ev.target.id === "btn_carrito"){
@@ -98,4 +98,32 @@
             carrito.eliminarItem(ev.target.dataset.producto);
         }
     })
+//--------------------------------------------------------------------------------------------//
+    $('#PedidoCompleto').click(function(e) {
+      e.preventDefault()
+      if (carrito=='') {
+        alert("No se han ingresado productos")
+      }else {
+        let url = "index.php?paginasPedidos=PedidoConfirma"
+        let params = {
+
+            Fechaen:$('#FechaEntrega').val(),
+            idEmpClien:$('#idEmpresaCliente').text(),
+            medida:$('#medida').val(),
+            idEmp:$('#idEmpleado').text()
+        }
+        //metodo post de ajax para el envio del formulario
+        $.post(url, params, function(response) {
+          if (typeof response.error !== 'undefined') {
+                alert(response.message)
+            } else {
+              alert("ERROR")
+            }
+        }, 'json').fail(function(error) {
+          alert("Inserción Satisfactoria")
+          location.href = 'index.php?paginasProduc=ConsultaProduc'
+        });
+      }
+
+    });
 })();
