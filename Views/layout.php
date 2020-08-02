@@ -101,11 +101,11 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                                      aria-expanded="false"><?php echo $user["nombrecontEC"]; ?></a>
                                     <ul class="dropdown-menu">
-                                        <li class="nav-item"><a href="#" class="nav-link" data-toggle="modal" data-target="#exampleModal">
-                                            Salir<i class="fas fa-sign-out-alt"></i>
-                                        </a></li>
                                         <li class="nav-item"><a href="?paginasUsuario=ConsultarUsuario&id=<?php echo $user["idUSUARIO"] ?>" class="nav-link">
                                             Mi perfil
+                                        </a></li>
+                                        <li class="nav-item"><a href="#" class="nav-link" data-toggle="modal" data-target="#exampleModal">
+                                            Salir<i class="fas fa-sign-out-alt"></i>
                                         </a></li>
                                     </ul>
                                 </li>
@@ -117,11 +117,11 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                                      aria-expanded="false"><?php echo $user["nombreEMPLEADO"]; ?></a>
                                     <ul class="dropdown-menu">
-                                        <li class="nav-item"><a href="#" class="nav-link" data-toggle="modal" data-target="#exampleModal">
-                                            Salir<i class="fas fa-sign-out-alt"></i>
-                                        </a></li>
                                         <li class="nav-item"><a href="?paginasAdministradores=ConsultarUnAdmin&id=<?php echo $user["idEMPLEADO"] ?>" class="nav-link">
                                             Mi perfil
+                                        </a></li>
+                                        <li class="nav-item"><a href="#" class="nav-link" data-toggle="modal" data-target="#exampleModal">
+                                            Salir<i class="fas fa-sign-out-alt"></i>
                                         </a></li>
                                     </ul>
                                 </li>
@@ -366,6 +366,9 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
     </script>
     <script type="text/javascript" src="Assets/js/imp.js"></script>
     <script type="text/javascript" src="Assets/js/prod.js"></script>
+    <script type="text/javascript" src="Assets/js/validation.js"></script>
+    <script type="text/javascript" src="Assets/js/search.js"></script>
+    <script type="text/javascript" src="Assets/js/eye.js"></script>
 </body>
 
 </html>

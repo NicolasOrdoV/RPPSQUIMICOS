@@ -11,12 +11,7 @@ if (isset($_GET["id"])) {
   <div class="container">
     <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
       <div class="col-first">
-        <h1 class="text-dark">Product Details Page</h1>
-        <nav class="d-flex align-items-center">
-          <a href="index.html" class="text-dark">Home<span class="lnr lnr-arrow-right"></span></a>
-          <a href="#" class="text-dark">Shop<span class="lnr lnr-arrow-right"></span></a>
-          <a href="single-product.html" class="text-dark">product-details</a>
-        </nav>
+        <h1 class="text-dark">Detalle del producto</h1>
       </div>
     </div>
   </div>

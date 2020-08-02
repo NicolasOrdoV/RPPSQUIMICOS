@@ -14,19 +14,9 @@ $producto = ControladorInventario::ctrSeleccionarProductosStock(null, null);?>
     <div class="container">
         <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-center">
             <div class="col-first">
-                <h1 class="text-dark">Shopping Cart</h1>
-                <nav class="d-flex align-items-center">
-                    <a href="index.html" class="text-dark">Home<span class="lnr lnr-arrow-right"></span></a>
-                    <a href="category.html" class="text-dark">Cart</a>
-                </nav>
+                <h1 class="text-dark">Productos en el inventario</h1>
             </div>
         </div>
-    </div>
-</section>
-<!--------------Espacio en blanco superior---->
-<section class="row">
-    <div id="blanco" class="col-lg-12">
-        <h1 id="tlprin">Productos en el inventario</h1>
     </div>
 </section>
 <!------Seccion con espacios en blanco horizontales y catalogo de productos--->

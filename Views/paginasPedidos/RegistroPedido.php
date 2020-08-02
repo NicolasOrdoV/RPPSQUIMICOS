@@ -14,11 +14,7 @@ $producto = ControladorProductos::ctrSeleccionarProductos();?>
     <div class="container">
         <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-center">
             <div class="col-first">
-                <h1 class="text-dark">Shopping Cart</h1>
-                <nav class="d-flex align-items-center">
-                    <a href="index.html" class="text-dark">Home<span class="lnr lnr-arrow-right"></span></a>
-                    <a href="category.html" class="text-dark">Cart</a>
-                </nav>
+                <h1 class="text-dark">Registro pedidos de clientes</h1>
             </div>
         </div>
     </div>

@@ -14,18 +14,9 @@ $mps = MPController::consult(null, null);?>
     <div class="container">
         <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-center">
             <div class="col-first">
-                <h1 class="text-dark">Shopping Cart</h1>
-                <nav class="d-flex align-items-center">
-                    <a href="index.html" class="text-dark">Home<span class="lnr lnr-arrow-right"></span></a>
-                    <a href="category.html" class="text-dark">Cart</a>
-                </nav>
+                <h1 class="text-dark">Materia Prima</h1>
             </div>
         </div>
-    </div>
-</section>
-<section class="row">
-    <div id="blanco" class="col-lg-12">
-        <h1 id="tlprin">Materia Prima</h1>
     </div>
 </section>
 <section class="row">

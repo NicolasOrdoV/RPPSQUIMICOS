@@ -18,23 +18,16 @@ $admins = ControladorAdministradores::ctrSeleccionarRegistrosAdministradores(nul
     <div class="container">
         <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-center">
             <div class="col-first">
-                <h1 class="text-dark">Shopping Cart</h1>
-                <nav class="d-flex align-items-center">
-                    <a href="index.html" class="text-dark">Home<span class="lnr lnr-arrow-right"></span></a>
-                    <a href="category.html" class="text-dark">Cart</a>
-                </nav>
+                <h3>Gestión de administradores
+	        	    <spam class="btn btn-danger rounded float-right" data-toggle="modal" data-target="#myModal">+Añadir admin</spam>
+		        </h3>
+		        <hr>
             </div>
         </div>
     </div>
 </section>
 <section class="row py-5">
 	<div class="col-lg-2"></div>
-    <div id="blanco" class="col-lg-8">
-        <h3>Gestión de administradores
-        	<spam class="btn btn-danger rounded float-right" data-toggle="modal" data-target="#myModal">+Añadir admin</spam>
-        </h3>
-        <hr>
-    </div>
     <div class="modal fade" id="myModal" role="dialog">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content justify-content-center" id="modal">

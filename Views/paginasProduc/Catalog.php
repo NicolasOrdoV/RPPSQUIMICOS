@@ -3,19 +3,9 @@
     <div class="container">
         <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-center">
             <div class="col-first">
-                <h1 class="text-dark">Shopping Cart</h1>
-                <nav class="d-flex align-items-center">
-                    <a href="index.html" class="text-dark">Home<span class="lnr lnr-arrow-right"></span></a>
-                    <a href="category.html" class="text-dark">Cart</a>
-                </nav>
+                <h1 class="text-dark">Catálogo de productos</h1>
             </div>
         </div>
-    </div>
-</section>
-<!--------------Espacio en blanco superior---->
-<section class="row m-auto">
-    <div id="blanco" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <h1 id="tlprin" class="text-center">Catálogo de productos</h1>
     </div>
 </section>
 <!------Seccion con espacios en blanco horizontales y catalogo de productos--->

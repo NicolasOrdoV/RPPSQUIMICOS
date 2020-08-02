@@ -2,17 +2,10 @@
     <div class="container">
         <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-center">
             <div class="col-first">
-                <h1 class="text-dark">Shopping Cart</h1>
-                <nav class="d-flex align-items-center">
-                    <a href="index.html" class="text-dark">Home<span class="lnr lnr-arrow-right"></span></a>
-                    <a href="category.html" class="text-dark">Cart</a>
-                </nav>
+                <h1 class="text-dark">Inicia sesion</h1>
             </div>
         </div>
     </div>
-</section>
-<section class="row">
-    <div id="blanco" class="col-lg-12"></div>
 </section>
 <section class="row py-3">
     <aside class="col-lg-7 py-5" id="fondo1"></aside>

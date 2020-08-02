@@ -15,10 +15,16 @@ if (isset($_GET['id'])) {
     $producto = ControladorInventario::ctrSeleccionarProductosStock($item, $valor);
 }
 ?>
-<section class="container">
-    <div class="row">
-        <h1 class="col-12 d-flex justify-content-center">Editar Producto</h1>
+<section class="banner-area organic-breadcrumb">
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-center">
+            <div class="col-first">
+                <h1 class="text-dark">Editar Producto</h1>
+            </div>
+        </div>
     </div>
+</section>
+<section class="container">
     <div class="card w-50 m-auto">
         <div class="card-header">
             <h5 class="m-auto">Editar producto</h5>
@@ -70,4 +76,8 @@ if (isset($_GET['id'])) {
         </form>
     </div>
     <aside id="blanco-h" class="col-lg-2"></aside>
+</section>
+<!------Espacio en blanco inferior------>
+<section class="row">
+    <div id="blanco" class="col-lg-12"></div>
 </section>

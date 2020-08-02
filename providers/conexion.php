@@ -1,6 +1,6 @@
 <?php
 
-class Conexion {
+class Conexion extends PDO{
     static public function conectar(){
 
         try {
@@ -13,5 +13,3 @@ class Conexion {
     }
 
 }
-
-?>

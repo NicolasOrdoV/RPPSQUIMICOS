@@ -7,7 +7,15 @@ if(isset($_GET["id"])){
     $cliente = ControladorClientes::ctrSeleccionarRegistroClientes($item,$valor);
 }
 ?>
-
+<section class="banner-area organic-breadcrumb">
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-center">
+            <div class="col-first">
+                <h1 class="text-dark">Registro de usuarioss</h1>
+            </div>
+        </div>
+    </div>
+</section>
 <section class="row py-3">
     <aside class="col-lg-3 py-5" id="fondo2"></aside>
     <form action="#" class="col-lg-6 py-5 needs-validation" id="form" method="post" novalidate>

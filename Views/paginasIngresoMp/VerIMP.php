@@ -12,12 +12,15 @@ if(!isset($_SESSION["validarIngreso"])){
 $in=IMPController::getById();
 $data=IMPController::show($in['idIMP']);
  ?>
-
- <section class="row">
-   <div id="blanco" class="col-lg-10">
-     <h1 id="tlprin">Ingreso de Materia Prima</h1>
-   </div>
- </section>
+<section class="banner-area organic-breadcrumb">
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-center">
+            <div class="col-first">
+                <h1 class="text-dark">Ingreso de Materia Prima</h1>
+            </div>
+        </div>
+    </div>
+</section>
  <section class="row">
    <aside id="blanco-h" class="col-lg-2"></aside>
    <aside class="col-lg-8">
@@ -50,11 +53,10 @@ $data=IMPController::show($in['idIMP']);
              </tbody>
          </table>
        </form>
-
      </div>
-
-
    </aside>
-
    <aside id="blanco-h" class="col-lg-2"></aside>
  </section>
+ <section class="row">
+    <div id="blanco" class="col-lg-12"></div>
+</section>
