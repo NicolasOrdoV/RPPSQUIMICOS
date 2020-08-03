@@ -3,7 +3,7 @@
     <div class="container">
         <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-center">
             <div class="col-first">
-                <h1 class="text-dark">Registrate con nostros</h1>
+                <h1 class="text-dark">Registrate con nosotros</h1>
             </div>
         </div>
     </div>
@@ -66,17 +66,23 @@
             </label>
         </div>
         <?php
+        if (isset($_POST['registroIdentificacion'])) {
+            if (preg_match('/^[0-9]+$/', $_POST['registroIdentificacion']) &&
+                filter_var($_POST['registroEmail'] , FILTER_VALIDATE_EMAIL)) {
 
-        $registro = ControladorClientes::ctrRegistroClientes($_POST);
-             
-        if(!is_null($registro)){
-            echo '<script>
-            if(window.history.replaceState){
+                $registro = ControladorClientes::ctrRegistroClientes($_POST);
+                if(!is_null($registro)){
+                    echo '<script>
+                    if(window.history.replaceState){
 
-                window.history.replaceState(null,null,window.location.href);
+                        window.history.replaceState(null,null,window.location.href);
+                    }
+                    window.location = "index.php?paginasUsuario=RegistrarUsuario&id='.$registro[0][0].'";
+                    </script>';          
+                }
+            }else{
+                echo '<div class="alert alert-danger">Lo sentimos,hay campos que no estan correctos y deben corregirse</div>';
             }
-            window.location = "index.php?paginasUsuario=RegistrarUsuario&id='.$registro[0][0].'";
-            </script>';          
         }
         ?> 
         <button type="submit" id="btnReg" class="btn btn-danger rounded-pill btn-lg btn-block">Continuar<i class="fas fa-angle-double-right"></i></button>
