@@ -1,60 +1,71 @@
+<!-- Start Banner Area -->
 <section class="banner-area organic-breadcrumb">
     <div class="container">
-        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-center">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
             <div class="col-first">
-                <h1 class="text-dark">Inicia sesion</h1>
+                <h1>Inicio Sesion/Registrarse</h1>
+                <nav class="d-flex align-items-center">
+                    <a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="category.html">Login/Register</a>
+                </nav>
             </div>
         </div>
     </div>
 </section>
-<section class="row py-3">
-    <aside class="col-lg-7 py-5" id="fondo1"></aside>
-    <form action="#" class="col-lg-4 py-5 needs-validation" id="form" method="post" novalidate>
-        <h1 class="text-danger">RPPS Quimícos</h1>
-        <p>Inicio Sesion</p>
-        <div class="form-group">
-            <input type="email" class="form-control rounded-pill" placeholder="Correo del usuario"
-                name="ingresoNombre" required>
-            <div class="valid-feedback">Valido</div>
-            <div class="invalid-feedback">El campo no puede quedar vacio.</div>
-        </div>
-        <div class="form-group input-group">
-            <input type="password" class="form-control rounded-pill" placeholder="Contraseña" id="pass"
-                name="ingresoContraseña" required>
-                <div class="input-group-prepend">
-                    <div class="input-group-text rounded-pill">
-                        <a href="#" class="text-dark" id="icon-click" onclick="eye()">
-                            <i class="fas fa-eye" id="icon"></i>
-                        </a>
+<!-- End Banner Area -->
+<!--================Login Box Area =================-->
+<section class="login_box_area section_gap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="login_box_img">
+                    <img class="img-fluid" src="Assets/img/login.png" alt="">
+                    <div class="hover">
+                        <h4>¿No tienes una cuenta?</h4>
+                        <p>Registrate con nostros y podras realizar los pedidos de los productos que tu quieras.<br>¡ANIMATE!</p>
+                        <a class="primary-btn" href="?paginasCliente=RegistroCliente">Registrate</a>
                     </div>
-                </div> 
-            <div class="valid-feedback">Valido</div>
-            <div class="invalid-feedback">El campo no puede quedar vacio.</div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="login_form_inner">
+                    <h3>Ingresa para entrar.</h3>
+                    <form action="#" class="row login_form needs-validation" method="post" id="contactForm" novalidate="novalidate">
+                        <?php
+                            $ingreso = new ControladorUsuarios();
+                            $ingreso -> ctrIngresoUsuario();
+                        ?>
+                        <div class="col-md-12 form-group">
+                            <input type="email" class="form-control" id="name" name="ingresoNombre" placeholder="Nombre de usuario" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'" required>
+                            <div class="valid-feedback">Valido</div>
+                            <div class="invalid-feedback">El campo no puede quedar vacio.</div>
+                        </div>
+                        <div class="col-md-12 form-group input-group">
+                            <input type="password" class="form-control" id="name" name="ingresoContraseña" placeholder="Contraseña" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" required>
+                            <div class="input-group-prepend">
+                                <div class="input-group-text rounded">
+                                    <a href="#" class="text-dark" id="icon-click" onclick="eye()">
+                                        <i class="fas fa-eye" id="icon"></i>
+                                    </a>
+                                </div>
+                            </div> 
+                            <div class="valid-feedback">Valido</div>
+                            <div class="invalid-feedback">El campo no puede quedar vacio.</div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <div class="creat_account">
+                                <input type="checkbox" id="f-option2" name="selector">
+                                <label for="f-option2">Recuerdame</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <button type="submit" class="primary-btn">Iniciar sesión</button>
+                            <a href="index.php?paginasUsuario=RecuperarContrasena">¿Se te olvido tu contraseña?</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-
-        <?php
-
-           $ingreso = new ControladorUsuarios();
-           $ingreso -> ctrIngresoUsuario();
-
-        ?>
-        <button type="submit" id="btnReg" class="btn btn-danger rounded-pill btn-lg btn-block">Iniciar
-            Sesion</button>
-    </form>
-    <aside class="col-lg-1" id="blanco-h"></aside>
-</section>
-<section class="row py-1">
-    <div class="col-lg-7"></div>
-    <div class="col-lg-4 border border-secondary pt-4" id="in">
-        <p>¿No posee una cuenta?
-            <a href="index.php?paginasCliente=RegistroCliente" id="in1">Registrarse</a>
-        </p>
-        <p>¿Se te olvido tu contraseña?
-            <a href="index.php?paginasUsuario=RecuperarContrasena" id="in1">Recuperar contraseña</a>
-        </p>
     </div>
-    <div class="col-lg-1"></div>
 </section>
-<section class="row">
-    <div id="blanco" class="col-lg-12"></div>
-</section>
+<!--================End Login Box Area =================-->

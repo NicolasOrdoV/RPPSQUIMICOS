@@ -95,7 +95,7 @@ class ControladorUsuarios
                 window.history.replaceState(null,null,window.location.href);
             }
             </script>';
-            echo '<div class="alert alert-danger">
+            echo '<div class="col-md-12 alert alert-danger">
                    <h4 class="font-text-bold">¡LO SENTIMOS!</h4>
                    <h5>El usuario esta inactivado de manera temporal</h5>
                    <p>Para volver a activar esta cuenta,es necesario que envies un correo electronico a <a class="alert-link">RPPSQUIMICOS@CORREOEMPRESARIAL.COM</a> y solicitar tu activacion inmediata.</p>
@@ -124,7 +124,7 @@ class ControladorUsuarios
                 window.history.replaceState(null,null,window.location.href);
             }
             </script>';
-            echo '<div class="alert alert-danger">
+            echo '<div class="col-md-12 alert alert-danger">
                    <h4 class="font-text-bold">¡LO SENTIMOS!</h4>
                    <h5>El empleado esta inactivado de manera temporal</h5>
                    <p>Para volver a activar esta cuenta,es necesario que envies un correo electronico a <a class="alert-link">RPPSQUIMICOS@CORREOEMPRESARIAL.COM</a> y solicitar tu activacion inmediata.</p>
@@ -137,7 +137,7 @@ class ControladorUsuarios
                 window.history.replaceState(null,null,window.location.href);
             }
             </script>';
-            echo '<div class="alert alert-danger">
+            echo '<div class="col-md-12 alert alert-danger">
                    <h4 class="font-text-bold">¡OPPS!</h4>
                    <h5>Correo o contraseña incorrectos</h5>
                    <p>Si no tienes una cuenta,por favor clickea el enlace de abajo para registrarte</p>

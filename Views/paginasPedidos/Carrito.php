@@ -1,5 +1,16 @@
+<section class="banner-area organic-breadcrumb">
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-center">
+            <div class="col-first">
+                <h1 class="text-dark">Carrito</h1>
+            </div>
+        </div>
+    </div>
+</section>
 <div style="padding: 10em;">
-<h1 class="sticky-top" id="labelCarrito">Carrito<i class="fa fa-shopping-basket" aria-hidden="true"></i></h1>
+<h1 class="sticky-top" id="labelCarrito">
+  Carrito<i class="fa fa-shopping-basket" aria-hidden="true"></i>
+</h1>
 <br>
 <br>
 <table class="table">
