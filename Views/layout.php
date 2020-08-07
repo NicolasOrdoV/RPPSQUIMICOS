@@ -67,16 +67,8 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                                 
                                     <li class="nav-item"><a href="?paginasProduc=Catalog" class="nav-link "   
                                     >Tienda</a></li>
-                                   
-                                <li class="nav-item submenu dropdown">
-                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                                     aria-expanded="false">Paginas</a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item"><a class="nav-link" href="?paginasUsuario=InicioSesion">Iniciar sesion</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="?paginasCliente=RegistroCliente">Registrarse</a></li>
-                                    </ul>
-                                </li>
                                 <li class="nav-item"><a class="nav-link" href="contact.html">Contacto</a></li>
+                                <li class="nav-item"><a class="nav-link ti-user" href="?paginasUsuario=InicioSesion"></a></li>
                             <?php elseif ($user["idROL_FK"] == 1) : ?>
                                 <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
                                 <li class="nav-item submenu dropdown">
@@ -293,16 +285,9 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                 </div>
                 <div class="col-lg-3  col-md-6 col-sm-6">
                     <div class="single-footer-widget mail-chimp">
-                        <h6 class="mb-20">Instragram Feed</h6>
-                        <ul class="instafeed d-flex flex-wrap">
-                            <li><img src="Assets/img/i1.jpg" alt=""></li>
-                            <li><img src="Assets/img/i2.jpg" alt=""></li>
-                            <li><img src="Assets/img/i3.jpg" alt=""></li>
-                            <li><img src="Assets/img/i4.jpg" alt=""></li>
-                            <li><img src="Assets/img/i5.jpg" alt=""></li>
-                            <li><img src="Assets/img/i6.jpg" alt=""></li>
-                            <li><img src="Assets/img/i7.jpg" alt=""></li>
-                            <li><img src="Assets/img/i8.jpg" alt=""></li>
+                        <h6 class="mb-20"></h6>
+                        <ul class="">
+                            <li><img height="100px" width="300px" id="logo-banner" src="Assets/img/Logo.png" ></li>
                         </ul>
                     </div>
                 </div>

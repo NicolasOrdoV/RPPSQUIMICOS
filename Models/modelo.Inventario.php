@@ -22,6 +22,16 @@ class ModeloInventario
 		}
 	}
 
+	static public function mdlSeleccionarUltimos3Prod($tabla){
+		try{
+			$stmt=Conexion::conectar()->prepare("SELECT * FROM $tabla ORDER BY idPRODUCTO DESC LIMIT 3");
+			$stmt->execute();
+			return $stmt->fetchAll();
+		}catch (PDOException $e) {
+			echo $e->getMessage();
+		}
+	}
+
 	public static function mdlSeleccionarProductosUsuario($tabla, $item, $valor){
 		try {
 			if ($item == null  && $valor == null) {

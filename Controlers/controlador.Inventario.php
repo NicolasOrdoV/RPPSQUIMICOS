@@ -19,6 +19,13 @@ class ControladorInventario
         return $respuesta;
     }
 
+    //consultar ultimos 3 productos agregados
+        static public function ctrSleccionarUltimos3Prod($item,$valor){
+            $tabla="producto";
+            $respuesta=ModeloInventario::mdlSeleccionarUltimos3Prod($tabla,$item,$valor);
+            return $respuesta;
+        }
+
     static public function ctrCrearProducto($data)
     {
         if (isset($data["nombrePRODUCTO"])) {

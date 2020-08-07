@@ -1,4 +1,5 @@
 <?php $productos = ControladorInventario::ctrSeleccionarProductosUsuario(null,null);?>
+<?php $UltimosProd=ControladorInventario::ctrSleccionarUltimos3Prod(null,null)?>
 <!-- start banner Area -->
     <section class="banner-area m-4">
         <div class="container">
@@ -26,7 +27,7 @@
     </section>
     <!-- End banner Area -->
     <!-- Start category Area -->
-    <section class="category-area">
+    <!--<section class="category-area">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 col-md-12">
@@ -90,7 +91,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>-->
     <!-- End category Area -->
 
     <!-- start product Area -->
@@ -101,13 +102,13 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-6 text-center">
                         <div class="section-title">
-                            <h1>Ultimos productos</h1>
+                            <h1>Ultimos productos añadidos</h1>
                             <p>Aqui podras encontrar nuestros ultimos productos para la venta al publico</p>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <?php foreach ($productos as $producto){?>
+                    <?php foreach ($UltimosProd as $producto){?>
                         <!-- single product -->
                         <div class="col-lg-3 col-md-6">
                             <div class="single-product">
