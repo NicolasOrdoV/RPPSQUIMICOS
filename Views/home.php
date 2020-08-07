@@ -101,10 +101,8 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-6 text-center">
                         <div class="section-title">
-                            <h1>Latest Products</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                                dolore
-                                magna aliqua.</p>
+                            <h1>Ultimos productos</h1>
+                            <p>Aqui podras encontrar nuestros ultimos productos para la venta al publico</p>
                         </div>
                     </div>
                 </div>
@@ -148,7 +146,7 @@
         </div>
     <!-- end product Area -->    
     <!-- Start exclusive deal Area -->
-    <section class="exclusive-deal-area">
+    <!--<section class="exclusive-deal-area">
         <div class="container-fluid">
             <div class="row justify-content-center align-items-center">
                 <div class="col-lg-6 no-padding exclusive-left">
@@ -183,7 +181,7 @@
                 <div class="col-lg-6 no-padding exclusive-right">
                     <div class="active-exclusive-product">
                         <!-- single exclusive carousel -->
-                        <div class="single-exclusive-slider">
+                        <!--<div class="single-exclusive-slider">
                             <img class="img-fluid" src="/RPPSQUIMICOS/Assets/img/productos/<?php echo $productos["imgPRODUCTO"] = "Varsol2.jpg" ?>" alt="">
                             <div class="product-details">
                                 <div class="price">
@@ -201,31 +199,11 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>-->
     <!-- End exclusive deal Area -->
 
     <!-- Start brand Area -->
-    <section class="brand-area section_gap">
-        <div class="container">
-            <div class="row">
-                <a class="col single-img" href="#">
-                    <img class="img-fluid d-block mx-auto" src="Assets/img/brand/1.png" alt="">
-                </a>
-                <a class="col single-img" href="#">
-                    <img class="img-fluid d-block mx-auto" src="Assets/img/brand/2.png" alt="">
-                </a>
-                <a class="col single-img" href="#">
-                    <img class="img-fluid d-block mx-auto" src="Assets/img/brand/3.png" alt="">
-                </a>
-                <a class="col single-img" href="#">
-                    <img class="img-fluid d-block mx-auto" src="Assets/img/brand/4.png" alt="">
-                </a>
-                <a class="col single-img" href="#">
-                    <img class="img-fluid d-block mx-auto" src="Assets/img/brand/5.png" alt="">
-                </a>
-            </div>
-        </div>
-    </section>
+    
     <!-- End brand Area -->
 
     <!-- Start related-product Area -->
@@ -234,9 +212,8 @@
             <div class="row justify-content-center">
                 <div class="col-lg-6 text-center">
                     <div class="section-title">
-                        <h1>Deals of the Week</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                            magna aliqua.</p>
+                        <h1>Promociones de la semana</h1>
+                        <p>Echale un vistaso a las grades promociones que esta semana preparamos parati. </p>
                     </div>
                 </div>
             </div>

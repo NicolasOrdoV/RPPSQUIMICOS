@@ -22,7 +22,7 @@
                         <h5 class="card-title"><?php echo $stocks["nombrePRODUCTO"]; ?></h5>
                         <p class="card-text"><?php echo $stocks["descripcionPRODUCTO"]; ?></p>
                         <p class="card-text">precio:$<?php echo $stocks["valoruPRODUCTO"]; ?></p>
-                        <a href="index.php?paginasCliente=DetalleProducto&id=<?php echo $stocks["idPRODUCTO"]?>" class="btn btn-danger">Ver <i class="fas fa-search"></i></a>
+                        <a href="index.php?paginasCliente=DetalleProducto&id=<?php echo $stocks["idPRODUCTO"]?>" class="btn btn-primary">Ver <i class="fas fa-search"></i></a>
                     </div>
                 </div>
             <?php endforeach ?>

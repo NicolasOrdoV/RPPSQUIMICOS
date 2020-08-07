@@ -64,17 +64,10 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                         <ul class="nav navbar-nav menu_nav ml-auto">
                             <?php if ($user == "") : ?>
                                 <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
-                                <li class="nav-item submenu dropdown">
-                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                                     aria-expanded="false">Tienda</a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item"><a class="nav-link" href="?paginasProduc=Catalog">Shop Category</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="#"> Details</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="#">Product Checkout</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="#">Shopping Cart</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="#">Confirmation</a></li>
-                                    </ul>
-                                </li>
+                                
+                                    <li class="nav-item"><a href="?paginasProduc=Catalog" class="nav-link "   
+                                    >Tienda</a></li>
+                                   
                                 <li class="nav-item submenu dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                                      aria-expanded="false">Paginas</a>
@@ -87,15 +80,9 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                             <?php elseif ($user["idROL_FK"] == 1) : ?>
                                 <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
                                 <li class="nav-item submenu dropdown">
-                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                    <a href="?paginasProduc=Catalog" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                                      aria-expanded="false">Tienda</a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item"><a class="nav-link" href="?paginasProduc=Catalog">Shop Category</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="#"> Details</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="#">Product Checkout</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="#">Shopping Cart</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="#">Confirmation</a></li>
-                                    </ul>
+                                    
                                 </li>
                                 <li class="nav-item submenu dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -130,7 +117,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                         <ul class="nav navbar-nav navbar-right">
                             <?php if ($user == "") : ?>
                                 <li class="nav-item">
-                                    <a href="index.php?paginasPedidos=Carrito" class="cart"><span class="ti-bag"></span></a>
+                                    <a href="index.php?paginasPedidos=Carrito" class="cart"><span class="ti-shopping-cart-full"></span></a>
                                 </li>
                                 <li class="nav-item">
                                     <button class="search"><span class="lnr lnr-magnifier" id="search"></span></button>
