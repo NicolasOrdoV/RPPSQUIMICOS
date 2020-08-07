@@ -24,7 +24,7 @@ class ModeloInventario
 
 	static public function mdlSeleccionarUltimos3Prod($tabla){
 		try{
-			$stmt=Conexion::conectar()->prepare("SELECT * FROM $tabla ORDER BY idPRODUCTO DESC LIMIT 3");
+			$stmt=Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE estadoPRODUCTO='Activo' ORDER BY idPRODUCTO DESC LIMIT 3 ");
 			$stmt->execute();
 			return $stmt->fetchAll();
 		}catch (PDOException $e) {
