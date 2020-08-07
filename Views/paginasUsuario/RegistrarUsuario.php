@@ -11,7 +11,7 @@ if(isset($_GET["id"])){
     <div class="container">
         <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-center">
             <div class="col-first">
-                <h1 class="text-dark">Registro de usuarioss</h1>
+                <h1 class="text-dark">Registro de usuarios</h1>
             </div>
         </div>
     </div>
@@ -65,7 +65,7 @@ if(isset($_GET["id"])){
                         <h3 class="font-text-bold">LO PROMETIDO ES DEUDA:</h3>
                         <p>Haz recibido una notificación en tu correo confirmando que creaste esta cuenta.</p>
                         <p>Ahora! Si estas apresurado y no tienes tiempo para mirar el correo,puedes acceder sin problemas al sistema, solo accede al inicio de sesión y entra para conocer todos nuestros productos. </p>
-                        <a href="index.php?paginasUsuario=InicioSesion" class="btn btn-success">Ir al inicio de sesión</a>
+                        <a href="index.php?paginasUsuario=InicioSesion" class="btn btn-primary">Ir al inicio de sesión</a>
                     </div>';
                 }
                 if ($registro == "error") {
@@ -76,7 +76,7 @@ if(isset($_GET["id"])){
             }
         }
         ?>
-        <button type="submit" id="btnReg" class="btn btn-danger rounded-pill btn-lg btn-block">Terminar registro<i class="fas fa-flask"></i></button>
+        <button type="submit" id="btnReg" class="primary-btn">Terminar registro<i class="fas fa-flask"></i></button>
     </form>
     <aside class="col-lg-3" id="blanco-h"></aside>
 </section>

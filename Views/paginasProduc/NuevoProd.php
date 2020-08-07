@@ -99,7 +99,7 @@ if(!isset($_SESSION["validarIngreso"])){
                             <input type="number" class="form-control" name="valoruPROD" placeholder="Valor Unitario" required>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-success">Agregar</button>
+                    <button type="submit" class="primary-btn">Agregar</button>
                     <?php $registro = ProdController::save($_POST);
 
                     if ($registro == "ok") {

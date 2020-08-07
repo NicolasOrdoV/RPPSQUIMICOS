@@ -29,7 +29,7 @@ $mps = MPController::consult(null, null);?>
     <aside id="blanco-h" class="col-lg-2"></aside>
     <aside class="col-lg-8">
         <input class="form-control mb-4 col-lg-7 border border-danger rounded-pill" id="tableSearch" type="text" placeholder='Busca aqui el ingreso registrado que quieras &#x1F50E;' onclick="search()">
-        <spam class="btn btn-danger rounded float-right" data-toggle="modal" data-target="#agregar">+Agregar</spam>
+        <spam class="primary-btn rounded float-right" data-toggle="modal" data-target="#agregar">+Agregar</spam>
         <table class="col-lg-12 table table-striped table-hover table-lg table-responsive-lg">
             <thead class="thead-dark">
                 <tr>
@@ -119,7 +119,7 @@ $mps = MPController::consult(null, null);?>
 
                     <div class="modal-footer">
 
-                        <button id="submin" class="btn btn-success">Agregar</button>
+                        <button id="submin" class="primary-btn rounded">Agregar</button>
                         <button class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                     </div>
 

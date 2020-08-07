@@ -22,8 +22,10 @@ $mps = MPController::consult(null, null);?>
 <section class="row">
     <aside id="blanco-h" class="col-lg-2"></aside>
     <aside class="col-lg-8">
-        <input class="form-control mb-4 col-lg-7 border border-danger rounded-pill" id="tableSearch" type="text" placeholder='Busca aqui la materia prima registrada que quieras &#x1F50E;' onclick="search()">
-        <spam class="btn btn-danger rounded float-right" data-toggle="modal" data-target="#agregar">+Agregar</spam>
+        <div class="col-12 justify-content-between">
+            <input class="form-control mb-4 col-lg-7 border border-danger rounded-pill" id="tableSearch" type="text" placeholder='Busca aqui la materia prima registrada que quieras &#x1F50E;' onclick="search()">
+            <spam class="primary-btn rounded float-right" data-toggle="modal" data-target="#agregar">+Agregar</spam>
+        </div>
         <table class="col-lg-12 table table-striped table-hover table-lg table-responsive-lg">
             <thead class="thead-dark">
                 <tr>
@@ -53,8 +55,6 @@ $mps = MPController::consult(null, null);?>
                                     <button class="btn btn-warning m-1"  title="Editar"><i class="far fa-edit"></i></button>
 
                                 </form>
-
-
                                 <form method="post" class="text-left">
                                     <input type="hidden" value="<?php echo $mp["idMP"] ?>"  name="eliminarRegistro">
                                     <button type="submit" class="btn btn-danger m-1" title="Eliminar">
@@ -68,8 +68,6 @@ $mps = MPController::consult(null, null);?>
                                     ?>
                                 </form>
                             </div>
-
-
                         </td>
                     </tr>
                 <?php endforeach ?>
@@ -118,7 +116,7 @@ $mps = MPController::consult(null, null);?>
                             </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-success">Agregar</button>
+                    <button type="submit" class="primary-btn">Agregar</button>
                     <?php
                     $registro = MPController::save($_POST);
                     if ($registro == "ok") {
@@ -129,12 +127,9 @@ $mps = MPController::consult(null, null);?>
                     </script>';
                     }
                     ?>
-
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                 </div>
                 </form>
-
-
                 </form>
             </div>
         </div>

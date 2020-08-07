@@ -85,7 +85,7 @@
             }
         }
         ?> 
-        <button type="submit" id="btnReg" class="btn btn-danger rounded-pill btn-lg btn-block">Continuar<i class="fas fa-angle-double-right"></i></button>
+        <button type="submit" id="btnReg" class="primary-btn">Continuar<i class="fas fa-angle-double-right"></i></button>
     </form>
     <aside class="col-lg-3" id="blanco-h"></aside>
 </section>

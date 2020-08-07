@@ -75,7 +75,7 @@ $data=ProdController::getById();
                     </section>
                     <div class="form-group">
 
-                        <button id="submincant" class="btn btn-success">Agregar</button>
+                        <button id="submincant" class="primary-btn">Agregar</button>
                     </div>
                 <!--</form>!-->
             </div>

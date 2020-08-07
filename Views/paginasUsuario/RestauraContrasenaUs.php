@@ -59,7 +59,7 @@ if (isset($_GET["id"])) {
                 }
             }
         ?>
-        <button type="submit" id="btnReg" class="btn btn-danger rounded-pill btn-lg btn-block">Recuperar<i class="fas fa-flask"></i></button>
+        <button type="submit" id="btnReg" class="primary-btn">Recuperar<i class="fas fa-flask"></i></button>
     </form>
     <aside class="col-lg-3" id="blanco-h"></aside>
 </section>

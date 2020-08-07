@@ -95,7 +95,7 @@ $data = MPController::getById();  ?>
             </div>
           <?php } ?>
         </div>
-        <button type="submit" class="btn btn-success">Generar</button>
+        <button type="submit" class="primary-btn">Generar</button>
         <?php $actualizar = MPController::update($_POST);
         if ($actualizar == "ok") {
           echo '<script>

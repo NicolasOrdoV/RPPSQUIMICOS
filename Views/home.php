@@ -11,10 +11,6 @@
                                 <div class="banner-content">
                                     <h1>RPPS QUIMICOS</h1>
                                     <p>Aqui puedes comprar y pedir por encargo algunos quimicos que necesites en tu hogar como utencilios de aseo y demas. Adentrate! Se que te va a encantar.</p>
-                                    <div class="add-bag d-flex align-items-center">
-                                        <a class="add-btn" href=""><span class="lnr lnr-cross"></span></a>
-                                        <span class="add-text text-uppercase">Add to Bag</span>
-                                    </div>
                                 </div>
                             </div>
                             <div class="col-lg-7">

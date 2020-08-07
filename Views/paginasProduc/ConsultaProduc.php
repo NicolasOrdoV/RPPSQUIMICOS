@@ -23,7 +23,7 @@ $produc = ProdController::consult(null, null);?>
     <aside id="blanco-h" class="col-lg-2"></aside>
     <aside class="col-lg-8">
         <input class="form-control mb-4 col-lg-7 border border-danger rounded-pill" id="tableSearch" type="text" placeholder='Busca aqui el producto registrado que quieras &#x1F50E;' onclick="search()">
-        <a href="?paginasProduc=NuevoProd" class="btn btn-danger rounded float-right" >+Agregar</a>
+        <a href="?paginasProduc=NuevoProd" class="primary-btn float-right" >+Agregar</a>
         <table class="col-lg-12 table table-striped table-hover table-lg table-responsive-lg">
             <thead class="thead-dark">
                 <tr>

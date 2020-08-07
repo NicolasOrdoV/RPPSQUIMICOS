@@ -20,7 +20,7 @@ $clientes = ControladorClientes::ctrSeleccionarRegistroClientes(null,null);?>
     </div>
 </section>
 <section class="row py-5">
-    <input class="form-control mb-4 col-lg-6 border border-danger rounded-pill" id="tableSearch" type="text" placeholder="Busca aqui el cliente registrado que quieras" onclick="search()"><i class="fas fa-search"></i>
+    <input class="form-control mb-4 col-lg-6 border border-danger rounded-pill" id="tableSearch" type="text" placeholder="Busca aqui el cliente registrado que quieras &#128269;" onclick="search()">
     <table class="col-lg-12 table table-striped table-hover table-lg table-responsive-lg">
         <thead class="thead-dark">
             <tr>

@@ -68,7 +68,7 @@ $producto = ControladorProductos::ctrSeleccionarProductos();?>
       <div class="valid-feedback">Valido</div>
       <div class="invalid-feedback">El campo no puede quedar vacio.</div>
     </div>
-    <button type="submit" class="btn btn-success">Completar Pedido</button>
+    <button type="submit" class="primary-btn">Completar Pedido</button>
   </form>
 </section>
 <section class="row">

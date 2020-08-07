@@ -111,7 +111,7 @@ $data = ProdController::getById();  ?>
             <div class="invalid-feedback">El campo no puede quedar vacio.</div>
             </div>
           </div>
-          <button type="submit" class="btn btn-success">Generar</button>
+          <button type="submit" class="primary-btn">Generar</button>
           <?php $actualizar = ProdController::update($_POST);
         if ($actualizar == "ok") {
           echo '<script>

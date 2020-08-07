@@ -24,23 +24,23 @@ if(!isset($_SESSION["validarIngreso"])){
 			<aside class="col-lg-3 py-5" id="fondo2"></aside>
 			<div class="col-lg-6" id="form">
 				<h3>¿Que quieres hacer hoy?</h3><hr>
-				<div class="btn-group btn-group-lg btn-block">
-					<a href="index.php?paginasCliente=ConsultaCliente" class="btn btn-danger btn-lg mx-1">Lista de clientes<i class="fas fa-users"></i></a>
-					<a href="?paginasMp=ConsultaMP" class="btn btn-danger btn-lg">Consultar materia prima<i class="fas fa-flask"></i></a>
-				</div>
-				<div class="btn-group btn-group-lg btn-block my-1">
-					<a href="?paginasProduc=ConsultaProduc" class="btn btn-danger mx-1">Consulta de productos<i class="fas fa-wine-bottle"></i></a>
-					<a href="?paginasIngresoMp=ConsultaIMP&id=<?php echo $user["idEMPLEADO"] ?>" class="btn btn-danger">Consultar ingresos de la materia prima<i class="fas fa-clipboard-list"></i></a>
-				</div>
-				<div class="btn-group btn-group-lg btn-block my-1">
-					<a href="index.php?paginasPedidos=RegistroPedido" class="btn btn-danger mx-1">Registrar Pedido<i class="fab fa-jedi-order"></i></a>
-					<a href="index.php?paginasAdministradores=GestionInventario" class="btn btn-danger">Gestion de inventario<i class="fas fa-boxes"></i></a>
+				<div class="row">
+					<aside class="col-lg-6">
+						<a href="index.php?paginasCliente=ConsultaCliente" class="btn btn-danger btn-lg my-1 btn-block">Lista de clientes<i class="fas fa-users"></i></a>
+						<a href="?paginasProduc=ConsultaProduc" class="btn btn-danger btn-lg my-1 btn-block">Consulta de productos<i class="fas fa-wine-bottle"></i></a>
+						<a href="index.php?paginasPedidos=RegistroPedido" class="btn btn-danger btn-lg my-1 btn-block">Registrar Pedido<i class="fab fa-jedi-order"></i></a>
+					</aside>
+				    <aside class="col-lg-6">
+				    	<a href="?paginasMp=ConsultaMP" class="btn btn-danger btn-lg my-1 btn-block">Consultar materia prima<i class="fas fa-flask"></i></a>
+				    	<a href="?paginasIngresoMp=ConsultaIMP&id=<?php echo $user["idEMPLEADO"] ?>" class="btn btn-danger btn-lg my-1 btn-block">Consultar ingresos MP<i class="fas fa-clipboard-list"></i></a>
+				    	<a href="index.php?paginasAdministradores=GestionInventario" class="btn btn-danger btn-lg my-1 btn-block">Gestion de inventario<i class="fas fa-boxes"></i></a>
+				    </aside>
 				</div>
 				<?php if($user["idROL_FK"] == 3):?>
 					<a href="index.php?paginasAdministradores=ConsultarAdmin" class="btn btn-danger btn-block btn-lg">Gestionar Administradores<i class="fas fa-user-astronaut"></i>
                     </a>
 			    <?php endif?>
-				<a href="index.php?paginasAdministradores=ConsultarUnAdmin&id=<?php echo $user["idEMPLEADO"] ?>" class="btn btn-primary btn-block mx-1">Mi perfil<img src="Assets/img/Perfil.jpg" class="img-fluide" width="30" height="30"></a>
+				<a href="index.php?paginasAdministradores=ConsultarUnAdmin&id=<?php echo $user["idEMPLEADO"] ?>" class="btn btn-primary btn-block mx-1">Mi perfil<i class="fas fa-user-circle"></i></a>
 			</div>
 			<aside class="col-lg-3 py-5" id="fondo1"></aside>
 		</div>

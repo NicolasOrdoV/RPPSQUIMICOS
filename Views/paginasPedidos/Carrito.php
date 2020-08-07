@@ -40,7 +40,7 @@
 </div>
 
 <div class="text-right">
-  <button type="button" id="PedidoCompleto" class="btn btn-danger">Completar Pedido <i class="fas fa-cart-plus"></i></button>
+  <button type="button" id="PedidoCompleto" class="primary-btn rounded">Completar Pedido <i class="fas fa-cart-plus"></i></button>
 </div>
 </div>
 <div id="productoDetallado"></div>
