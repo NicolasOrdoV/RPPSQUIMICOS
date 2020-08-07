@@ -214,27 +214,28 @@
                 <div class="col-lg-6 text-center">
                     <div class="section-title">
                         <h1>Promociones de la semana</h1>
-                        <p>Echale un vistaso a las grades promociones que esta semana preparamos parati. </p>
+                        <p>Echale un vistaso a las grades promociones que esta semana preparamos para ti. </p>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-9">
                     <div class="row">
-                        <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
-                            <div class="single-related-product d-flex">
-                                <?php foreach ($productos as $producto){ ?>
-                                <a href="#"><img height="100 px" src="/RPPSQUIMICOS/Assets/img/productos/<?php echo $producto["imgPRODUCTO"] ?>" alt=""></a>
-                                <div class="desc">
-                                    <a href="#" class="title"><?PHP echo $producto["nombrePRODUCTO"]?></a>
-                                    <div class="price">
-                                        <h6><?PHP echo "$".$producto["valoruPRODUCTO"]?></h6>
-                                        <h6 class="l-through">$210.00</h6>
+                        <?php foreach ($productos as $producto){ ?>
+                            <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
+                                <div class="single-related-product d-flex">
+                                    <a href="#"><img width="100" src="/RPPSQUIMICOS/Assets/img/productos/<?php echo $producto["imgPRODUCTO"] ?>" alt=""></a>
+                                    <div class="desc">
+                                        <a href="#" class="title"><?PHP echo $producto["nombrePRODUCTO"]?></a>
+                                        <div class="price">
+                                            <h6><?PHP echo "$".$producto["valoruPRODUCTO"]?></h6>
+                                            <h6 class="l-through">$210.00</h6>
+                                        </div>
                                     </div>
                                 </div>
-                                <?php }?>
-                            </div>
-                        </div>
+                           </div>
+                       <?php }?>
+                    </div>   
                 </div>
                 <div class="col-lg-3">
                     <div class="ctg-right">
