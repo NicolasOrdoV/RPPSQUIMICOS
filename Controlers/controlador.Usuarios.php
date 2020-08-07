@@ -25,6 +25,7 @@ class ControladorUsuarios
 
           if (preg_match('/^[0-9a-zA-Z]+$/', $data["registrarContraseña"]) &&
               preg_match('/^[0-9a-zA-Z]+$/', $data["registrarContraseñaC"])) {
+            $data['registrarContraseña'] = hash('sha256', $data['registrarContraseña'] );
             $tabla = "usuario";
             $datos = array("nombreUSUARIO" => $data["registrarUsuario"],
                            "contrasenaUSUARIO" => $data["registrarContraseña"],
@@ -71,6 +72,8 @@ class ControladorUsuarios
            $item1 = "correoEMPLEADO";
            $valor1 = $_POST["ingresoNombre"];
            $respuestaA = ModeloAdministradores::mdlSeleccionarRegistroAdministradores($tabla1, $item1,$valor1);
+
+          //$_POST["ingresoContraseña"] = hash('sha256', $_POST["ingresoContraseña"]);
 
           if($respuestaU["nombreUSUARIO"] == $_POST["ingresoNombre"] && 
             $respuestaU["contrasenaUSUARIO"] == $_POST["ingresoContraseña"] &&

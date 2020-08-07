@@ -9,24 +9,39 @@ class ControladorClientes{
 
     //Registro Clientes
 
-    static public function ctrRegistroClientes($data){
-        if(isset($data["registroIdentificacion"])){
+    public function ctrRegistroClientes(){
+        if (isset($_POST['registroIdentificacion'])) {
 
             $tabla = "empresa_cliente";
+            $item = "identificacionEC";
+            $valor = $_POST["registroIdentificacion"];
+            $answer = ModeloClientes::mdlVerifyId($tabla,$item,$valor);
 
-            $datos = array("identificacionEC"=>$data["registroIdentificacion"],
-                            "nombreEC"=>$data["registroNombreCom"],
-                            "telefonoEC"=>$data["registroTelefono"],
-                            "direccionEC"=>$data["registroDireccion"],
-                            "nombrecontEC"=>$data["registroNContacto"],
-                            "telefonocontEC"=>$data["registroTContacto"],
-                            "correocontEC"=>$data["registroEmail"],
-                            "idBARRIO_FK"=>$data["registroBarrios"]
-                            );
-            $respuesta = ModeloClientes::mdlRegistroClientes($tabla,$datos);
-            return $respuesta;
-        }
-        
+            if ($answer["identificacionEC"] != $_POST["registroIdentificacion"]) {
+
+                $datos = array("identificacionEC"=>$_POST["registroIdentificacion"],
+                                "nombreEC"=>$_POST["registroNombreCom"],
+                                "telefonoEC"=>$_POST["registroTelefono"],
+                                "direccionEC"=>$_POST["registroDireccion"],
+                                "nombrecontEC"=>$_POST["registroNContacto"],
+                                "telefonocontEC"=>$_POST["registroTContacto"],
+                                "correocontEC"=>$_POST["registroEmail"],
+                                "idBARRIO_FK"=>$_POST["registroBarrios"]
+                                );
+                $respuesta = ModeloClientes::mdlRegistroClientes($tabla,$datos);
+                if(!is_null($respuesta)){
+                echo '<script>
+                if(window.history.replaceState){
+
+                    window.history.replaceState(null,null,window.location.href);
+                }
+                window.location = "index.php?paginasUsuario=RegistrarUsuario&id='.$respuesta[0][0].'";
+                </script>';          
+                }
+            }else{
+                echo '<div class="alert alert-danger">El numero de identificacion ya existe en nuestro sistema, no se puede duplicar los datos</div>';
+            }   
+        }          
     }
 
     //Consulta Clientes

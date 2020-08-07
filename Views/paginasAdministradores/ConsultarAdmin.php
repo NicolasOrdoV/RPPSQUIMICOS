@@ -19,7 +19,7 @@ $admins = ControladorAdministradores::ctrSeleccionarRegistrosAdministradores(nul
         <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-center">
             <div class="col-first">
                 <h3>Gestión de administradores
-	        	    <spam class="btn btn-danger rounded float-right" data-toggle="modal" data-target="#myModal">+Añadir admin</spam>
+	        	    <spam class="primary-btn rounded" data-toggle="modal" data-target="#myModal">+Añadir admin</spam>
 		        </h3>
 		        <hr>
             </div>
@@ -122,30 +122,16 @@ $admins = ControladorAdministradores::ctrSeleccionarRegistrosAdministradores(nul
 		                </form>
 		                <?php endif ?>
 		            </div>
-		            <button type="button" class="btn btn-danger rounded-pill" data-toggle="modal" data-target="#myModal2"><i class="fas fa-trash-alt"></i> </button>
-					<div class="modal fade" id="myModal2" role="dialog">
-						<div class="modal-dialog modal-sm modal-dialog-centered">
-						    <div class="modal-content">
-						        <div class="modal-body border border-dark rounded">
-							        <form action="#" method="post" class="text-left">
-							          	<label>¿Desea eliminar a este empleado?</label>
-							          	<form>
-							          		<input type ="hidden" value ="<?php echo $admin["idEMPLEADO"];?>" name="eliminarAd">
-							          		<button class="btn btn-primary rounded-pill btn-block">Si</button>
+		          	<form action="#" method="post">
+		          		<input type ="hidden" value ="<?php echo $admin["idEMPLEADO"];?>" name="eliminarAd">
+		          		<button type="submit" class="btn btn-danger rounded-pill" data-toggle="modal" data-target="#myModal2"><i class="fas fa-trash-alt"></i> </button>
+		          	<?php
 
-							          	<?php
-
-							          	$eliminar = new ControladorAdministradores();
-							          	$eliminar -> ctrEliminarAdministrador();
-							          	
-							          	?>	
-							          	</form>
-							            <button type="button" class="btn btn-danger rounded-pill btn-block my-2" data-dismiss="modal">No</button>
-							        </form>
-						        </div>
-						    </div>
-						</div>
-		            </div>
+		          	$eliminar = new ControladorAdministradores();
+		          	$eliminar -> ctrEliminarAdministrador();
+		          	
+		          	?>	
+		          	</form>
 	            </div>    
 				<h2 class="font-weight-bold">Datos Admin:</h2>
 				<p><span class="text-danger">Identificacion:</span><?php echo $admin["identificacionEMPLEADO"]?></p>

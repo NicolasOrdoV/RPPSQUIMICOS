@@ -64,6 +64,24 @@ class ModeloClientes{
             echo $e->getMessage();
         }
     }
+
+    static public function mdlVerifyId($tabla,$item,$valor)
+    {
+        try {
+            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
+            $stmt->bindParam(":".$item,$valor,PDO::PARAM_STR);
+            $stmt->execute();
+            return $stmt -> fetch();
+            $stmt->close();
+            $stmt= null;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    } 
+
+
+
+
     //Eliminar Registro
     static public function mdlEliminarRegistroClientes($tabla,$valor){
 

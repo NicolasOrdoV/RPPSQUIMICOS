@@ -36,7 +36,7 @@
                             $ingreso -> ctrIngresoUsuario();
                         ?>
                         <div class="col-md-12 form-group">
-                            <input type="email" class="form-control" id="name" name="ingresoNombre" placeholder="Nombre de usuario" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'" required>
+                            <input type="email" class="form-control" id="name" name="ingresoNombre" placeholder="Nombre de usuario" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'" required value="<?php echo isset($_POST['ingresoNombre']) ? $_POST['ingresoNombre'] : '' ?>">
                             <div class="valid-feedback">Valido</div>
                             <div class="invalid-feedback">El campo no puede quedar vacio.</div>
                         </div>

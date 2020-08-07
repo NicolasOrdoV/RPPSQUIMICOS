@@ -14,7 +14,7 @@
         <h1 class="text-danger">RPPS Quimícos</h1>
         <p>Registro inicial</p>
         <div class="form-group">
-            <input type="number" class="form-control rounded-pill" autofocus placeholder="Número de identificación*" id="txt" name="registroIdentificacion" min="11" max="9999999999" required>
+            <input type="number" class="form-control rounded-pill" autofocus placeholder="Número de identificación*" id="txt" name="registroIdentificacion" min="11" max="9999999999" required value="<?php echo isset($_POST['registroIdentificacion']) ? $_POST['registroIdentificacion'] : '' ?>">
             <div class="valid-feedback">Valido</div>
             <div class="invalid-feedback">El campo no cumple con las condiciones.</div>
         </div>
@@ -66,24 +66,8 @@
             </label>
         </div>
         <?php
-        if (isset($_POST['registroIdentificacion'])) {
-            if (preg_match('/^[0-9]+$/', $_POST['registroIdentificacion']) &&
-                filter_var($_POST['registroEmail'] , FILTER_VALIDATE_EMAIL)) {
-
-                $registro = ControladorClientes::ctrRegistroClientes($_POST);
-                if(!is_null($registro)){
-                    echo '<script>
-                    if(window.history.replaceState){
-
-                        window.history.replaceState(null,null,window.location.href);
-                    }
-                    window.location = "index.php?paginasUsuario=RegistrarUsuario&id='.$registro[0][0].'";
-                    </script>';          
-                }
-            }else{
-                echo '<div class="alert alert-danger">Lo sentimos,hay campos que no estan correctos y deben corregirse</div>';
-            }
-        }
+           $answer = new ControladorClientes();
+           $answer -> ctrRegistroClientes();
         ?> 
         <button type="submit" id="btnReg" class="primary-btn">Continuar<i class="fas fa-angle-double-right"></i></button>
     </form>
