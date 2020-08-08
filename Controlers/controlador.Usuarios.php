@@ -73,7 +73,9 @@ class ControladorUsuarios
            $valor1 = $_POST["ingresoNombre"];
            $respuestaA = ModeloAdministradores::mdlSeleccionarRegistroAdministradores($tabla1, $item1,$valor1);
 
-          //$_POST["ingresoContraseña"] = hash('sha256', $_POST["ingresoContraseña"]);
+           $hash = $_POST['ingresoContraseña'];
+
+           $_POST["ingresoContraseña"] = hash('sha256', $_POST["ingresoContraseña"]);
 
           if($respuestaU["nombreUSUARIO"] == $_POST["ingresoNombre"] && 
             $respuestaU["contrasenaUSUARIO"] == $_POST["ingresoContraseña"] &&
@@ -105,7 +107,7 @@ class ControladorUsuarios
                    <p>La activación de tu cuenta podra estar disponible en el transcurso del dia.</p>
                   </div>';
           }elseif ($respuestaA["correoEMPLEADO"] == $_POST["ingresoNombre"] && 
-            $respuestaA["contrasenaEMPLEADO"] == $_POST["ingresoContraseña"] &&
+            $respuestaA["contrasenaEMPLEADO"] == $hash &&
             $respuestaA["estadoEMPLEADO"] == "Activo") {
 
               $_SESSION["user"] = $respuestaA;   
@@ -119,7 +121,7 @@ class ControladorUsuarios
               window.location = "index.php?paginasAdministradores=MenuInicio";
               </script>';
           }elseif ($respuestaA["correoEMPLEADO"] == $_POST["ingresoNombre"] && 
-            $respuestaA["contrasenaEMPLEADO"] == $_POST["ingresoContraseña"] &&
+            $respuestaA["contrasenaEMPLEADO"] == $hash &&
             $respuestaA["estadoEMPLEADO"] == "Inactivo") {
              echo '<script>
             if(window.history.replaceState){
