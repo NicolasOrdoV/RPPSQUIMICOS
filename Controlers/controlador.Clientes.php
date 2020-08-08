@@ -18,28 +18,38 @@ class ControladorClientes{
             $answer = ModeloClientes::mdlVerifyId($tabla,$item,$valor);
 
             if ($answer["identificacionEC"] != $_POST["registroIdentificacion"]) {
+                if (preg_match('/^[0-9]+$/', $_POST["registroIdentificacion"]) &&
+                    preg_match('/^[a-zA-ZáéíóúÁÉÍÓÚ ]+$/', $_POST["registroNombreCom"]) &&
+                    preg_match('/^[0-9]+$/', $_POST["registroTelefono"]) &&
+                    preg_match('/^[a-zA-ZáéíóúÁÉÍÓÚ ]+$/', $_POST["registroNContacto"]) &&
+                    preg_match('/^[0-9]+$/', $_POST["registroTContacto"]) &&
+                    filter_var($_POST['registroEmail'] , FILTER_VALIDATE_EMAIL)) {
 
-                $datos = array("identificacionEC"=>$_POST["registroIdentificacion"],
-                                "nombreEC"=>$_POST["registroNombreCom"],
-                                "telefonoEC"=>$_POST["registroTelefono"],
-                                "direccionEC"=>$_POST["registroDireccion"],
-                                "nombrecontEC"=>$_POST["registroNContacto"],
-                                "telefonocontEC"=>$_POST["registroTContacto"],
-                                "correocontEC"=>$_POST["registroEmail"],
-                                "idBARRIO_FK"=>$_POST["registroBarrios"]
-                                );
-                $respuesta = ModeloClientes::mdlRegistroClientes($tabla,$datos);
-                if(!is_null($respuesta)){
-                echo '<script>
-                if(window.history.replaceState){
 
-                    window.history.replaceState(null,null,window.location.href);
-                }
-                window.location = "index.php?paginasUsuario=RegistrarUsuario&id='.$respuesta[0][0].'";
-                </script>';          
+                    $datos = array("identificacionEC"=>$_POST["registroIdentificacion"],
+                                    "nombreEC"=>$_POST["registroNombreCom"],
+                                    "telefonoEC"=>$_POST["registroTelefono"],
+                                    "direccionEC"=>$_POST["registroDireccion"],
+                                    "nombrecontEC"=>$_POST["registroNContacto"],
+                                    "telefonocontEC"=>$_POST["registroTContacto"],
+                                    "correocontEC"=>$_POST["registroEmail"],
+                                    "idBARRIO_FK"=>$_POST["registroBarrios"]
+                                    );
+                    $respuesta = ModeloClientes::mdlRegistroClientes($tabla,$datos);
+                    if(!is_null($respuesta)){
+                    echo '<script>
+                    if(window.history.replaceState){
+
+                        window.history.replaceState(null,null,window.location.href);
+                    }
+                    window.location = "index.php?paginasUsuario=RegistrarUsuario&id='.$respuesta[0][0].'";
+                    </script>';          
+                    }
+                }else{
+                    echo '<div class="alert alert-danger">Los datos no tienen el formato correcto, verifique los datos.</div>';
                 }
             }else{
-                echo '<div class="alert alert-danger">El numero de identificacion ya existe en nuestro sistema, no se puede duplicar los datos</div>';
+                echo '<div class="alert alert-danger">El numero de identificación o el email ya existen en nuestro sistema, no se puede duplicar los datos.</div>';
             }   
         }          
     }

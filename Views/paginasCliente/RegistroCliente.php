@@ -19,17 +19,17 @@
             <div class="invalid-feedback">El campo no cumple con las condiciones.</div>
         </div>
         <div class="form-group">
-            <input type="text" class="form-control rounded-pill" placeholder="Nombre de persona o empresa*" id="txt" name="registroNombreCom" required>
+            <input type="text" class="form-control rounded-pill" placeholder="Nombre de persona o empresa*" id="txt" name="registroNombreCom" required value="<?php echo isset($_POST['registroNombreCom']) ? $_POST['registroNombreCom'] : '' ?>">
             <div class="valid-feedback">Valido</div>
             <div class="invalid-feedback">El campo no cumple con las condiciones.</div>
         </div>
         <div class="form-group">
-            <input type="number" class="form-control rounded-pill" placeholder="Teléfono fijo de la persona o empresa*" id="txt" name="registroTelefono" min="1111" max="9999999" required>
+            <input type="number" class="form-control rounded-pill" placeholder="Teléfono fijo de la persona o empresa*" id="txt" name="registroTelefono" min="1111" max="9999999" required value="<?php echo isset($_POST['registroTelefono']) ? $_POST['registroTelefono'] : '' ?>">
             <div class="valid-feedback">Valido</div>
             <div class="invalid-feedback">El campo no cumple con las condiciones.</div>
         </div>
         <div class="form-group">
-            <input type="text" class="form-control rounded-pill" placeholder="Dirección de la persona o empresa*" id="txt" name="registroDireccion" required>
+            <input type="text" class="form-control rounded-pill" placeholder="Dirección de la persona o empresa*" id="txt" name="registroDireccion" required value="<?php echo isset($_POST['registroDireccion']) ? $_POST['registroDireccion'] : '' ?>">
             <div class="valid-feedback">Valido</div>
             <div class="invalid-feedback">El campo no cumple con las condiciones.</div>
         </div>
@@ -44,17 +44,17 @@
             <div class="invalid-feedback">El campo no cumple con las condiciones.</div>
         </div>
         <div class="form-group">
-            <input type="text" class="form-control rounded-pill" placeholder="Nombre contacto*" id="txt" name="registroNContacto" required>
+            <input type="text" class="form-control rounded-pill" placeholder="Nombre contacto*" id="txt" name="registroNContacto" required value="<?php echo isset($_POST['registroNContacto']) ? $_POST['registroNContacto'] : '' ?>">
             <div class="valid-feedback">Valido</div>
             <div class="invalid-feedback">El campo no cumple con las condiciones.</div>
         </div>
         <div class="form-group">
-            <input type="number" class="form-control rounded-pill" placeholder="Teléfono contacto*" id="txt" name="registroTContacto" min="1111111" max="9999999999" required>
+            <input type="number" class="form-control rounded-pill" placeholder="Teléfono contacto*" id="txt" name="registroTContacto" min="1111111" max="9999999999" required value="<?php echo isset($_POST['registroTContacto']) ? $_POST['registroTContacto'] : '' ?>">
             <div class="valid-feedback">Valido</div>
             <div class="invalid-feedback">El campo no cumple con las condiciones.</div>
         </div>
         <div class="form-group">
-            <input type="email" class="form-control rounded-pill" placeholder="Correó Electronico*" id="txt" name="registroEmail" required>
+            <input type="email" class="form-control rounded-pill" placeholder="Correó Electronico*" id="txt" name="registroEmail" required value="<?php echo isset($_POST['registroEmail']) ? $_POST['registroEmail'] : '' ?>">
             <div class="valid-feedback">Valido</div>
             <div class="invalid-feedback">El campo no cumple con las condiciones.</div>
         </div>

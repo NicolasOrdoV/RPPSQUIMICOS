@@ -3,10 +3,10 @@
     <div class="container">
         <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
             <div class="col-first">
-                <h1>Inicio Sesion/Registrarse</h1>
+                <h1 class="text-dark">Inicio Sesion/Registrarse</h1>
                 <nav class="d-flex align-items-center">
-                    <a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
-                    <a href="category.html">Login/Register</a>
+                    <a href="index.html" class="text-dark">Home<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="category.html" class="text-dark">Login/Register</a>
                 </nav>
             </div>
         </div>
@@ -22,7 +22,7 @@
                     <img class="img-fluid" src="Assets/img/login.png" alt="">
                     <div class="hover">
                         <h4>¿No tienes una cuenta?</h4>
-                        <p>Registrate con nostros y podras realizar los pedidos de los productos que tu quieras.<br>¡ANIMATE!</p>
+                        <p>Registrate con nosotros y podras realizar los pedidos de los productos que tu quieras.<br>¡ANIMATE!</p>
                         <a class="primary-btn" href="?paginasCliente=RegistroCliente">Registrate</a>
                     </div>
                 </div>
