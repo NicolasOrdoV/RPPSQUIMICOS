@@ -49,9 +49,9 @@
     ?>
     <p>El pedido Llega entre el <strong><?php echo date("d",$mod_date) . "\n";?></strong> de <strong><?php setlocale(LC_TIME, "spanish"); echo(strftime("%B",$mod_date));?> </strong>y<strong> <?php echo date("d",$mod_dates) . "\n";?></strong> de <strong><?php setlocale(LC_TIME, "spanish"); echo(strftime("%B",$mod_dates)); ?></strong></P>
       <input type="hidden" id="FechaEntrega" value="<?php echo date("d-m-y",$mod_date) . "\n";?>">
-    <button type="button" id="PedidoCompleto" class="primary-btn rounded">Completar Pedido<i class="fas fa-cart-plus"></i></button>
+    <button id="PedidoCompleto" class="primary-btn rounded">Completar Pedido<i class="fas fa-cart-plus"></i></button>
   </div>
 <?php endif?>
 </div>
 <div id="productoDetallado"></div>
-<script src="Assets/js/CarritoProd.js"></script>
+

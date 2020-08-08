@@ -1,5 +1,5 @@
-<?php $productos = ControladorInventario::ctrSeleccionarProductosUsuario(null,null);?>
-<?php $UltimosProd=ControladorInventario::ctrSleccionarUltimos3Prod(null,null)?>
+<?php $productos = ControladorInventario::ctrSeleccionarProductosUsuario(null,null);
+$UltimosProd=ControladorInventario::ctrSleccionarUltimos3Prod(null,null);?>
 <!-- start banner Area -->
     <section class="banner-area m-4">
         <div class="container">
@@ -108,20 +108,20 @@
                     </div>
                 </div>
                 <div class="row">
-                    <?php foreach ($UltimosProd as $producto){?>
+                    <?php foreach ($UltimosProd as $product){?>
                         <!-- single product -->
                         <div class="col-lg-3 col-md-6">
                             <div class="single-product">
-                                <img class="img-fluid" src="/RPPSQUIMICOS/Assets/img/productos/<?php echo $producto["imgPRODUCTO"] ?>" alt="">
+                                <img class="img-fluid" src="/RPPSQUIMICOS/Assets/img/productos/<?php echo $product["imgPRODUCTO"] ?>" alt="">
                                 <div class="product-details">
-                                    <h6><?php echo $producto['nombrePRODUCTO']?></h6>
+                                    <h6><?php echo $product['nombrePRODUCTO']?></h6>
                                     <div class="price">
-                                        <h6>$<?php echo $producto["valoruPRODUCTO"]; ?></h6>
+                                        <h6>$<?php echo $product["valoruPRODUCTO"]; ?></h6>
                                         <h6 class="l-through">$210.00</h6>
                                     </div>
                                     <div class="prd-bottom">
 
-                                        <a href="?paginasCliente=DetalleProducto&id=<?php echo $producto["idPRODUCTO"]?>" class="social-info">
+                                        <a href="?paginasCliente=DetalleProducto&id=<?php echo $product["idPRODUCTO"]?>" class="social-info">
                                             <span class="ti-bag"></span>
                                             <p class="hover-text">Ver detalles</p>
                                         </a>
@@ -146,66 +146,6 @@
             </div>
         </div>
     <!-- end product Area -->    
-    <!-- Start exclusive deal Area -->
-    <!--<section class="exclusive-deal-area">
-        <div class="container-fluid">
-            <div class="row justify-content-center align-items-center">
-                <div class="col-lg-6 no-padding exclusive-left">
-                    <div class="row clock_sec clockdiv" id="clockdiv">
-                        <div class="col-lg-12">
-                            <h1>Exclusive Hot Deal Ends Soon!</h1>
-                            <p>Who are in extremely love with eco friendly system.</p>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="row clock-wrap">
-                                <div class="col clockinner1 clockinner">
-                                    <h1 class="days">150</h1>
-                                    <span class="smalltext">Days</span>
-                                </div>
-                                <div class="col clockinner clockinner1">
-                                    <h1 class="hours">23</h1>
-                                    <span class="smalltext">Hours</span>
-                                </div>
-                                <div class="col clockinner clockinner1">
-                                    <h1 class="minutes">47</h1>
-                                    <span class="smalltext">Mins</span>
-                                </div>
-                                <div class="col clockinner clockinner1">
-                                    <h1 class="seconds">59</h1>
-                                    <span class="smalltext">Secs</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="" class="primary-btn">Shop Now</a>
-                </div>
-                <div class="col-lg-6 no-padding exclusive-right">
-                    <div class="active-exclusive-product">
-                        <!-- single exclusive carousel -->
-                        <!--<div class="single-exclusive-slider">
-                            <img class="img-fluid" src="/RPPSQUIMICOS/Assets/img/productos/<?php echo $productos["imgPRODUCTO"] = "Varsol2.jpg" ?>" alt="">
-                            <div class="product-details">
-                                <div class="price">
-                                    <h6><?php echo $productos["valorPRODUCTO"] = "2500" ?></h6>
-                                    <h6 class="l-through">$210.00</h6>
-                                </div>
-                                <h4><?php echo $productos["nombrePRODUCTO"] = "VARSOL * 250 ML" ?></h4>
-                                <div class="add-bag d-flex align-items-center justify-content-center">
-                                    <a class="add-btn" href="?paginasCliente=DetalleProducto&id=<?php echo $productos["idPRODUCTO"] = 12 ?>"><span class="ti-bag"></span></a>
-                                    <span class="add-text text-uppercase">Add to Bag</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>-->
-    <!-- End exclusive deal Area -->
-
-    <!-- Start brand Area -->
-    
-    <!-- End brand Area -->
 
     <!-- Start related-product Area -->
     <section class="related-product-area section_gap_bottom">
@@ -221,20 +161,20 @@
             <div class="row">
                 <div class="col-lg-9">
                     <div class="row">
-                        <?php foreach ($productos as $producto){ ?>
+                        <?php foreach ($productos as $producto): ?>
                             <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
                                 <div class="single-related-product d-flex">
-                                    <a href="#"><img width="100" src="/RPPSQUIMICOS/Assets/img/productos/<?php echo $producto["imgPRODUCTO"] ?>" alt=""></a>
+                                    <a href="#"><img width="100" src="/RPPSQUIMICOS/Assets/img/productos/<?php echo $producto['imgPRODUCTO'] ?>" alt=""></a>
                                     <div class="desc">
-                                        <a href="#" class="title"><?PHP echo $producto["nombrePRODUCTO"]?></a>
+                                        <a href="#" class="title"><?php echo $producto['nombrePRODUCTO']?></a>
                                         <div class="price">
-                                            <h6><?PHP echo "$".$producto["valoruPRODUCTO"]?></h6>
+                                            <h6>$<?php echo $producto['valoruPRODUCTO']; ?></h6>
                                             <h6 class="l-through">$210.00</h6>
                                         </div>
                                     </div>
                                 </div>
                            </div>
-                       <?php }?>
+                       <?php endforeach?>
                     </div>   
                 </div>
                 <div class="col-lg-3">

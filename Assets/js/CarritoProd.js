@@ -125,6 +125,5 @@
           location.href = 'index.php'
         });
       }
-
     });
 })();

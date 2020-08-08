@@ -71,10 +71,8 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                                 <li class="nav-item"><a class="nav-link ti-user" href="?paginasUsuario=InicioSesion"></a></li>
                             <?php elseif ($user["idROL_FK"] == 1) : ?>
                                 <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
-                                <li class="nav-item submenu dropdown">
-                                    <a href="?paginasProduc=Catalog" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                                     aria-expanded="false">Tienda</a>
-
+                                <li class="nav-item"><a href="?paginasProduc=Catalog" class="nav-link "
+                                    >Tienda</a></li>
                                 </li>
                                 <li class="nav-item submenu dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -328,6 +326,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
     </script>
     <script type="text/javascript" src="Assets/js/imp.js"></script>
     <script type="text/javascript" src="Assets/js/prod.js"></script>
+    <script src="Assets/js/CarritoProd.js"></script>
     <script type="text/javascript" src="Assets/js/validation.js"></script>
     <script type="text/javascript" src="Assets/js/search.js"></script>
     <script type="text/javascript" src="Assets/js/eye.js"></script>
