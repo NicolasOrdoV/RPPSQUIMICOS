@@ -39,7 +39,6 @@ if (isset($_GET["id"])) {
               <p class="mb" name="descripcionProd" id="descripcionProd">
                 <?php echo $stock["descripcionPRODUCTO"]?>
               </p>
-              <h4 class="mb" name="cantProd" id="cantProd">Cantidad existente: <?php echo $stock["cantPRODUCTO"]?></h4>
               <div class="product_count">
                 <label for="qty">Quantity:</label>
                 <input type="text" name="x" id="b" maxlength="12" value="1" title="Quantity:" class="input-text qty">

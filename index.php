@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 require_once "Controlers/plantilla.controlador.php";
 require_once "Controlers/controlador.Usuarios.php";
@@ -19,6 +19,8 @@ require_once "Models/modelo.Barrios.php";
 require_once "Models/modelo.Clientes.php";
 require_once "Models/modelo.Administradores.php";
 require_once "Models/modelo.Inventario.php";
+require_once "Models/modeloPedidos.php";
+
 
 $home = new HomeController();
 $home -> ctrBringeHome();

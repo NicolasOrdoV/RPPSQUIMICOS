@@ -104,24 +104,25 @@
       if (carrito=='') {
         alert("No se han ingresado productos")
       }else {
-        let url = "index.php?paginasPedidos=PedidoConfirma"
+        let url = "index.php?paginasPedidos=NuevoPedido"
         let params = {
 
             Fechaen:$('#FechaEntrega').val(),
-            idEmpClien:$('#idEmpresaCliente').text(),
-            medida:$('#medida').val(),
-            idEmp:$('#idEmpleado').text()
+            idEmpClien:$('#IdCliente').val(),
+            total:$('#totalCarrito').text(),
+            idEmp:0,
+            Carro:carrito
         }
         //metodo post de ajax para el envio del formulario
         $.post(url, params, function(response) {
           if (typeof response.error !== 'undefined') {
                 alert(response.message)
             } else {
-              alert("ERROR")
+              alert("Error al insertar")
             }
         }, 'json').fail(function(error) {
           alert("Inserción Satisfactoria")
-          location.href = 'index.php?paginasProduc=ConsultaProduc'
+          location.href = 'index.php'
         });
       }
 

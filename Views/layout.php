@@ -64,8 +64,8 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                         <ul class="nav navbar-nav menu_nav ml-auto">
                             <?php if ($user == "") : ?>
                                 <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
-                                
-                                    <li class="nav-item"><a href="?paginasProduc=Catalog" class="nav-link "   
+
+                                    <li class="nav-item"><a href="?paginasProduc=Catalog" class="nav-link "
                                     >Tienda</a></li>
                                 <li class="nav-item"><a class="nav-link" href="contact.html">Contacto</a></li>
                                 <li class="nav-item"><a class="nav-link ti-user" href="?paginasUsuario=InicioSesion"></a></li>
@@ -74,7 +74,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                                 <li class="nav-item submenu dropdown">
                                     <a href="?paginasProduc=Catalog" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                                      aria-expanded="false">Tienda</a>
-                                    
+
                                 </li>
                                 <li class="nav-item submenu dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -230,7 +230,8 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                       $_GET["paginasPedidos"] == "RegistroPedido" ||
                       $_GET["paginasPedidos"] == "PedidoConfirma" ||
                       $_GET["paginasPedidos"] == "Carrito" ||
-                      $_GET["paginasPedidos"] == "PedidoCompleto"
+                      $_GET["paginasPedidos"] == "PedidoCompleto"||
+                      $_GET["paginasPedidos"] == "NuevoPedido"
                 ) {
                     include "Views/paginasPedidos/" . $_GET["paginasPedidos"] . ".php";
                 } else {
@@ -291,7 +292,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                         </ul>
                     </div>
                 </div>
-                
+
             </div>
             <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
                 <p class="footer-text m-0 text-light"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
