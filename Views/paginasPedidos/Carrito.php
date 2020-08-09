@@ -54,4 +54,5 @@
 <?php endif?>
 </div>
 <div id="productoDetallado"></div>
+  <script src="Assets/js/CarritoProd.js"></script>
 

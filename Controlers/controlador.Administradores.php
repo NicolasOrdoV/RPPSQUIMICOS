@@ -21,7 +21,6 @@ class ControladorAdministradores
     try {
         if(isset($_POST["registrarIdentificacionAd"])) {
 
-        $_POST["registrarContraseñaAd"] = hash('sha256', $_POST["registrarContraseñaAd"]);
         $tabla = "empleado";
         $datos = array("identificacionEMPLEADO" => $_POST["registrarIdentificacionAd"],
                        "nombreEMPLEADO" => $_POST["registrarNombreAd"],

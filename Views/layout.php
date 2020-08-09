@@ -253,7 +253,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-4  col-md-6 col-sm-6">
+                <div class="col-lg-6  col-md-6 col-sm-6">
                     <div class="single-footer-widget">
                         <h6>Newsletter</h6>
                         <p class="text-light">Stay update with our latest</p>
@@ -326,7 +326,6 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
     </script>
     <script type="text/javascript" src="Assets/js/imp.js"></script>
     <script type="text/javascript" src="Assets/js/prod.js"></script>
-    <script src="Assets/js/CarritoProd.js"></script>
     <script type="text/javascript" src="Assets/js/validation.js"></script>
     <script type="text/javascript" src="Assets/js/search.js"></script>
     <script type="text/javascript" src="Assets/js/eye.js"></script>

@@ -110,7 +110,7 @@ $UltimosProd=ControladorInventario::ctrSleccionarUltimos3Prod(null,null);?>
                 <div class="row">
                     <?php foreach ($UltimosProd as $product){?>
                         <!-- single product -->
-                        <div class="col-lg-3 col-md-6">
+                        <div class="col-lg-4 col-md-6">
                             <div class="single-product">
                                 <img class="img-fluid" src="/RPPSQUIMICOS/Assets/img/productos/<?php echo $product["imgPRODUCTO"] ?>" alt="">
                                 <div class="product-details">
