@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-06-2020 a las 22:05:57
+-- Tiempo de generación: 10-08-2020 a las 00:56:28
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.2
 
@@ -2581,6 +2581,18 @@ CREATE TABLE `detalle_ingreso` (
   `idIMP_FK` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `detalle_ingreso`
+--
+
+INSERT INTO `detalle_ingreso` (`idDI`, `cantidadDI`, `idMP_FK`, `idIMP_FK`) VALUES
+(1, 3, 2, 1),
+(2, 4, 2, 4),
+(3, 20, 1, 5),
+(4, 23, 3, 5),
+(5, 5, 1, 6),
+(6, 54, 2, 6);
+
 -- --------------------------------------------------------
 
 --
@@ -2619,7 +2631,7 @@ CREATE TABLE `empleado` (
 INSERT INTO `empleado` (`idEMPLEADO`, `identificacionEMPLEADO`, `nombreEMPLEADO`, `telefonoEMPLEADO`, `correoEMPLEADO`, `contrasenaEMPLEADO`, `estadoEMPLEADO`, `idROL_FK`) VALUES
 (2, '1020841047', 'Brian Albeiro Gutierrez Ramirez', '3214568745', 'bagutierrez74@misena.edu.co', '7fusxL56dGgaU', 'Activo', 2),
 (4, '1001331668', 'Jeison Esteven Ariza', '3209476905', 'jeariza86@misena.edu.co', '123', 'Activo', 2),
-(5, '1001286885', 'Gabriel Alejandro Rippe', '3214568745', 'garippe@misena.edu.co', '7EQ2b3AaBcQI6', 'Activo', 2),
+(5, '1001286885', 'Gabriel Alejandro Rippe', '3214568745', 'garippe@misena.edu.co', '123', 'Activo', 2),
 (6, '43233432', 'Luis Blanco(SP)', '3214568745', 'rppsquimicos@gmail.com', '321', 'Activo', 3);
 
 -- --------------------------------------------------------
@@ -2645,9 +2657,10 @@ CREATE TABLE `empresa_cliente` (
 --
 
 INSERT INTO `empresa_cliente` (`idEC`, `identificacionEC`, `nombreEC`, `telefonoEC`, `direccionEC`, `nombrecontEC`, `telefonocontEC`, `correocontEC`, `idBARRIO_FK`) VALUES
-(2, '1070342333', 'all in poker colombia', 6936270, 'cra 132#142-30', 'daniel santiago ordoñez', '2147483647', 'santoagoordonez@gmail.com', 1792),
-(3, '23343233', 'tractocar', 3454312, 'Calle 5 Kilometro 6', 'Angel Ordoñez', '2147483647', 'nohoracecilia7@gmail.com', 464),
-(4, '1000464327', 'juan nicolas ordoñez velasquez', 6936370, 'cra 132-142-30', 'Juan Nicolás Ordoñez', '3229514515', 'jnordonez7@misena.edu.co', 1792);
+(5, '1000464327', 'Garoware', 6936370, 'calle 132-142-30', 'Juan Nicolás Ordoñez', '3229514515', 'jnordonez7@misena.edu.co', 1792),
+(6, '1234566789', 'test', 5555555, 'cra 23', 'test', '5555555555', 'user@gmail.com', 1),
+(7, '1245639874', 'alerta sanchez', 5555555, 'calle 23 # 147-12', 'create table basededatos', '5555555555', 'usuario@gmail.com', 9),
+(8, '102458756', 'pepito y hermanos', 6547896, 'Calle 80 bis', 'Pepo perez', '3145827452', 'pepo@gmail.com', 206);
 
 -- --------------------------------------------------------
 
@@ -2662,6 +2675,16 @@ CREATE TABLE `envasado` (
   `idMP_FK` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `envasado`
+--
+
+INSERT INTO `envasado` (`idENVASADO`, `cantENVASADO`, `idPRODUCTO_FK`, `idMP_FK`) VALUES
+(1, 5, 15, 1),
+(2, 56, 16, 1),
+(3, 56, 16, 2),
+(4, 56, 16, 3);
+
 -- --------------------------------------------------------
 
 --
@@ -2673,6 +2696,16 @@ CREATE TABLE `ingreso_mp` (
   `fechaIMP` date NOT NULL,
   `idEMPLEADO_FK` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `ingreso_mp`
+--
+
+INSERT INTO `ingreso_mp` (`idIMP`, `fechaIMP`, `idEMPLEADO_FK`) VALUES
+(1, '2020-06-23', 4),
+(4, '2020-06-23', 5),
+(5, '2020-06-26', 4),
+(6, '2020-07-15', 4);
 
 -- --------------------------------------------------------
 
@@ -2732,8 +2765,9 @@ CREATE TABLE `mp` (
 --
 
 INSERT INTO `mp` (`idMP`, `identificacionMP`, `nombreMP`, `tipoMP`, `cantMP`, `estadoMP`) VALUES
-(1, '1000214412', 'envases plastico', 'LIQUIDO', 0, 'AGOTADO'),
-(2, '1000214413', 'etiquetas', 'SOLIDO', 0, 'AGOTADO');
+(1, '1000214412', 'Envases plasticos', 'LIQUIDO', 0, 'AGOTADO'),
+(2, '1000214413', 'Etiquetas', 'SOLIDO', 0, 'AGOTADO'),
+(3, '12000541012', 'tapitas para botellas 250 ml', 'ENVASE', 0, 'AGOTADO');
 
 -- --------------------------------------------------------
 
@@ -2773,9 +2807,9 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`idPRODUCTO`, `imgPRODUCTO`, `nombrePRODUCTO`, `descripcionPRODUCTO`, `medidaPRODUCTO`, `cantPRODUCTO`, `estadoPRODUCTO`, `valoruPRODUCTO`) VALUES
-(14, 'Acido.jpg', 'Acido', 'Para desafección', 0, 0, 'Activo', 2500),
-(15, 'Varsol2.jpg', 'Varsol * 250 ml', 'Producto para desinfectar', 0, 0, 'Activo', 2500),
-(16, 'Thinner.jpg', 'Thinner * 250 ml', 'Producto para obras y limpieza', 0, 0, 'Activo', 2500);
+(15, 'Varsol2.jpg', 'Varsol * 250 ml', 'Producto para desinfectar', 0, 5, 'Activo', 2500),
+(16, 'Thinner.jpg', 'Thinner * 250 ml', 'Producto para obras y limpieza', 0, 56, 'Activo', 2500),
+(17, 'Thinner2.jpg', 'Thinner * 500 ml', 'Para limpiar superficies', 500, 0, 'Activo', 5000);
 
 -- --------------------------------------------------------
 
@@ -2808,6 +2842,7 @@ CREATE TABLE `usuario` (
   `nombreUSUARIO` varchar(100) NOT NULL,
   `contrasenaUSUARIO` varchar(100) NOT NULL,
   `estadoUSUARIO` varchar(100) NOT NULL,
+  `img` varchar(50) DEFAULT NULL,
   `idEC_FK` bigint(20) NOT NULL,
   `idROL_FK` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -2816,10 +2851,11 @@ CREATE TABLE `usuario` (
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`idUSUARIO`, `nombreUSUARIO`, `contrasenaUSUARIO`, `estadoUSUARIO`, `idEC_FK`, `idROL_FK`) VALUES
-(2, 'santoagoordonez@gmail.com', '321', 'Activo', 2, 1),
-(3, 'nohoracecilia7@gmail.com', '123', 'Activo', 3, 1),
-(4, 'jnordonez7@misena.edu.co', 'batman321', 'Activo', 4, 1);
+INSERT INTO `usuario` (`idUSUARIO`, `nombreUSUARIO`, `contrasenaUSUARIO`, `estadoUSUARIO`, `img`, `idEC_FK`, `idROL_FK`) VALUES
+(5, 'jnordonez7@misena.edu.co', '6ccea2d03194ac4e0b0fd08e20b33933dbf38bca7411d7d1f958e5ef3470eec4', 'Activo', 'Naruto.png', 5, 1),
+(6, 'user@gmail.com', 'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', 'Activo', NULL, 6, 1),
+(7, 'usuario@gmail.com', '15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225', 'Activo', NULL, 7, 1),
+(8, 'pepo@gmail.com', '15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225', 'Activo', NULL, 8, 1);
 
 --
 -- Índices para tablas volcadas
@@ -2945,7 +2981,7 @@ ALTER TABLE `ciudad`
 -- AUTO_INCREMENT de la tabla `detalle_ingreso`
 --
 ALTER TABLE `detalle_ingreso`
-  MODIFY `idDI` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `idDI` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_pedido`
@@ -2963,19 +2999,19 @@ ALTER TABLE `empleado`
 -- AUTO_INCREMENT de la tabla `empresa_cliente`
 --
 ALTER TABLE `empresa_cliente`
-  MODIFY `idEC` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idEC` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `envasado`
 --
 ALTER TABLE `envasado`
-  MODIFY `idENVASADO` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `idENVASADO` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `ingreso_mp`
 --
 ALTER TABLE `ingreso_mp`
-  MODIFY `idIMP` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `idIMP` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `localidad`
@@ -2987,7 +3023,7 @@ ALTER TABLE `localidad`
 -- AUTO_INCREMENT de la tabla `mp`
 --
 ALTER TABLE `mp`
-  MODIFY `idMP` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idMP` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `pedido`
@@ -2999,7 +3035,7 @@ ALTER TABLE `pedido`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `idPRODUCTO` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `idPRODUCTO` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`
@@ -3011,7 +3047,7 @@ ALTER TABLE `rol`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUSUARIO` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idUSUARIO` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Restricciones para tablas volcadas

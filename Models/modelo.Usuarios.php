@@ -42,7 +42,7 @@ class ModeloUsuarios
     static public function mdlSeleccionarRegistroUsuarios($tabla,$item,$valor){
 
         try {
-            $stmt = Conexion::conectar()->prepare("SELECT us.idUSUARIO,us.nombreUSUARIO,us.estadoUSUARIO,us.contrasenaUSUARIO,us.idEC_FK,us.idROL_FK,em.idEC,em.identificacionEC,em.telefonoEC,em.direccionEC,em.nombrecontEC,em.telefonocontEC,em.correocontEC,b.nombreBARRIO FROM $tabla us 
+            $stmt = Conexion::conectar()->prepare("SELECT us.idUSUARIO,us.nombreUSUARIO,us.estadoUSUARIO,us.img,us.contrasenaUSUARIO,us.idEC_FK,us.idROL_FK,em.idEC,em.identificacionEC,em.telefonoEC,em.direccionEC,em.nombrecontEC,em.telefonocontEC,em.correocontEC,b.nombreBARRIO FROM $tabla us 
             INNER JOIN empresa_cliente em ON us.idEC_FK = em.idEC
             INNER JOIN barrio b ON em.idBARRIO_FK = b.idBARRIO WHERE  $item = :$item");
             $stmt->bindParam(":".$item,$valor,PDO::PARAM_STR);
@@ -88,6 +88,30 @@ class ModeloUsuarios
             WHERE idUSUARIO = :idUSUARIO");
 
             $stmt->bindParam(":contrasenaUSUARIO",$datos["contrasenaUSUARIO"],PDO::PARAM_STR);
+            $stmt->bindParam(":idUSUARIO",$datos["idUSUARIO"],PDO::PARAM_INT);
+
+            if($stmt->execute()){
+
+                return "ok";
+
+            }else{
+                print_r(Conexion::conectar()->errorInfo());
+            }
+
+            $stmt->close();
+            $stmt= null;
+        } catch (PDOException $e) {
+           echo $e->getMessage(); 
+        }
+    }
+
+    static public function mdlUpdateImg($tabla,$datos)
+    {
+        try {
+            $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET img = :img
+            WHERE idUSUARIO = :idUSUARIO");
+
+            $stmt->bindParam(":img",$datos["img"],PDO::PARAM_STR);
             $stmt->bindParam(":idUSUARIO",$datos["idUSUARIO"],PDO::PARAM_INT);
 
             if($stmt->execute()){

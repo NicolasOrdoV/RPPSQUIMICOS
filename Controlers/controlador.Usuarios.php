@@ -191,6 +191,21 @@ class ControladorUsuarios
         }
     }
 
+    static public function updateIMG()
+    {
+      if(isset($_POST["actualizarIdU"])){
+
+            $tabla = "usuario";
+            $datos = array("idUSUARIO"=>$_POST["actualizarIdU"],
+                           "img" => $_POST["img"]
+                         );
+
+            $respuesta = ModeloUsuarios::mdlUpdateImg($tabla,$datos);
+
+            return $respuesta;            
+        }
+    }
+
     //ENVIO CORREO DE CONFIRMACIÓN CREACIÓN DE USUARIO
     static public function enviarCorreoUser($data){
       $mail = new PHPMailer(true);

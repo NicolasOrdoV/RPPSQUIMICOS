@@ -1,5 +1,5 @@
 <?php
-//error_reporting(0);
+error_reporting(0);
 session_start();
 $user = $_SESSION["user"];
 $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
@@ -76,7 +76,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                                 </li>
                                 <li class="nav-item submenu dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                                     aria-expanded="false"><?php echo $user["nombrecontEC"]; ?></a>
+                                     aria-expanded="false"><img src="Assets/img/Usuarios/<?php echo $user["img"] ?>" width="20"><?php echo $user["nombrecontEC"]; ?></a>
                                     <ul class="dropdown-menu">
                                         <li class="nav-item"><a href="?paginasUsuario=ConsultarUsuario&id=<?php echo $user["idUSUARIO"] ?>" class="nav-link">
                                             Mi perfil
@@ -178,7 +178,8 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                     $_GET["paginasUsuario"] == "RegistrarUsuario" ||
                     $_GET["paginasUsuario"] == "ConsultarUsuario" ||
                     $_GET["paginasUsuario"] == "RecuperarContrasena" ||
-                    $_GET["paginasUsuario"] == "RestauraContrasenaUs"
+                    $_GET["paginasUsuario"] == "RestauraContrasenaUs" ||
+                    $_GET["paginasUsuario"] == "ChangeImgProfile"
                 ) {
                     include "Views/paginasUsuario/" . $_GET["paginasUsuario"] . ".php";
                 } else {

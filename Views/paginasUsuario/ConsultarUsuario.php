@@ -30,7 +30,7 @@ if (isset($_GET["id"])) {
 	<aside class="col-lg-3" id="blanco-h"></aside>
 		<div class="col-lg-6 py-5 border border-dark" id="form1">
             <figure>
-            	<img src="Assets/img/Perfil.jpg" class="float-left">
+            	<img src="Assets/img/Usuarios/<?php echo $usuario["img"] ?>" class="float-left rounded-circle" width="250">
             </figure>
             <article class="text-right"> 
 	            <h1><?php echo $usuario["nombrecontEC"]?></h1>
@@ -43,7 +43,7 @@ if (isset($_GET["id"])) {
 	            <a href="#" class="text-dark" data-toggle="modal" data-target="#myModal">Editar datos del perfil</a><br>
 	            <a href="#" class="text-dark">Editar datos del envio</a><br>
 	            <a href="#" class="text-dark" data-toggle="modal" data-target="#changePassword">Seguridad(Cambiar contraseña)</a><br>
-	            <a href="" class="text-left"> Cambiar foto de perfil</a>
+	            <a href="?paginasUsuario=ChangeImgProfile" class="text-left"> Cambiar foto de perfil</a>
 	            <hr>
 
             <!--CAMBIO DE CONTRASEÑA DE USUARIO-->
