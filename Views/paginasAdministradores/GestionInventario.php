@@ -82,6 +82,45 @@ $producto = ControladorInventario::ctrSeleccionarProductosStock(null, null);?>
         </table>
     </aside> 
 </section>
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-center">
+            <div class="col-first">
+                <h1 class="text-dark">Materia prima en el inventario</h1>
+            </div>
+        </div>
+    </div>
+<section class="row">
+    <aside id="blanco-h" class="col-lg-2"></aside>
+        <aside class="col-lg-8">
+            
+        <table class="col-lg-12 table table-striped table-hover table-lg table-responsive-lg">
+            <thead class="thead-dark">
+                <tr>
+                    <th>#</th>
+                    <th>CAS</th>
+                    <th>Nombre</th>
+                    <th>Tipo</th>
+                    <th>Cantidad</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody id="myTable">
+                <?php $mps = MPController::consult(null, null);
+                foreach ($mps as $mp) : ?>
+                    <tr>
+                        <td><?php echo $mp["idMP"] ?></td>
+                        <td><?php echo $mp["identificacionMP"]; ?></td>
+                        <td><?php echo $mp["nombreMP"]; ?></td>
+                        <td><?php echo $mp["tipoMP"]; ?></td>
+                        <td><?php echo $mp["cantMP"]; ?></td>
+                        <td><?php echo $mp["estadoMP"]; ?></td>
+                    </tr>
+                <?php endforeach ?>
+            </tbody>
+        </table>
+    </aside>
+</section>
+
 
 <!------Espacio en blanco inferior------>
 <section class="row">
