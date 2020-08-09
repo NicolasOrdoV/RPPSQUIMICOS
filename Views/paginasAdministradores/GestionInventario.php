@@ -9,7 +9,8 @@ if(!isset($_SESSION["validarIngreso"])){
         return;
     }
 }
-$producto = ControladorInventario::ctrSeleccionarProductosStock(null, null);?>
+$producto = ControladorInventario::ctrSeleccionarProductosStock(null, null);
+//var_dump($_SESSION["user"]);?>
 <section class="banner-area organic-breadcrumb">
     <div class="container">
         <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-center">
@@ -45,7 +46,10 @@ $producto = ControladorInventario::ctrSeleccionarProductosStock(null, null);?>
                         <td><img src="Assets/img/Productos/<?php echo $stocks["imgPRODUCTO"] ?>" width="130"> </td>
                         <td><?php echo $stocks["nombrePRODUCTO"] ?></td>
                         <td><?php echo $stocks["descripcionPRODUCTO"] ?></td>
-                        <td><?php echo $stocks["cantPRODUCTO"] ?></td>
+                        <td><?php echo $stocks["cantPRODUCTO"]; 
+                        if ($stocks["cantPRODUCTO"]<=3){
+                            ControladorInventario::ctrSendNotifyCuantity($_SESSION["user"]["correoEMPLEADO"],$stocks["cantPRODUCTO"],$stocks["nombrePRODUCTO"]);
+                        } ?></td>
                         <td><?php echo $stocks["estadoPRODUCTO"] ?></td>
                         <td>$<?php echo $stocks["valoruPRODUCTO"] ?></td>
                         <td>

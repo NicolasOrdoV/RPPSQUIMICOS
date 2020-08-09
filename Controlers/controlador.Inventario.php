@@ -1,6 +1,12 @@
 <?php
 require_once 'providers/conexion.php';
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+require 'vendor/autoload.php';
+
 class ControladorInventario
 {
     //Consulta productos para mostrar al administrador
@@ -71,6 +77,51 @@ class ControladorInventario
             },1000)
             </script>';
             }
+        }
+    }
+
+    static public function ctrSendNotifyCuantity($user,$cuantity,$name){
+        $mail=new PHPMailer(true);
+        try {
+            //Server settings
+            $mail->SMTPDebug = 0;                      // Enable verbose debug output
+            $mail->isSMTP();                                            // Send using SMTP
+            $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
+            $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+            $mail->Username   = 'rppsquimicos@gmail.com';                     // SMTP username
+            $mail->Password   = 'luisblanco23';                               // SMTP password
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+            $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+  
+            //Recipients
+            $mail->setFrom('rppsquimicos@gmail.com');
+            $mail->addAddress($user);     // Add a recipient
+  
+  
+            // Content
+            $mail->isHTML(true);                                  // Set email format to HTML
+            $mail->Subject = 'Notificacion de cantidad de inventario';
+            $mail->Body    = ' 
+            <body>
+            <main class="container-fluid">
+                <header class="bg-danger p-2">
+                    <p> RPPS QUÍMICOS</p>
+                </header>
+                <section>
+                    <p> señor(a) <h1>'.$user.'</h1> nos permitimos informales que la cantidad del producto-materia prima <h1>'.$name.'</h1> esta a
+                    punto de agotar sus existencias, el cual cuenta actualmente con <h1>'.$cuantity.'<h1> unidades en existencia. Se le recomienda insertar nuevas existencias <br></p>
+                    
+                </section>
+                <footer class="row">
+                    <div id="footer" class="col-lg-12"><p>©Copyright: GAROWARE SOFTWARE</p>
+                    DERECHOS RESERVADOS 2020</div>
+                </footer>
+            </main>
+            </body>';
+            $mail->CharSet = 'UTF-8';  
+            $mail->send();
+        } catch (Exception $e) {
+            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }
     }
 }
