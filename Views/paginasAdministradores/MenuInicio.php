@@ -40,7 +40,7 @@ if(!isset($_SESSION["validarIngreso"])){
 					<a href="index.php?paginasAdministradores=ConsultarAdmin" class="btn btn-danger btn-block btn-lg">Gestionar Administradores<i class="fas fa-user-astronaut"></i>
                     </a>
 			    <?php endif?>
-				<a href="index.php?paginasAdministradores=ConsultarUnAdmin&id=<?php echo $user["idEMPLEADO"] ?>" class="btn btn-primary btn-block mx-1">Mi perfil<i class="fas fa-user-circle"></i></a>
+				<a href="index.php?paginasAdministradores=ConsultarUnAdmin&id=<?php echo $user["idEMPLEADO"] ?>" class="btn btn-primary btn-block mx-1 btn-lg">Mi perfil<i class="fas fa-user-circle"></i></a>
 			</div>
 			<aside class="col-lg-3 py-5" id="fondo1"></aside>
 		</div>
