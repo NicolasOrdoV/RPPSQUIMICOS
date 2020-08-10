@@ -254,4 +254,28 @@ class ModeloAdministradores
            echo $e->getMessage(); 
         }
     }
+
+    static public function updateImgEm($tabla,$datos){
+
+        try {
+            $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET imgEmp = :imgEmp
+            WHERE idEMPLEADO = :idEMPLEADO");
+
+            $stmt->bindParam(":imgEmp",$datos["imgEmp"],PDO::PARAM_STR);
+            $stmt->bindParam(":idEMPLEADO",$datos["idEMPLEADO"],PDO::PARAM_INT);
+
+            if($stmt->execute()){
+
+                return "ok";
+
+            }else{
+                print_r(Conexion::conectar()->errorInfo());
+            }
+
+            $stmt->close();
+            $stmt = null;
+        } catch (PDOException $e) {
+           echo $e->getMessage(); 
+        }
+    }
 }

@@ -193,6 +193,20 @@ class ControladorAdministradores
 
     //Actualizar contraseña del empleado
 
+    static public function updateIMG()
+    {
+        if(isset($_POST["actualizarIdEm"])){
+
+            $tabla = "empleado";
+            $datos = array("idEMPLEADO"=>$_POST["actualizarIdEm"],
+                           "imgEmp" => $_POST["imgEmp"]
+                         );
+            $respuesta = ModeloAdministradores::updateImgEm($tabla,$datos);
+
+            return $respuesta;
+        }
+    }
+
     static public function ctrActualizarRegistroContraseñaEmAdmin(){
 
         if(isset($_POST["actualizarIdEm"])){

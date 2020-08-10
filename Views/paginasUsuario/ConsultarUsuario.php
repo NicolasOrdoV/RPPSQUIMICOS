@@ -33,7 +33,7 @@ if (isset($_GET["id"])) {
             	<?php if($usuario['img'] == ""){?>
             		<img src="Assets/img/Perfil.jpg ?>" class="float-left rounded-circle" width="250">
             	<?php }else{ ?>	
-            	    <img src="Assets/img/Usuarios/<?php echo $usuario["img"] ?>" class="float-left rounded-circle" width="250">
+            	    <img src="Assets/img/Usuarios/<?php echo $usuario["img"] ?>" class="float-left rounded-circle" width="200">
             	<?php } ?>
             </figure>
             <article class="text-right"> 

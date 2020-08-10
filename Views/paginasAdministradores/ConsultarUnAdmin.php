@@ -14,7 +14,7 @@ if (isset($_GET["id"])) {
     $item1 = "idEMPLEADO";
     $valor1 = $_GET["id"];
     $admin = ControladorAdministradores::ctrSeleccionarRegistrosAdministradores($item1,$valor1);
-    $barrios = ControladorBarrios::ctrSeleccionarBarrios();
+    $barrios = ControladorBarrios::ctrSeleccionarBarrios(null,null);
 }
 ?>
 <section class="banner-area organic-breadcrumb">
@@ -30,7 +30,11 @@ if (isset($_GET["id"])) {
     <aside class="col-lg-3" id="blanco-h"></aside>
         <div class="col-lg-6 py-5 border border-dark" id="form1">
             <figure>
-                <img src="Assets/img/Perfil.jpg" class="float-left">
+                <?php if($admin["imgEmp"] == ""){?>
+                    <img src="Assets/img/Perfil.jpg" class="float-left">
+                <?php }else{?>
+                    <img src="Assets/img/Empleados/<?php echo $admin["imgEmp"]?>" class="float-left rounded-circle" width="200">
+                <?php } ?>    
             </figure>
             <article class="text-right"> 
                 <h1><?php echo $admin["nombreEMPLEADO"];?></h1>
@@ -40,6 +44,8 @@ if (isset($_GET["id"])) {
                 <a href="#" class="text-dark" data-toggle="modal" data-target="#myModal">Editar datos del perfil</a><br>
                 <a href="#" class="text-dark">Editar datos del envio</a><br>
                 <a href="#" class="text-dark" data-toggle="modal" data-target="#changePassword">Seguridad(Cambiar contraseña)</a><br>
+                <a href="?paginasAdministradores=changeImgProfileEm" class="text-left"> Cambiar foto de perfil</a>
+                <hr>
                 
             <!--CAMBIO DE CONTRASEÑA-->
                 <div class="modal fade" id="changePassword" role="dialog">
@@ -88,8 +94,6 @@ if (isset($_GET["id"])) {
                     </div>
                   </div>
                 </div>
-                <a href="" class="text-left"> Cambiar foto de perfil</a>
-                <hr>
 
             <!--FORMULARIO DE REGISTRO DE EMPLEADO-->
                 <div class="modal fade" id="myModal" role="dialog">
