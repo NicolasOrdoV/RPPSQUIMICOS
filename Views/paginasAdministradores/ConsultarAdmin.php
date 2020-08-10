@@ -93,7 +93,14 @@ $admins = ControladorAdministradores::ctrSeleccionarRegistrosAdministradores(nul
 	<aside class="col-lg-8" id="form2">
 		<?php foreach ($admins as $admin):?>
 			<div class="col-lg-12">
-				<h1><img src="Assets/img/Perfil.jpg" class="img-fluide" width="80" height="80"><?php echo $admin["nombreEMPLEADO"]; ?><h1>
+				<h1>
+					<?php if($admin["imgEmp"] == "") {?>
+					    <img src="Assets/img/Perfil.jpg" class="img-fluide" width="80" height="80">
+					<?php }else{ ?>
+					    <img src="Assets/img/Empleados/<?php echo $admin["imgEmp"]?>" class="img-fluide rounded-circle" width="80" height="80">
+					<?php } ?>        
+					<?php echo $admin["nombreEMPLEADO"]; ?>
+				<h1>
 				<div class="btn-group float-right">
 		            <div class="btn-group-vertical float-right">
 		            	<?php if($admin["estadoEMPLEADO"] == "Inactivo"):?>

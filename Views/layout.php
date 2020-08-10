@@ -98,7 +98,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                                 <li class="nav-item submenu dropdown">
                                     <?php if($user['imgEmp'] == ""){?>
                                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                                         aria-expanded="false"><img src="Assets/img/Perfil.jpg ?>"><?php echo $user["nombreEMPLEADO"];?></a>
+                                        aria-expanded="false"><img src="Assets/img/Perfil.jpg ?>" width="20"><?php echo $user["nombreEMPLEADO"]; ?></a>
                                     <?php }else{ ?>
                                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                                          aria-expanded="false"><img src="Assets/img/Empleados/<?php echo $user["imgEmp"]?>" width="20"><?php echo $user["nombreEMPLEADO"];?></a>
