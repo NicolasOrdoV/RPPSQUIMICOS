@@ -75,8 +75,13 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                                     >Tienda</a></li>
                                 </li>
                                 <li class="nav-item submenu dropdown">
-                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                                     aria-expanded="false"><img src="Assets/img/Usuarios/<?php echo $user["img"] ?>" width="20"><?php echo $user["nombrecontEC"]; ?></a>
+                                    <?php if($user['img'] == ""){?>
+                                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                        aria-expanded="false"><img src="Assets/img/Perfil.jpg ?>" width="20"><?php echo $user["nombrecontEC"]; ?></a>
+                                    <?php }else{ ?>    
+                                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                        aria-expanded="false"><img src="Assets/img/Usuarios/<?php echo $user["img"] ?>" width="20"><?php echo $user["nombrecontEC"]; ?></a>
+                                    <?php } ?> 
                                     <ul class="dropdown-menu">
                                         <li class="nav-item"><a href="?paginasUsuario=ConsultarUsuario&id=<?php echo $user["idUSUARIO"] ?>" class="nav-link">
                                             Mi perfil
@@ -192,7 +197,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                     $_GET["paginasAdministradores"] == "GestionInventario" ||
                     $_GET["paginasAdministradores"] == "RestauraContrasenaAd" ||
                     $_GET["paginasAdministradores"] == "EditarProducto" ||
-                    $_GET["paginasAdministradores"] == "MenuInicio"
+                    $_GET["paginasAdministradores"] == "MenuInicio" 
                 ) {
                     include "Views/paginasAdministradores/" . $_GET["paginasAdministradores"] . ".php";
                 } else {

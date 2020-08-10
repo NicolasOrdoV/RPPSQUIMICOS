@@ -12,10 +12,12 @@ class ModeloBarrios{
     
     //Consulta barrios
 
-    static public function mdlSeleccionarBarrios($tabla){
+    static public function mdlSeleccionarBarrios($tabla , $item , $value){
 
         try {
-            $stmt = Conexion::conectar()->prepare("SELECT idBARRIO,nombreBARRIO,nombreLOCALIDAD FROM $tabla,localidad WHERE $tabla.idLOCALIDAD_FK = localidad.idLOCALIDAD");
+            $stmt = Conexion::conectar()->prepare("SELECT idBARRIO,nombreBARRIO,nombreLOCALIDAD FROM $tabla, localidad 
+                WHERE $tabla.idLOCALIDAD_FK = localidad.idLOCALIDAD AND $item = :$item");
+            $stmt->bindParam(":". $item,$value,PDO::PARAM_STR);
             $stmt->execute();
             return $stmt -> fetchAll(); 
             $stmt->close();
