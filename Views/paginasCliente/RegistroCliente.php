@@ -19,12 +19,12 @@
             <div class="invalid-feedback">El campo no cumple con las condiciones.</div>
         </div>
         <div class="form-group row">
-            <div class="col-lg-8">
+            <div class="col-lg-6">
                 <input type="text" class="form-control rounded-pill" placeholder="Nombre de persona o empresa*"  name="registroNombreCom" required value="<?php echo isset($_POST['registroNombreCom']) ? $_POST['registroNombreCom'] : '' ?>">
                 <div class="valid-feedback">Valido</div>
                 <div class="invalid-feedback">El campo no cumple con las condiciones.</div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-6">
                 <input type="number" class="form-control rounded-pill" placeholder="Teléfono fijo de la persona o empresa*"  name="registroTelefono" min="1111" max="9999999" required value="<?php echo isset($_POST['registroTelefono']) ? $_POST['registroTelefono'] : '' ?>">
                 <div class="valid-feedback">Valido</div>
                 <div class="invalid-feedback">El campo no cumple con las condiciones.</div>
@@ -38,7 +38,7 @@
         <div class="form-group row">
             <div class="col-lg-6">
                 <select class="form-control rounded-pill" id="lista1" name="lista1">
-                    <option value="0">Seleccione la localidad donde vive...</option>
+                    <option value="0">Selecciona la localidad donde vives</option>
                     <?php foreach($locates as $locate):?>
                         <option value="<?php echo $locate['idLOCALIDAD']?>"><?php echo $locate['nombreLOCALIDAD']?></option>
                     <?php endforeach ?>
@@ -99,7 +99,7 @@
 <script src="Assets/js/vendor/jquery-2.2.4.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
-        $('#lista1').val(1);
+        $('#lista1').val(0);
         recargarLista();
 
         $('#lista1').change(function(){
