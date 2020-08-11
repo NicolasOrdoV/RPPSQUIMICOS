@@ -10,8 +10,8 @@ if (isset($_GET["id"])) {
     <div class="container">
         <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-center">
             <div class="col-first">
-                <h1 class="text-danger">RPPS Quimícos</h1>
-                <p>Nueva contraseña</p>
+                <h1 class="text-dark">RPPS Quimícos</h1>
+                <p class="text-dark">Nueva contraseña</p>
             </div>
         </div>
     </div>

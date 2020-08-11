@@ -238,7 +238,7 @@ class ControladorUsuarios
               <section>
                   <p>Felicidades, te confirmamos que tu correo ' .$data["registrarUsuario"]. ' se registro de manera satistactoria.<br>
                       Te invitamos a que inicies sesion en nuestra plataforma <br></p>
-                  <a href="http://localhost/RPPSQUIMICOS.COM/index.php?paginasUsuario=InicioSesion" class="btn btn-success">Ir a inicio de sesión<a>
+                  <a href="http://localhost/RPPSQUIMICOS/index.php?paginasUsuario=InicioSesion" class="btn btn-success">Ir a inicio de sesión<a>
               </section>
               <footer class="row">
                   <div id="footer" class="col-lg-12"><p>©Copyright: GAROWARE SOFTWARE</p>

@@ -14,7 +14,7 @@ if (isset($_GET["id"])) {
 	$item = "idUSUARIO";
 	$valor = $_GET["id"];
     $usuario = ControladorUsuarios::ctrSeleccionarUsuarios($item,$valor);
-    $barrios = ControladorBarrios::ctrSeleccionarBarrios();
+    $barrios = ControladorBarrios::ctrSeleccionarBarrios(null,null);
 }
 ?>
 <section class="banner-area organic-breadcrumb">

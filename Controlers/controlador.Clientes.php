@@ -19,7 +19,7 @@ class ControladorClientes{
 
             if ($answer["identificacionEC"] != $_POST["registroIdentificacion"]) {
                 if (preg_match('/^[0-9]+$/', $_POST["registroIdentificacion"]) &&
-                    preg_match('/^[a-zA-ZáéíóúÁÉÍÓÚ. ]+$/', $_POST["registroNombreCom"]) &&
+                    preg_match('/^[a-zA-ZáéíóúÁÉÍÓÚ ]+$/', $_POST["registroNombreCom"]) &&
                     preg_match('/^[0-9]+$/', $_POST["registroTelefono"]) &&
                     preg_match('/^[a-zA-ZáéíóúÁÉÍÓÚ ]+$/', $_POST["registroNContacto"]) &&
                     preg_match('/^[0-9]+$/', $_POST["registroTContacto"]) &&
