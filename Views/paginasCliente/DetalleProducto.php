@@ -20,7 +20,7 @@ if (isset($_GET["id"])) {
 <!--================Single Product Area =================-->
   <div class="product_image_area">
     <div class="container">
-      <div class="row s_product_inner">
+      <div class="row s_product_inner"> 
         <div class="col-lg-6">
           <div class="single-prd-item">
             <img src="Assets/img/Productos/<?php echo $stock["imgPRODUCTO"] ?>" class="img-fluid" alt="">

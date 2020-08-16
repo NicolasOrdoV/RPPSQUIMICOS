@@ -54,7 +54,7 @@ $clientes = ControladorClientes::ctrSeleccionarRegistroClientes(null,null);?>
                 <td>
 
                     <div class="btn-group">
-                        <form method="post" class="text-left">
+                        <form action="#" method="post" class="text-left">
                           <input type="hidden" value="<?php echo $cliente["idEC"]?>" name="eliminarRegistro">  
                         <button type="submit" class="btn btn-danger m-1">
                             <i class="fas fa-trash"></i>
@@ -62,36 +62,36 @@ $clientes = ControladorClientes::ctrSeleccionarRegistroClientes(null,null);?>
                         <?php
 
                         $eliminar = new ControladorClientes();
-                        $eliminar ->ctrEliminarRegistroClientes();
+                        $eliminar ->ctrEliminarRegistroClientes($_POST);
 
                         ?>
                         </form>
                         <div class="btn-group-vertical">
                             <?php if($cliente["estadoUSUARIO"] == "Inactivo") :?>
-                            <form method="post">
-                                <input type ="hidden" value ="<?php echo $cliente["idUSUARIO"];?>" name="activarRegistro">
-                            <button class="btn btn-primary" id="habilitar">Activar</button>
+                                <form method="post">
+                                    <input type ="hidden" value ="<?php echo $cliente["idUSUARIO"];?>" name="activarRegistro">
+                                <button class="btn btn-primary" id="habilitar">Activar</button>
 
-                            <?php
+                                <?php
 
-                            $activar = new ControladorClientes();
-                            $activar ->ctrActivarRegistroClientes();
+                                $activar = new ControladorClientes();
+                                $activar ->ctrActivarRegistroClientes();
 
-                            ?>
-                            </form>
+                                ?>
+                                </form>
                             <?php elseif($cliente["estadoUSUARIO"] == "Activo"):?>
-                            <form method="post">
-                                <input type ="hidden" value ="<?php echo $cliente["idUSUARIO"];?>" name="inactivarRegistro">
-                            <button class="btn btn-danger" id="deshabilitar">Inactivar</button>
+                                <form method="post">
+                                    <input type ="hidden" value ="<?php echo $cliente["idUSUARIO"];?>" name="inactivarRegistro">
+                                <button class="btn btn-danger" id="deshabilitar">Inactivar</button>
 
-                            <?php
+                                <?php
 
-                            $inactivar = new ControladorClientes();
-                            $inactivar ->ctrInactivarRegistroClientes();
+                                $inactivar = new ControladorClientes();
+                                $inactivar ->ctrInactivarRegistroClientes();
 
-                            ?>
-                            </form>
-                        <?php endif ?>
+                                ?>
+                                </form>
+                            <?php endif ?>
                         </div>
                     </div>
                 </td>

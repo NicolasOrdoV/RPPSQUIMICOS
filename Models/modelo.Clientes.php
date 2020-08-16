@@ -93,11 +93,9 @@ class ModeloClientes{
             if($stmt->execute()){
 
                 return "ok";
-
             }else{
                 print_r(Conexion::conectar()->errorInfo());
             }
-
             $stmt->close();
             $stmt= null;
         } catch (PDOException $e) {

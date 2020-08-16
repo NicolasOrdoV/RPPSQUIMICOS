@@ -10,8 +10,8 @@ $UltimosProd=ControladorInventario::ctrSleccionarUltimos3Prod(null,null);?>
                         <div class="row single-slide align-items-center d-flex">
                             <div class="col-lg-5 col-md-6">
                                 <div class="banner-content">
-                                    <h1>RPPS QUIMICOS</h1>
-                                    <p>Aqui puedes comprar y pedir por encargo algunos quimicos que necesites en tu hogar como utencilios de aseo y demas. Adentrate! Se que te va a encantar.</p>
+                                    <h1>RPPS QUÍMICOS</h1>
+                                    <p>Aquí puedes comprar y pedir por encargo algunos químicos que necesites en tu hogar como utensilios de aseo y demás. ¡Adéntrate! Se que te va a encantar.</p>
                                 </div>
                             </div>
                             <div class="col-lg-7">
@@ -164,9 +164,9 @@ $UltimosProd=ControladorInventario::ctrSleccionarUltimos3Prod(null,null);?>
                         <?php foreach ($productos as $producto): ?>
                             <div class="col-lg-4 col-md-4 col-sm-6 mb-20">
                                 <div class="single-related-product d-flex">
-                                    <a href="#"><img width="100" src="/RPPSQUIMICOS/Assets/img/productos/<?php echo $producto['imgPRODUCTO'] ?>" alt=""></a>
+                                    <a href="?paginasCliente=DetalleProducto&id=<?php echo $producto["idPRODUCTO"]?>"><img width="100" src="/RPPSQUIMICOS/Assets/img/productos/<?php echo $producto['imgPRODUCTO'] ?>" alt=""></a>
                                     <div class="desc">
-                                        <a href="#" class="title"><?php echo $producto['nombrePRODUCTO']?></a>
+                                        <a href="?paginasCliente=DetalleProducto&id=<?php echo $producto["idPRODUCTO"]?>" class="title"><?php echo $producto['nombrePRODUCTO']?></a>
                                         <div class="price">
                                             <h6>$<?php echo $producto['valoruPRODUCTO']; ?></h6>
                                             <h6 class="l-through">$210.00</h6>

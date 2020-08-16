@@ -22,26 +22,26 @@
                     <img class="img-fluid" src="Assets/img/login.png" alt="">
                     <div class="hover">
                         <h4>¿No tienes una cuenta?</h4>
-                        <p>Registrate con nosotros y podras realizar los pedidos de los productos que tu quieras.<br>¡ANIMATE!</p>
+                        <p>Regístrate con nosotros y podrás realizar los pedidos de los productos que tú quieras.<br>¡ANIMATE!</p>
                         <a class="primary-btn" href="?paginasCliente=RegistroCliente">Registrate</a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="login_form_inner">
-                    <h3>Ingresa para entrar.</h3>
+                    <h3>Inicia Sesión.</h3>
                     <form action="#" class="row login_form needs-validation" method="post" id="contactForm" novalidate="novalidate">
                         <?php
                             $ingreso = new ControladorUsuarios();
                             $ingreso -> ctrIngresoUsuario();
                         ?>
                         <div class="col-md-12 form-group">
-                            <input type="email" class="form-control" id="name" name="ingresoNombre" placeholder="Nombre de usuario" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'" required value="<?php echo isset($_POST['ingresoNombre']) ? $_POST['ingresoNombre'] : '' ?>">
+                            <input type="email" class="form-control" id="name" name="ingresoNombre" placeholder="Nombre de usuario" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nombre de usuario'" required value="<?php echo isset($_POST['ingresoNombre']) ? $_POST['ingresoNombre'] : '' ?>">
                             <div class="valid-feedback">Valido</div>
                             <div class="invalid-feedback">El campo no puede quedar vacio.</div>
                         </div>
                         <div class="col-md-12 form-group input-group">
-                            <input type="password" class="form-control" id="name" name="ingresoContraseña" placeholder="Contraseña" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" required>
+                            <input type="password" class="form-control" id="name" name="ingresoContraseña" placeholder="Contraseña" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Contraseña'" required>
                             <div class="input-group-prepend">
                                 <div class="input-group-text rounded">
                                     <a href="#" class="text-dark" id="icon-click" onclick="eye()">
@@ -59,7 +59,7 @@
                             </div>
                         </div>
                         <div class="col-md-12 form-group">
-                            <button type="submit" class="primary-btn">Iniciar sesión</button>
+                            <button type="submit" class="primary-btn">Ingresar</button>
                             <a href="index.php?paginasUsuario=RecuperarContrasena">¿Se te olvido tu contraseña?</a>
                         </div>
                     </form>

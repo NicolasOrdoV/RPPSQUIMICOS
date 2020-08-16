@@ -38,25 +38,25 @@ $admins = ControladorAdministradores::ctrSeleccionarRegistrosAdministradores(nul
 					<form action="#" method="post" class="needs-validation" novalidate>
 						<div class="form-group">
 							<label>Identificación<span class="text-danger">*</span></label>
-							<input type="number" name="registrarIdentificacionAd" class="form-control rounded-pill" required>
+							<input type="number" name="registrarIdentificacionAd" class="form-control rounded-pill" required value="<?php echo isset($_POST['registrarIdentificacionAd']) ? $_POST['registrarIdentificacionAd'] : '';?>">
 							<div class="valid-feedback">Valido</div>
                             <div class="invalid-feedback">El campo no puede quedar vacio.</div>
 						</div>
 						<div class="form-group">
 							<label>Nombres y apellidos<span class="text-danger">*</span></label>
-							<input type="text" name="registrarNombreAd" class="form-control rounded-pill" required>
+							<input type="text" name="registrarNombreAd" class="form-control rounded-pill" required value="<?php echo isset($_POST['registrarNombreAd']) ? $_POST['registrarNombreAd'] : '';?>">
 							<div class="valid-feedback">Valido</div>
                             <div class="invalid-feedback">El campo no puede quedar vacio.</div>
 						</div>
 						<div class="form-group">
 							<label>Telefono<span class="text-danger">*</span></label>
-							<input type="number" name="registrarTelefonoAd" class="form-control rounded-pill" min="0" max="9999999999" required>
+							<input type="number" name="registrarTelefonoAd" class="form-control rounded-pill" min="0" max="9999999999" required value="<?php echo isset($_POST['registrarTelefonoAd']) ? $_POST['registrarTelefonoAd'] : '';?>">
 							<div class="valid-feedback">Valido</div>
                             <div class="invalid-feedback">El campo no puede quedar vacio.</div>
 						</div>
 						<div class="form-group">
 							<label>Correo electronico<span class="text-danger">*</span></label>
-							<input type="email" name="registrarCorreoAd" class="form-control rounded-pill" required>
+							<input type="email" name="registrarCorreoAd" class="form-control rounded-pill" required value="<?php echo isset($_POST['registrarCorreoAd']) ? $_POST['registrarCorreoAd'] : '';?>">
 							<div class="valid-feedback">Valido</div>
                             <div class="invalid-feedback">El campo no puede quedar vacio.</div>
 						</div>
@@ -77,6 +77,9 @@ $admins = ControladorAdministradores::ctrSeleccionarRegistrosAdministradores(nul
                                window.location = "index.php?paginasAdministradores=ConsultarAdmin"
 				            },1000)
 				            </script>';
+						}
+						if ($registro == "error") {
+							echo '<script>alert("Los campos tienen caracteres no permitidos,remitase de nuevo al formulario y corrija lo que esta mal.");</script>';
 						}
 						?>
 					    <button type="submit" id="btnReg" class="btn btn-primary rounded-pill btn-lg mt-5">Guardar cambios</button>

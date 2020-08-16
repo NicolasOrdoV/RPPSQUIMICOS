@@ -64,12 +64,12 @@ class ControladorClientes{
 
     //Eliminar Clientes
 
-    public function ctrEliminarRegistroClientes(){
+    public function ctrEliminarRegistroClientes($id){
 
-        if(isset($_POST["eliminarRegistro"])){
+        if(isset($id["eliminarRegistro"])){
 
             $tabla = "empresa_cliente";
-            $valor = $_POST["eliminarRegistro"];
+            $valor = $id["eliminarRegistro"];
 
             $respuesta = ModeloClientes::mdlEliminarRegistroClientes($tabla,$valor);
 
@@ -80,7 +80,7 @@ class ControladorClientes{
                 window.history.replaceState(null,null,window.location.href);
             }
             setTimeout(function(){
-                window.location = "index.php?paginasCliente=ConsultaCliente";
+                window.location = "?paginasCliente=ConsultaCliente";
             },1000)
             </script>';
             }

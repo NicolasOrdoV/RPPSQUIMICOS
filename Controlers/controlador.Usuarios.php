@@ -179,7 +179,7 @@ class ControladorUsuarios
     static public function ctrActualizarRegistroConUsuario(){
 
         if(isset($_POST["actualizarIdU"])){
-
+            $_POST["actualizarConU"] = hash('sha256', $_POST["actualizarConU"]);
             $tabla = "usuario";
             $datos = array("idUSUARIO"=>$_POST["actualizarIdU"],
                            "contrasenaUSUARIO" => $_POST["actualizarConU"]
