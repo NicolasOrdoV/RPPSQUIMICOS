@@ -5,7 +5,7 @@
 
         static public function nuevoProducto($datos){
             try{
-                $stmt=Conexion::conectar()->prepare("INSERT INTO producto(imgPRODUCTO,nombrePRODUCTO,descripcionPRODUCTO,medidaPRODUCTO, cantPRODUCTO,valoruPRODUCTO,estadoPRODUCTO) VALUES (:imgPRODUCTO,:nombrePRODUCTO,:descripcionPRODUCTO,:medidaPRODUCTO,0,:valoruPRODUCTO,'Activo')");
+                $stmt=Conexion::conectar()->prepare("INSERT INTO producto(imgPRODUCTO, nombrePRODUCTO, descripcionPRODUCTO, medidaPRODUCTO, cantPRODUCTO, estadoPRODUCTO, valoruPRODUCTO) VALUES (:imgPRODUCTO,:nombrePRODUCTO,:descripcionPRODUCTO,:medidaPRODUCTO,0,'Activo',:valoruPRODUCTO)");
 
                 $stmt->bindParam(":imgPRODUCTO",$datos["imgPROD"],PDO::PARAM_STR);
                 $stmt->bindParam(":nombrePRODUCTO",$datos["nombrePROD"],PDO::PARAM_STR);
@@ -23,7 +23,7 @@
             }catch(PDOException $e){
                 echo $e->getMessage();
             }
-            }
+      }
             static public function consultarProducto($item,$valor){
 
                 try {

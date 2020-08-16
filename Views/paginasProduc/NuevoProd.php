@@ -73,7 +73,7 @@ if(!isset($_SESSION["validarIngreso"])){
                     }
                 }
                 ?>
-                <form method="POST">
+                <form action="#" method="POST">
 
                     <input type="hidden" name="imgPROD" value="<?php echo $name_img ?>">
                     <div class="form-group">
@@ -101,7 +101,6 @@ if(!isset($_SESSION["validarIngreso"])){
                     </div>
                     <button type="submit" class="primary-btn">Agregar</button>
                     <?php $registro = ProdController::save($_POST);
-
                     if ($registro == "ok") {
                         echo '<script>
                     setTimeout(function(){
