@@ -39,6 +39,13 @@ class ControladorInventario
             return $respuesta;
         }
 
+        //consultar 6 productos al usuario
+        static public function ctrSleccionarUltimos6Prod($item,$valor){
+            $tabla="producto";
+            $respuesta=ModeloInventario::mdlSeleccionarUltimos6Prod($tabla,$item,$valor);
+            return $respuesta;
+        }
+
     //INACTIVAR UN PRODUCTO
     public function ctrInactivarRegistroInventario(){
 

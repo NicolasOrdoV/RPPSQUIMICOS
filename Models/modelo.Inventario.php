@@ -32,6 +32,16 @@ class ModeloInventario
 		}
 	}
 
+	static public function mdlSeleccionarUltimos6Prod($tabla){
+		try{
+			$stmt=Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE estadoPRODUCTO='Activo' ORDER BY idPRODUCTO LIMIT 6 ");
+			$stmt->execute();
+			return $stmt->fetchAll();
+		}catch (PDOException $e) {
+			echo $e->getMessage();
+		}
+	}
+
 	static public function mdlSeleccionarProductosBusqueda($tabla,$busqueda){
 		try{
 			$stmt=Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE nombrePRODUCTO LIKE '%$busqueda%' && estadoPRODUCTO='Activo'");
