@@ -119,7 +119,8 @@ $producto = ControladorInventario::ctrSeleccionarProductosStock(null, null);
                         <td><?php echo $mp["cantMP"]; 
                         if ($mp["cantMP"]<=3){
                             ControladorInventario::ctrSendNotifyCuantity($_SESSION["user"]["correoEMPLEADO"],$mp["cantMP"],$mp["nombreMP"]);
-                        } ?></td>?></td>
+                        } ?></td>
+                        </td>
                         
                         <td><?php echo $mp["estadoMP"]; ?></td>
                     </tr>

@@ -32,6 +32,16 @@ class ModeloInventario
 		}
 	}
 
+	static public function mdlSeleccionarProductosBusqueda($tabla,$busqueda){
+		try{
+			$stmt=Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE nombrePRODUCTO LIKE '%$busqueda%'");
+			$stmt->execute();
+			return $stmt->fetchAll();
+		}catch(PDOException $e) {
+			echo $e->getMessage();
+		}
+	}
+
 	public static function mdlSeleccionarProductosUsuario($tabla, $item, $valor){
 		try {
 			if ($item == null  && $valor == null) {
