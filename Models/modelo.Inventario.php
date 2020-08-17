@@ -34,7 +34,7 @@ class ModeloInventario
 
 	static public function mdlSeleccionarProductosBusqueda($tabla,$busqueda){
 		try{
-			$stmt=Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE nombrePRODUCTO LIKE '%$busqueda%'");
+			$stmt=Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE nombrePRODUCTO LIKE '%$busqueda%' && estadoPRODUCTO='Activo'");
 			$stmt->execute();
 			return $stmt->fetchAll();
 		}catch(PDOException $e) {

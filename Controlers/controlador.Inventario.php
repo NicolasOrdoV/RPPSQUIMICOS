@@ -28,7 +28,7 @@ class ControladorInventario
     //consultra por busqueda
     static public function ctrSeleccionarProductosBusqueda($busqueda){
         $tabla="producto";
-        $respuesta= ModeloInventario::mdlSeleccionarProductosBusqueda($tabla,$busqueda);
+        $respuesta = ModeloInventario::mdlSeleccionarProductosBusqueda($tabla,$busqueda);
         return $respuesta;
     }
 

@@ -2,9 +2,8 @@
 <?php
     if(isset($_POST["busqueda"])){
         $busqueda=$_POST["busqueda"];
-        var_dump($busqueda);
-        $producto = ControladorInventario::ctrSeleccionarProductosBusqueda($busqueda,null);
-        var_dump($producto);
+        //var_dump($busqueda);
+        $producto = ControladorInventario::ctrSeleccionarProductosBusqueda($busqueda);
     }else{
         $producto = ControladorInventario::ctrSeleccionarProductosUsuario(null,null);
     }

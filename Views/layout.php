@@ -141,7 +141,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
         </div>
         <div class="search_input" id="search_input_box">
             <div class="container">
-                <form class="d-flex justify-content-between" method="post" action="Views/paginasProduc/Catalog.php">
+                <form class="d-flex justify-content-between" method="post" action="?paginasProduc=Catalog">
                     <input type="text" class="form-control" name="busqueda" id="search_input" placeholder="¿Que estas buscando?">
                     <button type="submit" class="btn"></button>
                     <span class="lnr lnr-cross" id="close_search" title="Close Search"></span>
