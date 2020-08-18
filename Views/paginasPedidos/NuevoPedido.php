@@ -1,3 +1,4 @@
+
 <?php
 if (isset($_POST['idEmp'])&&isset($_POST['Carro'])&&isset($_POST['idEmpClien'])&&isset($_POST["total"])&&isset($_POST["Fechaen"])) {
 
@@ -8,7 +9,6 @@ if (isset($_POST['idEmp'])&&isset($_POST['Carro'])&&isset($_POST['idEmpClien'])&
     'fechaEN' => $_POST['Fechaen']
 
   ];
-
   $detallePed=$_POST['Carro'];
 
   $respuestaIngreso= ModeloPedido::nuevoPedido($dataPed);
@@ -45,3 +45,4 @@ setTimeout(function(){
 </script>';
 
 }
+?>

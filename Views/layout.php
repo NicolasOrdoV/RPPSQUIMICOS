@@ -1,5 +1,5 @@
 <?php
-error_reporting(0);
+//error_reporting(0);
 session_start();
 $user = $_SESSION["user"];
 $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
@@ -78,10 +78,10 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                                     <?php if($user['img'] == ""){?>
                                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                                         aria-expanded="false"><img src="Assets/img/Perfil.jpg ?>" width="20"><?php echo $user["nombrecontEC"]; ?></a>
-                                    <?php }else{ ?>    
+                                    <?php }else{ ?>
                                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                                         aria-expanded="false"><img src="Assets/img/Usuarios/<?php echo $user["img"] ?>" width="20"><?php echo $user["nombrecontEC"]; ?></a>
-                                    <?php } ?> 
+                                    <?php } ?>
                                     <ul class="dropdown-menu">
                                         <li class="nav-item"><a href="?paginasUsuario=ConsultarUsuario&id=<?php echo $user["idUSUARIO"] ?>" class="nav-link">
                                             Mi perfil
@@ -102,7 +102,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                                     <?php }else{ ?>
                                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                                          aria-expanded="false"><img src="Assets/img/Empleados/<?php echo $user["imgEmp"]?>" width="20"><?php echo $user["nombreEMPLEADO"];?></a>
-                                    <?php } ?>     
+                                    <?php } ?>
                                     <ul class="dropdown-menu">
                                         <li class="nav-item"><a href="?paginasAdministradores=ConsultarUnAdmin&id=<?php echo $user["idEMPLEADO"] ?>" class="nav-link">
                                             Mi perfil
@@ -239,10 +239,11 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
             } elseif (isset($_GET["paginasPedidos"])) {
                 if (
                       $_GET["paginasPedidos"] == "RegistroPedido" ||
-                      $_GET["paginasPedidos"] == "PedidoConfirma" ||
+                      $_GET["paginasPedidos"] == "confirmacion" ||
                       $_GET["paginasPedidos"] == "Carrito" ||
                       $_GET["paginasPedidos"] == "PedidoCompleto"||
                       $_GET["paginasPedidos"] == "NuevoPedido"
+
                 ) {
                     include "Views/paginasPedidos/" . $_GET["paginasPedidos"] . ".php";
                 } else {
@@ -305,6 +306,9 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
     <script type="text/javascript" src="Assets/js/validation.js"></script>
     <script type="text/javascript" src="Assets/js/search.js"></script>
     <script src="Assets/js/eye.js"></script>
+    <script src="Assets/js/CarritoProd.js"></script>
+    <script src="Assets/js/Pedido.js"></script>
+
 </body>
 
 </html>

@@ -5,43 +5,24 @@ require_once "providers/conexion.php";
 class ModeloPedido{
 static public function nuevoPedido($datos){
     try{
-        $stmt=Conexion::conectar()->prepare("INSERT INTO pedido (fecharPEDIDO,fechaenPEDIDO,totalPEDIDO,estadoPEDIDO,idEMPLEADO_FK, idEC_FK) VALUES (:fecharPEDIDO,:fechaenPEDIDO,:totalPEDIDO,'Pendiente',:idEMPLEADO_FK,:idEMPLEADO_FK)");
         $date = date("d-m-y");
+        $stmt=Conexion::conectar()->prepare("INSERT INTO pedido (fecharPEDIDO,fechaenPEDIDO,totalPEDIDO,estadoPEDIDO,idEMPLEADO_FK, idEC_FK) VALUES (:fecharPEDIDO,:fechaenPEDIDO,:totalPEDIDO,'Pendiente',:idEMPLEADO_FK,:idEMPLEADO_FK)");
         $stmt->bindParam(":idEMPLEADO_FK",$datos["IdEmple"],PDO::PARAM_INT);
         $stmt->bindParam(":fecharPEDIDO",$date,PDO::PARAM_STR);
         $stmt->bindParam(":fechaenPEDIDO",$datos["fechaen"],PDO::PARAM_STR);
         $stmt->bindParam(":totalPEDIDO",$datos["Total"],PDO::PARAM_INT);
-        $stmt->bindParam(":idEC_FK",$datos["IdEmpCli"],PDO::PARAM_STR);
+        $stmt->bindParam(":idEC_FK",$datos["IdEmpCli"],PDO::PARAM_INT);
 
         if($stmt->execute()){
             return true;
         }else{
             print_r(Conexion::conectar()->errorInfo());
         }
-        $stmt->close();
+        //$stmt=close();
         $stmt=null;
     }catch(PDOException $e){
         echo $e->getMessage();
     }
-    }
-    static public function consultarIngreso($item,$valor){
-
-        try {
-            if ($item == null  && $valor == null) {
-            $stmt = Conexion::conectar()->prepare("SELECT i.*,e.nombreEMPLEADO as empleado FROM ingreso_mp i INNER JOIN empleado e ON e.idEMPLEADO=i.idEMPLEADO_FK");
-            $stmt->execute();
-            return $stmt -> fetchAll();
-            }else{
-                $stmt = Conexion::conectar()->prepare("SELECT i.*,e.nombreEMPLEADO as empleado FROM ingreso_mp i INNER JOIN empleado e ON e.idEMPLEADO=i.idEMPLEADO_FK WHERE $item = :$item");
-                $stmt->bindParam(":".$item,$valor,PDO::PARAM_STR);
-                $stmt->execute();
-                return $stmt -> fetch();
-            }
-            $stmt->close();
-            $stmt= null;
-        } catch (PDOException $e) {
-            echo $e->getMessage();
-        }
     }
     static public function saveDetalle($arrayDeta,$inId){
       try {
@@ -62,7 +43,7 @@ static public function nuevoPedido($datos){
           $stmt->execute();
           $stmt=null;
 
-        }        
+        }
 
         if($stmt->execute()){
             return true;
