@@ -25,10 +25,24 @@ class ControladorInventario
         return $respuesta;
     }
 
+    //consultra por busqueda
+    static public function ctrSeleccionarProductosBusqueda($busqueda){
+        $tabla="producto";
+        $respuesta = ModeloInventario::mdlSeleccionarProductosBusqueda($tabla,$busqueda);
+        return $respuesta;
+    }
+
     //consultar ultimos 3 productos agregados
         static public function ctrSleccionarUltimos3Prod($item,$valor){
             $tabla="producto";
             $respuesta=ModeloInventario::mdlSeleccionarUltimos3Prod($tabla,$item,$valor);
+            return $respuesta;
+        }
+
+        //consultar 6 productos al usuario
+        static public function ctrSleccionarUltimos6Prod($item,$valor){
+            $tabla="producto";
+            $respuesta=ModeloInventario::mdlSeleccionarUltimos6Prod($tabla,$item,$valor);
             return $respuesta;
         }
 

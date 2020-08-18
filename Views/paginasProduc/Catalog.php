@@ -1,4 +1,13 @@
-<?php $producto = ControladorInventario::ctrSeleccionarProductosUsuario(null,null);?>
+
+<?php
+    if(isset($_POST["busqueda"])){
+        $busqueda=$_POST["busqueda"];
+        //var_dump($busqueda);
+        $producto = ControladorInventario::ctrSeleccionarProductosBusqueda($busqueda);
+    }else{
+        $producto = ControladorInventario::ctrSeleccionarProductosUsuario(null,null);
+    }
+?>
 <section class="banner-area organic-breadcrumb">
     <div class="container">
         <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-center">
