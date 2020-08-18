@@ -67,7 +67,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
 
                                     <li class="nav-item"><a href="?paginasProduc=Catalog" class="nav-link "
                                     >Tienda</a></li>
-                                <li class="nav-item"><a class="nav-link" href="contact.html">Contacto</a></li>
+                                <li class="nav-item"><a class="nav-link" href="?paginasUsuario=hagging">Contacto</a></li>
                                 <li class="nav-item"><a class="nav-link" href="?paginasUsuario=InicioSesion">Iniciar Sesión</a></li>
                             <?php elseif ($user["idROL_FK"] == 1) : ?>
                                 <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
@@ -91,7 +91,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                                         </a></li>
                                     </ul>
                                 </li>
-                                <li class="nav-item"><a class="nav-link" href="contact.html">Contacto</a>
+                                <li class="nav-item"><a class="nav-link" href="?paginasUsuario=hagging">Contacto</a>
                                 </li>
                             <?php else : ?>
                                 <li class="nav-item"><a class="nav-link" href="?paginasAdministradores=MenuInicio">Home</a></li>
@@ -189,7 +189,8 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                     $_GET["paginasUsuario"] == "ConsultarUsuario" ||
                     $_GET["paginasUsuario"] == "RecuperarContrasena" ||
                     $_GET["paginasUsuario"] == "RestauraContrasenaUs" ||
-                    $_GET["paginasUsuario"] == "ChangeImgProfile"
+                    $_GET["paginasUsuario"] == "ChangeImgProfile" ||
+                    $_GET["paginasUsuario"] == "hagging"
                 ) {
                     include "Views/paginasUsuario/" . $_GET["paginasUsuario"] . ".php";
                 } else {

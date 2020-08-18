@@ -393,4 +393,51 @@ class ControladorUsuarios
         }
       }
     }
+
+    static public function sendHagging($data)
+    {
+        $mail = new PHPMailer(true);
+
+      try {
+          //Server settings
+          $mail->SMTPDebug = 0;                      // Enable verbose debug output
+          $mail->isSMTP();                                            // Send using SMTP
+          $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
+          $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+          $mail->Username   = 'rppsquimicos@gmail.com';                     // SMTP username
+          $mail->Password   = 'luisblanco23';                               // SMTP password
+          $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+          $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+
+          //Recipients
+          $mail->setFrom($data["email"]);
+          $mail->addAddress('rppsquimicos@gmail.com');     // Add a recipient
+
+
+          // Content
+          $mail->isHTML(true);                                  // Set email format to HTML
+          $mail->Subject = $data['subject'];
+          $mail->Body    = ' 
+          <body>
+          <main class="container-fluid">
+              <header class="bg-danger p-2">
+                  <p> RPPS QUÍMICOS</p>
+              </header>
+              <section>
+                  <p> '. $data['message'] .' <br></p>
+                  <p> Atte: '. $data['name'] .' <br></p>
+                  <p> Número de contacto: '. $data['celphone'] .' </p>
+              </section>
+              <footer class="row">
+                  <div id="footer" class="col-lg-12"><p>©Copyright: GAROWARE SOFTWARE</p>
+                  DERECHOS RESERVADOS 2020</div>
+              </footer>
+          </main>
+          </body>';
+          $mail->CharSet = 'UTF-8';  
+          $mail->send();
+      } catch (Exception $e) {
+          echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+      }
+    }
 }
