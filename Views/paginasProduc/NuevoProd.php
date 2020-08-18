@@ -46,7 +46,7 @@ if(!isset($_SESSION["validarIngreso"])){
                     $size_img = $_FILES['imgPROD']['size'];
 
                     $carpeta_destina = $_SERVER['DOCUMENT_ROOT'] . "/RPPSQUIMICOS/Assets/img/Productos/";
-                    if ($size_img <= 1000000) {
+                    if ($size_img <= 100000000) {
                         if ($type_img == "image/png" || $type_img == "image/jpeg" || $type_img == "image/jpg") {
 
                             move_uploaded_file($_FILES['imgPROD']['tmp_name'], $carpeta_destina . $name_img);

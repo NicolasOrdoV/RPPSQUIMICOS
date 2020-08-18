@@ -1,7 +1,7 @@
 <?php $productos = ControladorInventario::ctrSleccionarUltimos6Prod(null,null);
 $UltimosProd=ControladorInventario::ctrSleccionarUltimos3Prod(null,null);?>
 <!-- start banner Area -->
-    <section class="banner-area m-4">
+    <section class="banner-area m-3 ">
         <div class="container">
             <div class="row fullscreen align-items-center justify-content-start">
                 <div class="col-lg-12">
@@ -112,7 +112,7 @@ $UltimosProd=ControladorInventario::ctrSleccionarUltimos3Prod(null,null);?>
                         <!-- single product -->
                         <div class="col-lg-4 col-md-6">
                             <div class="single-product">
-                                <img class="img-fluid" src="/RPPSQUIMICOS/Assets/img/productos/<?php echo $product["imgPRODUCTO"] ?>" alt="">
+                                <img height="10%" class="img-fluid" src="/RPPSQUIMICOS/Assets/img/productos/<?php echo $product["imgPRODUCTO"] ?>" alt="">
                                 <div class="product-details">
                                     <h6><?php echo $product['nombrePRODUCTO']?></h6>
                                     <div class="price">

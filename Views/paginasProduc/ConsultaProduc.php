@@ -64,7 +64,7 @@ $produc = ProdController::consult(null, null);?>
                                     <button class="btn btn-warning m-1" title="Editar"><i class="far fa-edit"></i></button>
 
                                 </form>
-                                <form method="post" class="text-left">
+                                <!--<form method="post" class="text-left">
                                     <input type="hidden" value="<?php echo $p["idPRODUCTO"] ?>" name="eliminarRegistro">
                                     <button type="submit" class="btn btn-danger m-1" title="Eliminar">
                                         <i class="fas fa-trash"></i>
@@ -75,7 +75,7 @@ $produc = ProdController::consult(null, null);?>
                                     $eliminar->delete();
 
                                     ?>
-                                </form>
+                                </form>-->
                             </div>
 
 
