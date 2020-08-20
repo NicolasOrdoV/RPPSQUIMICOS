@@ -1,7 +1,7 @@
 <?php $productos = ControladorInventario::ctrSleccionarUltimos6Prod(null,null);
 $UltimosProd=ControladorInventario::ctrSleccionarUltimos3Prod(null,null);?>
 <!-- start banner Area -->
-    <section class="banner-area m-4">
+    <section class="banner-area m-3 ">
         <div class="container">
             <div class="row fullscreen align-items-center justify-content-start">
                 <div class="col-lg-12">
