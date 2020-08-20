@@ -12,7 +12,7 @@ static public function nuevoPedido($datos){
         $stmt->bindParam(":fechaenPEDIDO",$datos["fechaen"],PDO::PARAM_STR);
         $stmt->bindParam(":totalPEDIDO",$datos["Total"],PDO::PARAM_INT);
         $stmt->bindParam(":idEC_FK",$datos["IdEmpCli"],PDO::PARAM_INT);
-
+        $stmt->execute();
         if($stmt->execute()){
             return true;
         }else{

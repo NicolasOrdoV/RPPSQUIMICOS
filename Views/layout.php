@@ -38,6 +38,8 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
     <link rel="stylesheet" href="Assets/css/main.css">
     <link rel="stylesheet" href="Assets/css/styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="Assets/css/iofrm-style.css">
+    <link rel="stylesheet" type="text/css" href="Assets/css/iofrm-theme3.css">
 </head>
 
 <body>
@@ -70,7 +72,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                                 <li class="nav-item"><a class="nav-link" href="?paginasUsuario=hagging">Contacto</a></li>
                                 <li class="nav-item"><a class="nav-link" href="?paginasUsuario=InicioSesion">Iniciar Sesión</a></li>
                             <?php elseif ($user["idROL_FK"] == 1) : ?>
-                                <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="index.php">Inicio</a></li>
                                 <li class="nav-item"><a href="?paginasProduc=Catalog" class="nav-link "
                                     >Tienda</a></li>
                                 </li>
@@ -294,6 +296,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
     <script src="https://kit.fontawesome.com/0e7adc6a46.js" crossorigin="anonymous"></script>
     <script src="Assets/js/gmaps.min.js"></script>
     <script src="Assets/js/main.js"></script>
+    <script type="text/javascript" src="Assets/js/main2.js"></script>
     <script src="Assets/js/vendor/bootstrap.min.js"></script>
     <script type="text/javascript">
         $("#menu-toggle").on('click', function(e) {
