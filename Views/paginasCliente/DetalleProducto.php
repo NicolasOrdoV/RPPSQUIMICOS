@@ -21,9 +21,9 @@ if (isset($_GET["id"])) {
   <div class="product_image_area">
     <div class="container">
       <div class="row s_product_inner">
-        <div class="col-lg-6">
+        <div  class="col-lg-6">
           <div class="single-prd-item">
-            <img src="Assets/img/Productos/<?php echo $stock["imgPRODUCTO"] ?>" class="img-fluid" alt="">
+            <img height="600px" width="100%" src="Assets/img/Productos/<?php echo $stock["imgPRODUCTO"] ?>"  alt="">
           </div>
         </div>
         <div class="col-lg-5 offset-lg-1">
@@ -33,8 +33,8 @@ if (isset($_GET["id"])) {
               <h3 name="nombreProd" id="nombreProd"><?php echo $stock["nombrePRODUCTO"]?></h3>
               <h2 name="valoruProd" id="valoruProd">$<?php echo $stock["valoruPRODUCTO"]?></h2>
               <ul class="list">
-                <li><a class="active" href="#"><span>Category</span> : Household</a></li>
-                <li><a href="#"><span>Availibility</span> : In Stock</a></li>
+                <li><a class="active" href="#"><span>Categoria</span> : Alcohol</a></li>
+                <li><a href="#"><span>Disponible</span> : En Inventario</a></li>
               </ul>
               <p class="mb" name="descripcionProd" id="descripcionProd">
                 <?php echo $stock["descripcionPRODUCTO"]?>
@@ -71,7 +71,7 @@ if (isset($_GET["id"])) {
           <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
            aria-selected="false">Specification</a>
         </li>
-        <li class="nav-item">
+        <!--<li class="nav-item">
           <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
            aria-selected="false">Comments</a>
         </li>
@@ -79,10 +79,10 @@ if (isset($_GET["id"])) {
           <a class="nav-link active" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="review"
            aria-selected="false">Reviews</a>
         </li>
-      </ul>
+      </ul>-->
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
-          <p></p>
+          <p><?php echo $stock["descripcionPRODUCTO"]?></p>
         </div>
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
           <div class="table-responsive">
@@ -156,7 +156,7 @@ if (isset($_GET["id"])) {
             </table>
           </div>
         </div>
-        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+        <!--<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
           <div class="row">
             <div class="col-lg-6">
               <div class="comment_list">
@@ -365,7 +365,7 @@ if (isset($_GET["id"])) {
               </div>
             </div>
           </div>
-        </div>
+        </div>-->
       </div>
     </div>
   </section>

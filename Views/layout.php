@@ -263,7 +263,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                     <div class="single-footer-widget mail-chimp">
                         <h6 class="mb-20"></h6>
                         <ul class="">
-                            <li><img width="700" id="logo-banner" src="Assets/img/Logo.png"></li>
+                            <li><img height="100em" width="80%" id="logo-banner" src="Assets/img/Logo.png"></li>
                         </ul>
                     </div>
                 </div>
