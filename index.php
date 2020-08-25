@@ -24,5 +24,5 @@ require_once "Models/modeloPedidos.php";
 require_once "Models/Locates.php";
 
 
-$home = new HomeController();
+$home = new HomeController(); 
 $home -> ctrBringeHome();
