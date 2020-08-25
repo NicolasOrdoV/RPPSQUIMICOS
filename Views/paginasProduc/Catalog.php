@@ -18,7 +18,7 @@
     </div>
 </section>
 <!------Seccion con espacios en blanco horizontales y catalogo de productos--->
-<form method="post" action="?paginasProduc=Catalog">
+<form class="col-lg-2" method="post" action="?paginasProduc=Catalog">
     <select name="busqueda" id="busqueda">
         <option value="">Todos</option>
         <option value="Thinner">Thinners</option>
@@ -27,7 +27,7 @@
         <option value="Destapa Cañerias">Destapa Cañerias</option>
         <option value="Liquido Muriatico">Liquidos Muriaticos</option>
     </select>
-    <button type="submit" class="btn">Buscar</button>
+    <button type="submit" class="btn btn-primary">Buscar</button>
 </form>
 
 <section class="row">
