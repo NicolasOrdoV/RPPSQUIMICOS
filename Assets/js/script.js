@@ -1,3 +1,3 @@
-document.querySelector('.img__btnL').addEventListener('click', function() {
-  document.querySelector('.contL').classList.toggle('s--signupL');
+document.querySelector('.img__btn').addEventListener('click', function() {
+  document.querySelector('.cont').classList.toggle('s--signup');
 });
