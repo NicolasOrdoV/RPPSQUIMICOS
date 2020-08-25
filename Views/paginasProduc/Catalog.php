@@ -18,6 +18,18 @@
     </div>
 </section>
 <!------Seccion con espacios en blanco horizontales y catalogo de productos--->
+<form method="post" action="?paginasProduc=Catalog">
+    <select name="busqueda" id="busqueda">
+        <option value="">Todos</option>
+        <option value="Thinner">Thinners</option>
+        <option value="Alcohol">Alcoholes</option>
+        <option value="Varsol">Varsoles</option>
+        <option value="Destapa Cañerias">Destapa Cañerias</option>
+        <option value="Liquido Muriatico">Liquidos Muriaticos</option>
+    </select>
+    <button type="submit" class="btn">Buscar</button>
+</form>
+
 <section class="row">
     <aside id="blanco-h" class="col-lg-2"></aside>
     <aside class="col-lg-8">
