@@ -7,11 +7,12 @@ $barrio=$_POST['barrio'];
 
 	$result=mysqli_query($conexion,$sql);
 
-	$cadena="<input list='strets' class='mt-3' id='lista2' name='registroBarrios' placeholder='Busca el barrio donde vives*' required>
+	$cadena="<input list='strets' id='lista2' name='registroBarrios' placeholder='Busca el barrio donde vives*' required>
                     <datalist id='strets'>";
 
 	while ($ver=mysqli_fetch_row($result)) {
 		$cadena=$cadena.'<option>' .$ver[0].'-'.utf8_encode($ver[2]).'</option>';
 	}
 
-	echo  $cadena."</datalist>";
+	echo  $cadena."</datalist><div class='valid-feedback'>Valido</div>
+            <div class='invalid-feedback'>El campo no cumple con las condiciones.</div>";

@@ -259,6 +259,9 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
     <!-- start footer Area -->
     <footer class="footer-area section_gap">
         <div class="container">
+            <div class="justify-content-center text-center">
+                <img src="Assets/img/Logo.png" class="img-fluide" width="450">
+            </div>
             <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
                 <p class="footer-text m-0 text-secondary"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todo los derechos reservados | GAROWARE SOFTWARE

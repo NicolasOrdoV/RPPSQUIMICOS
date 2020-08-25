@@ -94,6 +94,7 @@
         </div> <br><br>   
         <div id="select2lista" class="form-group">
             
+            
         </div>
         <div class="form-group row">
             <div class="col-lg-6">
