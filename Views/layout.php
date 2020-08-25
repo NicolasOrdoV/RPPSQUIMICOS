@@ -40,6 +40,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="Assets/css/iofrm-style.css">
     <link rel="stylesheet" type="text/css" href="Assets/css/iofrm-theme3.css">
+    <link rel="stylesheet" type="text/css" href="Assets/css/styleLR.css">
 </head>
 
 <body>
@@ -173,7 +174,6 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
         <?php
             if (isset($_GET["paginasCliente"])) {
                 if (
-                    $_GET["paginasCliente"] == "RegistroCliente" ||
                     $_GET["paginasCliente"] == "ConsultaCliente" ||
                     $_GET["paginasCliente"] == "salir" ||
                     $_GET["paginasCliente"] == "DetalleProducto" ||
@@ -259,20 +259,8 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
     <!-- start footer Area -->
     <footer class="footer-area section_gap">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-2 col-md-6 col-sm-6"></div>
-                <div class="col-lg-8 col-md-6 col-sm-6">
-                    <div class="single-footer-widget mail-chimp">
-                        <h6 class="mb-20"></h6>
-                        <ul class="">
-                            <li><img height="100em" width="80%" id="logo-banner" src="Assets/img/Logo.png"></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-6 col-sm-6"></div>
-            </div>
             <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
-                <p class="footer-text m-0 text-light"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                <p class="footer-text m-0 text-secondary"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todo los derechos reservados | GAROWARE SOFTWARE
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 </p>
@@ -304,6 +292,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
             $("#wrapper").toggleClass("toggled");
         });
     </script>
+    <script src="Assets/js/script.js"></script>
     <script type="text/javascript" src="Assets/js/imp.js"></script>
     <script type="text/javascript" src="Assets/js/prod.js"></script>
     <script type="text/javascript" src="Assets/js/validation.js"></script>

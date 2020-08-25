@@ -12,11 +12,8 @@ $('#alerta').click(function(e) {
         idEmp:0,
         Carro:carro
     }
-<<<<<<< HEAD
-    
-=======
+
     //metodo post de ajax para el envio del formulario
->>>>>>> 8273cd4d9df776028457b83ef09e412462e0fff0
     $.post(url, params, function(response) {
       if (typeof response.error !== 'undefined') {
             alert(response.message)
@@ -29,10 +26,5 @@ $('#alerta').click(function(e) {
       console.log(error)
       console.log(error.message)
     });
-<<<<<<< HEAD
-
-       
-=======
->>>>>>> 8273cd4d9df776028457b83ef09e412462e0fff0
   }
 });

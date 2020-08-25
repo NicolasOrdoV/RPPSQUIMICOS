@@ -7,7 +7,7 @@ $barrio=$_POST['barrio'];
 
 	$result=mysqli_query($conexion,$sql);
 
-	$cadena="<input list='strets' class='form-control rounded-pill mt-3' id='lista2' name='registroBarrios' placeholder='Busca el barrio donde vives*' required>
+	$cadena="<input list='strets' class='mt-3' id='lista2' name='registroBarrios' placeholder='Busca el barrio donde vives*' required>
                     <datalist id='strets'>";
 
 	while ($ver=mysqli_fetch_row($result)) {
