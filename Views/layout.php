@@ -3,6 +3,8 @@ error_reporting(0);
 session_start();
 $user = $_SESSION["user"];
 $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
+
+
 ?>
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
@@ -244,7 +246,8 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                       $_GET["paginasPedidos"] == "confirmacion" ||
                       $_GET["paginasPedidos"] == "Carrito" ||
                       $_GET["paginasPedidos"] == "PedidoCompleto"||
-                      $_GET["paginasPedidos"] == "NuevoPedido"
+                      $_GET["paginasPedidos"] == "NuevoPedido" ||
+                      $_GET["paginasPedidos"] == "PedidoData"
 
                 ) {
                     include "Views/paginasPedidos/" . $_GET["paginasPedidos"] . ".php";
@@ -303,6 +306,9 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
     <script src="Assets/js/eye.js"></script>
     <script src="Assets/js/CarritoProd.js"></script>
     <script src="Assets/js/Pedido.js"></script>
+    <script src="Assets/js/pedidoAdmin.js"></script>
+
+    </script>
 
 </body>
 

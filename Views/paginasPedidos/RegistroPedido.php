@@ -1,92 +1,101 @@
 <?php
 if(!isset($_SESSION["validarIngreso"])){
-    
+
     echo '<script> window.location = "?paginasUsuario=InicioSesion";</script>';
-    return;  
+    return;
 }else{
     if($_SESSION["validarIngreso"] != "ok"){
         echo '<script> window.location = "?paginasUsuario=InicioSesion";</script>';
         return;
     }
 }
-$producto = ControladorProductos::ctrSeleccionarProductos();?>
+$prd=ModeloProducto::consultarProducto(null,null);
+$clie= ModeloClientes::mdlSeleccionarRegistroClientes("empresa_cliente", null, null);
+$_SESSION[]
+?>
 <section class="banner-area organic-breadcrumb">
     <div class="container">
         <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-center">
             <div class="col-first">
-                <h1 class="text-dark">Registro pedidos de clientes</h1>
+                <h1 class="text-dark">Registrar Pedido</h1>
             </div>
         </div>
     </div>
 </section>
-<section class="row py-3">
-  <aside class="col-lg-3 py-5" id="fondo2"></aside>
-  <form action="index.php?paginasPedidos=PedidoCompleto" class="col-lg-6 py-5 needs-validation" id="form" method="post" novalidate>
-    <h1 class="text-danger">RPPS Quimícos</h1>
-    <p>Registro Pedidos</p>
-    <div class="form-group">
-      <label for="fechaPedido">Fecha del Pedido</label>
-      <input type="datetime" class="form-control rounded-pill" id="txt" name="fechaPedido"  value="<?php echo date("d-m-Y");?>">
-      <div class="valid-feedback">Valido</div>
-      <div class="invalid-feedback">El campo no puede quedar vacio.</div>
-    </div>
-    <div class="form-group">
-      <label for="fechaEntrega">Fecha de Entrega</label>
-      <?php
-        $date = date("d-m-Y");
-        $mod_date = strtotime($date."+ 2 days");
-      ?>
-      <input type="datetime" class="form-control rounded-pill" id="txt" name="fechaEntrega"  value="<?php echo date("d-m-Y",$mod_date) . "\n";?>">
-      <div class="valid-feedback">Valido</div>
-      <div class="invalid-feedback">El campo no puede quedar vacio.</div>
-    </div>
-    <div class="form-group">
-      <label for="registroProductos">Producto</label>
-      <input list="products" class="form-control rounded-pill" id="txt" name="registroProductos" placeholder="Selecciona el Producto requerido" required>
-      <datalist id="products">
-        <?php foreach ($producto as $key => $value) : ?>
-          <option>
-            <?php echo $value["idPRODUCTO"] . ". ";
-                  echo $value["nombrePRODUCTO"] . ". "; echo $value["valoruPRODUCTO"]; 
-            ?>          
-          </option>
-        <?php endforeach ?>
-      </datalist>
-      <div class="valid-feedback">Valido</div>
-      <div class="invalid-feedback">El campo no puede quedar vacio.</div>
-    </div>
-    <div class="form-group">
-      <label for="registroProductos">Cantidad del producto</label>
-      <input type="number" class="form-control rounded-pill" placeholder="Cantidad Pedido" id="txt" name="registroCantidad" onchange="Multiplicar(this.value)" required>
-      <div class="valid-feedback">Valido</div>
-      <div class="invalid-feedback">El campo no puede quedar vacio.</div>
-    </div>
-    <div class="form-group">
-      <label for="registroProductos">Subtotal</label>
-      <br>
-      <span id="spTotal"></span>
-      <div class="valid-feedback">Valido</div>
-      <div class="invalid-feedback">El campo no puede quedar vacio.</div>
-    </div>
-    <button type="submit" class="primary-btn">Completar Pedido</button>
-  </form>
+<section class="row">
+    <aside id="blanco-h" class="col-lg-2"></aside>
+    <aside class="col-lg-8">
+        <div class="row py-3">
+            <aside class="col-lg-3 py-5" id="fondo2"></aside>
+            <div class="col-lg-7 py-5 needs-validation" id="form" novalidate>
+                <a href="index.php?paginasProduc=ConsultaProduc" class="btn btn-danger rounded float-left" title="Volver"><i class="fas fa-angle-double-left"></i></a>
+                <h1 class="text-danger">Nuevo Pedido</h1>
+
+                <!--<form method="POST">!-->
+                    <div class="form-group">
+                        <h2><?php echo date("d-m-y") ?></h2>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" class="form-control" id="cantiP" name="canti" min="1" placeholder="Cantidad a ingresar">
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-9">
+                            <div class="form-group">
+                                <label>Selecciona el Producto</label>
+                                <center> <select name="idMP_FK" id="Prds" class="form-control">
+                                        <option value="">Seleccione..</option>
+                                        <?php
+                                        foreach ($prd as $pd) {
+                                        ?>
+                                            <option value="<?php echo $pd['idPRODUCTO'] ?>"><?php echo $pd['nombrePRODUCTO']." ".$pd["medidaPRODUCTO"] ?></option>
+                                        <?php
+                                        }
+                                        ?>
+                                    </select></center>
+                            </div>
+                            <div class="form-group">
+                              <label>Selecciona el cliente</label>
+                              <center> <select name="idMP_FK" id="cliPed" class="form-control">
+                                      <option value="">Seleccione..</option>
+                                      <?php
+                                      foreach ($clie as $cl) {
+                                      ?>
+                                          <option value="<?php echo $cl['idEC'] ?>"><?php echo $cl['nombreEC'] ?></option>
+                                      <?php
+                                      }
+                                      ?>
+                                  </select></center>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+                            <button id="btnP" class="btn btn-success mt-4"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                    <section class="col-md-12 flex-nowrap table-responsive">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Producto</th>
+                                    <th>Cantidad</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="PrdsLS">
+
+                            </tbody>
+                        </table>
+                    </section>
+                    <div class="form-group">
+
+                        <button id="finalPed" class="primary-btn">Agregar</button>
+                    </div>
+                <!--</form>!-->
+            </div>
+        </div>
+    </aside>
+    <aside id="blanco-h" class="col-lg-2"></aside>
 </section>
 <section class="row">
     <div id="blanco" class="col-lg-12"></div>
 </section>
-<script type="text/javascript">
-  function Multiplicar (valor) {
-    var total = 0;  
-    valor = parseInt(valor); 
-  
-    total = document.getElementById('spTotal').innerHTML;
-  
-    
-    total = (total == null || total == undefined || total == "") ? 0 : total;
-  
-    total = (parseInt(total) * parseInt(valor));
-  
-    
-    document.getElementById('spTotal').innerHTML = total;
-}
-</script>

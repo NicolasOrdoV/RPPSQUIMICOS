@@ -59,37 +59,6 @@ static public function nuevoPedido($datos){
       }
 
     }
-    static public function editCantidad($array,$op){
-      try {
-        if ($op==1) {
-          foreach ($arrayDeta as $deta) {
-            $data=[
-            'cant'=>$deta['cantidadDI'],
-            'idMP'=> $deta['idMP'],
-            'idIMP'=>$inId
-            ];
-
-            $stmt=Conexion::conectar()->prepare("UPDATE mp SET cantMP=cantMP+(:cant), estadoMP='EXISTENCIA' WHERE idMP=:idMP");
-            $stmt->bindParam(":cant",$data['cant'],PDO::PARAM_INT);
-            $stmt->bindParam(":idMP",$data['idMP'],PDO::PARAM_INT);
-            $stmt->execute();
-            $stmt->close();
-            $stmt=null;
-
-          }
-          if($stmt->execute()){
-              return true;
-          }else{
-              print_r(Conexion::conectar()->errorInfo());
-          }
-          $stmt->close();
-        }
-
-      } catch (PDOException $e) {
-          return $e->getMessage();
-      }
-    }
-
     static public function getLastId(){
 
         try {
@@ -102,17 +71,25 @@ static public function nuevoPedido($datos){
             echo $e->getMessage();
         }
     }
-    static public function showIMP($id){
-      try {
-        $stmt=Conexion::conectar()->prepare("SELECT d.*, m.nombreMP as mp, i.*,e.nombreEMPLEADO as empleado FROM detalle_ingreso d INNER JOIN mp m INNER JOIN ingreso_mp i INNER JOIN empleado e ON e.idEMPLEADO = i.idEMPLEADO_FK AND i.idIMP=d.idIMP_FK AND m.idMP=d.idMP_FK WHERE d.idIMP_FK=:id");
-        $stmt->bindParam(":id",$id,PDO::PARAM_STR);
-        $stmt->execute();
-        return $stmt -> fetchAll();
-        $stmt->close();
-        $stmt= null;
-      } catch (PDOException $e) {
-        echo $e->getMessage();
-      }
+    static public function consultarPedidos($item,$valor){
 
+        try {
+            if ($item == null  && $valor == null) {
+            $stmt = Conexion::conectar()->prepare("SELECT * FROM ");
+            $stmt->execute();
+            return $stmt -> fetchAll();
+            }else{
+                $stmt = Conexion::conectar()->prepare("SELECT i.*,e.nombreEMPLEADO as empleado FROM ingreso_mp i INNER JOIN empleado e ON e.idEMPLEADO=i.idEMPLEADO_FK WHERE $item = :$item");
+                $stmt->bindParam(":".$item,$valor,PDO::PARAM_STR);
+                $stmt->execute();
+                return $stmt -> fetch();
+            }
+            $stmt->close();
+            $stmt= null;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
     }
+
+
 }

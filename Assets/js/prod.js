@@ -69,10 +69,10 @@ if (cant!='') {
     let url = "index.php?paginasProduc=AgregarEx"
     let params = {
 
-        idProd:$('#prod').val(),
-        cant:cant,
-        medida:$('#medida').val(),
-        mps:arrayMPP
+
+        canti:can,
+
+        arrPed:arrayPed
     }
     //metodo post de ajax para el envio del formulario
     $.post(url, params, function(response) {
