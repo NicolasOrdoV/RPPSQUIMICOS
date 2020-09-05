@@ -1,5 +1,5 @@
 // Definir una variable global para cargar las categorias seleccionadas
-var arrayMP = []
+var arrayMP1 = []
 
 $('#addc').click(function(e) {
     //Deshabilitar Submit del Formulario
@@ -10,13 +10,13 @@ $('#addc').click(function(e) {
 
     if (idMP != '') {
 
-        if (typeof existMP(idMP) === 'undefined') {
+        if (typeof existMP1(idMP) === 'undefined') {
             //agregar nuevo objeto al array
-            arrayMP.push({
+            arrayMP1.push({
                 'idMP': idMP,
                 'nombreMP': nameMP
             })
-            showMP()
+            showMP1()
         } else {
             alert("La Materia Prima ya se Encuentra Seleccionada")
         }
@@ -27,29 +27,29 @@ $('#addc').click(function(e) {
 });
 
 
-function showMP() {
+function showMP1() {
 
     $("#list-mpsc").empty()
 
-    arrayMP.forEach(function(mp) {
-        let html = '<tr><td>' + mp.nombreMP + '</td><td> <button onclick="removeElement(' + mp.idMP + ')" class="btn btn-danger">X</button></td></tr>'
+    arrayMP1.forEach(function(mp) {
+        let html = '<tr><td>' + mp.nombreMP + '</td><td> <button onclick="removeElement1(' + mp.idMP + ')" class="btn btn-danger">X</button></td></tr>'
         $("#list-mpsc").append(html)
     })
 }
 
-function existMP(idMP) {
-    let existMP = arrayMP.find(function(mp) {
+function existMP1(idMP) {
+    let existMP = arrayMP1.find(function(mp) {
         return mp.idMP == idMP
     })
     return existMP
 }
 
-function removeElement(idMP) {
+function removeElement1(idMP) {
     //obtiene el indice en donde esta la categoria a eliminar
-    let index = arrayMP.indexOf(existMP(idMP))
+    let index = arrayMP1.indexOf(existMP1(idMP))
         //eliminar el indice del array
-    arrayMP.splice(index, 1)
-    showMP()
+    arrayMP1.splice(index, 1)
+    showMP1()
 }
 
 
@@ -60,7 +60,7 @@ $('#submincant').click(function(e) {
   let idProd =$("#prod").val()
   let medida=$("#medida").val()
 if (cant!='') {
-  if (arrayMP=='') {
+  if (arrayMP1=='') {
     alert("Faltan datos para poder registrar el envasado")
   }else {
     let url = "index.php?paginasProduc=AgregarEx"
@@ -70,7 +70,7 @@ if (cant!='') {
 
         cant:cant,
 
-        mps:arrayMP
+        mps:arrayMP1
     }
     //metodo post de ajax para el envio del formulario
     $.post(url, params, function(response) {
