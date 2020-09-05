@@ -35,7 +35,6 @@ $('#addi').click(function(e) {
 
 function clean(){
   $("#canti").val("")
-  $("#mpsi").val("")
 
 }
 

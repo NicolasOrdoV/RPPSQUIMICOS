@@ -1,24 +1,22 @@
 // Definir una variable global para cargar las categorias seleccionadas
-var arrayMPP = []
+var arrayMP = []
 
 $('#addc').click(function(e) {
     //Deshabilitar Submit del Formulario
     e.preventDefault();
 
-    let idMPP = $("#mpsc").val()
-    let nameMPP = $("#mpsc option:selected").text()
+    let idMP = $("#mpsc").val()
+    let nameMP = $("#mpsc option:selected").text()
 
+    if (idMP != '') {
 
-    if (idMPP != '') {
-
-        if (typeof existMP(idMPP) === 'undefined') {
+        if (typeof existMP(idMP) === 'undefined') {
             //agregar nuevo objeto al array
-            arrayMPP.push({
-                'idMP': idMPP,
-                'nombreMP': nameMPP
+            arrayMP.push({
+                'idMP': idMP,
+                'nombreMP': nameMP
             })
-            showMPP()
-            cleanP()
+            showMP()
         } else {
             alert("La Materia Prima ya se Encuentra Seleccionada")
         }
@@ -28,51 +26,51 @@ $('#addc').click(function(e) {
     }
 });
 
-function cleanP(){
-  $("#mpsc").val("")
 
-}
-
-function showMPP() {
+function showMP() {
 
     $("#list-mpsc").empty()
 
-    arrayMPP.forEach(function(mp) {
-        let html = '<tr><td>' + mp.nombreMP + '</td><td><button onclick="removeElementP(' + mp.idMP + ')" class="btn btn-danger">X</button></td></tr>'
+    arrayMP.forEach(function(mp) {
+        let html = '<tr><td>' + mp.nombreMP + '</td><td> <button onclick="removeElement(' + mp.idMP + ')" class="btn btn-danger">X</button></td></tr>'
         $("#list-mpsc").append(html)
     })
 }
 
-function existMPP(idMP) {
-    let existMP = arrayMPP.find(function(mp) {
+function existMP(idMP) {
+    let existMP = arrayMP.find(function(mp) {
         return mp.idMP == idMP
     })
     return existMP
 }
 
-function removeElementP(idMP) {
+function removeElement(idMP) {
     //obtiene el indice en donde esta la categoria a eliminar
-    let index = arrayMPP.indexOf(existMP(idMP))
+    let index = arrayMP.indexOf(existMP(idMP))
         //eliminar el indice del array
-    arrayMPP.splice(index, 1)
+    arrayMP.splice(index, 1)
     showMP()
 }
 
 
 $('#submincant').click(function(e) {
   e.preventDefault()
+
   let cant = $("#canti").val()
+  let idProd =$("#prod").val()
+  let medida=$("#medida").val()
 if (cant!='') {
-  if (arrayMPP=='') {
+  if (arrayMP=='') {
     alert("Faltan datos para poder registrar el envasado")
   }else {
     let url = "index.php?paginasProduc=AgregarEx"
     let params = {
+        idProd:idProd,
+        medida:medida,
 
+        cant:cant,
 
-        canti:can,
-
-        arrPed:arrayPed
+        mps:arrayMP
     }
     //metodo post de ajax para el envio del formulario
     $.post(url, params, function(response) {
