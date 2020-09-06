@@ -9,9 +9,9 @@ if(!isset($_SESSION["validarIngreso"])){
         return;
     }
 }
-$prd=ModeloProducto::consultarProducto(null,null);
-$clie= ModeloClientes::mdlSeleccionarRegistroClientes("empresa_cliente", null, null);
-$_SESSION[]
+$prd=ProdController::consult(null,null);
+$clie= ControladorClientes::ctrSeleccionarRegistroClientes(null, null);
+//$_SESSION[];
 ?>
 <section class="banner-area organic-breadcrumb">
     <div class="container">
@@ -28,7 +28,7 @@ $_SESSION[]
         <div class="row py-3">
             <aside class="col-lg-3 py-5" id="fondo2"></aside>
             <div class="col-lg-7 py-5 needs-validation" id="form" novalidate>
-                <a href="index.php?paginasProduc=ConsultaProduc" class="btn btn-danger rounded float-left" title="Volver"><i class="fas fa-angle-double-left"></i></a>
+                <a href="index.php?paginasAdministradores=MenuInicio" class="btn btn-danger rounded float-left" title="Volver"><i class="fas fa-angle-double-left"></i></a>
                 <h1 class="text-danger">Nuevo Pedido</h1>
 
                 <!--<form method="POST">!-->

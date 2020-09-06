@@ -26,6 +26,7 @@ class ProdController
         $respuesta = ModeloProducto::consultarProducto($item, $valor);
         return $respuesta;
     }
+    
     static public function update($data)
     {
         if (isset($data['idPROD'])&&isset($data['imgPROD'])&&isset($data['nombrePROD'])&&isset($data['descripPROD'])&&isset($data['medidaPROD'])&&isset($data['valoruPROD'])) {
