@@ -62,7 +62,7 @@ function showPed() {
 
 function existProd(idProd) {
     let existProd = arrayPed.find(function(prd) {
-        return prd.idProd == idProd
+        return prd.idPRODUCTO == idProd
     })
     return existProd
 }
