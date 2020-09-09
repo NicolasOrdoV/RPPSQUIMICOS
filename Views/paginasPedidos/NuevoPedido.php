@@ -1,48 +1,51 @@
-
 <?php
-if (isset($_POST['idEmp'])&&isset($_POST['Carro'])&&isset($_POST['idEmpClien'])&&isset($_POST["total"])&&isset($_POST["Fechaen"])) {
+if (isset($_POST['idEmp'])&&isset($_POST['Carro'])&&isset($_POST['idClienEmpre'])&&isset($_POST["totalPedCar"])&&isset($_POST["Fechaen"])) {
 
   $dataPed=[
     'IdEmple'=>$_POST['idEmp'],
-    'IdEmpCli' => $_POST['idEmpClien'],
-    'Total' => $_POST['total'],
+    'IdEmpCli' => $_POST['idClienEmpre'],
+    'Total' => $_POST['totalPedCar'],
     'fechaEN' => $_POST['Fechaen']
 
   ];
-  $detallePed=$_POST['Carro'];
+
+  $detallePed = json_decode($_POST['Carro'], true);
 
   $respuestaIngreso= ModeloPedido::nuevoPedido($dataPed);
 
-  $lastId=ModeloPedido::getLastId();
+  $lastId = ModeloPedido::getLastId();
   $arrayResp=[];
 
-  if (isset($lastId[0])&&$respuestaIngreso==true) {
+  if (isset($lastId) && $respuestaIngreso==true) {
     $respDeta=ModeloPedido::saveDetalle($detallePed,$lastId[0]);
 
     if ($respDeta==true) {
       $arrayResp=[
-        'success'=>true,
+        'error'=>false,
         'message'=>'Ingreso insertado satisfactoriamente'
       ];
-    }else {
+    } else {
       $arrayResp=[
         'error'=>true,
         'message'=>'Error en la insercion'
       ];
     }
-  }else {
+  } else {
     $arrayResp=[
       'error'=>true,
       'message'=>'Error en los parametros'
     ];
   }
-  echo json_encode($arrayResp);
-  return;
-  echo '<script>
-setTimeout(function(){
-  window.location = "index.php"
-},1000)
-</script>';
 
+  echo json_encode($arrayResp);
+}
+
+else {
+  $response = array(
+      "error" => true,
+      "message" => "datos no completos"
+  );
+
+  var_dump( json_encode($response));
 }
 ?>

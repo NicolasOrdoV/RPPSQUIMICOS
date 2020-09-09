@@ -33,7 +33,8 @@
     </div>
 
     <div class="text-right">
-        <h1 class="card-title"  id="totalCarrito"><strong>$0</strong></1>
+
+        <h1 class="card-title"  id="totalCarrito"><strong>0</strong></h1>
     </div>
 </div>
 <?php if ($user == "") : ?>

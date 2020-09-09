@@ -66,15 +66,15 @@
                     <td>${i.nombrePRODUCTO}</td>
                     <td>$${i.valoruPRODUCTO}</td>
                     <td>${i.cantidad}</td>
-                    <td><strong><i>${i.cantidad * i.valoruPRODUCTO}</i></strong></td>
+                    <td><strong><i>$${i.cantidad * i.valoruPRODUCTO}</i></strong></td>
                     <td><button class="btn btn-danger" id="deleteProducto" data-producto="${i.idPRODUCTO}"><i class="fa fa-trash-o" id="deleteProducto" data-producto="${i.idPRODUCTO}"></i></button></td>
                   </tr>
                    `;
                }
                $("#productosCarrito").innerHTML = template;
            }
-           $("#totalCarrito > strong").innerHTML = "$"+carrito.getTotal();
-           document.getElementById("carritoTotal").value = "$"+carrito.getTotal();
+           $("#totalCarrito > strong").innerHTML = "$" + carrito.getTotal();
+           document.getElementById("carritoTotal").value = carrito.getTotal();
 
        }
        }

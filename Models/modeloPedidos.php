@@ -3,26 +3,27 @@
 require_once "providers/conexion.php";
 
 class ModeloPedido{
-static public function nuevoPedido($datos){
-    try{
-        $date = date("d-m-y");
-        $stmt=Conexion::conectar()->prepare("INSERT INTO pedido (fecharPEDIDO,fechaenPEDIDO,totalPEDIDO,estadoPEDIDO,idEMPLEADO_FK, idEC_FK) VALUES (:fecharPEDIDO,:fechaenPEDIDO,:totalPEDIDO,'Pendiente',:idEMPLEADO_FK,:idEMPLEADO_FK)");
-        $stmt->bindParam(":idEMPLEADO_FK",$datos["IdEmple"],PDO::PARAM_INT);
-        $stmt->bindParam(":fecharPEDIDO",$date,PDO::PARAM_STR);
-        $stmt->bindParam(":fechaenPEDIDO",$datos["fechaen"],PDO::PARAM_STR);
-        $stmt->bindParam(":totalPEDIDO",$datos["Total"],PDO::PARAM_INT);
-        $stmt->bindParam(":idEC_FK",$datos["IdEmpCli"],PDO::PARAM_INT);
-        $stmt->execute();
-        if($stmt->execute()){
-            return true;
-        }else{
-            print_r(Conexion::conectar()->errorInfo());
-        }
-        //$stmt=close();
-        $stmt=null;
-    }catch(PDOException $e){
-        echo $e->getMessage();
-    }
+    static public function nuevoPedido($datos){
+      try{
+          $date = date("Y-m-d");
+          $stmt=Conexion::conectar()->prepare("INSERT INTO pedido (fecharPEDIDO,fechaenPEDIDO,totalPEDIDO,estadoPEDIDO,idEMPLEADO_FK, idEC_FK) VALUES (:fecharPEDIDO,:fechaenPEDIDO,:totalPEDIDO,'Pendiente',:idEMPLEADO_FK,:idEC_FK)");
+          $stmt->bindParam(":idEMPLEADO_FK", $datos["IdEmple"], PDO::PARAM_INT);
+          $stmt->bindParam(":fecharPEDIDO", $date, PDO::PARAM_STR);
+          $stmt->bindParam(":fechaenPEDIDO", $datos["fechaEN"], PDO::PARAM_STR);
+          $stmt->bindParam(":totalPEDIDO", $datos["Total"],  PDO::PARAM_INT);
+          $stmt->bindParam(":idEC_FK", $datos["IdEmpCli"],  PDO::PARAM_INT);
+
+          if($stmt->execute()){
+              return true;
+          }else{
+              print_r(Conexion::conectar()->errorInfo());
+          }
+
+          //$stmt=close();
+          $stmt=null;
+      } catch(PDOException $e){
+          echo $e->getMessage();
+      }
     }
     static public function saveDetalle($arrayDeta,$inId){
       try {
@@ -35,7 +36,7 @@ static public function nuevoPedido($datos){
           'subtotal' => $deta ['cantidad'] * $deta ['valoruPRODUCTO']
           ];
 
-          $stmt=Conexion::conectar()->prepare("INSERT INTO detalle_pedido(cantidadDP,subtotalDP,idPRODUCTO_FK,idPEDIDO_FK)VALUES(:cant,:subtotal,:idPROD,:idped)");
+          $stmt=Conexion::conectar()->prepare("INSERT INTO detalle_pedido (cantidadDP,subtotalDP,idPRODUCTO_FK,idPEDIDO_FK) VALUES (:cant,:subtotal,:idPROD,:idped)");
           $stmt->bindParam(":cant",$data["cant"],PDO::PARAM_INT);
           $stmt->bindParam(":subtotal",$data["subtotal"],PDO::PARAM_INT);
           $stmt->bindParam(":idPROD",$data["idPROD"],PDO::PARAM_INT);
@@ -50,7 +51,7 @@ static public function nuevoPedido($datos){
         }else{
             print_r(Conexion::conectar()->errorInfo());
         }
-        $stmt->close();
+        //$stmt->close();
 
 
 
