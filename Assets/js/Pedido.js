@@ -19,7 +19,7 @@ $('#alerta').click(function(e) {
       }
 
       else {
-        localStorage.clear()
+        window.localStorage.removeItem("carrito")
         Push.create("Felicidades!", {
         body: "Su pedido se ha registrado exitosamente!",
         icon: 'Assets/img/logo2.png',

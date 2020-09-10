@@ -307,6 +307,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
     <script src="Assets/js/CarritoProd.js"></script>
     <script src="Assets/js/Pedido.js"></script>
     <script src="Assets/js/pedidoAdmin.js"></script>
+    <script src="Assets/js/valiPedido.js"></script>
 
 
 

@@ -47,7 +47,15 @@
                 }
             }
             localStorage.setItem("carrito",JSON.stringify(this.getCarrito));
-            alert("Se ha eliminado un producto del carrito");
+            Push.create("Carrito", {
+            body: "Se ha eliminado un producto del carrito",
+            icon: 'Assets/img/logo2.png',
+            timeout: 4000,
+            onClick: function () {
+                window.location="index.php";
+                this.close();
+            }
+            });
             location.reload();
         }
     }
@@ -90,7 +98,15 @@
         if(ev.target.id === "btn_carrito"){
           var id = ev.target.dataset.producto;
           carrito.agregarItem(id);
-          alert("Se ha agregado el producto al carrito");
+          Push.create("Carrito", {
+          body: "Se ha agregado un producto al carrito",
+          icon: 'Assets/img/logo2.png',
+          timeout: 4000,
+          onClick: function () {
+              window.location="index.php";
+              this.close();
+          }
+          });
           location.reload();
         }
     });
