@@ -23,14 +23,12 @@
 
                 if(i.idPRODUCTO === item){
                     i.cantidad += parseFloat(cant);
-                    console.log(this.getCarrito);
                     localStorage.setItem("carrito",JSON.stringify(this.getCarrito))
                     return;
                 }
             }
             registro.cantidad = parseFloat(cant);
             this.getCarrito.push(registro);
-            console.log(this.getCarrito);
             localStorage.setItem("carrito",JSON.stringify(this.getCarrito));
         }
         this.getTotal = function(){
@@ -47,15 +45,6 @@
                 }
             }
             localStorage.setItem("carrito",JSON.stringify(this.getCarrito));
-            Push.create("Carrito", {
-            body: "Se ha eliminado un producto del carrito",
-            icon: 'Assets/img/logo2.png',
-            timeout: 4000,
-            onClick: function () {
-                window.location="index.php";
-                this.close();
-            }
-            });
             location.reload();
         }
     }
@@ -98,22 +87,31 @@
         if(ev.target.id === "btn_carrito"){
           var id = ev.target.dataset.producto;
           carrito.agregarItem(id);
+          //Notifica
           Push.create("Carrito", {
-          body: "Se ha agregado un producto al carrito",
+          body: "Se ha agregado el producto al carrito",
           icon: 'Assets/img/logo2.png',
           timeout: 4000,
           onClick: function () {
-              window.location="index.php";
+              window.location="index.php?paginasPedidos=Carrito";
               this.close();
           }
           });
-          location.reload();
         }
     });
     $("#productosCarrito").addEventListener("click",function(ev){
         ev.preventDefault();
         if(ev.target.id === "deleteProducto"){
             carrito.eliminarItem(ev.target.dataset.producto);
+            Push.create("Carrito", {
+            body: "Se ha eliminado un producto del carrito",
+            icon: 'Assets/img/logo2.png',
+            timeout: 4000,
+            onClick: function () {
+                window.location="index.php?paginasPedidos=Carrito";
+                this.close();
+            }
+            });
         }
     })
 //--------------------------------------------------------------------------------------------//

@@ -1,9 +1,19 @@
-var carrototal = document.getElementById("carritoTotal").value
 function validacion() {
-  if (carrototal == 0) {
-    alert('Seleccione un producto antes de continuar');
+  if (localStorage.getItem("carrito") == "[]") {
+
+    Push.create("Carrito", {
+    body: "Seleccione un producto antes de continuar",
+    icon: 'Assets/img/logo2.png',
+    timeout: 4000,
+    onClick: function () {
+        window.focus();
+        this.close();
+    }
+    });
     return false;
+  }else {
+      return true;
   }
-  return true;
+
 
 }
