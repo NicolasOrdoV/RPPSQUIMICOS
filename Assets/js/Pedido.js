@@ -19,8 +19,16 @@ $('#alerta').click(function(e) {
       }
 
       else {
-        // TODO
-        console.log(params, xd)
+        window.localStorage.removeItem("carrito")
+        Push.create("Felicidades!", {
+        body: "Su pedido se ha registrado exitosamente!",
+        icon: 'Assets/img/logo2.png',
+        timeout: 4000,
+        onClick: function () {
+            window.location="index.php";
+            this.close();
+        }
+        });
       }
     })
   }

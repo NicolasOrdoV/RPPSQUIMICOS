@@ -7,7 +7,7 @@
         </div>
     </div>
 </section>
-<div style="padding: 10em;">
+<div style="padding-left: 22em; padding-right: 20em; padding-bottom: 10em">
 <br>
 <br>
 <table class="table">
@@ -49,7 +49,7 @@
       $mod_date = strtotime($date."+ 2 days");
       $mod_dates = strtotime($date."+ 5 days");
     ?>
-    <form action="index.php?paginasPedidos=confirmacion" method="post">
+    <form action="index.php?paginasPedidos=confirmacion" method="post" onsubmit="return validacion()">
     <p>El pedido Llega entre el <strong><?php echo date("d",$mod_date) . "\n";?></strong> de <strong><?php setlocale(LC_TIME, "spanish"); echo(strftime("%B",$mod_date));?> </strong>y<strong> <?php echo date("d",$mod_dates) . "\n";?></strong> de <strong><?php setlocale(LC_TIME, "spanish"); echo(strftime("%B",$mod_dates)); ?></strong></P>
       <input type="hidden" name="total" id= "carritoTotal" value="0">
     <button id="PedidoCompleto" onclick="PedidoBoton" class="primary-btn rounded">Completar Pedido<i class="fas fa-cart-plus"></i></button>

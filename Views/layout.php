@@ -40,9 +40,8 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
     <link rel="stylesheet" href="Assets/css/main.css">
     <link rel="stylesheet" href="Assets/css/styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="Assets/css/iofrm-style.css">
-    <link rel="stylesheet" type="text/css" href="Assets/css/iofrm-theme3.css">
     <link rel="stylesheet" type="text/css" href="Assets/css/styleLR.css">
+    <script src="push.js/push.min.js"></script>
 </head>
 
 <body>
@@ -167,8 +166,8 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                         <?php endif ?>
                     </div>
                     <div class="modal-footer justify-content-center">
-                        <a href="index.php?paginasCliente=salir" class="btn btn-primary rounded-pill">Si</a>
-                        <button type="button" class="btn btn-danger rounded-pill" data-dismiss="modal">No</button>
+                        <a href="index.php?paginasCliente=salir" class="btn btn-primary ">Si</a>
+                        <button type="button" class="btn btn-danger " data-dismiss="modal">No</button>
                     </div>
                 </div>
             </div>
@@ -258,6 +257,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                 include "Views/home.php";
             }
         ?>
+
     </main>
     <!-- start footer Area -->
     <footer class="footer-area section_gap">
@@ -307,6 +307,9 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
     <script src="Assets/js/CarritoProd.js"></script>
     <script src="Assets/js/Pedido.js"></script>
     <script src="Assets/js/pedidoAdmin.js"></script>
+    <script src="Assets/js/valiPedido.js"></script>
+
+
 
     </script>
 
