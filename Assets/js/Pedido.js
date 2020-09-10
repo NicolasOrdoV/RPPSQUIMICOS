@@ -19,16 +19,16 @@ $('#alerta').click(function(e) {
       }
 
       else {
+        localStorage.clear()
         Push.create("Felicidades!", {
         body: "Su pedido se ha registrado exitosamente!",
         icon: 'Assets/img/logo2.png',
         timeout: 4000,
         onClick: function () {
-            window.focus();
+            window.location="index.php";
             this.close();
         }
         });
-        window.location="index.php"
       }
     })
   }

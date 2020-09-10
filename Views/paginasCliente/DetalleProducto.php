@@ -9,9 +9,9 @@ if (isset($_GET["id"])) {
 <!-- Start Banner Area -->
 <section class="banner-area organic-breadcrumb">
   <div class="container">
-    <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+    <div class="breadcrumb-banner align-items-center justify-content-end">
       <div class="col-first">
-        <h1 class="text-dark">Detalle del producto</h1>
+        <h1 class="text-dark text-center">Detalle del producto</h1>
       </div>
     </div>
   </div>
@@ -23,7 +23,7 @@ if (isset($_GET["id"])) {
       <div class="row s_product_inner">
         <div  class="col-lg-6">
           <div class="single-prd-item">
-            <img height="600px" width="100%" src="Assets/img/Productos/<?php echo $stock["imgPRODUCTO"] ?>"  alt="">
+            <img height="600px" src="Assets/img/Productos/<?php echo $stock["imgPRODUCTO"] ?>"  alt="">
           </div>
         </div>
         <div class="col-lg-5 offset-lg-1">

@@ -7,7 +7,7 @@
         </div>
     </div>
 </section>
-<div style="padding: 10em;">
+<div style="padding-left: 22em; padding-right: 20em; padding-bottom: 10em">
 <br>
 <br>
 <table class="table">
@@ -59,6 +59,3 @@
 <?php endif?>
 </div>
 <div id="productoDetallado"></div>
-<script>
-  
-</script>

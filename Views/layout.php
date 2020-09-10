@@ -166,8 +166,8 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                         <?php endif ?>
                     </div>
                     <div class="modal-footer justify-content-center">
-                        <a href="index.php?paginasCliente=salir" class="btn btn-primary rounded-pill">Si</a>
-                        <button type="button" class="btn btn-danger rounded-pill" data-dismiss="modal">No</button>
+                        <a href="index.php?paginasCliente=salir" class="btn btn-primary ">Si</a>
+                        <button type="button" class="btn btn-danger " data-dismiss="modal">No</button>
                     </div>
                 </div>
             </div>

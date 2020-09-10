@@ -1,8 +1,8 @@
 <?php
 if(!isset($_SESSION["validarIngreso"])){
-    
+
     echo '<script> window.location = "?paginasUsuario=InicioSesion";</script>';
-    return;  
+    return;
 }else{
     if($_SESSION["validarIngreso"] != "ok"){
         echo '<script> window.location = "?paginasUsuario=InicioSesion";</script>';
@@ -20,6 +20,8 @@ $clientes = ControladorClientes::ctrSeleccionarRegistroClientes(null,null);?>
     </div>
 </section>
 <section class="row py-5">
+  <div style="padding-left: 14em; padding-right: 12em">
+
     <input class="form-control mb-4 col-lg-6 border border-danger rounded-pill" id="tableSearch" type="text" placeholder="Busca aqui el cliente registrado que quieras &#128269;" onclick="search()">
     <table class="col-lg-12 table table-striped table-hover table-lg table-responsive-lg">
         <thead class="thead-dark">
@@ -55,7 +57,7 @@ $clientes = ControladorClientes::ctrSeleccionarRegistroClientes(null,null);?>
 
                     <div class="btn-group">
                         <form action="#" method="post" class="text-left">
-                          <input type="hidden" value="<?php echo $cliente["idEC"]?>" name="eliminarRegistro">  
+                          <input type="hidden" value="<?php echo $cliente["idEC"]?>" name="eliminarRegistro">
                         <button type="submit" class="btn btn-danger m-1">
                             <i class="fas fa-trash"></i>
                         </button>
@@ -96,10 +98,11 @@ $clientes = ControladorClientes::ctrSeleccionarRegistroClientes(null,null);?>
                     </div>
                 </td>
             </tr>
-        <?php endforeach ?>        
+        <?php endforeach ?>
         </tbody>
     </table>
 </section>
 <section class="row">
     <div id="blanco" class="col-lg-12"></div>
 </section>
+</div>
