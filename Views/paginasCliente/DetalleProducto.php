@@ -48,7 +48,7 @@ if (isset($_GET["id"])) {
                  class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
               </div>
               <div class="card_area d-flex align-items-center">
-                <button id="btn_carrito" class="primary-btn" data-producto="<?php echo $stock["idPRODUCTO"]; ?>">Añadir al carrito <i class="fas fa-cart-plus"></i></button>
+                <button id="btn_carrito" class="btn-info" data-producto="<?php echo $stock["idPRODUCTO"]; ?>">Añadir al carrito <i class="fas fa-cart-plus"></i></button>
                 <a class="icon_btn" href="#"><i class="lnr lnr lnr-diamond"></i></a>
                 <a class="icon_btn" href="#"><i class="lnr lnr lnr-heart"></i></a>
               </div>

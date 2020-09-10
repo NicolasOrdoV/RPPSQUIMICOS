@@ -112,7 +112,7 @@ $UltimosProd=ControladorInventario::ctrSleccionarUltimos3Prod(null,null);?>
                         <!-- single product -->
                         <div class="col-lg-4 col-md-6">
                             <div class="single-product">
-                                <img height="10%" class="img-fluid" src="/RPPSQUIMICOS/Assets/img/productos/<?php echo $product["imgPRODUCTO"] ?>" alt="">
+                                <a  href="?paginasCliente=DetalleProducto&id=<?php echo $product["idPRODUCTO"]?>"><img  height="10%" class="img-fluid" src="/RPPSQUIMICOS/Assets/img/productos/<?php echo $product["imgPRODUCTO"] ?>" alt=""></a>
                                 <div class="product-details">
                                     <h6><?php echo $product['nombrePRODUCTO']?></h6>
                                     <div class="price">
@@ -153,7 +153,7 @@ $UltimosProd=ControladorInventario::ctrSleccionarUltimos3Prod(null,null);?>
             <div class="row justify-content-center">
                 <div class="col-lg-6 text-center">
                     <div class="section-title">
-                        <h1>Promociones de la semana</h1>
+                        <h1>Mejores Productos</h1>
                         <p>Echale un vistaso a las grades promociones que esta semana preparamos para ti. </p>
                     </div>
                 </div>
@@ -180,7 +180,7 @@ $UltimosProd=ControladorInventario::ctrSleccionarUltimos3Prod(null,null);?>
                 <div class="col-lg-3">
                     <div class="ctg-right">
                         <a href="#" target="_blank">
-                            <img class="img-fluid d-block mx-auto" src="Assets/img/category/c5.jpg" alt="">
+                            <img class="img-fluid d-block mx-auto" src="Assets/img/Botella.png" alt="">
                         </a>
                     </div>
                 </div>
