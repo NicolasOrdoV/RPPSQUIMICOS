@@ -94,7 +94,7 @@ class ControladorInventario
         }
     }
 
-    static public function ctrSendNotifyCuantity($user,$cuantity,$name){
+    static public function ctrSendNotifyCuantity($user,$producs_pe){
         $mail=new PHPMailer(true);
         try {
             //Server settings
@@ -122,8 +122,8 @@ class ControladorInventario
                     <p> RPPS QUÍMICOS</p>
                 </header>
                 <section>
-                    <p> señor(a) <h1>'.$user.'</h1> nos permitimos informales que la cantidad del producto-materia prima <h1>'.$name.'</h1> esta a
-                    punto de agotar sus existencias, el cual cuenta actualmente con <h1>'.$cuantity.'<h1> unidades en existencia. Se le recomienda insertar nuevas existencias <br></p>
+                    <p> señor(a) <h1>'.$user.'</h1> nos permitimos informales que la cantidad del producto(s)-materia(s) prima(s) <h1>'.implode(",",$producs_pe).'</h1> esta(n) a
+                    punto de agotar sus existencias, Se le recomienda insertar nuevas existencias <br></p>
                     
                 </section>
                 <footer class="row">

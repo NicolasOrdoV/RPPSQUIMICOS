@@ -42,14 +42,12 @@ $producto = ControladorInventario::ctrSeleccionarProductosStock(null, null);
 
                 <?php foreach ($producto as $stocks) : ?>
                     <tr>
+                        
                         <td><?php echo $stocks["idPRODUCTO"] ?></td>
-                        <td><img src="Assets/img/Productos/<?php echo $stocks["imgPRODUCTO"] ?>" width="130"> </td>
+                        <td><img loading="lazy" src="Assets/img/Productos/<?php echo $stocks["imgPRODUCTO"] ?>" width="130"> </td> 
                         <td><?php echo $stocks["nombrePRODUCTO"] ?></td>
                         <td><?php echo $stocks["descripcionPRODUCTO"] ?></td>
-                        <td><?php echo $stocks["cantPRODUCTO"]; 
-                        if ($stocks["cantPRODUCTO"]<=3){
-                            ControladorInventario::ctrSendNotifyCuantity($_SESSION["user"]["correoEMPLEADO"],$stocks["cantPRODUCTO"],$stocks["nombrePRODUCTO"]);
-                        } ?></td>
+                        <td><?php echo $stocks["cantPRODUCTO"];?></td>
                         <td><?php echo $stocks["estadoPRODUCTO"] ?></td>
                         <td>$<?php echo $stocks["valoruPRODUCTO"] ?></td>
                         <td>
@@ -117,9 +115,9 @@ $producto = ControladorInventario::ctrSeleccionarProductosStock(null, null);
                         <td><?php echo $mp["nombreMP"]; ?></td>
                         <td><?php echo $mp["tipoMP"]; ?></td>
                         <td><?php echo $mp["cantMP"]; 
-                        if ($mp["cantMP"]<=3){
-                            ControladorInventario::ctrSendNotifyCuantity($_SESSION["user"]["correoEMPLEADO"],$mp["cantMP"],$mp["nombreMP"]);
-                        } ?></td>
+                        // if ($mp["cantMP"]<=3){
+                        //     ControladorInventario::ctrSendNotifyCuantity($_SESSION["user"]["correoEMPLEADO"],$mp["cantMP"],$mp["nombreMP"]);
+                        // } ?></td>
                         </td>
                         
                         <td><?php echo $mp["estadoMP"]; ?></td>
@@ -130,8 +128,19 @@ $producto = ControladorInventario::ctrSeleccionarProductosStock(null, null);
     </aside>
 </section>
 
-
 <!------Espacio en blanco inferior------>
 <section class="row">
     <div id="blanco" class="col-lg-12"></div>
 </section>
+
+<?php
+  $producs_pe=array();
+foreach($producto as $stocks){
+    if ($stocks["cantPRODUCTO"]<=3){
+        //     ControladorInventario::ctrSendNotifyCuantity($_SESSION["user"]["correoEMPLEADO"],$stocks["cantPRODUCTO"],$stocks["nombrePRODUCTO"]);
+        array_push($producs_pe,'"'.$stocks["nombrePRODUCTO"].'"');
+    }
+}
+
+ControladorInventario::ctrSendNotifyCuantity($_SESSION["user"]["correoEMPLEADO"],$producs_pe);
+?>
