@@ -12,3 +12,14 @@
 <input type="hidden" id="totalCart" value="<?php echo $totalcarr;?>">
 <button type="button" id="alerta" name="button"> si </button>
 <h3 id="resultado"> </h3>
+<script>
+    Push.create("Felicidades!", {
+    body: "Su pedido se ha registrado exitosamente!",
+    icon: 'Assets/img/logo2.png',
+    timeout: 4000,
+    onClick: function () {
+      window.focus();
+      this.close();
+    }
+  });
+</script>

@@ -59,3 +59,6 @@
 <?php endif?>
 </div>
 <div id="productoDetallado"></div>
+<script>
+  
+</script>
