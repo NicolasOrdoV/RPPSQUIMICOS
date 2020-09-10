@@ -88,6 +88,16 @@ $clie= ControladorClientes::ctrSeleccionarRegistroClientes(null, null);
                             </tbody>
                         </table>
                     </section>
+                    <div class="columns">
+                      <div class="text-right">
+                          <h4 class="card-title">Total: </h4>
+                      </div>
+
+                      <div class="text-right">
+
+                          <h1 class="card-title"  id="totalPedido"><strong>0</strong></h1>
+                      </div>
+                  </div>
                     <div class="form-group">
 
                         <button id="finalPed" class="primary-btn">Agregar</button>

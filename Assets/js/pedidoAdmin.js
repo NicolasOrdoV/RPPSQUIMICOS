@@ -32,6 +32,7 @@ $('#btnP').click(function(e) {
                 'cantidad' : can,
                 'subtotal': subtotal
             })
+            document.getElementById('totalPedido').innerHTML = suma();
             desaparecer()
             showPedido()
             cleanPedido()
@@ -51,6 +52,14 @@ $('#btnP').click(function(e) {
     }
 });
 
+function suma() {
+    var tottal = 0
+
+    arrayPedido.forEach(function(prod) {
+    tottal = tottal + parseInt(prod.subtotal, 0)
+})
+    return tottal
+}
 function cleanPedido(){
   $("#cantiP").val("")
 
@@ -79,6 +88,7 @@ function existPedido(idPRODUCTO) {
 function removeElementPedido(idPRODUCTO) {
     //obtiene el indice en donde esta la categoria a eliminar
     let index = arrayPedido.indexOf(existPedido(idPRODUCTO))
+    document.getElementById('totalPedido').innerHTML = suma() - subtotal;
         //eliminar el indice del array
     arrayPedido.splice(index, 1)
     showPedido()
