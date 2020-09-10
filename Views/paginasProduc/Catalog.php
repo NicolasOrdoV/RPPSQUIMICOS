@@ -18,7 +18,7 @@
     </div>
 </section>
 <!------Seccion con espacios en blanco horizontales y catalogo de productos--->
-<form class="col-lg-2" method="post" action="?paginasProduc=Catalog">
+<form  method="post" action="?paginasProduc=Catalog">
     <select name="busqueda" id="busqueda">
         <option value="">Todos</option>
         <option value="Thinner">Thinners</option>
