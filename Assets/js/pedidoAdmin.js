@@ -1,5 +1,6 @@
 // Definir una variable global para cargar las categorias seleccionadas
-var arrayPed = []
+var arrayPedido = []
+var subtotal
 
 $('#btnP').click(function(e) {
     //Deshabilitar Submit del Formulario
@@ -12,23 +13,28 @@ $('#btnP').click(function(e) {
 
     let idClien = $("#cliPed").val()
     let nameClien = $("#cliPed option:selected").text()
-
+    for(i of consultaProd){
+      if (i.idPRODUCTO==idProd) {
+       subtotal= i.valoruPRODUCTO * can;
+      }
+    }
 
     if (idProd != '') {
       if (can != ''){
       if (idClien != ''){
-        if (typeof existProd(idProd) === 'undefined') {
+        if (typeof existPedido(idProd) === 'undefined') {
             //agregar nuevo objeto al array
-            arrayPed.push({
+            arrayPedido.push({
                 'idPRODUCTO': idProd,
                 'nombrePRODUCTO': nameProd,
                 'idEC' : idClien,
                 'nombreEC' : nameClien,
-                'cantidad' : can
+                'cantidad' : can,
+                'subtotal': subtotal
             })
-
-            showPed()
-            cleanP()
+            desaparecer()
+            showPedido()
+            cleanPedido()
         } else {
             alert("Ya se encuentra el producto seleccionado")
         }
@@ -45,47 +51,51 @@ $('#btnP').click(function(e) {
     }
 });
 
-function cleanP(){
+function cleanPedido(){
   $("#cantiP").val("")
 
 }
+function desaparecer(){
+  $('#ocultarCli').hide();
+}
 
-function showPed() {
+function showPedido() {
 
     $("#PrdsLS").empty()
 
-    arrayPed.forEach(function(prd) {
-        let html = '<tr><td>' + prd.nombrePRODUCTO + '</td> <td>'+ prd.cantidad + '</td><td><button onclick="removeElementP(' + prd.idPRODUCTO + ')" class="btn btn-danger">X</button></td></tr>'
+    arrayPedido.forEach(function(prod) {
+        let html = '<tr><td>' + prod.nombrePRODUCTO + '</td><td>' + prod.cantidad + '</td><td>'+prod.subtotal+'</td><td> <button onclick="removeElementPedido(' + prod.idPRODUCTO + ')" class="btn btn-danger">X</button></td></tr>'
         $("#PrdsLS").append(html)
     })
 }
 
-function existProd(idProd) {
-    let existProd = arrayPed.find(function(prd) {
-        return prd.idPRODUCTO == idProd
+function existPedido(idPRODUCTO) {
+    let existPedido = arrayPedido.find(function(prod) {
+        return prod.idPRODUCTO == idPRODUCTO
     })
-    return existProd
+    return existPedido
 }
 
-function removeElementP(idProd) {
+function removeElementPedido(idPRODUCTO) {
     //obtiene el indice en donde esta la categoria a eliminar
-    let index = arrayPed.indexOf(existProd(idProd))
+    let index = arrayPedido.indexOf(existPedido(idPRODUCTO))
         //eliminar el indice del array
-    arrayPed.splice(index, 1)
-    showPed()
+    arrayPedido.splice(index, 1)
+    showPedido()
 }
 
 
-$('#finalPed').click(function(e) {
+$('#submin').click(function(e) {
   e.preventDefault()
-  let cant = $("#cantiP").val()
-if (cant!='') {
-  if (arrayPed=='') {
-    alert("Faltan datos para poder registrar el Pedido")
+
+  if (arrayMP=='') {
+    alert("Faltan datos para poder registrar el ingreso")
   }else {
-    let url = "index.php?paginasPedidos=PedidoData"
+    let url = "index.php?paginasIngresoMp=NuevoIMP"
     let params = {
-        arrPed:arrayPed
+
+        idEMPLE:$('#user').val(),
+        mps:arrayMP
     }
     //metodo post de ajax para el envio del formulario
     $.post(url, params, function(response) {
@@ -96,10 +106,7 @@ if (cant!='') {
         }
     }, 'json').fail(function(error) {
       alert("Inserción Satisfactoria")
-      location.href = 'index.php?paginasProduc=ConsultaProduc'
+      location.href = 'index.php?paginasIngresoMp=ConsultaIMP&id='+$('#user').val()
     });
   }
-}else {
-  alert("Falta registrar la cantidad")
-}
 });

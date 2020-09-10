@@ -9,6 +9,7 @@ if(!isset($_SESSION["validarIngreso"])){
         return;
     }
 }
+$consultaProd=ProdController::consult(null,null);
 $prd=ProdController::consult(null,null);
 $clie= ControladorClientes::ctrSeleccionarRegistroClientes(null, null);
 //$_SESSION[];
@@ -53,7 +54,7 @@ $clie= ControladorClientes::ctrSeleccionarRegistroClientes(null, null);
                                         ?>
                                     </select></center>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" id="ocultarCli">
                               <label>Selecciona el cliente</label>
                               <center> <select name="idMP_FK" id="cliPed" class="form-control">
                                       <option value="">Seleccione..</option>
@@ -78,6 +79,7 @@ $clie= ControladorClientes::ctrSeleccionarRegistroClientes(null, null);
                                 <tr>
                                     <th>Producto</th>
                                     <th>Cantidad</th>
+                                    <th>Subtotal</th>
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
@@ -99,3 +101,6 @@ $clie= ControladorClientes::ctrSeleccionarRegistroClientes(null, null);
 <section class="row">
     <div id="blanco" class="col-lg-12"></div>
 </section>
+<script type="text/javascript">
+  var consultaProd=<?php echo json_encode($consultaProd);  ?>;
+</script>
