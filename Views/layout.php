@@ -75,8 +75,9 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                                 <li class="nav-item"><a class="nav-link" href="?paginasUsuario=InicioSesion">Iniciar Sesión</a></li>
                             <?php elseif ($user["idROL_FK"] == 1) : ?>
                                 <li class="nav-item"><a class="nav-link" href="index.php">Inicio</a></li>
-                                <li class="nav-item"><a href="?paginasProduc=Catalog" class="nav-link "
+                                <li class="nav-item"><a href="?paginasProduc=Catalog&pages=1" class="nav-link "
                                     >Tienda</a></li>
+                                   
                                 </li>
                                 <li class="nav-item submenu dropdown">
                                     <?php if($user['img'] == ""){?>
