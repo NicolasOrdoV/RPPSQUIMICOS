@@ -9,6 +9,14 @@ if(!isset($_SESSION["validarIngreso"])){
         return;
     }
 }
+if (isset($_GET["id"])) {
+    $item1 = "idEMPLEADO";
+    $valor1 = $_GET["id"];
+    $admin = ControladorAdministradores::ctrSeleccionarRegistrosAdministradores($item1,$valor1);
+}
+$date = date("Y-m-d");
+$mod_date = strtotime($date."+ 2 days");
+$mod_dates = strtotime($date."+ 5 days");
 $consultaProd=ProdController::consult(null,null);
 $prd=ProdController::consult(null,null);
 $clie= ControladorClientes::ctrSeleccionarRegistroClientes(null, null);
@@ -96,6 +104,10 @@ $clie= ControladorClientes::ctrSeleccionarRegistroClientes(null, null);
                       <div class="text-right">
 
                           <h1 class="card-title"  id="totalPedido"><strong>0</strong></h1>
+                          <input type="hidden" id="totalPedidoValor" >
+                          <input type="hidden" id="user" value="<?php echo $admin['idEMPLEADO']; ?>">
+                          <input type="hidden" name="fechaEntre" id="fechaEnAdmin" value="<?php echo date("Y-m-d",$mod_date) . "\n";?>">
+                          <input type="hidden" id="idCliente" >
                       </div>
                   </div>
                     <div class="form-group">

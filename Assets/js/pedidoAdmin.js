@@ -1,6 +1,7 @@
 // Definir una variable global para cargar las categorias seleccionadas
 var arrayPedido = []
 var subtotal
+var valoru
 
 $('#btnP').click(function(e) {
     //Deshabilitar Submit del Formulario
@@ -16,6 +17,7 @@ $('#btnP').click(function(e) {
     for(i of consultaProd){
       if (i.idPRODUCTO==idProd) {
        subtotal= i.valoruPRODUCTO * can;
+       valoru=i.valoruPRODUCTO
       }
     }
 
@@ -30,9 +32,12 @@ $('#btnP').click(function(e) {
                 'idEC' : idClien,
                 'nombreEC' : nameClien,
                 'cantidad' : can,
-                'subtotal': subtotal
+                'subtotal': subtotal,
+                'valoruPRODUCTO':valoru
             })
-            document.getElementById('totalPedido').innerHTML = suma();
+            document.getElementById('totalPedido').innerHTML = '$'+suma();
+            document.getElementById("totalPedidoValor").value = suma();
+            document.getElementById("idCliente").value = idClien;
             desaparecer()
             showPedido()
             cleanPedido()
@@ -88,35 +93,49 @@ function existPedido(idPRODUCTO) {
 function removeElementPedido(idPRODUCTO) {
     //obtiene el indice en donde esta la categoria a eliminar
     let index = arrayPedido.indexOf(existPedido(idPRODUCTO))
-    document.getElementById('totalPedido').innerHTML = suma() - subtotal;
+    document.getElementById('totalPedido').innerHTML = '$'+suma() - subtotal;
+    document.getElementById("totalPedidoValor").value = suma()-subtotal;
         //eliminar el indice del array
     arrayPedido.splice(index, 1)
     showPedido()
 }
 
 
-$('#submin').click(function(e) {
+$('#finalPed').click(function(e) {
   e.preventDefault()
 
-  if (arrayMP=='') {
-    alert("Faltan datos para poder registrar el ingreso")
+  if (arrayPedido=='') {
+    alert("Faltan datos para poder registrar el pedido")
   }else {
-    let url = "index.php?paginasIngresoMp=NuevoIMP"
+    let url = "index.php?paginasPedidos=NuevoPedido&json=true"
     let params = {
 
-        idEMPLE:$('#user').val(),
-        mps:arrayMP
+        idEmp:$('#user').val(),
+        totalPedCar: $('#totalPedidoValor').val(),
+        Fechaen:$('#fechaEnAdmin').val(),
+        idClienEmpre:$('#idCliente').val(),
+        prods:arrayPedido
     }
     //metodo post de ajax para el envio del formulario
     $.post(url, params, function(response) {
-      if (typeof response.error !== 'undefined') {
-            alert(response.message)
-        } else {
-          alert("ERROR")
+      if (response.error) {
+        console.error(response.message)
+      }
+
+      else {
+        
+        window.localStorage.removeItem("carrito")
+        Push.create("Felicidades!", {
+        body: "Su pedido se ha registrado exitosamente!",
+        icon: 'Assets/img/logo2.png',
+        timeout: 4000,
+        onClick: function () {
+            window.location="index.php";
+            this.close();
         }
-    }, 'json').fail(function(error) {
-      alert("Inserción Satisfactoria")
-      location.href = 'index.php?paginasIngresoMp=ConsultaIMP&id='+$('#user').val()
-    });
+        });
+        location.href = 'index.php?paginasAdministradores=MenuInicio'
+      }
+    })
   }
 });

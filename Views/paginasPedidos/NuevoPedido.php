@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST['idEmp'])&&isset($_POST['Carro'])&&isset($_POST['idClienEmpre'])&&isset($_POST["totalPedCar"])&&isset($_POST["Fechaen"])) {
+if (isset($_POST['idEmp'])&&isset($_POST['idClienEmpre'])&&isset($_POST["totalPedCar"])&&isset($_POST["Fechaen"])) {
 
   $dataPed=[
     'IdEmple'=>$_POST['idEmp'],
@@ -8,8 +8,11 @@ if (isset($_POST['idEmp'])&&isset($_POST['Carro'])&&isset($_POST['idClienEmpre']
     'fechaEN' => $_POST['Fechaen']
 
   ];
-
+  if (isset($_POST['prods'])) {
+    $detallePed = $_POST['prods'];
+  }else{
   $detallePed = json_decode($_POST['Carro'], true);
+}
 
   $respuestaIngreso= ModeloPedido::nuevoPedido($dataPed);
 

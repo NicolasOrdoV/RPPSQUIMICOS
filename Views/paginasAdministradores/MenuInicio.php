@@ -1,7 +1,7 @@
 <?php
 if(!isset($_SESSION["validarIngreso"])){
     echo '<script> window.location = "?paginasUsuario=InicioSesion";</script>';
-    return;  
+    return;
 }else{
     if($_SESSION["validarIngreso"] != "ok"){
         echo '<script> window.location = "?paginasUsuario=InicioSesion";</script>';
@@ -28,7 +28,7 @@ if(!isset($_SESSION["validarIngreso"])){
 					<aside class="col-lg-6">
 						<a href="index.php?paginasCliente=ConsultaCliente" class="btn btn-danger btn-lg my-1 btn-block">Lista de clientes<i class="fas fa-users"></i></a>
 						<a href="?paginasProduc=ConsultaProduc" class="btn btn-danger btn-lg my-1 btn-block">Consulta de productos<i class="fas fa-wine-bottle"></i></a>
-						<a href="index.php?paginasPedidos=RegistroPedido" class="btn btn-danger btn-lg my-1 btn-block">Registrar Pedido<i class="fab fa-jedi-order"></i></a>
+						<a href="index.php?paginasPedidos=RegistroPedido&id=<?php echo $user["idEMPLEADO"] ?>" class="btn btn-danger btn-lg my-1 btn-block">Registrar Pedido<i class="fab fa-jedi-order"></i></a>
 					</aside>
 				    <aside class="col-lg-6">
 				    	<a href="?paginasMp=ConsultaMP" class="btn btn-danger btn-lg my-1 btn-block">Consultar materia prima<i class="fas fa-flask"></i></a>
