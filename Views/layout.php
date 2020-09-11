@@ -69,7 +69,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                             <?php if ($user == "") : ?>
                                 <li class="nav-item"><a class="nav-link" href="index.php">Inicio</a></li>
 
-                                    <li class="nav-item"><a href="?paginasProduc=Catalog" class="nav-link "
+                                    <li class="nav-item"><a href="?paginasProduc=Catalog&pages=1" class="nav-link "
                                     >Tienda</a></li>
                                 <li class="nav-item"><a class="nav-link" href="?paginasUsuario=hagging">Contacto</a></li>
                                 <li class="nav-item"><a class="nav-link" href="?paginasUsuario=InicioSesion">Iniciar Sesión</a></li>
@@ -145,7 +145,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
         </div>
         <div class="search_input" id="search_input_box">
             <div class="container">
-                <form class="d-flex justify-content-between" method="post" action="?paginasProduc=Catalog">
+                <form class="d-flex justify-content-between" method="post" action="?paginasProduc=Catalog&pages=1">
                     <input type="text" class="form-control" name="busqueda" id="search_input" placeholder="¿Que estas buscando?">
                     <button type="submit" class="btn"></button>
                     <span class="lnr lnr-cross" id="close_search" title="Close Search"></span>

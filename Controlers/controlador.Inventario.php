@@ -26,9 +26,15 @@ class ControladorInventario
     }
 
     //consultra por busqueda
-    static public function ctrSeleccionarProductosBusqueda($busqueda){
+    static public function ctrSeleccionarProductosBusqueda($busqueda, $init,$articlePages){
         $tabla="producto";
-        $respuesta = ModeloInventario::mdlSeleccionarProductosBusqueda($tabla,$busqueda);
+        $respuesta = ModeloInventario::mdlSeleccionarProductosBusqueda($tabla,$busqueda,$init, $articlePages);
+        return $respuesta;
+    }
+
+    static public function ctrListPages($init,$articlePages){
+        $tabla = "producto";
+        $respuesta = ModeloInventario::mdlListPages($tabla, $init, $articlePages);
         return $respuesta;
     }
 

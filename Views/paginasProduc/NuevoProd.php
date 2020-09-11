@@ -35,8 +35,6 @@ if(!isset($_SESSION["validarIngreso"])){
                             </div>
                             <input type="file" name="imgPROD" class="form-control" required><button class="btn btn-info">+</button>
                         </div>
-
-
                     </div>
                 </form>
                 <?php

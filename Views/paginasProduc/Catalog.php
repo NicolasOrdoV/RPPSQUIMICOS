@@ -1,11 +1,35 @@
-
 <?php
     if(isset($_POST["busqueda"])){
         $busqueda=$_POST["busqueda"];
+        $productos = ControladorInventario::ctrSeleccionarProductosUsuario(null,null);
         //var_dump($busqueda);
-        $producto = ControladorInventario::ctrSeleccionarProductosBusqueda($busqueda);
+        $articlePages = 4;
+        $totalProducts = count($productos);
+        $pages = $totalProducts/4;
+        $pages = ceil($pages);
+        if (!($_GET)) {
+            header('Location:?paginasProduc=Catalog&pages=1');
+        }
+        if ($_GET['pages']>$pages || $_GET['pages']<= 0 ) {
+           header('Location:?paginasProduc=Catalog&pages=1');
+        }
+        $init = ($_GET['pages']-1)*$articlePages;
+        $producto = ControladorInventario::ctrSeleccionarProductosBusqueda($busqueda,$init,$articlePages);
     }else{
-        $producto = ControladorInventario::ctrSeleccionarProductosUsuario(null,null);
+        $productos = ControladorInventario::ctrSeleccionarProductosUsuario(null,null);
+        $articlePages = 4;
+        $totalProducts = count($productos);
+        $pages = $totalProducts/4;
+        $pages = ceil($pages);
+        if (!($_GET)) {
+            header('Location:?paginasProduc=Catalog&pages=1');
+        }
+        if ($_GET['pages']>$pages || $_GET['pages']<= 0 ) {
+           header('Location:?paginasProduc=Catalog&pages=1');
+        }
+        $init = ($_GET['pages']-1)*$articlePages;
+        $producto = ControladorInventario::ctrListPages($init,$articlePages);
+        //echo $pages;
     }
 ?>
 <section class="banner-area organic-breadcrumb">
@@ -33,7 +57,7 @@
 <section class="row">
     <aside id="blanco-h" class="col-lg-2"></aside>
     <aside class="col-lg-8">
-        <div class="row">         
+        <div class="row">        
             <?php foreach ($producto as $stocks) : ?>
                 <div class="card" style="width: 18rem; display: inline-block;">
                     <a href="index.php?paginasCliente=DetalleProducto&id=<?php echo $stocks["idPRODUCTO"]?>">
@@ -50,6 +74,17 @@
         </div><br>
     </aside>
     <aside id="blanco-h" class="col-lg-2"></aside>
+    <div class="m-auto">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item <?php echo $_GET['pages']<=1 ? 'disabled' : '' ;?>"><a class="page-link" href="?paginasProduc=Catalog&pages=<?php echo $_GET['pages']-1;?>"><</a></li>
+            <?php for ($i=0; $i < $pages ; $i++) { ?>
+                <li class="page-item <?php echo $_GET['pages']==$i+1 ? 'active' : '' ;?>"><a class="page-link" href="?paginasProduc=Catalog&pages=<?php echo $i+1?>"><?php echo $i+1 ?></a></li>
+            <?php } ?>
+            <li class="page-item <?php echo $_GET['pages']>=$pages ? 'disabled' : '' ;?>"><a class="page-link" href="?paginasProduc=Catalog&pages=<?php echo $_GET['pages']+1;?>">></a></li>
+          </ul>
+        </nav>
+    </div>
 </section>
 <!------Espacio en blanco inferior------>
 <section class="row">

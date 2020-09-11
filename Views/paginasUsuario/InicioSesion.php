@@ -1,6 +1,6 @@
 <?php $locates = LocatesController::selectLocates();?>
 <!-- Start Banner Area -->
-<section class="banner-area organic-breadcrumb">
+<!--<section class="banner-area organic-breadcrumb">
     <div class="container">
         <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
             <div class="col-first">
@@ -12,8 +12,14 @@
             </div>
         </div>
     </div>
-</section>
+</section>-->
 <!-- End Banner Area -->
+<section class="row">
+    <div id="blanco" class="col-lg-12"></div>
+</section>
+<section class="row">
+    <div id="blanco" class="col-lg-12"></div>
+</section>
 <!--================Login Box Area =================-->
 <div class="cont my-5">
   <div class="form sign-in mx-1">
