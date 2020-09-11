@@ -44,7 +44,7 @@ if (isset($_GET["id"])) {
                 <input type="text" name="x" id="b" maxlength="12" value="1" title="Quantity:" class="input-text qty">
                 <button onclick="var result = document.getElementById('b'); var b = result.value; if( !isNaN( b )) result.value++;return false;"
                  class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
-                <button onclick="var result = document.getElementById('b'); var b = result.value; if( !isNaN( b ) &amp;&amp; b > 0 ) result.value--;return false;"
+                <button onclick="var result = document.getElementById('b'); var b = result.value; if( !isNaN( b ) &amp;&amp; b > 1 ) result.value--;return false;"
                  class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
               </div>
               <div class="card_area d-flex align-items-center">
