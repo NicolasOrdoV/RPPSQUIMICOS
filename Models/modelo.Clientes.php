@@ -9,8 +9,8 @@ class ModeloClientes{
     /////////////////-------------------------------------////////////////////////
     /////////////////////////Clientes/////////////////////////////////////////////
     ////////////////--------------------------------------////////////////////////
-    ////////////////////////////////////////////////////////////////////////////// 
-    
+    //////////////////////////////////////////////////////////////////////////////
+
     //Registro Clientes
     static public function mdlRegistroClientes($tabla,$datos){
 
@@ -35,7 +35,7 @@ class ModeloClientes{
             }
             $stmt->close();
             $stmt= null;
-            
+
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
@@ -47,7 +47,7 @@ class ModeloClientes{
 
         try {
             if ($item == null  && $valor == null) {
-            $stmt = Conexion::conectar()->prepare("SELECT em.idEC,em.identificacionEC,em.nombreEC,em.telefonoEC,em.direccionEC,b.nombreBarrio,em.nombrecontEC,em.telefonocontEC,em.correocontEC,us.idUSUARIO,us.nombreUSUARIO,us.estadoUSUARIO FROM $tabla em 
+            $stmt = Conexion::conectar()->prepare("SELECT em.idEC,em.identificacionEC,em.nombreEC,em.telefonoEC,em.direccionEC,b.nombreBarrio,em.nombrecontEC,em.telefonocontEC,em.correocontEC,us.idUSUARIO,us.nombreUSUARIO,us.estadoUSUARIO FROM $tabla em
                 INNER JOIN barrio b ON em.idBARRIO_FK = b.idBARRIO
                 INNER JOIN usuario us ON em.idEC = us.idEC_FK");
             $stmt->execute();
@@ -59,6 +59,19 @@ class ModeloClientes{
                 return $stmt -> fetch();
             }
             $stmt->close();
+            $stmt= null;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    static public function mdlSeleccionarClienteEspecifico($item){
+
+        try {
+            $stmt = Conexion::conectar()->prepare("SELECT * FROM empresa_cliente WHERE idEC = $item");
+            $stmt->execute();
+            return $stmt -> fetchAll();
+            //$stmt->close();
             $stmt= null;
         } catch (PDOException $e) {
             echo $e->getMessage();
@@ -77,7 +90,7 @@ class ModeloClientes{
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
-    } 
+    }
 
 
 
@@ -99,7 +112,7 @@ class ModeloClientes{
             $stmt->close();
             $stmt= null;
         } catch (PDOException $e) {
-            echo $e->getMessage(); 
+            echo $e->getMessage();
         }
     }
 
@@ -124,7 +137,7 @@ class ModeloClientes{
             $stmt->close();
             $stmt= null;
         } catch (PDOException $e) {
-           echo $e->getMessage(); 
+           echo $e->getMessage();
         }
     }
 
@@ -149,7 +162,7 @@ class ModeloClientes{
             $stmt->close();
             $stmt= null;
         } catch (PDOException $e) {
-           echo $e->getMessage(); 
+           echo $e->getMessage();
         }
     }
 
@@ -174,7 +187,7 @@ class ModeloClientes{
             $stmt->close();
             $stmt= null;
         } catch (PDOException $e) {
-           echo $e->getMessage(); 
+           echo $e->getMessage();
         }
     }
 
@@ -198,7 +211,7 @@ class ModeloClientes{
             $stmt->close();
             $stmt= null;
         } catch (PDOException $e) {
-           echo $e->getMessage(); 
+           echo $e->getMessage();
         }
     }
 
@@ -222,7 +235,7 @@ class ModeloClientes{
             $stmt->close();
             $stmt= null;
         } catch (PDOException $e) {
-           echo $e->getMessage(); 
+           echo $e->getMessage();
         }
     }
 
@@ -246,7 +259,7 @@ class ModeloClientes{
             $stmt->close();
             $stmt= null;
         } catch (PDOException $e) {
-           echo $e->getMessage(); 
+           echo $e->getMessage();
         }
     }
 
@@ -270,7 +283,7 @@ class ModeloClientes{
             $stmt->close();
             $stmt= null;
         } catch (PDOException $e) {
-            echo $e->getMessage(); 
+            echo $e->getMessage();
         }
     }
 
@@ -294,24 +307,24 @@ class ModeloClientes{
             $stmt->close();
             $stmt= null;
         } catch (PDOException $e) {
-            echo $e->getMessage(); 
+            echo $e->getMessage();
         }
     }
     //////////////////////////////////////////////////////////////////////////////
     /////////////////-------------------------------------////////////////////////
     /////////////////////////Roll/////////////////////////////////////////////
     ////////////////--------------------------------------////////////////////////
-    ////////////////////////////////////////////////////////////////////////////// 
-    
+    //////////////////////////////////////////////////////////////////////////////
+
     //Consulta Roll
 
     static public function mdlSeleccionarRoll($tabla){
 
         $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
         $stmt->execute();
-        return $stmt -> fetchAll(); 
+        return $stmt -> fetchAll();
         $stmt->close();
         $stmt= null;
-        
+
     }
 }

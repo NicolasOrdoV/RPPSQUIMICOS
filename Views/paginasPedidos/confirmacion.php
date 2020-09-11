@@ -24,7 +24,8 @@
       <input type="hidden" name="idClient" id="IdCliente" value="<?php echo $user["idEC_FK"]; ?>">
       <input type="hidden" id="totalCart" value="<?php echo $totalcarr;?>">
       <div class="d-flex justify-content-center" style="padding-top: 4em">
-        <button type="button" style="margin: 1em" class="btn btn-info btn-lg btn-block" id="alerta" name="button" data-toggle="modal" data-target="#Confirma"> ¡Claro! <i class="far fa-check-circle"></i> </button>
+
+      <button type="button" style="margin: 1em" class="btn btn-info btn-lg btn-block" id="alerta" name="button" data-toggle="modal" data-target="#Confirma"> ¡Claro! <i class="far fa-check-circle"></i> </button>
 
         <a href="index.php?paginasProduc=Catalog" style="margin: 1em" class="btn btn-secondary btn-lg btn-block" id="alerta" name="button"> Aún faltan cosas <i class="far fa-clock"></i></a>
       </div>

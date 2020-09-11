@@ -3,8 +3,7 @@ error_reporting(0);
 session_start();
 $user = $_SESSION["user"];
 $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
-
-
+$cliente = ControladorClientes::ctrSeleccionarClienteEspecifico($user['idEC_FK']);
 ?>
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
@@ -77,7 +76,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                                 <li class="nav-item"><a class="nav-link" href="index.php">Inicio</a></li>
                                 <li class="nav-item"><a href="?paginasProduc=Catalog&pages=1" class="nav-link "
                                     >Tienda</a></li>
-                                   
+
                                 </li>
                                 <li class="nav-item submenu dropdown">
                                     <?php if($user['img'] == ""){?>

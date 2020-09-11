@@ -51,4 +51,11 @@ else {
 
   var_dump( json_encode($response));
 }
+
+
+
+  $correo = new ControladorPedidos();
+  $correo -> enviarCorreoPedido($cliente);
+
+
 ?>

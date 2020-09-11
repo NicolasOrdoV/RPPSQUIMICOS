@@ -5,7 +5,7 @@ class ControladorClientes{
 /////////////////-------------------------------------////////////////////////
 /////////////////////////Clientes/////////////////////////////////////////////
 ////////////////--------------------------------------////////////////////////
-//////////////////////////////////////////////////////////////////////////////  
+//////////////////////////////////////////////////////////////////////////////
 
     //Registro Clientes
 
@@ -43,15 +43,15 @@ class ControladorClientes{
                         window.history.replaceState(null,null,window.location.href);
                     }
                     window.location = "index.php?paginasUsuario=RegistrarUsuario&id='.$respuesta[0][0].'";
-                    </script>';          
+                    </script>';
                     }
                 }else{
                     echo '<div class="alert alert-danger">Los datos no tienen el formato correcto, verifique los datos.</div>';
                 }
             }else{
                 echo '<div class="alert alert-danger">El numero de identificación o el email ya existen en nuestro sistema, no se puede duplicar los datos.</div>';
-            }   
-        }          
+            }
+        }
     }
 
     //Consulta Clientes
@@ -59,6 +59,12 @@ class ControladorClientes{
     static public function ctrSeleccionarRegistroClientes($item,$valor){
         $tabla = "empresa_cliente";
         $respuesta = ModeloClientes::mdlSeleccionarRegistroClientes($tabla,$item,$valor);
+        return $respuesta;
+    }
+    //Consulta Cliente Especifico
+
+    static public function ctrSeleccionarClienteEspecifico($item){
+        $respuesta = ModeloClientes::mdlSeleccionarClienteEspecifico($item);
         return $respuesta;
     }
 
@@ -100,7 +106,7 @@ class ControladorClientes{
 
             $respuesta = ModeloClientes::mdlActualizarNombreComUsuario($tabla,$datos);
 
-            return $respuesta;            
+            return $respuesta;
         }
     }
 
@@ -117,7 +123,7 @@ class ControladorClientes{
 
             $respuesta = ModeloClientes::mdlActualizarIdentUsuario($tabla,$datos);
 
-            return $respuesta;            
+            return $respuesta;
         }
     }
 
@@ -134,7 +140,7 @@ class ControladorClientes{
 
             $respuesta = ModeloClientes::mdlActualizarCorreoUsuario($tabla,$datos);
 
-            return $respuesta;            
+            return $respuesta;
         }
     }
 
@@ -151,7 +157,7 @@ class ControladorClientes{
 
             $respuesta = ModeloClientes::mdlActualizarDireccionUsuario($tabla,$datos);
 
-            return $respuesta;            
+            return $respuesta;
         }
     }
 
@@ -168,7 +174,7 @@ class ControladorClientes{
 
             $respuesta = ModeloClientes::mdlActualizarBarrioUsuario($tabla,$datos);
 
-            return $respuesta;            
+            return $respuesta;
         }
     }
 
@@ -185,7 +191,7 @@ class ControladorClientes{
 
             $respuesta = ModeloClientes::mdlActualizarTelefonoUsuario($tabla,$datos);
 
-            return $respuesta;            
+            return $respuesta;
         }
     }
 
