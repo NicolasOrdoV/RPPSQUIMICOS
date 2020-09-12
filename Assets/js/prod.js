@@ -2,6 +2,7 @@
 var arrayMP1 = []
 var cantDis
 var nomMp
+var cantCom
 
 $('#addc').click(function(e) {
     //Deshabilitar Submit del Formulario
@@ -11,6 +12,7 @@ $('#addc').click(function(e) {
     let nameMP = $("#mpsc option:selected").text()
     let medida=$("#medida").val()
     let cant = $("#canti").val()
+    cantCom=cant
     for(i of consultaMp){
       if (i.idMP==idMP) {
         nomMp=i.nombreMP
@@ -33,6 +35,7 @@ $('#addc').click(function(e) {
                 'idMP': idMP,
                 'nombreMP': nameMP
             })
+            desaparecer1()
             showMP1()
         } else {
             alert("La Materia Prima ya se Encuentra Seleccionada")
@@ -46,7 +49,10 @@ $('#addc').click(function(e) {
     }
 });
 
-
+function desaparecer1(){
+  $('#canti').hide();
+  document.getElementById('mostrarCantidad').innerHTML ="Cantidad: "+cantCom;
+}
 function showMP1() {
 
     $("#list-mpsc").empty()
