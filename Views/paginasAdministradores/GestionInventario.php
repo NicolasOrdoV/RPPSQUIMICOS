@@ -139,12 +139,22 @@ $producto = ControladorInventario::ctrSeleccionarProductosStock(null, null);
 
 <?php
   $producs_pe=array();
+  $mp_pe=array();
 foreach($producto as $stocks){
     if ($stocks["cantPRODUCTO"]<=3 && $stocks["estadoPRODUCTO"]=="Activo"){
         //     ControladorInventario::ctrSendNotifyCuantity($_SESSION["user"]["correoEMPLEADO"],$stocks["cantPRODUCTO"],$stocks["nombrePRODUCTO"]);
         array_push($producs_pe,'"'.$stocks["nombrePRODUCTO"].'"');
     }
 }
+
+foreach($mps as $mp){
+    if($mp["cantMP"]<= 4){
+        array_push($mp_pe,'"'.$mp["nombreMP"].'"');
+    }
+}
 //print_r($producs_pe);
+//print_r($mp_pe);
+
 ControladorInventario::ctrSendNotifyCuantity($_SESSION["user"]["correoEMPLEADO"],$producs_pe);
+ControladorInventario::ctrSendNotifyCuantityMP($_SESSION["user"]["correoEMPLEADO"],$mp_pe);
 ?>

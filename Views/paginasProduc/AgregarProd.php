@@ -43,6 +43,7 @@ $data=ProdController::getById();
                     </div>
                     <div class="form-group">
                         <input type="number" class="form-control" id="canti" name="canti" min="1" placeholder="Cantidad a ingresar">
+                        <h3 class="card-title"  id="mostrarCantidad"><strong></strong></h3>
                     </div>
                     <div class="form-group row">
                         <div class="col-md-9">
@@ -91,3 +92,6 @@ $data=ProdController::getById();
 <section class="row">
     <div id="blanco" class="col-lg-12"></div>
 </section>
+<script type="text/javascript">
+  var consultaMp=<?php echo json_encode($mps);  ?>;
+</script>

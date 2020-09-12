@@ -117,7 +117,7 @@ $UltimosProd=ControladorInventario::ctrSleccionarUltimos3Prod(null,null);?>
                                     <h6><?php echo $product['nombrePRODUCTO']?></h6>
                                     <div class="price">
                                         <h6>$<?php echo $product["valoruPRODUCTO"]; ?></h6>
-                                        <h6 class="l-through">$210.00</h6>
+                                        
                                     </div>
                                     <div class="prd-bottom">
 
@@ -157,7 +157,6 @@ $UltimosProd=ControladorInventario::ctrSleccionarUltimos3Prod(null,null);?>
                                         <a href="?paginasCliente=DetalleProducto&id=<?php echo $producto["idPRODUCTO"]?>" class="title"><?php echo $producto['nombrePRODUCTO']?></a>
                                         <div class="price">
                                             <h6>$<?php echo $producto['valoruPRODUCTO']; ?></h6>
-                                            <h6 class="l-through">$210.00</h6>
                                         </div>
                                     </div>
                                 </div>

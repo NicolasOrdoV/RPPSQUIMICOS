@@ -1,5 +1,8 @@
 // Definir una variable global para cargar las categorias seleccionadas
 var arrayMP1 = []
+var cantDis
+var nomMp
+var cantCom
 
 $('#addc').click(function(e) {
     //Deshabilitar Submit del Formulario
@@ -7,8 +10,24 @@ $('#addc').click(function(e) {
 
     let idMP = $("#mpsc").val()
     let nameMP = $("#mpsc option:selected").text()
+    let medida=$("#medida").val()
+    let cant = $("#canti").val()
+    cantCom=cant
+    for(i of consultaMp){
+      if (i.idMP==idMP) {
+        nomMp=i.nombreMP
+        if (i.tipoMP=="SOLIDO") {
+          cantDis=(i.cantMP*1000)/medida
+        }else if (i.tipoMP=="LIQUIDO") {
+          cantDis=(i.cantMP*3785)/medida
+        }else {
+          cantDis=i.cantMP
+        }
+      }
+    }
 
     if (idMP != '') {
+      if (cantDis>=cant) {
 
         if (typeof existMP1(idMP) === 'undefined') {
             //agregar nuevo objeto al array
@@ -16,17 +35,24 @@ $('#addc').click(function(e) {
                 'idMP': idMP,
                 'nombreMP': nameMP
             })
+            desaparecer1()
             showMP1()
         } else {
             alert("La Materia Prima ya se Encuentra Seleccionada")
         }
+      }else {
+        alert("No hay suficiente de "+nomMp)
+      }
 
     } else {
         alert("Debe Seleccionar una Materia Prima")
     }
 });
 
-
+function desaparecer1(){
+  $('#canti').hide();
+  document.getElementById('mostrarCantidad').innerHTML ="Cantidad: "+cantCom;
+}
 function showMP1() {
 
     $("#list-mpsc").empty()
