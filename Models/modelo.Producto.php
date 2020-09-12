@@ -66,10 +66,31 @@
                 }
             }
 
-            static public function eliminarProducto($valor){
+            static public function inactivar($valor){
 
                 try {
-                    $stmt = Conexion::conectar()->prepare("DELETE FROM producto WHERE idPRODUCTO = :idPRODUCTO");
+                    $stmt = Conexion::conectar()->prepare("UPDATE producto SET estadoPRODUCTO='Inactivo' WHERE idPRODUCTO = :idPRODUCTO");
+
+                    $stmt->bindParam(":idPRODUCTO",$valor,PDO::PARAM_INT);
+
+                    if($stmt->execute()){
+
+                        return "ok";
+
+                    }else{
+                        print_r(Conexion::conectar()->errorInfo());
+                    }
+
+                    $stmt->close();
+                    $stmt= null;
+                } catch (PDOException $e) {
+                    echo $e->getMessage();
+                }
+            }
+            static public function activar($valor){
+
+                try {
+                    $stmt = Conexion::conectar()->prepare("UPDATE producto SET estadoPRODUCTO='Activo' WHERE idPRODUCTO = :idPRODUCTO");
 
                     $stmt->bindParam(":idPRODUCTO",$valor,PDO::PARAM_INT);
 
@@ -161,7 +182,7 @@
                   $stmt->execute();
                   $stmt=null;
 
-                
+
                 if($stmt->execute()){
                     return true;
                 }else{

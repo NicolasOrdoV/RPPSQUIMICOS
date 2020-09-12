@@ -64,18 +64,36 @@ $produc = ProdController::consult(null, null);?>
                                     <button class="btn btn-warning m-1" title="Editar"><i class="far fa-edit"></i></button>
 
                                 </form>
-                                <!--<form method="post" class="text-left">
-                                    <input type="hidden" value="<?php echo $p["idPRODUCTO"] ?>" name="eliminarRegistro">
-                                    <button type="submit" class="btn btn-danger m-1" title="Eliminar">
-                                        <i class="fas fa-trash"></i>
+                                <?php if ($p["estadoPRODUCTO"]=="Activo"){ ?>
+
+
+                                <form method="post" class="text-left">
+                                    <input type="hidden" value="<?php echo $p["idPRODUCTO"] ?>" name="inactivarP">
+                                    <button type="submit" class="btn btn-danger m-1" title="Inactivar">
+                                        <i class="fas fa-times-circle"></i>
                                     </button>
                                     <?php
 
-                                    $eliminar = new ProdController();
-                                    $eliminar->delete();
+                                    $inactivar = new ProdController();
+                                    $inactivar->inactivar();
 
                                     ?>
-                                </form>-->
+                                </form>
+                              <?php }else{?>
+                                <form method="post" class="text-left">
+                                    <input type="hidden" value="<?php echo $p["idPRODUCTO"] ?>" name="activarP">
+                                    <button type="submit" class="btn btn-info m-1" title="Activar">
+                                        <i class="fas fa-check-circle"></i>
+                                    </button>
+                                    <?php
+
+                                    $activar = new ProdController();
+                                    $activar->activar();
+
+                                    ?>
+                                </form>
+
+                              <?php }  ?>
                             </div>
 
 

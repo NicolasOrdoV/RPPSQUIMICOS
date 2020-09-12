@@ -26,7 +26,7 @@ class ProdController
         $respuesta = ModeloProducto::consultarProducto($item, $valor);
         return $respuesta;
     }
-    
+
     static public function update($data)
     {
         if (isset($data['idPROD'])&&isset($data['imgPROD'])&&isset($data['nombrePROD'])&&isset($data['descripPROD'])&&isset($data['medidaPROD'])&&isset($data['valoruPROD'])) {
@@ -45,13 +45,34 @@ class ProdController
             return $respuesta;
         }
     }
-    static public function delete()
+    static public function inactivar()
     {
-        if (isset($_POST["eliminarRegistro"])) {
+        if (isset($_POST["inactivarP"])) {
 
-            $valor = $_POST["eliminarRegistro"];
+            $valor = $_POST["inactivarP"];
 
-            $respuesta = ModeloProducto::eliminarProducto($valor);
+            $respuesta = ModeloProducto::inactivar($valor);
+
+            if ($respuesta == "ok") {
+                echo '<script>
+            if(window.history.replaceState){
+
+                window.history.replaceState(null,null,window.location.href);
+            }
+            setTimeout(function(){
+                window.location = "index.php?paginasProduc=ConsultaProduc";
+            },1000)
+            </script>';
+            }
+        }
+    }
+    static public function activar()
+    {
+        if (isset($_POST["activarP"])) {
+
+            $valor = $_POST["activarP"];
+
+            $respuesta = ModeloProducto::activar($valor);
 
             if ($respuesta == "ok") {
                 echo '<script>
