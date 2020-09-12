@@ -6,7 +6,7 @@ class ModeloInventario
 	{
 		try {
 			if ($item == null  && $valor == null) {
-				$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
+				$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE estadoPRODUCTO='Activo'");
 				$stmt->execute();
 				return $stmt->fetchAll();
 			} else {
@@ -34,7 +34,7 @@ class ModeloInventario
 
 	static public function mdlListPages($tabla, $init, $articlePages){
 		try{
-			$stmt=Conexion::conectar()->prepare("SELECT * FROM $tabla LIMIT :init , :articlePages ");
+			$stmt=Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE estadoPRODUCTO='Activo 'LIMIT :init , :articlePages ");
 			$stmt->bindParam(":init", $init, PDO::PARAM_INT);
 			$stmt->bindParam(":articlePages", $articlePages, PDO::PARAM_INT);
 			$stmt->execute();
