@@ -40,13 +40,13 @@ class MPController
             return $respuesta;
         }
     }
-   static public function delete()
+    static public function inactivar()
     {
-        if (isset($_POST["eliminarRegistro"])) {
+        if (isset($_POST["inactivarMP"])) {
 
-            $valor = $_POST["eliminarRegistro"];
+            $valor = $_POST["inactivarMP"];
 
-            $respuesta = ModeloMp::eliminarMP($valor);
+            $respuesta = ModeloMp::inactivar($valor);
 
             if ($respuesta == "ok") {
                 echo '<script>
@@ -56,6 +56,28 @@ class MPController
             }
             setTimeout(function(){
                 window.location = "index.php?paginasMp=ConsultaMP";
+            },1000)
+            </script>';
+            }
+        }
+    }
+    static public function activar()
+    {
+        if (isset($_POST["activarMP"])&&isset($_POST["cantMp"])) {
+
+            $valor = $_POST["activarMP"];
+            $cant=$_POST["cantMp"];
+
+            $respuesta = ModeloMp::activar($valor,$cant);
+
+            if ($respuesta == "ok") {
+                echo '<script>
+            if(window.history.replaceState){
+
+                window.history.replaceState(null,null,window.location.href);
+            }
+            setTimeout(function(){
+              window.location = "index.php?paginasMp=ConsultaMP";
             },1000)
             </script>';
             }

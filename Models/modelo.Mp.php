@@ -60,12 +60,39 @@
                     echo $e->getMessage();
                 }
             }
-            static public function eliminarMP($valor){
+            static public function inactivar($valor){
 
                 try {
-                    $stmt = Conexion::conectar()->prepare("DELETE FROM mp WHERE idMP = :idMP");
+                    $stmt = Conexion::conectar()->prepare("UPDATE mp SET estadoMP='Inactivo' WHERE idMP = :idMP");
 
                     $stmt->bindParam(":idMP",$valor,PDO::PARAM_INT);
+
+                    if($stmt->execute()){
+
+                        return "ok";
+
+                    }else{
+                        print_r(Conexion::conectar()->errorInfo());
+                    }
+
+                    $stmt->close();
+                    $stmt= null;
+                } catch (PDOException $e) {
+                    echo $e->getMessage();
+                }
+            }
+            static public function activar($valor,$cant){
+
+                try {
+                    if ($cant==0) {
+                      $estado="AGOTADO";
+                    }else {
+                      $estado="EXISTENCIA";
+                    }
+                    $stmt = Conexion::conectar()->prepare("UPDATE mp SET estadoMP= :estado WHERE idMP = :idMP");
+
+                    $stmt->bindParam(":idMP",$valor,PDO::PARAM_INT);
+                    $stmt->bindParam(":estado",$estado,PDO::PARAM_STR);
 
                     if($stmt->execute()){
 

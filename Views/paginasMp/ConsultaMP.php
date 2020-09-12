@@ -1,8 +1,8 @@
 <?php
 if(!isset($_SESSION["validarIngreso"])){
-    
+
     echo '<script> window.location = "?paginasUsuario=InicioSesion";</script>';
-    return;  
+    return;
 }else{
     if($_SESSION["validarIngreso"] != "ok"){
         echo '<script> window.location = "?paginasUsuario=InicioSesion";</script>';
@@ -59,18 +59,37 @@ $mps = MPController::consult(null, null);?>
                                     <button class="btn btn-warning m-1"  title="Editar"><i class="far fa-edit"></i></button>
 
                                 </form>
+                                <?php if ($mp["estadoMP"]=="EXISTENCIA"||$mp["estadoMP"]=="AGOTADO"){ ?>
+
+
                                 <form method="post" class="text-left">
-                                    <input type="hidden" value="<?php echo $mp["idMP"] ?>"  name="eliminarRegistro">
-                                    <button type="submit" class="btn btn-danger m-1" title="Eliminar">
-                                        <i class="fas fa-trash"></i>
+                                    <input type="hidden" value="<?php echo $mp["idMP"] ?>" name="inactivarMP">
+                                    <button type="submit" class="btn btn-danger m-1" title="Inactivar">
+                                        <i class="fas fa-times-circle"></i>
                                     </button>
                                     <?php
 
-                                    $eliminar = new MPController();
-                                    $eliminar->delete();
+                                    $inactivar = new MPController();
+                                    $inactivar->inactivar();
 
                                     ?>
                                 </form>
+                              <?php }else{?>
+                                <form method="post" class="text-left">
+                                    <input type="hidden" value="<?php echo $mp["idMP"] ?>" name="activarMP">
+                                    <input type="hidden" name="cantMp" value="<?php echo $mp["cantMP"]; ?>">
+                                    <button type="submit" class="btn btn-info m-1" title="Activar">
+                                        <i class="fas fa-check-circle"></i>
+                                    </button>
+                                    <?php
+
+                                    $activar = new MPController();
+                                    $activar->activar();
+
+                                    ?>
+                                </form>
+
+                              <?php }  ?>
                             </div>
                         </td>
                     </tr>
