@@ -20,12 +20,12 @@ class ControladorAdministradores
 
     try {
         if(isset($_POST["registrarIdentificacionAd"])) {
-        
+
         if (preg_match('/^[0-9]+$/', $_POST["registrarIdentificacionAd"]) &&
             preg_match('/^[a-zA-ZáéíóúÁÉÍÓÚ ]+$/', $_POST["registrarNombreAd"]) &&
             preg_match('/^[0-9]+$/', $_POST["registrarTelefonoAd"]) &&
             filter_var($_POST["registrarCorreoAd"], FILTER_VALIDATE_EMAIL)) {
-          
+
             $tabla = "empleado";
             $datos = array("identificacionEMPLEADO" => $_POST["registrarIdentificacionAd"],
                            "nombreEMPLEADO" => $_POST["registrarNombreAd"],
@@ -36,7 +36,7 @@ class ControladorAdministradores
                            "idROL_FK" => 2
                         );
             $respuesta = ModeloAdministradores::mdlRegistroAdministradores($tabla,$datos);
-            return $respuesta; 
+            return $respuesta;
         }else{
             $respuesta = "error";
             return $respuesta;
@@ -59,6 +59,16 @@ class ControladorAdministradores
       }
 
     }
+
+		static public function ctrSeleccionarAdministradorJefe($val){
+	      try {
+	          $respuesta = ModeloAdministradores::mdlSeleccionarAdministradorJefe($val);
+	          return $respuesta;
+	      } catch (PDOException $e) {
+	        echo $e->getMessage();
+	      }
+
+	    }
 
     //Eliminar administradores
 

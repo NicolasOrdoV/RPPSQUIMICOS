@@ -3,7 +3,6 @@ error_reporting(0);
 session_start();
 $user = $_SESSION["user"];
 $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
-$cliente = ControladorClientes::ctrSeleccionarClienteEspecifico($user['idEC_FK']);
 ?>
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">

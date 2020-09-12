@@ -9,8 +9,8 @@ class ModeloAdministradores
     /////////////////-------------------------------------////////////////////////
     /////////////////////////Administradores/////////////////////////////////////////////
     ////////////////--------------------------------------////////////////////////
-    ////////////////////////////////////////////////////////////////////////////// 
-    
+    //////////////////////////////////////////////////////////////////////////////
+
     //Registrar administradores
 	static public function mdlRegistroAdministradores($tabla,$datos){
 
@@ -26,7 +26,7 @@ class ModeloAdministradores
 			$stmt -> bindParam(":idROL_FK",$datos["idROL_FK"],PDO::PARAM_INT);
 
 			if ($stmt->execute()) {
-				
+
 				return "ok";
 			}else{
 				print_r(Conexion::conectar()->errorInfo());
@@ -53,7 +53,23 @@ class ModeloAdministradores
 	            return $stmt -> fetch();
 			}
 	        $stmt->close();
-	        $stmt= null;	
+	        $stmt= null;
+		} catch (PDOException $e) {
+			echo $e->getMessage();
+		}
+    }
+
+    //Consultar Administrador Jefe
+	static public function mdlSeleccionarAdministradorJefe($val){
+
+		try {
+
+			    $stmt = Conexion::conectar()->prepare("SELECT * FROM empleado WHERE idEMPLEADO = $val");
+	        $stmt->execute();
+	        return $stmt -> fetchAll();
+
+	        //$stmt->close();
+	        $stmt= null;
 		} catch (PDOException $e) {
 			echo $e->getMessage();
 		}
@@ -78,7 +94,7 @@ class ModeloAdministradores
             $stmt->close();
             $stmt= null;
         } catch (PDOException $e) {
-            echo $e->getMessage(); 
+            echo $e->getMessage();
         }
     }
 
@@ -102,7 +118,7 @@ class ModeloAdministradores
             $stmt->close();
             $stmt= null;
         } catch (PDOException $e) {
-            echo $e->getMessage(); 
+            echo $e->getMessage();
         }
     }
 
@@ -126,7 +142,7 @@ class ModeloAdministradores
             $stmt->close();
             $stmt= null;
         } catch (PDOException $e) {
-            echo $e->getMessage(); 
+            echo $e->getMessage();
         }
     }
 
@@ -151,7 +167,7 @@ class ModeloAdministradores
             $stmt->close();
             $stmt= null;
         } catch (PDOException $e) {
-           echo $e->getMessage(); 
+           echo $e->getMessage();
         }
     }
 
@@ -176,7 +192,7 @@ class ModeloAdministradores
             $stmt->close();
             $stmt= null;
         } catch (PDOException $e) {
-           echo $e->getMessage(); 
+           echo $e->getMessage();
         }
     }
 
@@ -201,7 +217,7 @@ class ModeloAdministradores
             $stmt->close();
             $stmt= null;
         } catch (PDOException $e) {
-           echo $e->getMessage(); 
+           echo $e->getMessage();
         }
     }
 
@@ -226,7 +242,7 @@ class ModeloAdministradores
             $stmt->close();
             $stmt= null;
         } catch (PDOException $e) {
-           echo $e->getMessage(); 
+           echo $e->getMessage();
         }
     }
 
@@ -251,7 +267,7 @@ class ModeloAdministradores
             $stmt->close();
             $stmt = null;
         } catch (PDOException $e) {
-           echo $e->getMessage(); 
+           echo $e->getMessage();
         }
     }
 
@@ -275,7 +291,7 @@ class ModeloAdministradores
             $stmt->close();
             $stmt = null;
         } catch (PDOException $e) {
-           echo $e->getMessage(); 
+           echo $e->getMessage();
         }
     }
 }

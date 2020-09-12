@@ -53,9 +53,11 @@ else {
 }
 
 
-
+  $cliente = ControladorClientes::ctrSeleccionarClienteEspecifico($user['idEC_FK']);
+  $admin = ControladorAdministradores::ctrSeleccionarAdministradorJefe(2);
   $correo = new ControladorPedidos();
-  $correo -> enviarCorreoPedido($cliente);
+  $correo -> enviarCorreoPedidoCliente($cliente);
+  $correo -> enviarCorreoPedidoAdminNotifica($cliente, $admin)
 
 
 ?>
