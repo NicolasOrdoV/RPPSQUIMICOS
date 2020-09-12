@@ -86,3 +86,6 @@ $data=ProdController::getById();
 <section class="row">
     <div id="blanco" class="col-lg-12"></div>
 </section>
+<script type="text/javascript">
+  var consultaMp=<?php echo json_encode($mps);  ?>;
+</script>
