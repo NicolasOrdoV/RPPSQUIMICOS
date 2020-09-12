@@ -1,8 +1,12 @@
 <section class="banner-area organic-breadcrumb">
     <div class="container">
-        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-center">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
             <div class="col-first">
                 <h1 class="text-dark" id="labelCarrito">Carrito <i class="fa fa-shopping-basket" aria-hidden="true"></i></h1>
+                <nav class="d-flex align-items-center">
+                    <a href="#" class="text-dark">Inicio<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="#" class="text-light">Carrito</a>
+                </nav>
             </div>
         </div>
     </div>

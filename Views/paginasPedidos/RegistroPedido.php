@@ -24,9 +24,13 @@ $clie= ControladorClientes::ctrSeleccionarRegistroClientes(null, null);
 ?>
 <section class="banner-area organic-breadcrumb">
     <div class="container">
-        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-center">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
             <div class="col-first">
                 <h1 class="text-dark">Registrar Pedido</h1>
+                <nav class="d-flex align-items-center">
+                    <a href="#" class="text-dark">Inicio<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="#" class="text-light">Registro pedido</a>
+                </nav>
             </div>
         </div>
     </div>

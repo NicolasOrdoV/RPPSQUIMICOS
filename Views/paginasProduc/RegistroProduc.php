@@ -12,9 +12,14 @@ if(!isset($_SESSION["validarIngreso"])){
 $data = ProdController::getById();  ?>
 <section class="banner-area organic-breadcrumb">
     <div class="container">
-        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-center">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
             <div class="col-first">
-                <h1 class="text-dark">Producto</h1>
+                <h1 class="text-dark">Editar Producto</h1>
+                <nav class="d-flex align-items-center">
+                    <a href="#" class="text-dark">Inicio<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="#" class="text-dark">Lista de productos<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="#" class="text-light">Editar producto</a>
+                </nav>
             </div>
         </div>
     </div>

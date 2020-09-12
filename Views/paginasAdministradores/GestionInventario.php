@@ -13,9 +13,13 @@ $producto = ControladorInventario::ctrSeleccionarProductosStock(null, null);
 //var_dump($_SESSION["user"]);?>
 <section class="banner-area organic-breadcrumb">
     <div class="container">
-        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-center">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
             <div class="col-first">
                 <h1 class="text-dark">Productos en el inventario</h1>
+                <nav class="d-flex align-items-center">
+                    <a href="#" class="text-dark">Inicio<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="#" class="text-light">Consultar inventario</a>
+                </nav>
             </div>
         </div>
     </div>
@@ -25,7 +29,7 @@ $producto = ControladorInventario::ctrSeleccionarProductosStock(null, null);
     <aside id="blanco-h" class="col-lg-2"></aside>
     <aside class="col-lg-8">
         <input class="form-control col-lg-6 border border-danger rounded-pill" id="tableSearch" type="text" placeholder="Busca aqui el producto registrado que quieras" onclick="search()">
-        <table class="col-lg-12 table table-striped table-hover table-lg table-responsive-lg">
+        <table class="col-lg-12 table table-striped table-hover table-lg table-responsive-lg" id="dataTable">
             <thead class="thead-dark">
                 <tr>
                     <th>#</th>
@@ -95,7 +99,7 @@ $producto = ControladorInventario::ctrSeleccionarProductosStock(null, null);
     <aside id="blanco-h" class="col-lg-2"></aside>
         <aside class="col-lg-8">
             
-        <table class="col-lg-12 table table-striped table-hover table-lg table-responsive-lg">
+        <table class="col-lg-12 table table-striped table-hover table-lg table-responsive-lg" id="dataTable">
             <thead class="thead-dark">
                 <tr>
                     <th>#</th>

@@ -39,6 +39,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
     <link rel="stylesheet" href="Assets/css/styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="Assets/css/styleLR.css">
+    <link rel="stylesheet" href="Assets/css/jquery.dataTables.min.css">
     <script src="push.js/push.min.js"></script>
 </head>
 
@@ -97,7 +98,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                                 <li class="nav-item"><a class="nav-link" href="?paginasUsuario=hagging">Contacto</a>
                                 </li>
                             <?php else : ?>
-                                <li class="nav-item"><a class="nav-link" href="?paginasAdministradores=MenuInicio">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="?paginasAdministradores=MenuInicio">Inicio</a></li>
                                 <li class="nav-item submenu dropdown">
                                     <?php if($user['imgEmp'] == ""){?>
                                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -307,9 +308,11 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
     <script src="Assets/js/Pedido.js"></script>
     <script src="Assets/js/pedidoAdmin.js"></script>
     <script src="Assets/js/valiPedido.js"></script>
-
-
-
+    <script src="Assets/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready( function () {
+            $('#dataTable').DataTable();
+        } );
     </script>
 
 </body>

@@ -12,9 +12,13 @@ if(!isset($_SESSION["validarIngreso"])){
 $clientes = ControladorClientes::ctrSeleccionarRegistroClientes(null,null);?>
 <section class="banner-area organic-breadcrumb">
     <div class="container">
-        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-center">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
             <div class="col-first">
                 <h1 class="text-dark">Lista de clientes</h1>
+                <nav class="d-flex align-items-center">
+                    <a href="#" class="text-dark">Inicio<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="#" class="text-light">Lista de cliente</a>
+                </nav>
             </div>
         </div>
     </div>
@@ -23,7 +27,7 @@ $clientes = ControladorClientes::ctrSeleccionarRegistroClientes(null,null);?>
   <div style="padding-left: 14em; padding-right: 12em">
 
     <input class="form-control mb-4 col-lg-6 border border-danger rounded-pill" id="tableSearch" type="text" placeholder="Busca aqui el cliente registrado que quieras &#128269;" onclick="search()">
-    <table class="col-lg-12 table table-striped table-hover table-lg table-responsive-lg">
+    <table class="col-lg-12 table table-striped table-hover table-lg table-responsive-lg" id="dataTable">
         <thead class="thead-dark">
             <tr>
                 <th>#</th>

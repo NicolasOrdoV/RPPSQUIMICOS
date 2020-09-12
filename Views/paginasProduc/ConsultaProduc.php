@@ -12,9 +12,13 @@ if(!isset($_SESSION["validarIngreso"])){
 $produc = ProdController::consult(null, null);?>
 <section class="banner-area organic-breadcrumb">
     <div class="container">
-        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-center">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
             <div class="col-first">
                 <h1 class="text-dark">Producto</h1>
+                <nav class="d-flex align-items-center">
+                    <a href="#" class="text-dark">Inicio<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="#" class="text-light">Lista de productos</a>
+                </nav>
             </div>
         </div>
     </div>
@@ -24,7 +28,7 @@ $produc = ProdController::consult(null, null);?>
     <aside class="col-lg-8">
         <input class="form-control mb-4 col-lg-7 border border-danger rounded-pill" id="tableSearch" type="text" placeholder='Busca aqui el producto registrado que quieras &#x1F50E;' onclick="search()">
         <a href="?paginasProduc=NuevoProd" class="primary-btn float-right" >+Agregar</a>
-        <table class="col-lg-12 table table-striped table-hover table-lg table-responsive-lg">
+        <table class="col-lg-12 table table-striped table-hover table-lg table-responsive-lg" id="dataTable">
             <thead class="thead-dark">
                 <tr>
                     <th>#</th>

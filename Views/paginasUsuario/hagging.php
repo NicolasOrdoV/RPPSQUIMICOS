@@ -4,8 +4,8 @@
             <div class="col-first">
                 <h1 class="text-dark">Contacto</h1>
                 <nav class="d-flex align-items-center">
-                    <a href="index.php" class="text-dark">Inicio<span class="lnr lnr-arrow-right"></span></a>
-                    <a href="#" class="text-dark">Contacto</a>
+                    <a href="#" class="text-dark">Inicio<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="#" class="text-light">Contacto</a>
                 </nav>
             </div>
         </div>

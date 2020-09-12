@@ -22,6 +22,8 @@
 </section>
 <!--================Login Box Area =================-->
 <div class="cont my-5">
+    <a href="#" class="text-dark">Inicio<span class="lnr lnr-arrow-right"></span></a>
+    <a href="#" class="text-info">Inicio sesión/Registrarse</a>
   <div class="form sign-in mx-1">
     <form action="#" method="POST" class="needs-validation" novalidate>
       <div class="text-center">

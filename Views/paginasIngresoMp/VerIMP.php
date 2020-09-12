@@ -14,9 +14,14 @@ $data=IMPController::show($in['idIMP']);
  ?>
 <section class="banner-area organic-breadcrumb">
     <div class="container">
-        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-center">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
             <div class="col-first">
-                <h1 class="text-dark">Ingreso de Materia Prima</h1>
+                <h1 class="text-dark">Ver ingreso de Materia Prima</h1>
+                <nav class="d-flex align-items-center">
+                    <a href="#" class="text-dark">Inicio<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="#" class="text-dark">Lista de materia prima<span class="lnr lnr-arrow-right"></a>
+                        <a href="#" class="text-light">Ver materia prima</a>
+                </nav>
             </div>
         </div>
     </div>

@@ -1,8 +1,13 @@
 <section class="banner-area organic-breadcrumb">
     <div class="container">
-        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-center">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
             <div class="col-first">
                 <h1 class="text-dark">Imagen de perfil de empleado</h1>
+                <nav class="d-flex align-items-center">
+                    <a href="#" class="text-dark">Inicio<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="#" class="text-dark">Mi cuenta<span class="lnr lnr-arrow-right"></a>
+                    <a href="#" class="text-light">Cambiar foto de perfil de mepleado</a>
+                </nav>
             </div>
         </div>
     </div>

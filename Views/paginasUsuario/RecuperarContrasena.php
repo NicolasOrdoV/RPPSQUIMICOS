@@ -1,8 +1,13 @@
 <section class="banner-area organic-breadcrumb">
     <div class="container">
-        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-center">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
             <div class="col-first">
                 <h1 class="text-dark">Recupera contraseña</h1>
+                <nav class="d-flex align-items-center">
+                    <a href="#" class="text-dark">Inicio<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="#" class="text-dark">Inisio sesión/Registrarse<span class="lnr lnr-arrow-right"></a>
+                    <a href="#" class="text-light">Recuperar contraseña</a>
+                </nav>
             </div>
         </div>
     </div>
