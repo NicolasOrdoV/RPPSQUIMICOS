@@ -5,6 +5,7 @@
   if (isset($_POST['total'])) {
     $totalcarr = $_POST['total'];
   }
+
 ?>
 
 <section class="banner-area organic-breadcrumb">

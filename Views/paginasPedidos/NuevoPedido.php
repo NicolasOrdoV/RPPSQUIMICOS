@@ -57,7 +57,7 @@ else {
   $admin = ControladorAdministradores::ctrSeleccionarAdministradorJefe(2);
   $correo = new ControladorPedidos();
   $correo -> enviarCorreoPedidoCliente($cliente);
-  $correo -> enviarCorreoPedidoAdminNotifica($cliente, $admin)
+  $correo -> enviarCorreoPedidoAdminNotifica($cliente, $admin);
 
 
 ?>

@@ -415,7 +415,7 @@ class ControladorPedidos
       $dataAdm = [
         'nombre' => $deta['nombreEMPLEADO'],
         'correo' => $deta['correoEMPLEADO']
-      ]
+      ];
     }
     $mail = new PHPMailer(true);
 
