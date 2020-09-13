@@ -81,11 +81,11 @@
     <div class="m-auto">
         <nav aria-label="Page navigation example">
           <ul class="pagination">
-            <li class="page-item <?php echo $_GET['pages']<=1 ? 'disabled' : '' ;?>"><a class="page-link" href="?paginasProduc=Catalog&pages=<?php echo $_GET['pages']-1;?>"><</a></li>
+            <li class="page-item <?php echo $_GET['pages']<=1 ? 'disabled' : '' ;?>"><a class="page-link" href="?paginasProduc=Catalog&pages=<?php echo $_GET['pages']-1;?>"><i class="fas fa-arrow-left"></i></a></li>
             <?php for ($i=0; $i < $pages ; $i++) { ?>
                 <li class="page-item <?php echo $_GET['pages']==$i+1 ? 'active' : '' ;?>"><a class="page-link" href="?paginasProduc=Catalog&pages=<?php echo $i+1?>"><?php echo $i+1 ?></a></li>
             <?php } ?>
-            <li class="page-item <?php echo $_GET['pages']>=$pages ? 'disabled' : '' ;?>"><a class="page-link" href="?paginasProduc=Catalog&pages=<?php echo $_GET['pages']+1;?>">></a></li>
+            <li class="page-item <?php echo $_GET['pages']>=$pages ? 'disabled' : '' ;?>"><a class="page-link" href="?paginasProduc=Catalog&pages=<?php echo $_GET['pages']+1;?>"><i class="fas fa-arrow-right"></i></a></li>
           </ul>
         </nav>
     </div>

@@ -43,58 +43,57 @@ $data = MPController::getById();  ?>
           <div class="valid-feedback">Valido</div>
           <div class="invalid-feedback">El campo no puede quedar vacio.</div>
         </div>
-        <div class="form-group">
-          <h5>Tipo</h5>
-
+        <h5>Tipo</h5><br>
+        <div class="form-group row">
           <?php if ($data['tipoMP'] == "LIQUIDO") {  ?>
-            <div class="form-check form-check-inline">
+            <div class="col-3 text-center">
               <input class="form-check-input" type="radio" name="tipoMP" id="tipo1" value="LIQUIDO" checked>
               <label class="form-check-label" for="tipo1">Liquido</label>
             </div>
-            <div class="form-check form-check-inline">
+            <div class="col-3">
               <input class="form-check-input" type="radio" name="tipoMP" id="tipo2" value="SOLIDO">
               <label class="form-check-label" for="tipo2">Solido</label>
             </div>
-            <div class="form-check form-check-inline">
+            <div class="col-3">
               <input class="form-check-input" type="radio" name="tipoMP" id="tipo3" value="ENVASE">
               <label class="form-check-label" for="tipo3">Envase</label>
             </div>
           <?php } elseif ($data['tipoMP'] == "SOLIDO") {  ?>
-            <div class="form-check form-check-inline">
+            <div class="col-3 text-center">
               <input class="form-check-input" type="radio" name="tipoMP" id="tipo1" value="LIQUIDO">
               <label class="form-check-label" for="tipo1">Liquido</label>
             </div>
-            <div class="form-check form-check-inline">
+            <div class="col-3 text-center">
               <input class="form-check-input" type="radio" name="tipoMP" id="tipo2" value="SOLIDO" checked>
               <label class="form-check-label" for="tipo2">Solido</label>
             </div>
-            <div class="form-check form-check-inline">
+            <div class="col-3 text-center">
               <input class="form-check-input" type="radio" name="tipoMP" id="tipo3" value="ENVASE">
               <label class="form-check-label" for="tipo3">Envase</label>
             </div>
           <?php } elseif($data['tipoMP']=="ENVASE") {  ?>
-            <div class="form-check form-check-inline">
+            <div class="col-3">
               <input class="form-check-input" type="radio" name="tipoMP" id="tipo1" value="LIQUIDO">
               <label class="form-check-label" for="tipo1">Liquido</label>
             </div>
-            <div class="form-check form-check-inline">
+            <div class="col-3">
               <input class="form-check-input" type="radio" name="tipoMP" id="tipo2" value="SOLIDO">
               <label class="form-check-label" for="tipo2">Solido</label>
             </div>
-            <div class="form-check form-check-inline">
+            <div class="col-3">
               <input class="form-check-input" type="radio" name="tipoMP" id="tipo3" value="ENVASE" checked>
               <label class="form-check-label" for="tipo3">Envase</label>
             </div>
           <?php  }else{ ?>
-            <div class="form-check form-check-inline">
+            <div class="col-3">
               <input class="form-check-input" type="radio" name="tipoMP" id="tipo1" value="LIQUIDO">
               <label class="form-check-label" for="tipo1">Liquido</label>
             </div>
-            <div class="form-check form-check-inline">
+            <div class="col-3">
               <input class="form-check-input" type="radio" name="tipoMP" id="tipo2" value="SOLIDO">
               <label class="form-check-label" for="tipo2">Solido</label>
             </div>
-            <div class="form-check form-check-inline">
+            <div class="col-3">
               <input class="form-check-input" type="radio" name="tipoMP" id="tipo3" value="ENVASE" >
               <label class="form-check-label" for="tipo3">Envase</label>
             </div>

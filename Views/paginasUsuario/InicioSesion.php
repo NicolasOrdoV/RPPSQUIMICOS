@@ -66,6 +66,8 @@
       </div>
     </div>
     <div class="form sign-up">
+        <a href="#" class="text-dark">Inicio<span class="lnr lnr-arrow-right"></span></a>
+        <a href="#" class="text-info">Inicio sesión/Registrarse</a>
       <h2 class="text-center my-2">Registrate</h2>
       <form action="#" method="POST" class="needs-validation" novalidate>
         <div class="form-group">
