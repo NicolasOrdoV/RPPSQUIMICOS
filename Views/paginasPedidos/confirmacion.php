@@ -5,7 +5,6 @@
   if (isset($_POST['total'])) {
     $totalcarr = $_POST['total'];
   }
-
 ?>
 
 <section class="banner-area organic-breadcrumb">
@@ -21,14 +20,15 @@
 <div style="padding-left: 20em; padding-right: 20em; padding-top: 5em; padding-bottom: 5em">
       <div class="border border-dark rounded-sm" style="padding: 3em">
       <h1 class="text-center">¿Está seguro de Completar el Pedido?</h1>
+
       <input type="hidden" name="fechaEntre" id="FechaEntrega" value="<?php echo date("Y-m-d",$mod_date) . "\n";?>">
       <input type="hidden" name="idClient" id="IdCliente" value="<?php echo $user["idEC_FK"]; ?>">
       <input type="hidden" id="totalCart" value="<?php echo $totalcarr;?>">
       <div class="d-flex justify-content-center" style="padding-top: 4em">
-
+      <a href="index.php?paginasProduc=Catalog&pages=1" style="margin: 1em" class="btn btn-secondary btn-lg btn-block" name="button"> Aún faltan cosas <i class="far fa-clock"></i></a>
       <button type="button" style="margin: 1em" class="btn btn-info btn-lg btn-block" id="alerta" name="button" data-toggle="modal" data-target="#Confirma"> ¡Claro! <i class="far fa-check-circle"></i> </button>
 
-        <a href="index.php?paginasProduc=Catalog" style="margin: 1em" class="btn btn-secondary btn-lg btn-block" id="alerta" name="button"> Aún faltan cosas <i class="far fa-clock"></i></a>
+
       </div>
     </div>
 </div>
@@ -43,13 +43,21 @@
         </button>
       </div>
       <div class="modal-body">
+
           <p>Felicidades el pedido se registró correctamente.</p> <br>
-          <p>Se envió un email con la información correspondiente a <h4><strong><?php echo $user["nombreUSUARIO"]; ?> </strong><h4></p>
+          <p>Seleccione una opción y se enviará un email con la información correspondiente a <h6><strong><?php echo $user["nombreUSUARIO"]; ?> </strong><h6></p>
+
 
       </div>
       <div class="modal-footer">
-        <a href="index.php" class="btn btn-secondary">Volver al Inicio</a>
-        <a href="index.php?paginasPedidos=PedidosPersona" class="btn btn-info">Ver mis pedidos</a>
+        <form action="index.php?paginasPedidos=PedidoData" method="post">
+          <input type="hidden" id="home" name="home" value="home">
+          <button class="btn btn-secondary">Volver al Inicio</button>
+        </form>
+        <form action="index.php?paginasPedidos=PedidoData" method="post">
+          <button class="btn btn-info">Ver mis pedidos</button>
+        </form>
+
       </div>
     </div>
   </div>

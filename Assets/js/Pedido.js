@@ -19,6 +19,7 @@ $('#alerta').click(function(e) {
       }
 
       else {
+        
         window.localStorage.removeItem("carrito")
         Push.create("Felicidades!", {
         body: "Su pedido se ha registrado exitosamente!",
@@ -29,6 +30,7 @@ $('#alerta').click(function(e) {
             this.close();
         }
         });
+
       }
     })
   }

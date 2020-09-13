@@ -1,4 +1,5 @@
 <?php
+
 if (isset($_POST['idEmp'])&&isset($_POST['idClienEmpre'])&&isset($_POST["totalPedCar"])&&isset($_POST["Fechaen"])) {
 
   $dataPed=[
@@ -27,6 +28,9 @@ if (isset($_POST['idEmp'])&&isset($_POST['idClienEmpre'])&&isset($_POST["totalPe
         'error'=>false,
         'message'=>'Ingreso insertado satisfactoriamente'
       ];
+
+        
+
     } else {
       $arrayResp=[
         'error'=>true,
@@ -51,13 +55,6 @@ else {
 
   var_dump( json_encode($response));
 }
-
-
-  $cliente = ControladorClientes::ctrSeleccionarClienteEspecifico($user['idEC_FK']);
-  $admin = ControladorAdministradores::ctrSeleccionarAdministradorJefe(2);
-  $correo = new ControladorPedidos();
-  $correo -> enviarCorreoPedidoCliente($cliente);
-  $correo -> enviarCorreoPedidoAdminNotifica($cliente, $admin);
 
 
 ?>

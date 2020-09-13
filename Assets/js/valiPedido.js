@@ -14,6 +14,4 @@ function validacion() {
   }else {
       return true;
   }
-
-
 }
