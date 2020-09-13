@@ -14,8 +14,8 @@ class ControladorUsuarios
     /////////////////-------------------------------------////////////////////////
     /////////////////////////Usuarios/////////////////////////////////////////////
     ////////////////--------------------------------------////////////////////////
-    ////////////////////////////////////////////////////////////////////////////// 
-    
+    //////////////////////////////////////////////////////////////////////////////
+
     //registrar Usuarios
 
     static public function ctrRegistroUsuarios($data){
@@ -77,11 +77,11 @@ class ControladorUsuarios
 
            $_POST["ingresoContraseña"] = hash('sha256', $_POST["ingresoContraseña"]);
 
-          if($respuestaU["nombreUSUARIO"] == $_POST["ingresoNombre"] && 
+          if($respuestaU["nombreUSUARIO"] == $_POST["ingresoNombre"] &&
             $respuestaU["contrasenaUSUARIO"] == $_POST["ingresoContraseña"] &&
             $respuestaU["estadoUSUARIO"] == "Activo"){
 
-            $_SESSION["user"] = $respuestaU;   
+            $_SESSION["user"] = $respuestaU;
             $_SESSION["validarIngreso"] = "ok";
             echo '<script>
             if(window.history.replaceState){
@@ -91,7 +91,7 @@ class ControladorUsuarios
             }
             window.location = "index.php";
             </script>';
-          }elseif ($respuestaU["nombreUSUARIO"] == $_POST["ingresoNombre"] && 
+          }elseif ($respuestaU["nombreUSUARIO"] == $_POST["ingresoNombre"] &&
             $respuestaU["contrasenaUSUARIO"] == $_POST["ingresoContraseña"] &&
             $respuestaU["estadoUSUARIO"] == "Inactivo" ) {
             echo '<script>
@@ -106,11 +106,11 @@ class ControladorUsuarios
                    <p>Para volver a activar esta cuenta,es necesario que envies un correo electronico a <a class="alert-link">RPPSQUIMICOS@CORREOEMPRESARIAL.COM</a> y solicitar tu activacion inmediata.</p>
                    <p>La activación de tu cuenta podra estar disponible en el transcurso del dia.</p>
                   </div>';
-          }elseif ($respuestaA["correoEMPLEADO"] == $_POST["ingresoNombre"] && 
+          }elseif ($respuestaA["correoEMPLEADO"] == $_POST["ingresoNombre"] &&
             $respuestaA["contrasenaEMPLEADO"] == $hash &&
             $respuestaA["estadoEMPLEADO"] == "Activo") {
 
-              $_SESSION["user"] = $respuestaA;   
+              $_SESSION["user"] = $respuestaA;
               $_SESSION["validarIngreso"] = "ok";
               echo '<script>
               if(window.history.replaceState){
@@ -120,7 +120,7 @@ class ControladorUsuarios
               }
               window.location = "index.php?paginasAdministradores=MenuInicio";
               </script>';
-          }elseif ($respuestaA["correoEMPLEADO"] == $_POST["ingresoNombre"] && 
+          }elseif ($respuestaA["correoEMPLEADO"] == $_POST["ingresoNombre"] &&
             $respuestaA["contrasenaEMPLEADO"] == $hash &&
             $respuestaA["estadoEMPLEADO"] == "Inactivo") {
              echo '<script>
@@ -167,7 +167,7 @@ class ControladorUsuarios
 
             $respuesta = ModeloUsuarios::mdlActualizarNombreUsuario($tabla,$datos);
 
-            return $respuesta;            
+            return $respuesta;
         }
         } catch (PDOException $e) {
           echo $e->getMessage();
@@ -187,7 +187,7 @@ class ControladorUsuarios
 
             $respuesta = ModeloUsuarios::mdlActualizarContrasenaUsuario($tabla,$datos);
 
-            return $respuesta;            
+            return $respuesta;
         }
     }
 
@@ -202,7 +202,7 @@ class ControladorUsuarios
 
             $respuesta = ModeloUsuarios::mdlUpdateImg($tabla,$datos);
 
-            return $respuesta;            
+            return $respuesta;
         }
     }
 
@@ -229,7 +229,7 @@ class ControladorUsuarios
           // Content
           $mail->isHTML(true);                                  // Set email format to HTML
           $mail->Subject = 'CONFIRMACIÓN DE CUENTA';
-          $mail->Body    = 
+          $mail->Body    =
           '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
             <html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" style="width:100%;height:100%;font-family:"open sans", "helvetica neue", helvetica, arial, sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;Margin:0">
              <head>
@@ -591,18 +591,18 @@ class ControladorUsuarios
               </div>
              </body>
             </html>';
-          $mail->CharSet = 'UTF-8';  
+          $mail->CharSet = 'UTF-8';
           $mail->send();
       } catch (Exception $e) {
           echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
       }
     }
-    
+
     //ENVIO DE RECUPERACIÓN DE CONTRASEÑA PARA USUARIO Y EMPLEADO
     static public function enviarCorreoRecUser($data){
-    
+
       if (isset($data["recuperarUsuario"])) {
-         
+
         $tabla = "usuario";
         $item = "nombreUSUARIO";
         $valor = $data["recuperarUsuario"];
@@ -635,7 +635,7 @@ class ControladorUsuarios
                   // Content
               $mail->isHTML(true);                                  // Set email format to HTML
               $mail->Subject = 'RECUPERAR CUENTA';
-              $mail->Body    = ' 
+              $mail->Body    = '
               <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
                 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" style="width:100%;height:100%;font-family:"open sans", "helvetica neue", helvetica, arial, sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;Margin:0">
                  <head>
@@ -907,7 +907,7 @@ class ControladorUsuarios
                                       <td align="left" style="Margin:0;padding-bottom:10px"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:15px;font-family:"open sans", "helvetica neue", helvetica, arial, sans-serif;line-height:30px;color:#000000">¡Hola '.$data["recuperarUsuario"].'!<span style="font-family:roboto, "helvetica neue", helvetica, arial, sans-serif"></span></p></td>
                                      </tr>
                                      <tr style="border-collapse:collapse">
-                                      <td align="left" style="Margin:0;padding-bottom:10px"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:15px;font-family:"open sans", "helvetica neue", helvetica, arial, sans-serif;line-height:30px;color:#000000">Felicidades, encontramos una considencia ' .$data["recuperarUsuario"]. ' en la base de datos.<br>
+                                      <td align="left" style="Margin:0;padding-bottom:10px"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:15px;font-family:"open sans", "helvetica neue", helvetica, arial, sans-serif;line-height:30px;color:#000000">Felicidades, encontramos una coincidencia ' .$data["recuperarUsuario"]. ' en la base de datos.<br>
                                         Entra al link para recuperar la contraseña!&nbsp;<span style="font-family:roboto, "helvetica neue", helvetica, arial, sans-serif"></span></p>
                                         <a href="http://localhost/RPPSQUIMICOS/index.php?paginasUsuario=RestauraContrasenaUs&id='.$respuestaU["idUSUARIO"].'" class="btn btn-success">Recupera tu contraseña<a>
                                         </td>
@@ -998,7 +998,7 @@ class ControladorUsuarios
                  </body>
                 </html>
                 ';
-              $mail->CharSet = 'UTF-8';  
+              $mail->CharSet = 'UTF-8';
               $mail->send();
               //RESPUESTA QUE SE VA A MOSTRAR EN EL FORMULARIO//
               echo '<script>
@@ -1036,7 +1036,7 @@ class ControladorUsuarios
                     // Content
                 $mail->isHTML(true);                                  // Set email format to HTML
                 $mail->Subject = 'RECUPERAR CUENTA';
-                $mail->Body    = ' 
+                $mail->Body    = '
                 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
                   <html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" style="width:100%;height:100%;font-family:"open sans", "helvetica neue", helvetica, arial, sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;Margin:0">
                  <head>
@@ -1308,7 +1308,7 @@ class ControladorUsuarios
                                       <td align="left" style="Margin:0;padding-bottom:10px"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:15px;font-family:"open sans", "helvetica neue", helvetica, arial, sans-serif;line-height:30px;color:#000000">¡Hola '.$data["recuperarUsuario"].'!<span style="font-family:roboto, "helvetica neue", helvetica, arial, sans-serif"></span></p></td>
                                      </tr>
                                      <tr style="border-collapse:collapse">
-                                      <td align="left" style="Margin:0;padding-bottom:10px"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:15px;font-family:"open sans", "helvetica neue", helvetica, arial, sans-serif;line-height:30px;color:#000000">Felicidades, encontramos una considencia ' .$data["recuperarUsuario"]. ' en la base de datos.<br>
+                                      <td align="left" style="Margin:0;padding-bottom:10px"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:15px;font-family:"open sans", "helvetica neue", helvetica, arial, sans-serif;line-height:30px;color:#000000">Felicidades, encontramos una coincidencia ' .$data["recuperarUsuario"]. ' en la base de datos.<br>
                                         Entra al link para recuperar la contraseña!&nbsp;<span style="font-family:roboto, "helvetica neue", helvetica, arial, sans-serif"></span></p>
                                         <a href="http://localhost/RPPSQUIMICOS/index.php?paginasAdministradores=RestauraContrasenaAd&id='.$respuestaA["idEMPLEADO"].'" class="btn btn-success">Recupera tu contraseña<a>
                                         </td>
@@ -1398,7 +1398,7 @@ class ControladorUsuarios
                   </div>
                  </body>
                 </html>';
-                $mail->CharSet = 'UTF-8';  
+                $mail->CharSet = 'UTF-8';
                 $mail->send();
 
                 echo '<script>
@@ -1453,7 +1453,7 @@ class ControladorUsuarios
           // Content
           $mail->isHTML(true);                                  // Set email format to HTML
           $mail->Subject = $data['subject'];
-          $mail->Body    = ' 
+          $mail->Body    = '
           <body>
           <main class="container-fluid">
               <header class="bg-danger p-2">
@@ -1470,7 +1470,7 @@ class ControladorUsuarios
               </footer>
           </main>
           </body>';
-          $mail->CharSet = 'UTF-8';  
+          $mail->CharSet = 'UTF-8';
           $mail->send();
       } catch (Exception $e) {
           echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
