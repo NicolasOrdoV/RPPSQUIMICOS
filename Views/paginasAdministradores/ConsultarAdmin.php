@@ -82,8 +82,7 @@ $admins = ControladorAdministradores::ctrSeleccionarRegistrosAdministradores(nul
 							echo '<script>alert("Los campos tienen caracteres no permitidos,remitase de nuevo al formulario y corrija lo que esta mal.");</script>';
 						}
 						?>
-					    <button type="submit" id="btnReg" class="btn btn-primary rounded-pill btn-lg mt-5">Guardar cambios</button>
-					    <button type="reset" id="btnReg" class="btn btn-danger rounded-pill btn-lg mt-5">Cancelar</button>
+					    <button type="submit" class="primary-btn rounded mt-5 float-right">Guardar cambios</button>
 					</form>
 			    </div>
 			</div>     
