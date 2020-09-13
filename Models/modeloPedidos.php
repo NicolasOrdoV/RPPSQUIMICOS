@@ -91,6 +91,18 @@ class ModeloPedido{
             echo $e->getMessage();
         }
     }
+    static public function consultarPedsCliente($id){
+
+        try {
+              $stmt = Conexion::conectar()->prepare("SELECT * FROM pedido WHERE idEC_FK = $id");
+              $stmt->execute();
+              return $stmt -> fetch();
+              //$stmt->close();
+              $stmt= null;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
 
 
 }

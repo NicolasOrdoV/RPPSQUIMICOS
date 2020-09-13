@@ -9,6 +9,11 @@ require 'vendor/autoload.php';
 
 class ControladorPedidos
 {
+  static public function consultaPed($id)
+   {
+       $respuesta = ModeloPedido::consultarPedsCliente($id);
+       return $respuesta;
+   }
   static public function enviarCorreoPedidoCliente($client){
     foreach ($client as $deta) {
       $dataCli=[

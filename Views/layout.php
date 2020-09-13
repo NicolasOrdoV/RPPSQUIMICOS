@@ -95,8 +95,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                                         </a></li>
                                     </ul>
                                 </li>
-                                <li class="nav-item"><a class="nav-link" href="?paginasUsuario=hagging">Contacto</a>
-                                </li>
+                                <li class="nav-item"><a class="nav-link" href="?paginasPedidos=pedidoCliente">Mis pedidos</a></li>
                             <?php else : ?>
                                 <li class="nav-item"><a class="nav-link" href="?paginasAdministradores=MenuInicio">Inicio</a></li>
                                 <li class="nav-item submenu dropdown">
@@ -121,14 +120,15 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                         <ul class="nav navbar-nav navbar-right">
                             <?php if ($user == "") : ?>
                                 <li class="nav-item">
-                                    <a href="index.php?paginasPedidos=Carrito" class="cart"><span class="ti-shopping-cart-full"></span></a>
+                                    <a href="?paginasPedidos=Carrito" class="cart"><span class="ti-shopping-cart-full"></span></a>
                                 </li>
                                 <li class="nav-item">
                                     <button class="search"><span class="lnr lnr-magnifier" id="search"></span></button>
                                 </li>
                             <?php elseif($user["idROL_FK"] == 1):?>
+
                                 <li class="nav-item">
-                                    <a href="index.php?paginasPedidos=Carrito" class="cart"><span class="ti-bag"></span></a>
+                                    <a href="?paginasPedidos=Carrito" class="cart"><span class="ti-bag"></span></a>
                                 </li>
                                 <li class="nav-item">
                                     <button class="search"><span class="lnr lnr-magnifier" id="search"></span></button>
@@ -246,7 +246,8 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                       $_GET["paginasPedidos"] == "Carrito" ||
                       $_GET["paginasPedidos"] == "PedidoCompleto"||
                       $_GET["paginasPedidos"] == "NuevoPedido" ||
-                      $_GET["paginasPedidos"] == "PedidoData"
+                      $_GET["paginasPedidos"] == "PedidoData" ||
+                      $_GET["paginasPedidos"] == "pedidoCliente"
 
                 ) {
                     include "Views/paginasPedidos/" . $_GET["paginasPedidos"] . ".php";
