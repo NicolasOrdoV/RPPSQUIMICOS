@@ -48,7 +48,7 @@ $producto = ControladorInventario::ctrSeleccionarProductosStock(null, null);
                     <tr>
                         
                         <td><?php echo $stocks["idPRODUCTO"] ?></td>
-                        <td><img loading="lazy" src="Assets/img/Productos/<?php echo $stocks["imgPRODUCTO"] ?>" width="130"> </td> 
+                        <td><img loading="lazy" src="Assets/img/Productos/<?php echo $stocks["imgPRODUCTO"] ?>" height="150" width="130"> </td> 
                         <td><?php echo $stocks["nombrePRODUCTO"] ?></td>
                         <td><?php echo $stocks["descripcionPRODUCTO"] ?></td>
                         <td><?php echo $stocks["cantPRODUCTO"];?></td>

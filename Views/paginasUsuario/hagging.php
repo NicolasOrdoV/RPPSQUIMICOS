@@ -25,7 +25,7 @@
 					<div class="info_item">
 						<i class="lnr lnr-phone-handset"></i>
 						<h6>55 555 555</h6>
-						<p>Lunes a Domingo 8:00am a 6:00 pm</p>
+						<p>Lunes a Sabado 8:00am a 8:00 pm</p>
 					</div>
 					<div class="info_item">
 						<i class="lnr lnr-envelope"></i>
