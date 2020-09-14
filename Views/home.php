@@ -142,7 +142,7 @@ $UltimosProd=ControladorInventario::ctrSleccionarUltimos3Prod(null,null);?>
                 <div class="col-lg-6 text-center">
                     <div class="section-title">
                         <h1>Mejores Productos</h1>
-                        <p>Echale un vistaso a las grades promociones que esta semana preparamos para ti. </p>
+                        <p>Echale un vistaso a los mejores productos que tenemos para ti. </p>
                     </div>
                 </div>
             </div>
