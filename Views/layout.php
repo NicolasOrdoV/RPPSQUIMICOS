@@ -247,7 +247,9 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                       $_GET["paginasPedidos"] == "PedidoCompleto"||
                       $_GET["paginasPedidos"] == "NuevoPedido" ||
                       $_GET["paginasPedidos"] == "PedidoData" ||
-                      $_GET["paginasPedidos"] == "pedidoCliente"
+                      $_GET["paginasPedidos"] == "pedidoCliente"||
+                      $_GET["paginasPedidos"]=="ConsultaPedidos"||
+                      $_GET["paginasPedidos"]=="VerPedidoAdmin"
 
                 ) {
                     include "Views/paginasPedidos/" . $_GET["paginasPedidos"] . ".php";

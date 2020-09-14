@@ -72,16 +72,16 @@ class ModeloPedido{
             echo $e->getMessage();
         }
     }
-    static public function consultarPedidos($item,$valor){
+    static public function consultarPed($valor){
 
         try {
             if ($item == null  && $valor == null) {
-            $stmt = Conexion::conectar()->prepare("SELECT * FROM ");
+            $stmt = Conexion::conectar()->prepare("SELECT p.*,e.nombreEMPLEADO as empleado, c.nombreEC as clien FROM pedido p INNER JOIN empleado e INNER JOIN empresa_cliente c ON e.idEMPLEADO=p.idEMPLEADO_FK AND c.idEC=p.idEC_FK");
             $stmt->execute();
             return $stmt -> fetchAll();
             }else{
-                $stmt = Conexion::conectar()->prepare("SELECT i.*,e.nombreEMPLEADO as empleado FROM ingreso_mp i INNER JOIN empleado e ON e.idEMPLEADO=i.idEMPLEADO_FK WHERE $item = :$item");
-                $stmt->bindParam(":".$item,$valor,PDO::PARAM_STR);
+                $stmt = Conexion::conectar()->prepare("SELECT p.*,e.nombreEMPLEADO as empleado, c.nombreEC as clien FROM pedido p INNER JOIN empleado e INNER JOIN empresa_cliente c ON e.idEMPLEADO=p.idEMPLEADO_FK AND c.idEC=p.idEC_FK WHERE p.idPEDIDO = :id");
+                $stmt->bindParam(":id",$valor,PDO::PARAM_STR);
                 $stmt->execute();
                 return $stmt -> fetch();
             }
@@ -102,6 +102,19 @@ class ModeloPedido{
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
+    }
+    static public function showPed($id){
+      try {
+        $stmt=Conexion::conectar()->prepare("SELECT p.*, d.*, prod.nombrePRODUCTO as producto,e.nombreEMPLEADO as empleado, c.nombreEC as clien FROM pedido p INNER JOIN empleado e INNER JOIN empresa_cliente c INNER JOIN detalle_pedido d INNER JOIN producto prod ON e.idEMPLEADO=p.idEMPLEADO_FK AND c.idEC=p.idEC_FK AND p.idPEDIDO=d.idPEDIDO_FK AND prod.idPRODUCTO=d.idPRODUCTO_FK WHERE d.idPEDIDO_FK=:id");
+        $stmt->bindParam(":id",$id,PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt -> fetchAll();
+        $stmt->close();
+        $stmt= null;
+      } catch (PDOException $e) {
+        echo $e->getMessage();
+      }
+
     }
 
 

@@ -41,7 +41,7 @@ $clie= ControladorClientes::ctrSeleccionarRegistroClientes(null, null);
         <div class="row py-3">
             <aside class="col-lg-3 py-5" id="fondo2"></aside>
             <div class="col-lg-7 py-5 needs-validation" id="form" novalidate>
-                <a href="index.php?paginasAdministradores=MenuInicio" class="btn btn-danger rounded float-left" title="Volver"><i class="fas fa-angle-double-left"></i></a>
+                <a href="index.php?paginasPedidos=ConsultaPedidos&id=<?php echo $admin['idEMPLEADO']; ?>" class="btn btn-danger rounded float-left" title="Volver"><i class="fas fa-angle-double-left"></i></a>
                 <h1 class="text-danger">Nuevo Pedido</h1>
 
                 <!--<form method="POST">!-->

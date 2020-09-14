@@ -1,5 +1,5 @@
 <?php
-require_once 'providers/conexion.php';
+
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -9,6 +9,25 @@ require 'vendor/autoload.php';
 
 class ControladorPedidos
 {
+  static public function getById(){
+    if (isset($_GET['id'])){
+        $id=$_GET['id'];
+
+        $respuesta=ModeloPedido::consultarPed($id);
+        return $respuesta;
+    }
+  }
+  static public function show($id){
+      $respuesta=ModeloPedido::showPed($id);
+      return $respuesta;
+
+
+  }
+  static public function consultaGeneral($item, $valor)
+   {
+       $respuesta = ModeloPedido::consultarPed( $item,$valor);
+       return $respuesta;
+   }
   static public function consultaPed($id)
    {
        $respuesta = ModeloPedido::consultarPedsCliente($id);

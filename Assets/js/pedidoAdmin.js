@@ -123,7 +123,7 @@ $('#finalPed').click(function(e) {
       }
 
       else {
-        
+
         window.localStorage.removeItem("carrito")
         Push.create("Felicidades!", {
         body: "Su pedido se ha registrado exitosamente!",
@@ -134,7 +134,7 @@ $('#finalPed').click(function(e) {
             this.close();
         }
         });
-        location.href = 'index.php?paginasAdministradores=MenuInicio'
+        location.href = 'index.php?paginasPedidos=ConsultaPedidos&id='+$('#user').val()
       }
     })
   }
