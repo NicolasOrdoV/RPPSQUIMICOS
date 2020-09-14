@@ -53,10 +53,16 @@ $data=ProdController::getById();
                                         <option value="">Seleccione..</option>
                                         <?php
                                         foreach ($mps as $mp) {
+                                          if ($mp["estadoMP"]!="Inactivo") {
+
                                         ?>
                                             <option value="<?php echo $mp['idMP'] ?>"><?php echo $mp['nombreMP'] ?></option>
                                         <?php
-                                        }
+
+                                      }else {
+
+                                      }
+                                    }
                                         ?>
                                     </select></center>
                             </div>
