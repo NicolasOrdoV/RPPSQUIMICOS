@@ -123,8 +123,9 @@ $mps = MPController::consult(null, null);?>
 
                     <div class="modal-footer">
 
-                        <button id="submin" class="primary-btn rounded">Agregar</button>
+
                         <button class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button id="submin" class="primary-btn rounded">Agregar</button>
                     </div>
 
                 </div>
