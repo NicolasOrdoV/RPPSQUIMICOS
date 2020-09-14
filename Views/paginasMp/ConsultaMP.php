@@ -123,22 +123,23 @@ $mps = MPController::consult(null, null);?>
                             <div class="form-group">
                                 <center>
                                     <h5>Tipo</h5>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="tipoMP" id="tipo1" value="LIQUIDO">
-                                        <label class="form-check-label" for="tipo1">Liquido</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="tipoMP" id="tipo2" value="SOLIDO">
-                                        <label class="form-check-label" for="tipo2">Solido</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="tipoMP" id="tipo3" value="ENVASE">
-                                        <label class="form-check-label" for="tipo3">Envase</label>
+                                    <div class="form-check">
+                                        <label for="tipo1">
+                                          <input type="radio" name="tipoMP" id="tipo1" value="LIQUIDO">Liquido
+                                        </label>
+                                        <label for="tipo1">
+                                          <input type="radio" name="tipoMP" id="tipo2" value="SOLIDO">Solido
+                                        </label>
+                                        <label for="tipo1">
+                                          <input type="radio" name="tipoMP" id="tipo3" value="ENVASE">
+                                          <label class="form-check-label" for="tipo3">Envase
+                                        </label>
                                     </div>
                                 </center>
                             </div>
                 </div>
                 <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                     <button type="submit" class="primary-btn">Agregar</button>
                     <?php
                     $registro = MPController::save($_POST);
@@ -150,7 +151,7 @@ $mps = MPController::consult(null, null);?>
                     </script>';
                     }
                     ?>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+
                 </div>
                 </form>
                 </form>
