@@ -55,7 +55,7 @@ $pedidos=ControladorPedidos::consultaGeneral(null,null);?>
                         <td><?php echo $p["fecharPEDIDO"]; ?></td>
                         <td><?php echo $p["fechaenPEDIDO"]; ?></td>
                         <td><?php echo $p["clien"]; ?></td>
-                        <td><?php echo $p["emple"]; ?></td>
+                        <td><?php echo $p["empleado"]; ?></td>
                         <td><?php echo $p["estadoPEDIDO"]; ?></td>
                         <td>
                             <div class="btn-group">
@@ -64,12 +64,25 @@ $pedidos=ControladorPedidos::consultaGeneral(null,null);?>
                                     <button class="btn btn-info m-1"  title="Ver"><i class="fas fa-eye"></i></button>
 
                                 </form>
-                                <?php if ($mp["estadoMP"]=="EXISTENCIA"||$mp["estadoMP"]=="AGOTADO"){ ?>
+                                <?php if ($p["estadoPEDIDO"]=="Pendiente"){ ?>
+                                  <form method="post" class="text-left">
+                                      <input type="hidden" value="<?php echo $p["idPEDIDO"] ?>" name="prod">
+                                      <button type="submit" class="btn btn-success m-1" title="A producción">
+                                          <i class="fas fa-wine-bottle"></i>
+                                      </button>
+                                      <?php
+
+                                      // TODO: falta procedimiento en produccion
+                                       $pr= new MPController();
+                                      $inactivar->inactivar();
+
+                                      ?>
+                                  </form>
 
 
                                 <form method="post" class="text-left">
                                     <input type="hidden" value="<?php echo $mp["idMP"] ?>" name="inactivarMP">
-                                    <button type="submit" class="btn btn-danger m-1" title="Inactivar">
+                                    <button type="submit" class="btn btn-danger m-1" title="Cancelar">
                                         <i class="fas fa-times-circle"></i>
                                     </button>
                                     <?php
@@ -79,22 +92,66 @@ $pedidos=ControladorPedidos::consultaGeneral(null,null);?>
 
                                     ?>
                                 </form>
-                              <?php }else{?>
+                              <?php }elseif($p['estadoPEDIDO']=="En produccion"){?>
                                 <form method="post" class="text-left">
-                                    <input type="hidden" value="<?php echo $mp["idMP"] ?>" name="activarMP">
-                                    <input type="hidden" name="cantMp" value="<?php echo $mp["cantMP"]; ?>">
-                                    <button type="submit" class="btn btn-info m-1" title="Activar">
-                                        <i class="fas fa-check-circle"></i>
+                                    <input type="hidden" value="<?php echo $p["idPEDIDO"] ?>" name="camino">
+                                    <button type="submit" class="btn btn-success m-1" title="En camino">
+                                        <i class="fas fa-truck"></i>
                                     </button>
                                     <?php
 
-                                    $activar = new MPController();
-                                    $activar->activar();
+                                    // TODO: falta procedimiento en camino
+                                     $inactivar = new MPController();
+                                    $inactivar->inactivar();
 
                                     ?>
                                 </form>
 
-                              <?php }  ?>
+
+                              <form method="post" class="text-left">
+                                  <input type="hidden" value="<?php echo $mp["idMP"] ?>" name="inactivarMP">
+                                  <button type="submit" class="btn btn-danger m-1" title="Cancelar">
+                                      <i class="fas fa-times-circle"></i>
+                                  </button>
+                                  <?php
+
+                                  $inactivar = new MPController();
+                                  $inactivar->inactivar();
+
+                                  ?>
+                              </form>
+
+                            <?php }elseif ($p['estadoPEDIDO']=="En camino") {?>
+                              <form method="post" class="text-left">
+                                  <input type="hidden" value="<?php echo $p["idPEDIDO"] ?>" name="ent">
+                                  <button type="submit" class="btn btn-success m-1" title="Entregado">
+                                      <i class="fas fa-clipboard-check"></i>
+                                  </button>
+                                  <?php
+
+                                  // TODO: falta procedimiento entregado
+                                   $inactivar = new MPController();
+                                  $inactivar->inactivar();
+
+                                  ?>
+                              </form>
+                              <form method="post" class="text-left">
+                                  <input type="hidden" value="<?php echo $mp["idMP"] ?>" name="inactivarMP">
+                                  <button type="submit" class="btn btn-danger m-1" title="Cancelar">
+                                      <i class="fas fa-times-circle"></i>
+                                  </button>
+                                  <?php
+
+                                  $inactivar = new MPController();
+                                  $inactivar->inactivar();
+
+                                  ?>
+                              </form>
+                          <?php  }elseif ($p['estadoPEDIDO']=="Entregado") {
+
+                          } else{
+
+                          } ?>
                             </div>
                         </td>
                     </tr>

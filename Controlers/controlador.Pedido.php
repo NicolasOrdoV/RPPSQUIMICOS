@@ -17,6 +17,27 @@ class ControladorPedidos
         return $respuesta;
     }
   }
+  static public function inactivar()
+  {
+      if (isset($_POST["inactivarP"])) {
+
+          $valor = $_POST["inactivarP"];
+
+          $respuesta = ModeloPedido::inactivar($valor);
+
+          if ($respuesta == "ok") {
+              echo '<script>
+          if(window.history.replaceState){
+
+              window.history.replaceState(null,null,window.location.href);
+          }
+          setTimeout(function(){
+              window.location = "index.php?paginasMp=ConsultaMP";
+          },1000)
+          </script>';
+          }
+      }
+  }
   static public function show($id){
       $respuesta=ModeloPedido::showPed($id);
       return $respuesta;

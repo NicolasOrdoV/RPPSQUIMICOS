@@ -116,6 +116,27 @@ class ModeloPedido{
       }
 
     }
+    static public function inactivar($valor){
+
+        try {
+            $stmt = Conexion::conectar()->prepare("UPDATE pedido SET estadoPEDIDO='Inactivo' WHERE idPEDIDO = :id");
+
+            $stmt->bindParam(":id",$valor,PDO::PARAM_INT);
+
+            if($stmt->execute()){
+
+                return "ok";
+
+            }else{
+                print_r(Conexion::conectar()->errorInfo());
+            }
+
+            $stmt->close();
+            $stmt= null;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
 
 
 }
