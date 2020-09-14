@@ -5,7 +5,7 @@
                 <h1 class="text-dark">Recupera contraseña</h1>
                 <nav class="d-flex align-items-center">
                     <a href="#" class="text-dark">Inicio<span class="lnr lnr-arrow-right"></span></a>
-                    <a href="#" class="text-dark">Inisio sesión/Registrarse<span class="lnr lnr-arrow-right"></a>
+                    <a href="#" class="text-dark">Inicio sesión/Registrarse<span class="lnr lnr-arrow-right"></a>
                     <a href="#" class="text-light">Recuperar contraseña</a>
                 </nav>
             </div>

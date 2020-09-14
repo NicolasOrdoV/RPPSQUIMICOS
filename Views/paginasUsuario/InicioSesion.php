@@ -71,6 +71,20 @@
       <h2 class="text-center my-2">Registrate</h2>
       <form action="#" method="POST" class="needs-validation" novalidate>
         <div class="form-group">
+            <select class="form-control" id="lista1" name="lista1">
+                <option value="0">Selecciona la localidad donde vives</option>
+                <?php foreach($locates as $locate):?>
+                    <option value="<?php echo $locate['idLOCALIDAD']?>"><?php echo $locate['nombreLOCALIDAD']?></option>
+                <?php endforeach ?>
+            </select>
+            <div class="valid-feedback">Valido</div>
+            <div class="invalid-feedback">El campo no cumple con las condiciones.</div>
+        </div> <br><br>   
+        <div id="select2lista" class="form-group">
+            
+            
+        </div>
+        <div class="form-group">
             <input type="number" placeholder="Número de identificación*" name="registroIdentificacion" min="11" max="9999999999" required value="<?php echo isset($_POST['registroIdentificacion']) ? $_POST['registroIdentificacion'] : '' ?>">
             <div class="valid-feedback">Valido</div>
             <div class="invalid-feedback">El campo no cumple con las condiciones.</div>
@@ -91,20 +105,6 @@
             <input type="text" placeholder="Dirección de la persona o empresa*"  name="registroDireccion" required value="<?php echo isset($_POST['registroDireccion']) ? $_POST['registroDireccion'] : '' ?>">
             <div class="valid-feedback">Valido</div>
             <div class="invalid-feedback">El campo no cumple con las condiciones.</div>
-        </div>
-        <div class="form-group">
-            <select class="form-control" id="lista1" name="lista1">
-                <option value="0">Selecciona la localidad donde vives</option>
-                <?php foreach($locates as $locate):?>
-                    <option value="<?php echo $locate['idLOCALIDAD']?>"><?php echo $locate['nombreLOCALIDAD']?></option>
-                <?php endforeach ?>
-            </select>
-            <div class="valid-feedback">Valido</div>
-            <div class="invalid-feedback">El campo no cumple con las condiciones.</div>
-        </div> <br><br>   
-        <div id="select2lista" class="form-group">
-            
-            
         </div>
         <div class="form-group row">
             <div class="col-lg-6">
