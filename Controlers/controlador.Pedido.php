@@ -17,26 +17,46 @@ class ControladorPedidos
         return $respuesta;
     }
   }
-  static public function inactivar()
+
+  static public function editarEstado()
   {
-      if (isset($_POST["inactivarP"])) {
 
-          $valor = $_POST["inactivarP"];
+      if (isset($_POST["prod"])) {
 
-          $respuesta = ModeloPedido::inactivar($valor);
+          $valor = $_POST["prod"];
 
-          if ($respuesta == "ok") {
-              echo '<script>
-          if(window.history.replaceState){
+          $respuesta = ModeloPedido::editarEstado("En produccion",$valor);
+          echo '<script>window.location="index.php?paginasPedidos=ConsultaPedidos"</script>';
 
-              window.history.replaceState(null,null,window.location.href);
-          }
-          setTimeout(function(){
-              window.location = "index.php?paginasMp=ConsultaMP";
-          },1000)
-          </script>';
-          }
+
+
+      }elseif ($_POST["camino"]) {
+        $valor = $_POST["camino"];
+
+        $respuesta = ModeloPedido::editarEstado("En camino",$valor);
+        echo '<script>window.location="index.php?paginasPedidos=ConsultaPedidos"</script>';
+
+
+      }elseif ($_POST["entre"]) {
+        $valor = $_POST["entre"];
+
+        $respuesta = ModeloPedido::editarEstado("Entregado",$valor);
+          echo '<script>window.location="index.php?paginasPedidos=ConsultaPedidos"</script>';
+
+
+      }elseif($_POST["cancelar"]) {
+        $valor = $_POST["cancelar"];
+
+        $respuesta = ModeloPedido::editarEstado("Cancelado",$valor);
+        echo '<script>window.location="index.php?paginasPedidos=ConsultaPedidos"</script>';
+
+
+
       }
+
+
+
+
   }
   static public function show($id){
       $respuesta=ModeloPedido::showPed($id);

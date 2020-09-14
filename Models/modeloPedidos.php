@@ -116,12 +116,14 @@ class ModeloPedido{
       }
 
     }
-    static public function inactivar($valor){
+    static public function editarEstado($estado,$valor){
 
         try {
-            $stmt = Conexion::conectar()->prepare("UPDATE pedido SET estadoPEDIDO='Inactivo' WHERE idPEDIDO = :id");
+            $stmt = Conexion::conectar()->prepare("UPDATE pedido SET estadoPEDIDO=:estado WHERE idPEDIDO = :id");
+
 
             $stmt->bindParam(":id",$valor,PDO::PARAM_INT);
+            $stmt->bindParam(":estado",$estado,PDO::PARAM_STR);
 
             if($stmt->execute()){
 

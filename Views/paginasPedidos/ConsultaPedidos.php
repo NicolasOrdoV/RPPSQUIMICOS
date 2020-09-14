@@ -72,23 +72,45 @@ $pedidos=ControladorPedidos::consultaGeneral(null,null);?>
                                       </button>
                                       <?php
 
-                                      // TODO: falta procedimiento en produccion
-                                       $pr= new MPController();
-                                      $inactivar->inactivar();
+
+                                       $pr= new ControladorPedidos();
+                                      $pr->editarEstado();
+                                      if ($respuesta == "ok") {
+                                          echo '<script>
+                                      if(window.history.replaceState){
+
+                                          window.history.replaceState(null,null,window.location.href);
+                                      }
+                                      setTimeout(function(){
+                                          location.reload()
+                                      },1000)
+                                      </script>';
+                                      }
 
                                       ?>
                                   </form>
 
 
                                 <form method="post" class="text-left">
-                                    <input type="hidden" value="<?php echo $mp["idMP"] ?>" name="inactivarMP">
+                                    <input type="hidden" value="<?php echo $p["idPEDIDO"] ?>" name="cancelar">
                                     <button type="submit" class="btn btn-danger m-1" title="Cancelar">
                                         <i class="fas fa-times-circle"></i>
                                     </button>
                                     <?php
 
-                                    $inactivar = new MPController();
-                                    $inactivar->inactivar();
+                                    $inactivar = new ControladorPedidos();
+                                    $inactivar->editarEstado();
+                                    if ($respuesta == "ok") {
+                                        echo '<script>
+                                    if(window.history.replaceState){
+
+                                        window.history.replaceState(null,null,window.location.href);
+                                    }
+                                    setTimeout(function(){
+                                        location.reload()
+                                    },1000)
+                                    </script>';
+                                    }
 
                                     ?>
                                 </form>
@@ -100,50 +122,83 @@ $pedidos=ControladorPedidos::consultaGeneral(null,null);?>
                                     </button>
                                     <?php
 
-                                    // TODO: falta procedimiento en camino
-                                     $inactivar = new MPController();
-                                    $inactivar->inactivar();
+
+                                     $cam = new ControladorPedidos();
+                                    $cam->editarEstado();
 
                                     ?>
                                 </form>
 
 
-                              <form method="post" class="text-left">
-                                  <input type="hidden" value="<?php echo $mp["idMP"] ?>" name="inactivarMP">
-                                  <button type="submit" class="btn btn-danger m-1" title="Cancelar">
-                                      <i class="fas fa-times-circle"></i>
-                                  </button>
-                                  <?php
+                                <form method="post" class="text-left">
+                                    <input type="hidden" value="<?php echo $p["idPEDIDO"] ?>" name="cancelar">
+                                    <button type="submit" class="btn btn-danger m-1" title="Cancelar">
+                                        <i class="fas fa-times-circle"></i>
+                                    </button>
+                                    <?php
 
-                                  $inactivar = new MPController();
-                                  $inactivar->inactivar();
+                                    $inactivar = new ControladorPedidos();
+                                    $inactivar->editarEstado();
+                                    if ($respuesta == "ok") {
+                                        echo '<script>
+                                    if(window.history.replaceState){
 
-                                  ?>
-                              </form>
+                                        window.history.replaceState(null,null,window.location.href);
+                                    }
+                                    setTimeout(function(){
+                                        location.reload()
+                                    },1000)
+                                    </script>';
+                                    }
+
+                                    ?>
+                                </form>
 
                             <?php }elseif ($p['estadoPEDIDO']=="En camino") {?>
                               <form method="post" class="text-left">
-                                  <input type="hidden" value="<?php echo $p["idPEDIDO"] ?>" name="ent">
+                                  <input type="hidden" value="<?php echo $p["idPEDIDO"] ?>" name="entre">
                                   <button type="submit" class="btn btn-success m-1" title="Entregado">
                                       <i class="fas fa-clipboard-check"></i>
                                   </button>
                                   <?php
 
-                                  // TODO: falta procedimiento entregado
-                                   $inactivar = new MPController();
-                                  $inactivar->inactivar();
+
+                                   $entr = new ControladorPedidos();
+                                  $entr->editarEstado();
+                                  if ($respuesta == "ok") {
+                                      echo '<script>
+                                  if(window.history.replaceState){
+
+                                      window.history.replaceState(null,null,window.location.href);
+                                  }
+                                  setTimeout(function(){
+                                      location.reload()
+                                  },1000)
+                                  </script>';
+                                  }
 
                                   ?>
                               </form>
                               <form method="post" class="text-left">
-                                  <input type="hidden" value="<?php echo $mp["idMP"] ?>" name="inactivarMP">
+                                  <input type="hidden" value="<?php echo $p["idPEDIDO"] ?>" name="cancelar">
                                   <button type="submit" class="btn btn-danger m-1" title="Cancelar">
                                       <i class="fas fa-times-circle"></i>
                                   </button>
                                   <?php
 
-                                  $inactivar = new MPController();
-                                  $inactivar->inactivar();
+                                  $inactivar = new ControladorPedidos();
+                                  $inactivar->editarEstado();
+                                  if ($respuesta == "ok") {
+                                      echo '<script>
+                                  if(window.history.replaceState){
+
+                                      window.history.replaceState(null,null,window.location.href);
+                                  }
+                                  setTimeout(function(){
+                                      location.reload()
+                                  },1000)
+                                  </script>';
+                                  }
 
                                   ?>
                               </form>
