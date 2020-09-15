@@ -14,7 +14,7 @@
     } else {
       ?>
       <script>
-        window.location = "index.php?paginasPedidos=pedidoCliente"
+        window.location = "index.php?paginasPedidos=pedidoCliente&id=<?php echo $user['idEC_FK']; ?>"
       </script>
 
       <?php

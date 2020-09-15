@@ -19,7 +19,7 @@
 
 <div style="padding-left: 20em; padding-right: 20em; padding-top: 5em; padding-bottom: 5em">
       <div class="border border-dark rounded-sm" style="padding: 3em">
-      <h1 class="text-center">¿Está seguro de Completar el Pedido?</h1>
+      <h1 class="text-center">¿Quieres Completar tu Pedido?</h1>
 
       <input type="hidden" name="fechaEntre" id="FechaEntrega" value="<?php echo date("Y-m-d",$mod_date) . "\n";?>">
       <input type="hidden" name="idClient" id="IdCliente" value="<?php echo $user["idEC_FK"]; ?>">
