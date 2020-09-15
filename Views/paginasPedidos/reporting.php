@@ -1,10 +1,10 @@
 <?php
 
 use Mpdf\Mpdf\Mpdf;
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once "../../Controlers/controlador.Pedido.php";
-require_once "../../Models/modeloPedidos.php";
+require_once "Controlers/controlador.Pedido.php";
+require_once "Models/modeloPedidos.php";
 require_once "../../providers/conexion.php";
+require_once "../../vendor/autoload.php";
 
 
 if (isset($_POST['idPEDIDO'])) {
