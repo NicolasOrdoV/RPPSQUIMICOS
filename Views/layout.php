@@ -95,7 +95,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                                         </a></li>
                                     </ul>
                                 </li>
-                                <li class="nav-item"><a class="nav-link" href="?paginasPedidos=pedidoCliente">Mis pedidos</a></li>
+                                <li class="nav-item"><a class="nav-link" href="?paginasPedidos=pedidoCliente&id=<?php echo $user['idEC_FK']; ?>">Mis pedidos</a></li>
                             <?php else : ?>
                                 <li class="nav-item"><a class="nav-link" href="?paginasAdministradores=MenuInicio">Inicio</a></li>
                                 <li class="nav-item submenu dropdown">
@@ -249,7 +249,8 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                       $_GET["paginasPedidos"] == "PedidoData" ||
                       $_GET["paginasPedidos"] == "pedidoCliente"||
                       $_GET["paginasPedidos"]=="ConsultaPedidos"||
-                      $_GET["paginasPedidos"]=="VerPedidoAdmin"
+                      $_GET["paginasPedidos"]=="VerPedidoAdmin"||
+                      $_GET["paginasPedidos"]=="VerPedidoClien"
 
                 ) {
                     include "Views/paginasPedidos/" . $_GET["paginasPedidos"] . ".php";

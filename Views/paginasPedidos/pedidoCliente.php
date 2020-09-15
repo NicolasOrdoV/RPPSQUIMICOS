@@ -1,6 +1,5 @@
 <?php
-$peds = ModeloPedido::consultarPedsCliente($user['idEC_FK']);
-var_dump($peds);
+$peds = ControladorPedidos::consultaPed($user['idEC_FK']);
 ?>
 <section class="banner-area organic-breadcrumb">
     <div class="container">
@@ -32,7 +31,6 @@ var_dump($peds);
             <tbody id="myTable">
                 <?php
                 foreach ($peds as $pedi) :
-                  var_dump($pedi);
                   ?>
 
                     <tr>
@@ -42,29 +40,51 @@ var_dump($peds);
                         <td><?php echo $pedi["totalPEDIDO"]; ?></td>
                         <td><?php echo $pedi["estadoPEDIDO"]; ?></td>
                         <td>
-                            <div class="btn-group">
+                          <div class="btn-group">
+                              <form action="index.php?paginasPedidos=VerPedidoClien&id=<?php echo $pedi["idPEDIDO"] ?>" method="post" class="text-left">
+                                  <input type="hidden" value="<?php echo $mp["idPEDIDO"] ?>" name="id">
+                                  <button class="btn btn-info m-1"  title="Ver"><i class="fas fa-eye"></i></button>
 
-                                <?php if ($pedi["estadoPEDIDO"]=="pendiente"||$pedi["estadoPEDIDO"]=="en preparacion"){ ?>
-                                <form method="post" class="text-left">
-                                    <input type="hidden" value="<?php echo $pedi["idPEDIDO"] ?>" name="cancelPedido">
-                                    <button type="submit" class="btn btn-danger m-1" title="Cancelar">
-                                        <i class="fas fa-times-circle"></i>
-                                    </button>
-                                    <?php
+                              </form>
+                              <?php if ($pedi["estadoPEDIDO"]=="Pendiente"){ ?>
+                              <form method="post" class="text-left">
+                                  <input type="hidden" value="<?php echo $pedi["idPEDIDO"] ?>" name="cancelarClie">
+                                  <button type="submit" class="btn btn-danger m-1" title="Cancelar">
+                                      <i class="fas fa-times-circle"></i>
+                                  </button>
+                                  <?php
+
+                                  $inactivar = new ControladorPedidos();
+                                  $inactivar->editarEstado();
 
 
+                                  ?>
+                              </form>
+                            <?php }elseif($pedi['estadoPEDIDO']=="En produccion"){?>
 
-                                    ?>
-                                </form>
-                              <?php }elseif ($pedi["estadoPEDIDO"]=="entregado") {
-                                ?>
-                                  <label> Entregado</label>
 
-                                <?php
-                              }else{?>
-                                  <label>Cancelado</label>
-                              <?php }  ?>
-                            </div>
+                              <form method="post" class="text-left">
+                                  <input type="hidden" value="<?php echo $pedi["idPEDIDO"] ?>" name="cancelarClie">
+                                  <button type="submit" class="btn btn-danger m-1" title="Cancelar">
+                                      <i class="fas fa-times-circle"></i>
+                                  </button>
+                                  <?php
+
+                                  $inactivar = new ControladorPedidos();
+                                  $inactivar->editarEstado();
+
+
+                                  ?>
+                              </form>
+
+                          <?php }elseif ($pedi['estadoPEDIDO']=="En camino") {
+
+                         }elseif ($pedi['estadoPEDIDO']=="Entregado") {
+
+                        } else{
+
+                        } ?>
+                          </div>
                         </td>
                     </tr>
                 <?php endforeach ?>

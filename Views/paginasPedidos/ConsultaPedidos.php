@@ -75,17 +75,7 @@ $pedidos=ControladorPedidos::consultaGeneral(null,null);?>
 
                                        $pr= new ControladorPedidos();
                                       $pr->editarEstado();
-                                      if ($respuesta == "ok") {
-                                          echo '<script>
-                                      if(window.history.replaceState){
 
-                                          window.history.replaceState(null,null,window.location.href);
-                                      }
-                                      setTimeout(function(){
-                                          location.reload()
-                                      },1000)
-                                      </script>';
-                                      }
 
                                       ?>
                                   </form>
@@ -100,17 +90,7 @@ $pedidos=ControladorPedidos::consultaGeneral(null,null);?>
 
                                     $inactivar = new ControladorPedidos();
                                     $inactivar->editarEstado();
-                                    if ($respuesta == "ok") {
-                                        echo '<script>
-                                    if(window.history.replaceState){
 
-                                        window.history.replaceState(null,null,window.location.href);
-                                    }
-                                    setTimeout(function(){
-                                        location.reload()
-                                    },1000)
-                                    </script>';
-                                    }
 
                                     ?>
                                 </form>
@@ -139,17 +119,7 @@ $pedidos=ControladorPedidos::consultaGeneral(null,null);?>
 
                                     $inactivar = new ControladorPedidos();
                                     $inactivar->editarEstado();
-                                    if ($respuesta == "ok") {
-                                        echo '<script>
-                                    if(window.history.replaceState){
 
-                                        window.history.replaceState(null,null,window.location.href);
-                                    }
-                                    setTimeout(function(){
-                                        location.reload()
-                                    },1000)
-                                    </script>';
-                                    }
 
                                     ?>
                                 </form>
@@ -165,17 +135,7 @@ $pedidos=ControladorPedidos::consultaGeneral(null,null);?>
 
                                    $entr = new ControladorPedidos();
                                   $entr->editarEstado();
-                                  if ($respuesta == "ok") {
-                                      echo '<script>
-                                  if(window.history.replaceState){
 
-                                      window.history.replaceState(null,null,window.location.href);
-                                  }
-                                  setTimeout(function(){
-                                      location.reload()
-                                  },1000)
-                                  </script>';
-                                  }
 
                                   ?>
                               </form>
@@ -188,17 +148,7 @@ $pedidos=ControladorPedidos::consultaGeneral(null,null);?>
 
                                   $inactivar = new ControladorPedidos();
                                   $inactivar->editarEstado();
-                                  if ($respuesta == "ok") {
-                                      echo '<script>
-                                  if(window.history.replaceState){
-
-                                      window.history.replaceState(null,null,window.location.href);
-                                  }
-                                  setTimeout(function(){
-                                      location.reload()
-                                  },1000)
-                                  </script>';
-                                  }
+                                
 
                                   ?>
                               </form>

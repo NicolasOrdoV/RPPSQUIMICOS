@@ -94,10 +94,11 @@ class ModeloPedido{
     static public function consultarPedsCliente($id){
 
         try {
-              $stmt = Conexion::conectar()->prepare("SELECT * FROM pedido WHERE idEC_FK = $id");
+              $stmt = Conexion::conectar()->prepare("SELECT * FROM pedido WHERE idEC_FK=:id");
+              $stmt->bindParam(":id",$id,PDO::PARAM_STR);
               $stmt->execute();
-              return $stmt -> fetch();
-              //$stmt->close();
+              return $stmt -> fetchAll();
+              $stmt->close();
               $stmt= null;
         } catch (PDOException $e) {
             echo $e->getMessage();

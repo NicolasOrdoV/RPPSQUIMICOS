@@ -52,6 +52,10 @@ class ControladorPedidos
 
 
 
+      }elseif ($_POST["cancelarClie"]) {
+        $valor = $_POST["cancelarClie"];
+        $respuesta = ModeloPedido::editarEstado("Cancelado",$valor);
+        echo '<script>window.location="index.php?paginasPedidos=pedidoCliente"</script>';
       }
 
 
