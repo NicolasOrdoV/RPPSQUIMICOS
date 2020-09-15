@@ -160,7 +160,7 @@ $pedidos=ControladorPedidos::consultaGeneral(null,null);?>
 
                                   $inactivar = new ControladorPedidos();
                                   $inactivar->editarEstado();
-                                
+
 
                                   ?>
                               </form>
