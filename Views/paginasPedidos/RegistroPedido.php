@@ -29,6 +29,7 @@ $clie= ControladorClientes::ctrSeleccionarRegistroClientes(null, null);
                 <h1 class="text-dark">Registrar Pedido</h1>
                 <nav class="d-flex align-items-center">
                     <a href="#" class="text-dark">Inicio<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="#" class="text-dark">Lista de pedidos<span class="lnr lnr-arrow-right"></span></a>
                     <a href="#" class="text-light">Registro pedido</a>
                 </nav>
             </div>

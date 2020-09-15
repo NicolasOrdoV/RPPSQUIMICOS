@@ -44,6 +44,7 @@ $pedidos=ControladorPedidos::consultaGeneral(null,null);?>
                     <th>Cliente</th>
                     <th>Empleado</th>
                     <th>Estado</th>
+                    <th>Remision</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -57,6 +58,17 @@ $pedidos=ControladorPedidos::consultaGeneral(null,null);?>
                         <td><?php echo $p["clien"]; ?></td>
                         <td><?php echo $p["empleado"]; ?></td>
                         <td><?php echo $p["estadoPEDIDO"]; ?></td>
+                        <td>
+                          <form action="Views/paginasPedidos/reporting.php" method="POST">
+                            <input type="hidden" name="idPEDIDO" value="<?php echo $p['idPEDIDO'];?>">
+                            <input type="hidden" name="fecharPEDIDO" value="<?php echo $p['fecharPEDIDO'];?>">
+                            <input type="hidden" name="fechaenPEDIDO" value="<?php echo $p['fechaenPEDIDO'];?>">
+                            <input type="hidden" name="clien" value="<?php echo $p['clien'];?>">
+                            <input type="hidden" name="empleado" value="<?php echo $p['empleado'];?>">
+                            <input type="hidden" name="estadoPEDIDO" value="<?php echo $p['estadoPEDIDO'];?>">
+                            <button type="submit" onclick="location.href='http://localhost/RPPSQUIMICOS/Views/paginasPedidos/reporting.php'" class="btn btn-warning m-1"><i class="far fa-sticky-note"></i></button>
+                          </form>
+                        </td>
                         <td>
                             <div class="btn-group">
                                 <form action="index.php?paginasPedidos=VerPedidoAdmin&id=<?php echo $p["idPEDIDO"] ?>" method="post" class="text-left">

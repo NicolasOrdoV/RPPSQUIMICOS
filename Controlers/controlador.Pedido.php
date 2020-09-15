@@ -867,7 +867,7 @@ class ControladorPedidos
           </div>
          </body>
         </html>
-';
+         ';
         $mail->CharSet = 'UTF-8';
         $mail->send();
     } catch (Exception $e) {

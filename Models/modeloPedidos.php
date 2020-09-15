@@ -1,6 +1,6 @@
 <?php
 
-require_once "providers/conexion.php";
+//require_once "providers/conexion.php";
 
 class ModeloPedido{
     static public function nuevoPedido($datos){
