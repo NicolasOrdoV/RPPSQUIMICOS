@@ -33,7 +33,7 @@ $mps = MPController::consult(null, null);?>
     <aside id="blanco-h" class="col-lg-2"></aside>
     <aside class="col-lg-8">
         <input class="form-control mb-4 col-lg-7 border border-danger rounded-pill" id="tableSearch" type="text" placeholder='Busca aqui el ingreso registrado que quieras &#x1F50E;' onclick="search()">
-        <spam class="primary-btn rounded float-right" data-toggle="modal" data-target="#agregar">+Agregar</spam>
+        <spam id="nuevoIMP" class="primary-btn rounded float-right" data-toggle="modal" data-target="#agregar">+Agregar</spam>
         <table class="col-lg-12 table table-striped table-hover table-lg table-responsive-lg" id="dataTable">
             <thead class="thead-dark">
                 <tr>
@@ -80,7 +80,9 @@ $mps = MPController::consult(null, null);?>
                         <form action="#" method="POST">!-->
                     <div class="form-group row">
                         <div class="col-md-9">
-                            <div class="form-group">
+
+
+                              <div class="form-group">
                                 <label>Materia Prima</label>
                                 <input type="hidden" id="user" value="<?php echo $admin['idEMPLEADO'] ?>">
                                 <center> <select name="idMP_FK" id="mpsi" class="form-control">
@@ -100,10 +102,17 @@ $mps = MPController::consult(null, null);?>
                                 <div class="invalid-feedback">El campo no puede quedar vacio.</div>
                             </div>
 
+
                         </div>
                         <div class="col-md-3">
                             <button id="addi" class="btn btn-success mt-4">+</button>
                         </div>
+                    </div>
+                    <div class="alert alert-warning"  id="alertImp" role="alert">
+                      <h4 class="alert-heading">Ocurrio un problema</h4>
+                      <p id="text-alert"></p>
+                      <hr>
+                    <!--  <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>!-->
                     </div>
 
                     <section class="col-md-12 flex-nowrap table-responsive">
@@ -129,6 +138,7 @@ $mps = MPController::consult(null, null);?>
                     </div>
 
                 </div>
+
                 <!-- </form>
 
 

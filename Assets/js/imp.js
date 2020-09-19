@@ -1,6 +1,10 @@
 // Definir una variable global para cargar las categorias seleccionadas
 var arrayMP = []
 
+$('#nuevoIMP').click(function(e){
+  e.preventDefault();
+  $('#alertImp').hide();
+});
 $('#addi').click(function(e) {
     //Deshabilitar Submit del Formulario
     e.preventDefault();
@@ -22,19 +26,24 @@ $('#addi').click(function(e) {
             showMP()
             clean()
         } else {
-            alert("La Materia Prima ya se Encuentra Seleccionada")
+          document.getElementById('text-alert').innerHTML="La Materia Prima ya se Encuentra Seleccionada";
+          $('#alertImp').show();
         }
       }else {
-        alert("Falta registrar la cantidad")
+        document.getElementById('text-alert').innerHTML="Falta registrar la cantidad";
+        $('#alertImp').show();
       }
 
     } else {
-        alert("Debe Seleccionar una Materia Prima")
+      document.getElementById('text-alert').innerHTML="Debe Seleccionar una Materia Prima";
+      $('#alertImp').show();
+
     }
 });
 
 function clean(){
   $("#canti").val("")
+  $('#alertImp').hide();
 
 }
 
@@ -68,7 +77,9 @@ $('#submin').click(function(e) {
   e.preventDefault()
 
   if (arrayMP=='') {
-    alert("Faltan datos para poder registrar el ingreso")
+    document.getElementById('text-alert').innerHTML="Faltan datos para poder registrar el ingreso";
+    $('#alertImp').show();
+
   }else {
     let url = "index.php?paginasIngresoMp=NuevoIMP"
     let params = {
@@ -78,14 +89,25 @@ $('#submin').click(function(e) {
     }
     //metodo post de ajax para el envio del formulario
     $.post(url, params, function(response) {
-      if (typeof response.error !== 'undefined') {
-            alert(response.message)
-        } else {
-          alert("ERROR")
+      if (response.error) {
+        console.error(response.message)
+      }
+
+      else {
+
+        
+        Push.create("Felicidades!", {
+        body: "El ingreso se ha registrado exitosamente!",
+        icon: 'Assets/img/logo2.png',
+        timeout: 4000,
+        onClick: function () {
+            window.location="index.php?paginasIngresoMp=ConsultaIMP&id="+$('#user').val();
+            this.close();
         }
-    }, 'json').fail(function(error) {
-      alert("Inserción Satisfactoria")
-      location.href = 'index.php?paginasIngresoMp=ConsultaIMP&id='+$('#user').val()
+        });
+
+
+      }
     });
   }
 });
