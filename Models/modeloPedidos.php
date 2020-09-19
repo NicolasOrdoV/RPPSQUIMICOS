@@ -91,6 +91,32 @@ class ModeloPedido{
             echo $e->getMessage();
         }
     }
+
+    static public function consultarPed5(){
+
+        try {
+            $stmt = Conexion::conectar()->prepare("SELECT p.*,e.nombreEMPLEADO as empleado, c.nombreEC as clien FROM pedido p INNER JOIN empleado e INNER JOIN empresa_cliente c ON e.idEMPLEADO=p.idEMPLEADO_FK AND c.idEC=p.idEC_FK LIMIT 5");
+            $stmt->execute();
+            return $stmt -> fetchAll();
+            $stmt->close();
+            $stmt= null;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    static public function consultarPendingOrders()
+    {
+      try {
+        $stmt = Conexion::conectar()->prepare("SELECT * FROM pedido WHERE estadoPEDIDO = 'En produccion'");
+        $stmt->execute();
+        return $stmt -> fetchAll();
+        $stmt->close();
+        $stmt= null;
+      } catch (PDOException $e) {
+            echo $e->getMessage();
+      }
+    }
     static public function consultarPedsCliente($id){
 
         try {

@@ -73,6 +73,18 @@ class ControladorPedidos
        $respuesta = ModeloPedido::consultarPed( $item,$valor);
        return $respuesta;
    }
+
+   static public function consultaGeneral5()
+   {
+       $respuesta = ModeloPedido::consultarPed5();
+       return $respuesta;
+   }
+
+   static public function findOrdersPending()
+   {
+     $respuesta = ModeloPedido::consultarPendingOrders();
+     return $respuesta;
+   }
   static public function consultaPed($id)
    {
        $respuesta = ModeloPedido::consultarPedsCliente($id);

@@ -27,6 +27,12 @@ class ProdController
         return $respuesta;
     }
 
+    static public function consult5()
+    {
+        $respuesta = ModeloProducto::consultarProducto5();
+        return $respuesta;
+    }
+
     static public function update($data)
     {
         if (isset($data['idPROD'])&&isset($data['imgPROD'])&&isset($data['nombrePROD'])&&isset($data['descripPROD'])&&isset($data['medidaPROD'])&&isset($data['valoruPROD'])) {

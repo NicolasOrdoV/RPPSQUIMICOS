@@ -207,6 +207,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                     $_GET["paginasAdministradores"] == "RestauraContrasenaAd" ||
                     $_GET["paginasAdministradores"] == "EditarProducto" ||
                     $_GET["paginasAdministradores"] == "MenuInicio" ||
+                    $_GET["paginasAdministradores"] == "dailyReport" ||
                     $_GET["paginasAdministradores"] == "changeImgProfileEm"
                 ) {
                     include "Views/paginasAdministradores/" . $_GET["paginasAdministradores"] . ".php";
@@ -291,7 +292,7 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
     <script src="Assets/js/owl.carousel.min.js"></script>
     <!--gmaps Js-->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
-    <script src="https://kit.fontawesome.com/0e7adc6a46.js" crossorigin="anonymous"></script>
+    <script src="Assets/js/fontawesome.min.js"></script>
     <script src="Assets/js/gmaps.min.js"></script>
     <script src="Assets/js/main.js"></script>
     <script type="text/javascript" src="Assets/js/main2.js"></script>

@@ -43,6 +43,20 @@
                     echo $e->getMessage();
                 }
             }
+
+            static public function consultarProducto5(){
+
+                try {
+                    $stmt = Conexion::conectar()->prepare("SELECT *FROM producto LIMIT 5");
+                    $stmt->execute();
+                    return $stmt -> fetchAll();
+                    $stmt->close();
+                    $stmt= null;
+                } catch (PDOException $e) {
+                    echo $e->getMessage();
+                }
+            }
+
             static public function actualizarProducto($datos){
                 try{
                     $stmt=Conexion::conectar()->prepare("UPDATE producto SET imgPRODUCTO=:imgPRODUCTO,nombrePRODUCTO=:nombrePRODUCTO,descripcionPRODUCTO=:descripcionPRODUCTO,medidaPRODUCTO=:medidaPRODUCTO,valoruPRODUCTO=:valoruPRODUCTO WHERE idPRODUCTO=:idPRODUCTO");

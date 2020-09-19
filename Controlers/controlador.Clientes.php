@@ -61,6 +61,13 @@ class ControladorClientes{
         $respuesta = ModeloClientes::mdlSeleccionarRegistroClientes($tabla,$item,$valor);
         return $respuesta;
     }
+
+    static public function ctrLastClients()
+    {
+        $tabla = "empresa_cliente";
+        $respuesta = ModeloClientes::mdlLastClients($tabla);
+        return $respuesta;
+    }
     //Consulta Cliente Especifico
 
     static public function ctrSeleccionarClienteEspecifico($item){

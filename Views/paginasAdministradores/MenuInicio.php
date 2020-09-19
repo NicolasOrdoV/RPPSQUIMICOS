@@ -25,6 +25,11 @@ if(!isset($_SESSION["validarIngreso"])){
 			<div class="col-lg-6" id="form">
 				<h3>¿Que quieres hacer hoy?</h3><hr>
 				<div class="row">
+					<div class="col-12">
+						<a href="index.php?paginasAdministradores=dailyReport" class="btn btn-danger btn-block btn-lg">Reporte diario<i class="fas fa-paste"></i></a>
+					</div>
+				</div>
+				<div class="row">
 					<aside class="col-lg-6">
 						<a href="index.php?paginasCliente=ConsultaCliente" class="btn btn-danger btn-lg my-1 btn-block">Lista de clientes<i class="fas fa-users"></i></a>
 						<a href="?paginasProduc=ConsultaProduc" class="btn btn-danger btn-lg my-1 btn-block">Consulta de productos<i class="fas fa-wine-bottle"></i></a>
@@ -36,11 +41,17 @@ if(!isset($_SESSION["validarIngreso"])){
 				    	<a href="index.php?paginasAdministradores=GestionInventario" class="btn btn-danger btn-lg my-1 btn-block">Gestion de inventario<i class="fas fa-boxes"></i></a>
 				    </aside>
 				</div>
-				<?php if($user["idROL_FK"] == 3):?>
-					<a href="index.php?paginasAdministradores=ConsultarAdmin" class="btn btn-danger btn-block btn-lg">Gestionar Administradores<i class="fas fa-user-astronaut"></i>
-                    </a>
-			    <?php endif?>
-				<a href="index.php?paginasAdministradores=ConsultarUnAdmin&id=<?php echo $user["idEMPLEADO"] ?>" class="btn btn-primary btn-block mx-1 btn-lg">Mi perfil<i class="fas fa-user-circle"></i></a>
+				<div class="row">
+					<div class="col-12">
+						<?php if($user["idROL_FK"] == 3):?>
+							<a href="index.php?paginasAdministradores=ConsultarAdmin" class="btn btn-danger btn-block btn-lg">Gestionar Administradores<i class="fas fa-user-astronaut"></i>
+		                    </a>
+					    <?php endif?>
+					</div>
+					<div class="col-12">
+						<a href="index.php?paginasAdministradores=ConsultarUnAdmin&id=<?php echo $user["idEMPLEADO"] ?>" class="btn btn-primary btn-block my-1 btn-lg">Mi perfil<i class="fas fa-user-circle"></i></a>
+					</div>
+				</div>
 			</div>
 			<aside class="col-lg-3 py-5" id="fondo1"></aside>
 		</div>

@@ -78,6 +78,21 @@ class ModeloClientes{
         }
     }
 
+    static public function mdlLastClients($table)
+    {
+        try {
+            $stmt = Conexion::conectar()->prepare("SELECT em.idEC,em.identificacionEC,em.nombreEC,em.telefonoEC,em.direccionEC,b.nombreBarrio,em.nombrecontEC,em.telefonocontEC,em.correocontEC,us.img,us.idUSUARIO,us.nombreUSUARIO,us.estadoUSUARIO FROM $table em
+                INNER JOIN barrio b ON em.idBARRIO_FK = b.idBARRIO
+                INNER JOIN usuario us ON em.idEC = us.idEC_FK LIMIT 5");
+            $stmt->execute();
+            return $stmt->fetchAll();
+            $stmt->close();
+            $stmt = null;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
     static public function mdlVerifyId($tabla,$item,$valor)
     {
         try {
