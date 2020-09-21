@@ -259,7 +259,10 @@ $usuario = ControladorUsuarios::ctrSeleccionarUsuarios(null, null);
                     include "Views/error404.php";
                 }
             } else {
-                include "Views/home.php";
+                if ($_SESSION['user']['idROL_FK'] == 2)
+                    include "Views/paginasAdministradores/MenuInicio.php";
+                else
+                    include "Views/home.php";
             }
         ?>
 
