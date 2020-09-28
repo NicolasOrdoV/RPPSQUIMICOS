@@ -49,15 +49,18 @@ class MPController
             $respuesta = ModeloMp::inactivar($valor);
 
             if ($respuesta == "ok") {
-                echo '<script>
-            if(window.history.replaceState){
-
-                window.history.replaceState(null,null,window.location.href);
-            }
-            setTimeout(function(){
-                window.location = "index.php?paginasMp=ConsultaMP";
-            },1000)
-            </script>';
+              echo '<script>Push.create("Felicidades!", {
+              body: "La materia prima se ha inactivado exitosamente!",
+              icon: "Assets/img/logo2.png",
+              timeout: 2000,
+              onClick: function () {
+                  window.location="?paginasMp=ConsultaMP";
+                  this.close();
+              },
+              onClose:function () {
+                  window.location="?paginasMp=ConsultaMP";
+              }
+            });</script>';
             }
         }
     }
@@ -71,15 +74,18 @@ class MPController
             $respuesta = ModeloMp::activar($valor,$cant);
 
             if ($respuesta == "ok") {
-                echo '<script>
-            if(window.history.replaceState){
-
-                window.history.replaceState(null,null,window.location.href);
-            }
-            setTimeout(function(){
-              window.location = "index.php?paginasMp=ConsultaMP";
-            },1000)
-            </script>';
+              echo '<script>Push.create("Felicidades!", {
+              body: "La materia prima se ha activado exitosamente!",
+              icon: "Assets/img/logo2.png",
+              timeout: 2000,
+              onClick: function () {
+                  window.location="?paginasMp=ConsultaMP";
+                  this.close();
+              },
+              onClose:function () {
+                  window.location="?paginasMp=ConsultaMP";
+              }
+            });</script>';
             }
         }
     }

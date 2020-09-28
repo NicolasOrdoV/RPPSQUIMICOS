@@ -1,14 +1,14 @@
 <?php
 if(!isset($_SESSION["validarIngreso"])){
-    
+
     echo '<script> window.location = "?paginasUsuario=InicioSesion";</script>';
-    return;  
+    return;
 }else{
     if($_SESSION["validarIngreso"] != "ok"){
         echo '<script> window.location = "?paginasUsuario=InicioSesion";</script>';
         return;
     }
-} 
+}
 $data = MPController::getById();  ?>
 <section class="banner-area organic-breadcrumb">
     <div class="container">
@@ -102,11 +102,18 @@ $data = MPController::getById();  ?>
         <button type="submit" class="primary-btn">Generar</button>
         <?php $actualizar = MPController::update($_POST);
         if ($actualizar == "ok") {
-          echo '<script>
-                    setTimeout(function(){
-                        window.location = "index.php?paginasMp=ConsultaMP"
-                    },1000)
-                    </script>';
+          echo '<script>Push.create("Felicidades!", {
+          body: "La materia prima se ha actualizado exitosamente!",
+          icon: "Assets/img/logo2.png",
+          timeout: 4000,
+          onClick: function () {
+              window.location="?paginasMp=ConsultaMP";
+              this.close();
+          },
+          onClose:function () {
+              window.location="?paginasMp=ConsultaMP";
+          }
+        });</script>';
         }
         ?>
       </form>

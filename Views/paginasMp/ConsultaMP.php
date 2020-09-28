@@ -144,11 +144,18 @@ $mps = MPController::consult(null, null);?>
                     <?php
                     $registro = MPController::save($_POST);
                     if ($registro == "ok") {
-                        echo '<script>
-                    setTimeout(function(){
-                        window.location = "index.php?paginasMp=ConsultaMP"
-                    },1000)
-                    </script>';
+                      echo '<script>Push.create("Felicidades!", {
+                      body: "La materia prima se ha registrado exitosamente!",
+                      icon: "Assets/img/logo2.png",
+                      timeout: 4000,
+                      onClick: function () {
+                          window.location="?paginasMp=ConsultaMP";
+                          this.close();
+                      },
+                      onClose:function () {
+                          window.location="?paginasMp=ConsultaMP";
+                      }
+                    });</script>';
                     }
                     ?>
 
