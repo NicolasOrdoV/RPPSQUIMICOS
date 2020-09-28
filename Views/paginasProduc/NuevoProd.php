@@ -1,8 +1,8 @@
 <?php
 if(!isset($_SESSION["validarIngreso"])){
-    
+
     echo '<script> window.location = "?paginasUsuario=InicioSesion";</script>';
-    return;  
+    return;
 }else{
     if($_SESSION["validarIngreso"] != "ok"){
         echo '<script> window.location = "?paginasUsuario=InicioSesion";</script>';
@@ -105,11 +105,18 @@ if(!isset($_SESSION["validarIngreso"])){
                     <button type="submit" class="primary-btn">Agregar</button>
                     <?php $registro = ProdController::save($_POST);
                     if ($registro == "ok") {
-                        echo '<script>
-                    setTimeout(function(){
-                        window.location = "index.php?paginasProduc=ConsultaProduc"
-                    },1000)
-                    </script>';
+                        echo '<script>Push.create("Felicidades!", {
+                        body: "El producto se ha registrado exitosamente!",
+                        icon: "Assets/img/logo2.png",
+                        timeout: 4000,
+                        onClick: function () {
+                            window.location="?paginasProduc=ConsultaProduc";
+                            this.close();
+                        },
+                        onClose:function () {
+                            window.location="?paginasProduc=ConsultaProduc";
+                        }
+                      });</script>';
                     }
 
                     ?>

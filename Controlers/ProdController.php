@@ -60,15 +60,18 @@ class ProdController
             $respuesta = ModeloProducto::inactivar($valor);
 
             if ($respuesta == "ok") {
-                echo '<script>
-            if(window.history.replaceState){
-
-                window.history.replaceState(null,null,window.location.href);
-            }
-            setTimeout(function(){
-                window.location = "index.php?paginasProduc=ConsultaProduc";
-            },1000)
-            </script>';
+              echo '<script>Push.create("Felicidades!", {
+              body: "El producto se ha inactivado exitosamente!",
+              icon: "Assets/img/logo2.png",
+              timeout: 2000,
+              onClick: function () {
+                  window.location="?paginasProduc=ConsultaProduc";
+                  this.close();
+              },
+              onClose:function () {
+                  window.location="?paginasProduc=ConsultaProduc";
+              }
+            });</script>';
             }
         }
     }
@@ -81,15 +84,18 @@ class ProdController
             $respuesta = ModeloProducto::activar($valor);
 
             if ($respuesta == "ok") {
-                echo '<script>
-            if(window.history.replaceState){
-
-                window.history.replaceState(null,null,window.location.href);
-            }
-            setTimeout(function(){
-                window.location = "index.php?paginasProduc=ConsultaProduc";
-            },1000)
-            </script>';
+              echo '<script>Push.create("Felicidades!", {
+              body: "El producto se ha activado exitosamente!",
+              icon: "Assets/img/logo2.png",
+              timeout: 2000,
+              onClick: function () {
+                  window.location="?paginasProduc=ConsultaProduc";
+                  this.close();
+              },
+              onClose:function () {
+                  window.location="?paginasProduc=ConsultaProduc";
+              }
+            });</script>';
             }
         }
     }

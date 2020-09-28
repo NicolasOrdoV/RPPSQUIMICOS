@@ -81,6 +81,7 @@ $produc = ProdController::consult(null, null);?>
                                     $inactivar = new ProdController();
                                     $inactivar->inactivar();
 
+
                                     ?>
                                 </form>
                               <?php }else{?>

@@ -1,14 +1,14 @@
 <?php
 if(!isset($_SESSION["validarIngreso"])){
-    
+
     echo '<script> window.location = "?paginasUsuario=InicioSesion";</script>';
-    return;  
+    return;
 }else{
     if($_SESSION["validarIngreso"] != "ok"){
         echo '<script> window.location = "?paginasUsuario=InicioSesion";</script>';
         return;
     }
-} 
+}
 $data = ProdController::getById();  ?>
 <section class="banner-area organic-breadcrumb">
     <div class="container">
@@ -119,11 +119,18 @@ $data = ProdController::getById();  ?>
           <button type="submit" class="primary-btn">Generar</button>
           <?php $actualizar = ProdController::update($_POST);
         if ($actualizar == "ok") {
-          echo '<script>
-                    setTimeout(function(){
-                        window.location = "index.php?paginasProduc=ConsultaProduc"
-                    },1000)
-                    </script>';
+          echo '<script>Push.create("Felicidades!", {
+          body: "El producto se ha actualizado exitosamente!",
+          icon: "Assets/img/logo2.png",
+          timeout: 4000,
+          onClick: function () {
+              window.location="?paginasProduc=ConsultaProduc";
+              this.close();
+          },
+          onClose:function () {
+              window.location="?paginasProduc=ConsultaProduc";
+          }
+        });</script>';
         }
           ?>
         </form>
