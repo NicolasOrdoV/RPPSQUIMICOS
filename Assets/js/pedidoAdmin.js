@@ -1,4 +1,7 @@
 // Definir una variable global para cargar las categorias seleccionadas
+$( document ).ready(function() {
+    $('#alertPedi').hide();
+});
 var arrayPedido = []
 var subtotal
 var valoru
@@ -36,24 +39,29 @@ $('#btnP').click(function(e) {
                 'valoruPRODUCTO':valoru
             })
             document.getElementById('totalPedido').innerHTML = '$'+suma();
+            document.getElementById('clienPed').innerHTML = 'Cliente:'+nameClien;
             document.getElementById("totalPedidoValor").value = suma();
             document.getElementById("idCliente").value = idClien;
             desaparecer()
             showPedido()
             cleanPedido()
         } else {
-            alert("Ya se encuentra el producto seleccionado")
+          document.getElementById('text-alertPed').innerHTML="Ya se encuentra el producto seleccionado";
+          $('#alertPedi').show();
         }
 
       } else {
-        alert("Debe seleccionar un cliente")
+        document.getElementById('text-alertPed').innerHTML="Debe seleccionar un cliente";
+        $('#alertPed').show();
       }
     } else {
-      alert("Debe ingresar una cantidad")
+      document.getElementById('text-alertPed').innerHTML="Debe ingresar una cantidad";
+      $('#alertPedi').show();
     }
 
     } else {
-        alert("Debe Seleccionar un producto")
+      document.getElementById('text-alertPed').innerHTML="Debe Seleccionar un producto";
+      $('#alertPedi').show();
     }
 });
 
@@ -67,6 +75,8 @@ function suma() {
 }
 function cleanPedido(){
   $("#cantiP").val("")
+  $('#alertPedi').hide();
+
 
 }
 function desaparecer(){
@@ -105,7 +115,8 @@ $('#finalPed').click(function(e) {
   e.preventDefault()
 
   if (arrayPedido=='') {
-    alert("Faltan datos para poder registrar el pedido")
+    document.getElementById('text-alertPed').innerHTML="Faltan datos para poder registrar el pedido";
+    $('#alertPedi').show();
   }else {
     let url = "index.php?paginasPedidos=NuevoPedido&json=true"
     let params = {
@@ -124,18 +135,23 @@ $('#finalPed').click(function(e) {
 
       else {
 
-        window.localStorage.removeItem("carrito")
+
         Push.create("Felicidades!", {
-        body: "Su pedido se ha registrado exitosamente!",
+        body: "El pedido se ha registrado exitosamente!",
         icon: 'Assets/img/logo2.png',
         timeout: 4000,
         onClick: function () {
-            window.location="index.php";
+            window.location="index.php?paginasPedidos=ConsultaPedidos&id="+$('#user').val();
             this.close();
+        },
+        onClose:function () {
+            window.location="index.php?paginasPedidos=ConsultaPedidos&id="+$('#user').val();
         }
         });
-        location.href = 'index.php?paginasPedidos=ConsultaPedidos&id='+$('#user').val()
+
+
+
       }
-    })
+    });
   }
 });

@@ -67,6 +67,9 @@ $clie= ControladorClientes::ctrSeleccionarRegistroClientes(null, null);
                                         ?>
                                     </select></center>
                             </div>
+                            <div >
+                              <h4 id="clienPed"></h4>
+                            </div>
                             <div class="form-group" id="ocultarCli">
                               <label>Selecciona el cliente</label>
                               <center> <select name="idMP_FK" id="cliPed" class="form-control">
@@ -85,6 +88,12 @@ $clie= ControladorClientes::ctrSeleccionarRegistroClientes(null, null);
                         <div class="col-md-3">
                             <button id="btnP" class="btn btn-success mt-4"><i class="fas fa-plus"></i></button>
                         </div>
+                    </div>
+                    <div class="alert alert-warning"  id="alertPedi" role="alert">
+                      <h4 class="alert-heading">Ocurrio un problema</h4>
+                      <p id="text-alertPed"></p>
+                      <hr>
+                    <!--  <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>!-->
                     </div>
                     <section class="col-md-12 flex-nowrap table-responsive">
                         <table class="table table-striped table-hover">
