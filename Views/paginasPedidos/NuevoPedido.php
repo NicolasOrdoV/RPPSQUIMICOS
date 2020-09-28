@@ -2,6 +2,12 @@
 
 if (isset($_POST['idEmp'])&&isset($_POST['idClienEmpre'])&&isset($_POST["totalPedCar"])&&isset($_POST["Fechaen"])) {
 
+  $cliente = ControladorClientes::ctrSeleccionarClienteEspecifico($_POST['idClienEmpre']);
+  $admin = ControladorAdministradores::ctrSeleccionarAdministradorJefe($_POST['idEmp']);
+  $correo = new ControladorPedidos();
+  $correo -> enviarCorreoPedidoCliente($cliente);
+  $correo -> enviarCorreoPedidoAdminNotifica($cliente, $admin);
+
   $dataPed=[
     'IdEmple'=>$_POST['idEmp'],
     'IdEmpCli' => $_POST['idClienEmpre'],
@@ -29,7 +35,7 @@ if (isset($_POST['idEmp'])&&isset($_POST['idClienEmpre'])&&isset($_POST["totalPe
         'message'=>'Ingreso insertado satisfactoriamente'
       ];
 
-        
+
 
     } else {
       $arrayResp=[
