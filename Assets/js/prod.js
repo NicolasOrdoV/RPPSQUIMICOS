@@ -1,8 +1,13 @@
 // Definir una variable global para cargar las categorias seleccionadas
+$( document ).ready(function() {
+    $('#alertProd').hide();
+});
 var arrayMP1 = []
 var cantDis
 var nomMp
 var cantCom
+
+
 
 $('#addc').click(function(e) {
     //Deshabilitar Submit del Formulario
@@ -25,6 +30,7 @@ $('#addc').click(function(e) {
         }
       }
     }
+if (cant!='') {
 
     if (idMP != '') {
       if (cantDis>=cant) {
@@ -38,20 +44,28 @@ $('#addc').click(function(e) {
             desaparecer1()
             showMP1()
         } else {
-            alert("La Materia Prima ya se Encuentra Seleccionada")
+          document.getElementById('text-alertProd').innerHTML="La Materia Prima ya se Encuentra Seleccionada";
+          $('#alertProd').show();
         }
       }else {
-        alert("No hay suficiente de "+nomMp)
+        document.getElementById('text-alertProd').innerHTML="No hay suficiente de "+nomMp;
+        $('#alertProd').show();
       }
 
     } else {
-        alert("Debe Seleccionar una Materia Prima")
+      document.getElementById('text-alertProd').innerHTML="Debe Seleccionar una Materia Prima";
+      $('#alertProd').show();
     }
+  }else {
+    document.getElementById('text-alertProd').innerHTML="Debe ingresar una cantidad";
+    $('#alertProd').show();
+  }
 });
 
 function desaparecer1(){
   $('#canti').hide();
   document.getElementById('mostrarCantidad').innerHTML ="Cantidad: "+cantCom;
+  $('#alertProd').hide();
 }
 function showMP1() {
 
@@ -85,7 +99,6 @@ $('#submincant').click(function(e) {
   let cant = $("#canti").val()
   let idProd =$("#prod").val()
   let medida=$("#medida").val()
-if (cant!='') {
   if (arrayMP1=='') {
     alert("Faltan datos para poder registrar el envasado")
   }else {
@@ -100,17 +113,29 @@ if (cant!='') {
     }
     //metodo post de ajax para el envio del formulario
     $.post(url, params, function(response) {
-      if (typeof response.error !== 'undefined') {
-            alert(response.message)
-        } else {
-          alert("ERROR")
+      if (response.error) {
+        console.error(response.message)
+      }
+
+      else {
+
+
+        Push.create("Felicidades!", {
+        body: "El envasado se ha registrado exitosamente!",
+        icon: 'Assets/img/logo2.png',
+        timeout: 4000,
+        onClick: function () {
+            window.location="?paginasProduc=ConsultaProduc";
+            this.close();
+        },
+        onClose:function () {
+            window.location="?paginasProduc=ConsultaProduc";
         }
-    }, 'json').fail(function(error) {
-      alert("Inserción Satisfactoria")
-      location.href = 'index.php?paginasProduc=ConsultaProduc'
+        });
+
+
+
+      }
     });
   }
-}else {
-  alert("Falta registrar la cantidad")
-}
 });

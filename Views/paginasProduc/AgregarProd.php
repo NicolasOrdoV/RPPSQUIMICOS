@@ -72,6 +72,12 @@ $data=ProdController::getById();
                             <button id="addc" class="btn btn-success mt-4"><i class="fas fa-plus"></i></button>
                         </div>
                     </div>
+                    <div class="alert alert-warning"  id="alertProd" role="alert">
+                      <h4 class="alert-heading">Ocurrio un problema</h4>
+                      <p id="text-alertProd"></p>
+                      <hr>
+                    <!--  <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>!-->
+                    </div>
                     <section class="col-md-12 flex-nowrap table-responsive">
                         <table class="table table-striped table-hover">
                             <thead>

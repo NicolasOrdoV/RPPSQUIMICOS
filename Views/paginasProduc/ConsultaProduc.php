@@ -60,7 +60,7 @@ $produc = ProdController::consult(null, null);?>
                             <div class="btn-group">
                               <form action="index.php?paginasProduc=AgregarProd" method="post" class="text-left">
                                   <input type="hidden" value="<?php echo $p["idPRODUCTO"] ?>" name="id">
-                                  <button class="btn btn-success m-1" title="Agregar"><i class="fas fa-plus"></i></button>
+                                  <button id="nuevoEnv" class="btn btn-success m-1" title="Agregar"><i class="fas fa-plus"></i></button>
 
                               </form>
                                 <form action="index.php?paginasProduc=RegistroProduc" method="post" class="text-left">

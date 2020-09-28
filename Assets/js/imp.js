@@ -95,7 +95,7 @@ $('#submin').click(function(e) {
 
       else {
 
-        
+
         Push.create("Felicidades!", {
         body: "El ingreso se ha registrado exitosamente!",
         icon: 'Assets/img/logo2.png',
@@ -103,8 +103,12 @@ $('#submin').click(function(e) {
         onClick: function () {
             window.location="index.php?paginasIngresoMp=ConsultaIMP&id="+$('#user').val();
             this.close();
+        },
+        onClose:function () {
+            window.location="index.php?paginasIngresoMp=ConsultaIMP&id="+$('#user').val();
         }
         });
+
 
 
       }
